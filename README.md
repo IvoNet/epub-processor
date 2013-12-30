@@ -37,7 +37,13 @@ read the explanation
 
 
 # Backlog #
+AuthorStrategy:
 * Too many dropouts on "No Author". Need to try to get the author name from the filename/path if the metadata list is empty. -> IN PROGRESS
+* If an author is names like editor, publisher, various, etc it should be stripped from the author list
+* if the end list of authors is empty I should try to get it from the path or filename -> IN PROGRESS
+* what about names that are sometimes with initials and sometimes completely written?
+
+Other:
 * Look at the errors created by the epublib and if I can distill rules / strategies from those errors. -> IN PROGRESS
 * See TODO's in the code! -> IN PROGRESS
 * Add Epub strategies for all the other items in the Epubs -> OPEN

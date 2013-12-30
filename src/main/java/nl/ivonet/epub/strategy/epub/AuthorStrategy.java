@@ -29,15 +29,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-/*
-TODO Too many dropout resasons for not having an author. Expand strategy to get name from filepath/name
-TODO If an author is names like editor, publisher, various, etc it should be stripped from the author list
-TODO if the end list of authors is empty I should try to get it from the path or filename
-TODO what about names that are sometimes with initials and sometimes completely written?
-
-TODO remove the whole clean() part when the NameProcessor is completely finished!!
-*/
-
 
 /**
  * Strategy for cleaning up and converting authors in an {@link nl.ivonet.epub.domain.Epub}.
