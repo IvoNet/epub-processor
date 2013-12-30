@@ -1,0 +1,2 @@
+Science Fiction;sf;scifi;science fiction;Science Fiction & Fantasy;SciFi-Futuristic
+Fantasy;Fantasy & Magic;magic

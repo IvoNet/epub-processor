@@ -1,0 +1,8 @@
+editor
+publisher
+various
+afterword
+creator
+contributor
+illustrator
+source
