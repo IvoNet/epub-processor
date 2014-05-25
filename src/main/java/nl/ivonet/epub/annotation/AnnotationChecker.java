@@ -22,6 +22,7 @@ import nl.ivonet.epub.strategy.epub.EpubStrategy;
  * This class checks finds all supported annotations in a given Class.
  */
 class AnnotationChecker {
+    private static final String EPUB_STRATEGY_NAME = EpubStrategy.class.getName();
     private final Class<?> aClass;
 
     public AnnotationChecker(final Class<?> aClass) {
@@ -37,12 +38,15 @@ class AnnotationChecker {
                 return false;
             }
             for (final Class<?> anInterface : interfaces) {
-                if (anInterface.getName()
-                               .equals(EpubStrategy.class.getName())) {
+                if (epubStrategy(anInterface)) {
                     return true;
                 }
             }
         }
         return false;
+    }
+
+    private boolean epubStrategy(final Class<?> anInterface) {
+        return EPUB_STRATEGY_NAME.equals(anInterface.getName());
     }
 }

@@ -25,7 +25,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * Cleans up the Subjects list of a {@link nl.ivonet.epub.domain.Epub}.
@@ -91,6 +92,8 @@ public class SubjectsStrategy implements EpubStrategy {
                                                  .findAny()
                                                  .isPresent())
                          .map(capitalizeStrategy::execute)
-                         .collect(Collectors.toList());
+                         .collect(toList());
     }
+
+
 }

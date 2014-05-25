@@ -16,7 +16,6 @@
 
 package nl.ivonet.epub.strategy.epub;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -25,6 +24,8 @@ import java.util.List;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.toList;
+
 /**
  *
  * @author Ivo Woltring
@@ -32,8 +33,28 @@ import java.util.stream.Collectors;
 public class SubjectsStrategyTest {
     private static final List<String> REMOVE_WORDS = Arrays.asList("foo", "me", "jij");
 
+    public static <T> T measure(final Supplier<T> code) {
+        final long current = System.currentTimeMillis();
+        final T result = code.get();
+        final long elapsed = System.currentTimeMillis() - current;
+        System.out.println(elapsed);
+        return result;
+    }
 
-    @Ignore
+//    @Test
+//    public void testMapTo() throws Exception {
+//        final Map<String, List<String>> mapTo = retrieveMapTo("/SubjectsMapTo.txt");
+//
+//    }
+
+//    private Map<String, List<String>> retrieveMapTo(final String searchQuery) {
+//        try (BufferedReader br = new BufferedReader(new InputStreamReader(new URL(searchQuery).openStream()))) {
+//            return br.lines().parallel().map(String::trim).collect(Collectors.toMap((t) -> ));
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+
     @Test
     public void testName() throws Exception {
         /*
@@ -53,28 +74,12 @@ public class SubjectsStrategyTest {
 
     }
 
-//    @Test
-//    public void testMapTo() throws Exception {
-//        final Map<String, List<String>> mapTo = retrieveMapTo("/SubjectsMapTo.txt");
-//
-//    }
-
-//    private Map<String, List<String>> retrieveMapTo(final String searchQuery) {
-//        try (BufferedReader br = new BufferedReader(new InputStreamReader(new URL(searchQuery).openStream()))) {
-//            return br.lines().parallel().map(String::trim).collect(Collectors.toMap((t) -> ));
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-
-
     private String resource() {
         return this.getClass()
                    .getResource("/SubjectsRemove.txt")
                    .toExternalForm();
     }
 
-    @Ignore
     @Test
     public void testExecute() throws Exception {
 
@@ -208,6 +213,11 @@ public class SubjectsStrategyTest {
                                                                                      .isPresent())
                                                            .collect(Collectors.toList()));
 
+        final List<String> collect = measure(() -> subjectsIn.stream()
+                                                             .map(String::toLowerCase)
+                                                             .filter(REMOVE_WORDS::contains)
+                                                             .collect(toList()));
+
 //        lines.stream().forEach(System.out::println);
 
 //        final List<String> two = subjectsIn.stream()
@@ -229,15 +239,5 @@ public class SubjectsStrategyTest {
 //                                                          .isPresent()).collect(Collectors.toList()));
 
 
-    }
-
-
-    public static <T> T measure(final Supplier<T> code) {
-        final long current = System.currentTimeMillis();
-        final T result = code.get();
-        final long elapsed = System.currentTimeMillis() - current;
-        System.out
-              .println(elapsed);
-        return result;
     }
 }

@@ -72,7 +72,7 @@ public class EpubConsumer implements Runnable {
             for (final EpubStrategy epubStrategy : epubStrategies) {
                 epubStrategy.execute(epub);
             }
-//            write(epub); //FIXME temprarily disabled for testing
+            write(epub); //FIXME temprarily disabled for testing
             print(epub);
             epub = retrieveEpubFromQueue();
         }

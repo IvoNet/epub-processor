@@ -31,9 +31,9 @@ import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import static java.lang.String.format;
+import static java.util.stream.Collectors.joining;
 
 
 /**
@@ -132,7 +132,7 @@ public class Epub {
                        .sorted()
                        .map(Dropout::getValue)
                        .map(p -> p.replace(" ", "_"))
-                       .collect(Collectors.joining("_&_"));
+                       .collect(joining("_&_"));
     }
 
     public String dropoutReasons() {
@@ -183,9 +183,19 @@ public class Epub {
                    .getSubjects();
     }
 
+    public void setSubjects(final List<String> subjects) {
+        epub.getMetadata()
+            .setSubjects(subjects);
+    }
+
     public String getLanguage() {
         return epub.getMetadata()
                    .getLanguage();
+    }
+
+    public void setLanguage(final String language) {
+        epub.getMetadata()
+            .setLanguage(language);
     }
 
     public List<Identifier> getIdentifiers() {
@@ -203,6 +213,11 @@ public class Epub {
                    .getTitles();
     }
 
+    public void setTitles(final List<String> titles) {
+        epub.getMetadata()
+            .setTitles(titles);
+    }
+
     public String getFirstTitle() {
         return epub.getMetadata()
                    .getFirstTitle();
@@ -211,6 +226,11 @@ public class Epub {
     public List<Author> getAuthors() {
         return epub.getMetadata()
                    .getAuthors();
+    }
+
+    public void setAuthors(final List<Author> authors) {
+        epub.getMetadata()
+            .setAuthors(authors);
     }
 
     public List<Resource> getContents() {
@@ -228,6 +248,30 @@ public class Epub {
     private boolean isCorrectFilenameSize(final StringBuilder stringBuilder, final String item) {
         return (stringBuilder.length() + item.length() + getFirstTitle().length() + ET_ALL.length() + 13) <= 255;
     }
+
+//    private String postProcessName(final String epubName) {
+//        if (epubName.length() <= 255) {
+//            return epubName;
+//        }
+//        final StringBuilder filename = new StringBuilder();
+//        final List<Author> authors = getAuthors();
+//        sortAuthors(authors);
+//        boolean first = true;
+//        for (final Author author : authors) {
+//            if (first) {
+//                first = false;
+//            } else {
+//                filename.append(" & ");
+//            }
+//            filename.append(author.getLastname()).append(", ").append(author.getFirstname().replace(".", "_"));
+//        }
+//        filename.append(" ~ ");
+//        filename.append(getFirstTitle());
+//        filename.append(".epub");
+//
+//
+//        return filename.toString();
+//    }
 
     public String createFilename() {
         final StringBuilder filename = createAuthorFilenamePart();
@@ -280,31 +324,6 @@ public class Epub {
         });
     }
 
-//    private String postProcessName(final String epubName) {
-//        if (epubName.length() <= 255) {
-//            return epubName;
-//        }
-//        final StringBuilder filename = new StringBuilder();
-//        final List<Author> authors = getAuthors();
-//        sortAuthors(authors);
-//        boolean first = true;
-//        for (final Author author : authors) {
-//            if (first) {
-//                first = false;
-//            } else {
-//                filename.append(" & ");
-//            }
-//            filename.append(author.getLastname()).append(", ").append(author.getFirstname().replace(".", "_"));
-//        }
-//        filename.append(" ~ ");
-//        filename.append(getFirstTitle());
-//        filename.append(".epub");
-//
-//
-//        return filename.toString();
-//    }
-
-
     private String reprEpub() {
         if (eof) {
             return "End of File marker.";
@@ -317,7 +336,8 @@ public class Epub {
                       + "Subjects=%s, Publishers=%s, Rights=%s, Identifiers=%s, Types=%s, Dates=%s, Format=%s, "
                       + "Descriptions=%s}", getOrigionalFilename(), filePath, getAuthors(), getFirstTitle(),
                       getTitles(), getLanguage(), getSubjects(), getPublishers(), getRights(), getIdentifiers(),
-                      getTypes(), getDates(), getFormat(), getDescriptions());
+                      getTypes(), getDates(), getFormat(), getDescriptions()
+        );
     }
 
     @Override
@@ -329,25 +349,5 @@ public class Epub {
             return "Still being constructed.";
         }
 
-    }
-
-    public void setAuthors(final List<Author> authors) {
-        epub.getMetadata()
-            .setAuthors(authors);
-    }
-
-    public void setLanguage(final String language) {
-        epub.getMetadata()
-            .setLanguage(language);
-    }
-
-    public void setSubjects(final List<String> subjects) {
-        epub.getMetadata()
-            .setSubjects(subjects);
-    }
-
-    public void setTitles(final List<String> titles) {
-        epub.getMetadata()
-            .setTitles(titles);
     }
 }

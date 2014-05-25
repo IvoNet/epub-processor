@@ -25,7 +25,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * This Strategy works on the Title(s) of the {@link nl.ivonet.epub.domain.Epub}.
@@ -56,7 +57,7 @@ public class TitleStrategy implements EpubStrategy {
                                                    .replace(":", "-"))
                                         .map(capitalizeStrategy::execute)
                                         .map(String::trim)
-                                        .collect(Collectors.toList());
+                                        .collect(toList());
 
         if (titles.isEmpty()) {
             epub.addDropout(Dropout.TITLE);

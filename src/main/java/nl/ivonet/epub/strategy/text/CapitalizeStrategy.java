@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static java.util.stream.Stream.of;
+
 /**
  * This {@link TextStrategy} capitalizes the input.
  *
@@ -40,6 +42,46 @@ public class CapitalizeStrategy implements TextStrategy {
         if ((input == null) || (input.isEmpty())) {
             return input;
         }
+        final String str = input.toLowerCase();
+        final int strLen = str.length();
+        final StringBuilder sentence = new StringBuilder(strLen);
+
+        StringBuilder word = new StringBuilder(strLen);
+        boolean firstWord = true;
+        boolean capitalizeNext = true;
+        for (int i = 0; i < strLen; i++) {
+            final char ch = str.charAt(i);
+
+            if (Character.isWhitespace(ch)) {
+                final String wrd = word.toString();
+                if (firstWord) {
+                    firstWord = false;
+                    sentence.append(wrd);
+                } else {
+                    sentence.append(LOWERCASE_WORDS.contains(wrd.toLowerCase()) ? wrd.toLowerCase() : wrd);
+                }
+                sentence.append(ch);
+                word = new StringBuilder();
+                capitalizeNext = true;
+            } else if (capitalizeNext) {
+                word.append(Character.toTitleCase(ch));
+                capitalizeNext = false;
+            } else {
+                word.append(ch);
+            }
+        }
+        return sentence.append(word.toString())
+                       .toString();
+    }
+
+    private String capitalizeNEW(final String input) {
+        if ((input == null) || (input.isEmpty())) {
+            return input;
+        }
+        of(input).map(String::toLowerCase)
+                 .map(p -> p.split("\\W+"));
+
+
         final String str = input.toLowerCase();
         final int strLen = str.length();
         final StringBuilder sentence = new StringBuilder(strLen);
