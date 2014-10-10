@@ -20,7 +20,6 @@ import nl.ivonet.epub.domain.Epub;
 import nl.ivonet.util.BaseT;
 import nl.siegmann.epublib.domain.Author;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -50,11 +49,11 @@ public class AuthorStrategyTest extends BaseT {
         epub = createTestEpub();
     }
 
-    @Ignore
     @Test
     public void testExecute() throws Exception {
         final List<Author> authors = new ArrayList<>(3);
-        authors.add(new Author("I.a.h.", "woltring"));
+        authors.add(new Author("I.a.h.", "Woltring"));
+//        authors.add(new Author("Ilona", "Andrews"));
 
         epub.setAuthors(authors);
         strategy.execute(epub);
@@ -63,7 +62,7 @@ public class AuthorStrategyTest extends BaseT {
         assertNotNull(epubAuthors);
         assertEquals(1, epubAuthors.size());
         final Author author1 = epubAuthors.get(0);
-        assertEquals("I.A.H.", author1.getFirstname());
+        assertEquals("I.a.h.", author1.getFirstname());
         assertEquals("Woltring", author1.getLastname());
     }
 

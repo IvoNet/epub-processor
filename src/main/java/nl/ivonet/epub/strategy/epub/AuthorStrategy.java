@@ -19,8 +19,6 @@ package nl.ivonet.epub.strategy.epub;
 import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
-import nl.ivonet.name_entity.model.Names;
-import nl.ivonet.name_entity.parser.NamedEntityParser;
 import nl.siegmann.epublib.domain.Author;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,10 +36,8 @@ import java.util.Set;
 @ConcreteEpubStrategy
 public class AuthorStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(AuthorStrategy.class);
-    private final NamedEntityParser namedEntityParser;
 
     public AuthorStrategy() {
-        namedEntityParser = new NamedEntityParser();
     }
 
     @Override
@@ -49,11 +45,18 @@ public class AuthorStrategy implements EpubStrategy {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
         final Set<Author> converted = new HashSet<>();
 
-        final String authors = authorsToString(epub) + "/" + epub.getOrigionalPath();
-        final Names names = namedEntityParser.parse(authors);
-        names.stream()
-             .forEach(p -> converted.add(new Author((p.getFirstname() + " " + p.getInsertion()).trim(),
-                                                    p.getSurname())));
+        //FIXME This next line is just wrong! The processing is not yet done!
+        //TODO All the authors need to be processed and cleaned up
+        converted.addAll(epub.getAuthors());
+
+
+//        final String authors = authorsToString(epub) + "/" + epub.getOrigionalPath();
+//        System.out.println("authors = " + authors);
+//        final Names names = namedEntityParser.parse(authors);
+//        names.stream()
+//             .forEach(p -> converted.add(new Author((p.getFirstname() + " " + p.getInsertion()).trim(),
+//                                                    p.getSurname())));
+
 
         if (converted.isEmpty()) {
             epub.addDropout(Dropout.AUTHOR_EMPTY);
