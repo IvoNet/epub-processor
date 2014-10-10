@@ -18,7 +18,6 @@ I would like the help...
 * Maven 3x
 * **Java SE 8**
 * [detect-language](https://github.com/IvoNet/language-detection) (snapshot dependency)
-* [name-entity-recognition]() (snapshot dependency)
 * Python 2.7 (if you want to use the scripts)
 
 # Usage #
