@@ -19,7 +19,7 @@
  * {@link nl.ivonet.epub.annotation.ConcreteEpubStrategy}.
  *
  * These classes are searched for by the {@link nl.ivonet.epub.processor.epub.EpubConsumer}
- * in order to apply these stratagies to the {@link nl.ivonet.epub.domain.Epub} to be consumed.
+ * in order to apply these strategies to the {@link nl.ivonet.epub.domain.Epub} to be consumed.
  *
  * @author Ivo Woltring
  */
