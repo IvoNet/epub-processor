@@ -50,11 +50,6 @@ public class EpubProcessor {
         producer = new EpubProducer(input, epubQueue);
     }
 
-    private boolean isDirectory(final String folder) {
-        return Files.isDirectory(Paths.get(folder));
-    }
-
-
     private static void help() {
         LOG.error("Syntaxis: java -jar ebook-processor <directory> <output>");
         LOG.error("directory - The place where your ebooks reside");
@@ -63,12 +58,8 @@ public class EpubProcessor {
         System.exit(1);
     }
 
-    public static void main(final String[] args) throws IOException {
-        if (args.length <= 1) {
-            help();
-        }
-        final EpubProcessor epubProcessor = new EpubProcessor(args[0], args[1]);
-        epubProcessor.work();
+    private boolean isDirectory(final String folder) {
+        return Files.isDirectory(Paths.get(folder));
     }
 
     public EpubConsumer createEpubConsumer() {
@@ -78,7 +69,11 @@ public class EpubProcessor {
     private void work() {
         final long startTime = System.nanoTime();
 
-        final ExecutorService threadPool = Executors.newFixedThreadPool(5);
+        final ExecutorService threadPool = Executors.newFixedThreadPool(9);
+        threadPool.execute(createEpubConsumer());
+        threadPool.execute(createEpubConsumer());
+        threadPool.execute(createEpubConsumer());
+        threadPool.execute(createEpubConsumer());
         threadPool.execute(createEpubConsumer());
         threadPool.execute(createEpubConsumer());
         threadPool.execute(createEpubConsumer());
@@ -95,5 +90,13 @@ public class EpubProcessor {
         threadPool.shutdown();
 
         LOG.info("Processing took {} ms.", ((System.nanoTime() - startTime) / 1000));
+    }
+
+    public static void main(final String[] args) throws IOException {
+        if (args.length <= 1) {
+            help();
+        }
+        final EpubProcessor epubProcessor = new EpubProcessor(args[0], args[1]);
+        epubProcessor.work();
     }
 }

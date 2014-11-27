@@ -64,10 +64,8 @@ public class LanguageStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(LanguageStrategy.class);
 
     private static final Map<String, String> languages = new HashMap<>();
-
-    private final List<String> isoLanguages = Arrays.asList(Locale.getISOLanguages());
-
     private static final String UNKNOWN_LANG = "unknown";
+    private final List<String> isoLanguages = Arrays.asList(Locale.getISOLanguages());
     private final Detector detector;
 
 
@@ -143,7 +141,7 @@ public class LanguageStrategy implements EpubStrategy {
             sb.append(text);
         }
         final String ret = sb.toString();
-        return middle(ret, 5000);
+        return middle(ret, 10000);
     }
 
     private boolean notText(final String text) {

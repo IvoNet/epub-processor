@@ -19,13 +19,18 @@ package nl.ivonet.epub.strategy.epub;
 import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
+import nl.ivonet.epub.domain.Name;
 import nl.siegmann.epublib.domain.Author;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 
 /**
@@ -47,7 +52,28 @@ public class AuthorStrategy implements EpubStrategy {
 
         //FIXME This next line is just wrong! The processing is not yet done!
         //TODO All the authors need to be processed and cleaned up
-        converted.addAll(epub.getAuthors());
+
+        converted.addAll(epub.getAuthors()
+                             .stream()
+                             .map(Name::new)
+                             .map(Name::asAuthor)
+                             .collect(Collectors.toList()));
+
+
+        epub.getAuthors().stream()
+//                .map(new Function<Author, List<Name>>() {
+//                    @Override
+//                    public List<Name> apply(final Author author) {
+//                        author.getFirstname()
+//                        return null;
+//                    }
+//                })
+                .map(Name::new)
+                .map(Name::name)
+                .forEach(this::writeAuthor);
+
+        final String[] split = epub.getOrigionalFilename()
+                                   .split("-");
 
 
 //        final String authors = authorsToString(epub) + "/" + epub.getOrigionalPath();
@@ -62,6 +88,14 @@ public class AuthorStrategy implements EpubStrategy {
             epub.addDropout(Dropout.AUTHOR_EMPTY);
         }
         epub.setAuthors(new ArrayList<>(converted));
+    }
+
+    private void writeAuthor(final String name) {
+        try {
+            Files.write(Paths.get("/Users/ivonet/dev/ebook/epub-processor/artifact/authors/", name), name.getBytes());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private String authorsToString(final Epub epub) {

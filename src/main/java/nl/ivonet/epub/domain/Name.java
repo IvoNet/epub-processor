@@ -29,6 +29,10 @@ public class Name {
     private final String surname;
     private final NameFormattingStrategy nameFormatStrategy;
 
+    public Name(final Author author) {
+        this(author.getFirstname(), author.getLastname());
+    }
+
     public Name(final String firstname, final String surname) {
         this(firstname, surname, new SurnameCommaFirstnameStrategy());
     }

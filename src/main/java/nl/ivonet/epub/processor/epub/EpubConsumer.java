@@ -117,6 +117,7 @@ public class EpubConsumer implements Runnable {
 
         final File directory = new File(outputLocation, directories);
         if (!directory.exists()) {
+            //noinspection ResultOfMethodCallIgnored
             directory.mkdirs();
         }
         return endslash(directory.getAbsolutePath());
@@ -126,6 +127,7 @@ public class EpubConsumer implements Runnable {
     private void copyErrorFile(final String sourceFile, final String destFile, final String dropoutFolder) {
         final File outputLoc = new File(outputLocation + "[ERROR]/" + dropoutFolder);
         if (!outputLoc.exists()) {
+            //noinspection ResultOfMethodCallIgnored
             outputLoc.mkdirs();
         }
         copyFile(sourceFile, endslash(outputLoc.getAbsolutePath()) + destFile);
