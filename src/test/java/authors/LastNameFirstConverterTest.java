@@ -16,6 +16,7 @@
 
 package authors;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.BufferedReader;
@@ -48,6 +49,7 @@ public class LastNameFirstConverterTest {
                   .trim();
     }
 
+    @Ignore
     @Test
     public void testLastFirst() throws Exception {
         try (final InputStreamReader in = new InputStreamReader(new FileInputStream(

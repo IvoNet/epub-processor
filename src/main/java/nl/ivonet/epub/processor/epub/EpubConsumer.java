@@ -140,6 +140,7 @@ public class EpubConsumer implements Runnable {
     private void copyFile(final File sourceFile, final File destFile) {
         if (!destFile.exists()) {
             try {
+                //noinspection ResultOfMethodCallIgnored
                 destFile.createNewFile();
             } catch (final IOException e) {
                 logError(e);

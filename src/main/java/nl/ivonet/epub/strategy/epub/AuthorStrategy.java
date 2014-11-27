@@ -42,8 +42,6 @@ import java.util.stream.Collectors;
 public class AuthorStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(AuthorStrategy.class);
 
-    public AuthorStrategy() {
-    }
 
     @Override
     public void execute(final Epub epub) {
@@ -93,7 +91,7 @@ public class AuthorStrategy implements EpubStrategy {
     private void writeAuthor(final String name) {
         try {
             Files.write(Paths.get("/Users/ivonet/dev/ebook/epub-processor/artifact/authors/", name), name.getBytes());
-        } catch (IOException e) {
+        } catch (final IOException e) {
             throw new RuntimeException(e);
         }
     }

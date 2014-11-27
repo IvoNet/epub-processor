@@ -80,8 +80,7 @@ public class Name {
     public int hashCode() {
         int result = (this.firstname != null) ? this.firstname
                 .hashCode() : 0;
-        result = 31 * result + ((this.surname != null) ? this.surname
-                .hashCode() : 0);
+        result = (31 * result) + ((this.surname != null) ? this.surname.hashCode() : 0);
         return result;
     }
 
