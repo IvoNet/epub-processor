@@ -39,8 +39,8 @@
         </encoder>
     </appender>
 
-    <appender name="entityMatchAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>./log/entity.log</file>
+    <appender name="strategyAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>./log/stragegy.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
             <fileNamePattern>./log/entity.log.%i</fileNamePattern>
             <minIndex>1</minIndex>
@@ -84,9 +84,9 @@
         </encoder>
     </appender>
 
-    <logger name="nl.ivonet.name_entity" additivity="true">
+    <logger name="nl.ivonet.epub.strategy.epub" additivity="true">
         <level value="debug"/>
-        <appender-ref ref="entityMatchAppender"/>
+        <appender-ref ref="strategyAppender"/>
     </logger>
     <logger name="nl.ivonet.epub" additivity="true">
         <level value="TRACE"/>
@@ -101,13 +101,16 @@
         <level value="NONE"/>
         <appender-ref ref="dumpAppender"/>
     </logger>
+    <logger name="ch.qos.logback" additivity="false">
+        <level value="NONE"/>
+    </logger>
     <logger name="nl.ivonet.io.JarLoader" additivity="false">
         <level value="NONE"/>
         <appender-ref ref="dumpAppender"/>
     </logger>
 
 
-    <root level="info">
+    <root level="INFO">
         <appender-ref ref="STDOUT"/>
         <!--<appender-ref ref="dumpAppender"/>-->
     </root>

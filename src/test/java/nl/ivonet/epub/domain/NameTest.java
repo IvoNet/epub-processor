@@ -39,5 +39,22 @@ public class NameTest {
         assertEquals("Woltring, Ivo", new SurnameCommaFirstnameStrategy().format(name2));
     }
 
+    @Test
+    public void testJunior() throws Exception {
+        final Name name = new Name("woltring Jr., ivo");
+        assertEquals("Woltring Jr., Ivo", name.name());
+    }
 
+    @Test
+    public void testJuniorNormalString() throws Exception {
+        final Name name = new Name("ivo woltring downing Jr.");
+        assertEquals("Downing Jr., Ivo Woltring", name.name());
+    }
+
+
+    @Test
+    public void testAlternativeNames() throws Exception {
+
+
+    }
 }

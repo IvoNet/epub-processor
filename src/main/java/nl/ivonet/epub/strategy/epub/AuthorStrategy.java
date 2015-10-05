@@ -17,6 +17,7 @@
 package nl.ivonet.epub.strategy.epub;
 
 import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
+import nl.ivonet.epub.data.AuthorRemoveList;
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
 import nl.ivonet.epub.domain.Name;
@@ -41,7 +42,11 @@ import java.util.stream.Collectors;
 @ConcreteEpubStrategy
 public class AuthorStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(AuthorStrategy.class);
+    private final AuthorRemoveList removeList;
 
+    public AuthorStrategy() {
+        removeList = new AuthorRemoveList();
+    }
 
     @Override
     public void execute(final Epub epub) {
@@ -54,24 +59,23 @@ public class AuthorStrategy implements EpubStrategy {
         converted.addAll(epub.getAuthors()
                              .stream()
                              .map(Name::new)
+                             .filter(p -> !removeList.stream()
+                                                     .filter(r -> p.name()
+                                                                   .toLowerCase()
+                                                                   .contains(r))
+                                                     .findAny()
+                                                     .isPresent())
                              .map(Name::asAuthor)
                              .collect(Collectors.toList()));
 
 
-        epub.getAuthors().stream()
-//                .map(new Function<Author, List<Name>>() {
-//                    @Override
-//                    public List<Name> apply(final Author author) {
-//                        author.getFirstname()
-//                        return null;
-//                    }
-//                })
+        converted.stream()
                 .map(Name::new)
                 .map(Name::name)
                 .forEach(this::writeAuthor);
 
-        final String[] split = epub.getOrigionalFilename()
-                                   .split("-");
+//        final String[] split = epub.getOrigionalFilename()
+//                                   .split("-");
 
 
 //        final String authors = authorsToString(epub) + "/" + epub.getOrigionalPath();
@@ -83,6 +87,7 @@ public class AuthorStrategy implements EpubStrategy {
 
 
         if (converted.isEmpty()) {
+            //TODO here try to find the author from filename...
             epub.addDropout(Dropout.AUTHOR_EMPTY);
         }
         epub.setAuthors(new ArrayList<>(converted));

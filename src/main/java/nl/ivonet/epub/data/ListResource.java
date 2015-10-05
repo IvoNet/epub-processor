@@ -33,11 +33,6 @@ public abstract class ListResource {
     protected ListResource() {
     }
 
-    public static String removeAccents(final String text) {
-        return (text == null) ? null : Normalizer.normalize(text, Normalizer.Form.NFD)
-                                                 .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
-    }
-
     /**
      * Extracts a List of string from a file on the classpath.
      *
@@ -59,9 +54,10 @@ public abstract class ListResource {
         }
     }
 
-    public boolean areInitials(final String input) {
-        return input.contains(".");
-    }
-
     public abstract boolean is(String input);
+
+    public static String removeAccents(final String text) {
+        return (text == null) ? null : Normalizer.normalize(text, Normalizer.Form.NFD)
+                                                 .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+    }
 }

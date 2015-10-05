@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013 Ivo Woltring
+ * Copyright (c) 2015 Ivo Woltring
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,12 +21,22 @@ import nl.ivonet.epub.domain.Name;
 /**
  * @author Ivo Woltring
  */
-public class FirstnameSpaceSurnameStrategy implements NameFormattingStrategy {
+public class SurnameCommaInitialsStrategy implements NameFormattingStrategy {
     @Override
     public String format(final Name name) {
-        if (name.isJunior()) {
-            return String.format("%s %s Jr.", name.getFirstname(), name.getSurname());
+        String initials = "";
+        if (name.isFirstnameAsInitials()) {
+            initials = name.getFirstname();
+        } else {
+            final String[] firstnames = name.getFirstname()
+                                            .split(" ");
+            for (final String firstname : firstnames) {
+                initials = initials + firstname.substring(0, 1) + ".";
+            }
         }
-        return String.format("%s %s", name.getFirstname(), name.getSurname());
+        if (name.isJunior()) {
+            return name.getSurname() + " Jr., " + initials;
+        }
+        return name.getSurname() + ", " + initials;
     }
 }

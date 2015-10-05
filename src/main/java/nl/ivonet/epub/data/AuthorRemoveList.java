@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013 Ivo Woltring
+ * Copyright (c) 2015 Ivo Woltring
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,19 +14,29 @@
  * limitations under the License.
  */
 
-package nl.ivonet.epub.strategy.name;
+package nl.ivonet.epub.data;
 
-import nl.ivonet.epub.domain.Name;
+import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * @author Ivo Woltring
  */
-public class FirstnameSpaceSurnameStrategy implements NameFormattingStrategy {
+public class AuthorRemoveList extends ListResource {
+
+    private final List<String> removeList;
+
+    public AuthorRemoveList() {
+        this.removeList = listFromFilename("AuthorsRemove.txt");
+    }
+
+
     @Override
-    public String format(final Name name) {
-        if (name.isJunior()) {
-            return String.format("%s %s Jr.", name.getFirstname(), name.getSurname());
-        }
-        return String.format("%s %s", name.getFirstname(), name.getSurname());
+    public boolean is(final String input) {
+        return removeList.contains(input.toLowerCase());
+    }
+
+    public Stream<String> stream() {
+        return removeList.stream();
     }
 }

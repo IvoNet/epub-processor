@@ -6,12 +6,43 @@ creator
 contributor
 illustrator
 source
-'Blyton', Yahoo!-Groep
-(Editor), Harry Turtledove
-(Editor), Loren L. Coleman
-(Editor), Martin H. Greenberg
-(source), Astro Boy
-(v5), A Monster's Notes
-(v5), All the Sad Young Literary Men
+'blyton'
+yahoo
+(source)
+(v5)
 -,
-2010, Sunday, December 5
+2010
+sunday
+december
+edited by
+translator
+auteurs
+diverse
+ed.
+doktersroman
+harlequin
+anwb
+anonymous
+unknown
+een Penny
+Collective
+et all
+editor
+agent
+gebruiker
+loverboy
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+calibre
+wie is de
+inc.
+pseud
+ None

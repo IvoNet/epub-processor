@@ -20,14 +20,45 @@ import nl.ivonet.epub.strategy.name.NameFormattingStrategy;
 import nl.ivonet.epub.strategy.name.SurnameCommaFirstnameStrategy;
 import nl.siegmann.epublib.domain.Author;
 
+import java.util.Arrays;
+
 /**
- *
  * @author Ivo Woltring
  */
 public class Name {
-    private final String firstname;
-    private final String surname;
+    private static final String INITIALS = "([a-zA-Z]\\.[ ]*)+|(([a-zA-Z][ ]+)+[a-zA-Z]?)";
+    private static final String JUNIOR = " Jr.";
+    private static final int FIRSTNAME_IDX = 1;
+    private static final int SURNAME_IDX = 0;
     private final NameFormattingStrategy nameFormatStrategy;
+    private String firstname;
+    private String surname;
+    private boolean junior;
+
+    public Name(final String author) {
+        String name = author;
+        junior = name.contains(" Jr.");
+        if (junior) {
+            name = name.replace(JUNIOR, "");
+        }
+
+        if (name.contains(", ")) {
+            final String first = split(name, FIRSTNAME_IDX);
+            final String last = split(name, SURNAME_IDX);
+            process(first, last);
+        } else {
+            final String[] strings = name.split(" ");
+            final String surname = strings[strings.length - 1];
+            if (strings.length == 1) {
+                process("", surname);
+            } else {
+                process(String.join(", ", Arrays.copyOfRange(strings, 0, strings.length - 1)), surname);
+            }
+        }
+
+
+        this.nameFormatStrategy = new SurnameCommaFirstnameStrategy();
+    }
 
     public Name(final Author author) {
         this(author.getFirstname(), author.getLastname());
@@ -38,9 +69,42 @@ public class Name {
     }
 
     public Name(final String firstname, final String surname, final NameFormattingStrategy nameFormatStrategy) {
+        junior = firstname.contains(JUNIOR) || surname.contains(JUNIOR);
         this.firstname = firstname;
         this.surname = surname;
+
+        if (junior) {
+            this.firstname = this.firstname.replace(JUNIOR, "");
+            this.surname = this.surname.replace(JUNIOR, "");
+        }
+
+        process(firstname, surname);
+
         this.nameFormatStrategy = nameFormatStrategy;
+    }
+
+    private static String split(final String author, final int index) {
+        final String[] strings = author.split(", ");
+        return (index < strings.length) ? strings[index] : "";
+    }
+
+    private void process(final String firstname, final String surname) {
+
+        if (surname.matches(INITIALS)) {
+            this.firstname = strip(surname).toUpperCase();
+            this.surname = strip(firstname);
+        } else if (firstname.matches(INITIALS)) {
+            this.firstname = strip(firstname).toUpperCase();
+            this.surname = strip(surname);
+        } else {
+            this.firstname = toCamelCase(strip(firstname));
+            this.surname = toCamelCase(strip(surname));
+        }
+    }
+
+    private String strip(final String text) {
+        return text.replace("  ", " ")
+                   .replace(",", "");
     }
 
     public String getFirstname() {
@@ -51,6 +115,14 @@ public class Name {
         return surname;
     }
 
+    public boolean isJunior() {
+        return junior;
+    }
+
+    public boolean isFirstnameAsInitials() {
+        return firstname.matches(INITIALS);
+    }
+
     public String name() {
         return nameFormatStrategy.format(this);
     }
@@ -59,41 +131,26 @@ public class Name {
         return new Author(firstname, surname);
     }
 
-    @Override
-    public boolean equals(final Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Name)) {
-            return false;
+    public static String toCamelCase(final String init) {
+        if (init == null) {
+            return null;
         }
 
-        final Name name = (Name) o;
+        final StringBuilder ret = new StringBuilder(init.length());
 
-        return !((this.firstname != null) ? !this.firstname
-                .equals(name.firstname) : (name.firstname != null)) && !((this.surname != null) ? !this.surname
-                .equals(name.surname) : (name.surname != null));
+        for (final String word : init.split(" ")) {
+            if (!word.isEmpty()) {
+                ret.append(word.substring(0, 1)
+                               .toUpperCase());
+                ret.append(word.substring(1)
+                               .toLowerCase());
+            }
+            if (!(ret.length() == init.length())) {
+                ret.append(" ");
+            }
+        }
 
+        return ret.toString();
     }
 
-    @Override
-    public int hashCode() {
-        int result = (this.firstname != null) ? this.firstname
-                .hashCode() : 0;
-        result = (31 * result) + ((this.surname != null) ? this.surname.hashCode() : 0);
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("Name{");
-        sb.append("firstname='")
-          .append(firstname)
-          .append('\'');
-        sb.append(", surname='")
-          .append(surname)
-          .append('\'');
-        sb.append('}');
-        return sb.toString();
-    }
 }

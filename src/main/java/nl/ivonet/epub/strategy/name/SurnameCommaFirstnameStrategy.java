@@ -19,7 +19,7 @@ package nl.ivonet.epub.strategy.name;
 import nl.ivonet.epub.domain.Name;
 
 /**
- * Formats a {@link nl.ivonet.epub.domain.Name} as "Surname, Firstname".
+ * Formats a {@link nl.ivonet.epub.domain.Name} as "Surname [Jr.], Firstname".
  *
  * @author Ivo Woltring
  */
@@ -27,6 +27,9 @@ public class SurnameCommaFirstnameStrategy implements NameFormattingStrategy {
 
     @Override
     public String format(final Name name) {
+        if (name.isJunior()) {
+            return String.format("%s Jr., %s", name.getSurname(), name.getFirstname());
+        }
         return String.format("%s, %s", name.getSurname(), name.getFirstname());
     }
 }
