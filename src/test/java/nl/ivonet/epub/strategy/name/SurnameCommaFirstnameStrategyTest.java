@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013 Ivo Woltring
+ * Copyright (c) 2015 Ivo Woltring
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,20 +16,9 @@
 
 package nl.ivonet.epub.strategy.name;
 
-import nl.ivonet.epub.domain.Name;
-
 /**
- * Formats a {@link nl.ivonet.epub.domain.Name} as "Surname [Jr.], Firstname".
- *
  * @author Ivo Woltring
  */
-public class SurnameCommaFirstnameStrategy implements NameFormattingStrategy {
+public class SurnameCommaFirstnameStrategyTest {
 
-    @Override
-    public String format(final Name name) {
-        if (name.isJunior()) {
-            return String.format("%s Jr., %s", name.getSurname(), name.getFirstname());
-        }
-        return String.format("%s, %s", name.getSurname(), name.getFirstname());
-    }
 }

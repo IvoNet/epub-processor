@@ -17,7 +17,7 @@
 package nl.ivonet.epub.domain;
 
 import nl.ivonet.epub.strategy.name.NameFormattingStrategy;
-import nl.ivonet.epub.strategy.name.SurnameCommaFirstnameStrategy;
+import nl.ivonet.epub.strategy.name.SurnameCommaFirstnamesStrategy;
 import nl.siegmann.epublib.domain.Author;
 
 import java.util.Arrays;
@@ -30,13 +30,14 @@ public class Name {
     private static final String JUNIOR = " Jr.";
     private static final int FIRSTNAME_IDX = 1;
     private static final int SURNAME_IDX = 0;
-    private final NameFormattingStrategy nameFormatStrategy;
+    private final boolean junior;
+    private NameFormattingStrategy nameFormatStrategy;
     private String firstname;
     private String surname;
-    private boolean junior;
 
     public Name(final String author) {
-        String name = author;
+        String name = author.replace("_", ".")
+                            .trim();
         junior = name.contains(" Jr.");
         if (junior) {
             name = name.replace(JUNIOR, "");
@@ -57,7 +58,7 @@ public class Name {
         }
 
 
-        this.nameFormatStrategy = new SurnameCommaFirstnameStrategy();
+        this.nameFormatStrategy = new SurnameCommaFirstnamesStrategy();
     }
 
     public Name(final Author author) {
@@ -65,7 +66,7 @@ public class Name {
     }
 
     public Name(final String firstname, final String surname) {
-        this(firstname, surname, new SurnameCommaFirstnameStrategy());
+        this(firstname, surname, new SurnameCommaFirstnamesStrategy());
     }
 
     public Name(final String firstname, final String surname, final NameFormattingStrategy nameFormatStrategy) {
@@ -88,6 +89,28 @@ public class Name {
         return (index < strings.length) ? strings[index] : "";
     }
 
+    private static String toCamelCase(final String init) {
+        if (init == null) {
+            return null;
+        }
+
+        final StringBuilder ret = new StringBuilder(init.length());
+
+        for (final String word : init.split(" ")) {
+            if (!word.isEmpty()) {
+                ret.append(word.substring(0, 1)
+                               .toUpperCase());
+                ret.append(word.substring(1)
+                               .toLowerCase());
+            }
+            if (!(ret.length() == init.length())) {
+                ret.append(" ");
+            }
+        }
+
+        return ret.toString();
+    }
+
     private void process(final String firstname, final String surname) {
 
         if (surname.matches(INITIALS)) {
@@ -99,6 +122,21 @@ public class Name {
         } else {
             this.firstname = toCamelCase(strip(firstname));
             this.surname = toCamelCase(strip(surname));
+        }
+
+        specialCamelCasing("Mac");
+        specialCamelCasing("Mc");
+    }
+
+    private void specialCamelCasing(final String specialName) {
+        if (surname.toLowerCase()
+                   .startsWith(specialName.toLowerCase()) && (surname.length() > (specialName.length() + 1))) {
+            final StringBuilder ret = new StringBuilder();
+            ret.append(surname.substring(0, specialName.length()));
+            ret.append(surname.substring(specialName.length(), specialName.length() + 1)
+                              .toUpperCase());
+            ret.append(surname.substring(specialName.length() + 1));
+            surname = ret.toString();
         }
     }
 
@@ -131,26 +169,8 @@ public class Name {
         return new Author(firstname, surname);
     }
 
-    public static String toCamelCase(final String init) {
-        if (init == null) {
-            return null;
-        }
-
-        final StringBuilder ret = new StringBuilder(init.length());
-
-        for (final String word : init.split(" ")) {
-            if (!word.isEmpty()) {
-                ret.append(word.substring(0, 1)
-                               .toUpperCase());
-                ret.append(word.substring(1)
-                               .toLowerCase());
-            }
-            if (!(ret.length() == init.length())) {
-                ret.append(" ");
-            }
-        }
-
-        return ret.toString();
+    public void setNameFormatStrategy(final NameFormattingStrategy nameFormatStrategy) {
+        this.nameFormatStrategy = nameFormatStrategy;
     }
 
 }

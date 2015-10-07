@@ -24,6 +24,7 @@ import nl.ivonet.epub.strategy.text.TextStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -49,7 +50,7 @@ public class TitleStrategy implements EpubStrategy {
     public void execute(final Epub epub) {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
 
-        final List<String> titles = epub.getTitles()
+        List<String> titles = epub.getTitles()
                                         .stream()
                                         .map(p -> p.replace(" / ", " - ")
                                                    .replace("/ ", " - ")
@@ -60,9 +61,24 @@ public class TitleStrategy implements EpubStrategy {
                                         .collect(toList());
 
         if (titles.isEmpty()) {
+            titles = tryFilename(epub.getOrigionalFilename());
+        }
+
+        if (titles.isEmpty()) {
             epub.addDropout(Dropout.TITLE);
         }
         epub.setTitles(titles);
+    }
+
+    private List<String> tryFilename(final String origionalFilename) {
+        final List<String> titles = new ArrayList<>();
+
+        final String[] strings = origionalFilename.replace(".epub", "")
+                                                  .split(" - ");
+
+        System.out.println(strings[0]);
+
+        return titles;
     }
 
 

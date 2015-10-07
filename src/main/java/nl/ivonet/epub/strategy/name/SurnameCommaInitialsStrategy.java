@@ -19,6 +19,8 @@ package nl.ivonet.epub.strategy.name;
 import nl.ivonet.epub.domain.Name;
 
 /**
+ * Surname, ([A-Z].)+
+ *
  * @author Ivo Woltring
  */
 public class SurnameCommaInitialsStrategy implements NameFormattingStrategy {
@@ -27,7 +29,8 @@ public class SurnameCommaInitialsStrategy implements NameFormattingStrategy {
         String initials = "";
         if (name.isFirstnameAsInitials()) {
             initials = name.getFirstname();
-        } else {
+        } else if (!name.getFirstname()
+                        .isEmpty()) {
             final String[] firstnames = name.getFirstname()
                                             .split(" ");
             for (final String firstname : firstnames) {

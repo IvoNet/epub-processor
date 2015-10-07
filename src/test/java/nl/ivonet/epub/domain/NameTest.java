@@ -17,7 +17,7 @@
 package nl.ivonet.epub.domain;
 
 import nl.ivonet.epub.strategy.name.FirstnameSpaceSurnameStrategy;
-import nl.ivonet.epub.strategy.name.SurnameCommaFirstnameStrategy;
+import nl.ivonet.epub.strategy.name.SurnameCommaFirstnamesStrategy;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -36,7 +36,7 @@ public class NameTest {
 
         final Name name2 = new Name("Ivo", "Woltring", new FirstnameSpaceSurnameStrategy());
         assertEquals("Ivo Woltring", name2.name());
-        assertEquals("Woltring, Ivo", new SurnameCommaFirstnameStrategy().format(name2));
+        assertEquals("Woltring, Ivo", new SurnameCommaFirstnamesStrategy().format(name2));
     }
 
     @Test
@@ -53,8 +53,9 @@ public class NameTest {
 
 
     @Test
-    public void testAlternativeNames() throws Exception {
+    public void testMacName() throws Exception {
 
-
+        final Name name = new Name("Connor Maccloud");
+        assertEquals("MacCloud, Connor", name.name());
     }
 }

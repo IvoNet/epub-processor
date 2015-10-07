@@ -52,8 +52,7 @@ public class AuthorStrategyTest extends BaseT {
     @Test
     public void testExecute() throws Exception {
         final List<Author> authors = new ArrayList<>(3);
-        authors.add(new Author("I.a.h.", "Woltring"));
-//        authors.add(new Author("Ilona", "Andrews"));
+        authors.add(new Author("Ilona", "Andrews"));
 
         epub.setAuthors(authors);
         strategy.execute(epub);
@@ -62,8 +61,8 @@ public class AuthorStrategyTest extends BaseT {
         assertNotNull(epubAuthors);
         assertEquals(1, epubAuthors.size());
         final Author author1 = epubAuthors.get(0);
-        assertEquals("I.a.h.", author1.getFirstname());
-        assertEquals("Woltring", author1.getLastname());
+        assertEquals("Ilona", author1.getFirstname());
+        assertEquals("Andrews", author1.getLastname());
     }
 
 

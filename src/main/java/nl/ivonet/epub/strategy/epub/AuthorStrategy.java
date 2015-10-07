@@ -18,6 +18,7 @@ package nl.ivonet.epub.strategy.epub;
 
 import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
 import nl.ivonet.epub.data.AuthorRemoveList;
+import nl.ivonet.epub.data.AuthorsResource;
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
 import nl.ivonet.epub.domain.Name;
@@ -43,18 +44,17 @@ import java.util.stream.Collectors;
 public class AuthorStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(AuthorStrategy.class);
     private final AuthorRemoveList removeList;
+    private final AuthorsResource authorsResource;
 
     public AuthorStrategy() {
         removeList = new AuthorRemoveList();
+        authorsResource = new AuthorsResource();
     }
 
     @Override
     public void execute(final Epub epub) {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
         final Set<Author> converted = new HashSet<>();
-
-        //FIXME This next line is just wrong! The processing is not yet done!
-        //TODO All the authors need to be processed and cleaned up
 
         converted.addAll(epub.getAuthors()
                              .stream()
@@ -65,32 +65,32 @@ public class AuthorStrategy implements EpubStrategy {
                                                                    .contains(r))
                                                      .findAny()
                                                      .isPresent())
+                             .filter(p -> authorsResource.is(p.name()))
                              .map(Name::asAuthor)
                              .collect(Collectors.toList()));
 
 
-        converted.stream()
-                .map(Name::new)
-                .map(Name::name)
-                .forEach(this::writeAuthor);
-
-//        final String[] split = epub.getOrigionalFilename()
-//                                   .split("-");
-
-
-//        final String authors = authorsToString(epub) + "/" + epub.getOrigionalPath();
-//        System.out.println("authors = " + authors);
-//        final Names names = namedEntityParser.parse(authors);
-//        names.stream()
-//             .forEach(p -> converted.add(new Author((p.getFirstname() + " " + p.getInsertion()).trim(),
-//                                                    p.getSurname())));
-
+        if (converted.isEmpty()) {
+            converted.addAll(retrieveAuthorFromFilename(epub.getOrigionalFilename()));
+        }
 
         if (converted.isEmpty()) {
-            //TODO here try to find the author from filename...
             epub.addDropout(Dropout.AUTHOR_EMPTY);
         }
         epub.setAuthors(new ArrayList<>(converted));
+    }
+
+    private Set<Author> retrieveAuthorFromFilename(final String filename) {
+        final String[] names = filename.replace(".epub", "")
+                                       .split(" - ");
+        final Set<Author> converted = new HashSet<>();
+        for (final String name : names) {
+            final Name possibleName = new Name(name);
+            if (authorsResource.is(possibleName.name())) {
+                converted.add(possibleName.asAuthor());
+            }
+        }
+        return converted;
     }
 
     private void writeAuthor(final String name) {

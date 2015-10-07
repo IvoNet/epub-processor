@@ -14,27 +14,32 @@
  * limitations under the License.
  */
 
-package nl.ivonet.epub.strategy.name;
+package nl.ivonet.epub.data;
 
-import nl.ivonet.epub.domain.Name;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertTrue;
 
 /**
- * Surname, [A-Z].
- *
  * @author Ivo Woltring
  */
-public class SurnameCommaFirstInitialsStrategy implements NameFormattingStrategy {
-    @Override
-    public String format(final Name name) {
-        String initial = "";
-        if (!name.getFirstname()
-                 .isEmpty()) {
-            initial = name.getFirstname()
-                          .substring(0, 1) + ".";
-        }
-        if (name.isJunior()) {
-            return name.getSurname() + " Jr., " + initial;
-        }
-        return name.getSurname() + ", " + initial;
+public class AuthorsResourceTest {
+
+    private AuthorsResource authorsResource;
+
+    @Before
+    public void setUp() throws Exception {
+        authorsResource = new AuthorsResource();
+    }
+
+    @Test
+    public void testExactMatchingName() throws Exception {
+        assertTrue(authorsResource.is("Goodwin, John B.L."));
+    }
+
+    @Test
+    public void testExitingButNotExactMatch() throws Exception {
+        assertTrue(authorsResource.is("Goodwin, John blabla Lakmoesbla"));
     }
 }
