@@ -19,7 +19,9 @@ package nl.ivonet.epub.strategy.epub;
 import com.cybozu.labs.langdetect.Detector;
 import com.cybozu.labs.langdetect.DetectorFactory;
 import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
+import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
+import nl.siegmann.epublib.domain.MediaType;
 import nl.siegmann.epublib.domain.Resource;
 import org.apache.commons.io.IOUtils;
 import org.jsoup.Jsoup;
@@ -51,11 +53,11 @@ import java.util.Map;
 /**
  * Strategy for cleaning and converting the Language of an {@link nl.ivonet.epub.domain.Epub}.
  *
- * This strategy looks at the actual content of the book to analyze and detect the language.
- * It should give have a very high rate of precision.
+ * This strategy looks at the actual content of the book to analyze and detect the language. It should give have a very
+ * high rate of precision.
  *
- * When will it probably fail? Wel that would be if the whole book is made up of pictures.
- * The strategy can not differentiate between pictures and text.
+ * When will it probably fail? Wel that would be if the whole book is made up of pictures. The strategy can not
+ * differentiate between pictures and text.
  *
  * @author Ivo Woltring
  */
@@ -68,6 +70,91 @@ public class LanguageStrategy implements EpubStrategy {
     private final List<String> isoLanguages = Arrays.asList(Locale.getISOLanguages());
     private final Detector detector;
 
+
+    public LanguageStrategy() {
+        detector = DetectorFactory.create();
+
+    }
+
+    @Override
+    public void execute(final Epub epub) {
+        LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
+
+        //TODO Determine comics and if so then only metadata language or UNKNOWN
+        final List<Resource> contents = epub.getContents();
+        final String contentText = getContentText(contents);
+        if (contentText.isEmpty()) {
+            if (!contents.isEmpty() && isImage(contents.get(0)
+                                                       .getMediaType())) {
+                if (!epub.getLanguage()
+                         .isEmpty()) {
+                    epub.setLanguage(getLanguage(epub.getLanguage()));
+                }
+            } else {
+                epub.addDropout(Dropout.LANGUAGE);
+            }
+        } else {
+            epub.setLanguage(detector.detect(contentText));
+        }
+    }
+
+    private String getLanguage(final String language) {
+        final String lowerLang = language.toLowerCase(Locale.US)
+                                         .trim();
+        if (lowerLang.isEmpty()) {
+            return UNKNOWN_LANG;
+        }
+        final String converted = languages.get(lowerLang);
+        if (converted == null) {
+            if (isoLanguages.contains(lowerLang)) {
+                LOG.debug("Language found in the iso list {}", language);
+                return lowerLang;
+            }
+            return UNKNOWN_LANG;
+        }
+        return converted;
+    }
+
+    private String getContentText(final List<Resource> contents) {
+
+        final StringBuilder sb = new StringBuilder();
+        for (final Resource content : contents) {
+            if (isImage(content.getMediaType())) {
+                continue;
+            }
+            final String text = extractText(content);
+            sb.append(text);
+        }
+        final String ret = sb.toString();
+        if (ret.isEmpty()) {
+            return UNKNOWN_LANG;
+        }
+        return middle(ret, 10000);
+    }
+
+    private boolean isImage(final MediaType mediaType) {
+        return mediaType.getName()
+                        .startsWith("image/");
+    }
+
+    private String middle(final String in, final int howmuch) {
+        if (in.length() >= howmuch) {
+            final int start = (in.length() / 2) - (howmuch / 2);
+            return in.substring(start, start + howmuch);
+        }
+        return in;
+    }
+
+    private String extractText(final Resource input) {
+        try {
+            final String html = IOUtils.toString(input.getReader());
+            return Jsoup.parse(html)
+                        .text();
+
+        } catch (final IOException e) {
+            return "";
+        }
+    }
 
     static {
         languages.put("en-us", "en");
@@ -92,79 +179,6 @@ public class LanguageStrategy implements EpubStrategy {
         languages.put("dut", "nl");
         languages.put("dutch", "nl");
         languages.put("ned", "nl");
-    }
-
-    public LanguageStrategy() {
-        detector = DetectorFactory.create();
-
-    }
-
-    @Override
-    public void execute(final Epub epub) {
-        LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
-
-        String language = getLanguage(epub.getLanguage());
-
-        //TODO Small performance optimization. If english then skip and trust?!
-        if (!"en".equals(language)) {
-            language = detector.detect(getContentText(epub.getContents()));
-        }
-
-        epub.setLanguage(language);
-    }
-
-    private String getLanguage(final String language) {
-        final String lowerLang = language.toLowerCase(Locale.US)
-                                         .trim();
-        if (lowerLang.isEmpty()) {
-            return UNKNOWN_LANG;
-        }
-        final String converted = languages.get(lowerLang);
-        if (converted == null) {
-            if (isoLanguages.contains(lowerLang)) {
-                LOG.debug("Language found in the iso list {}", language);
-                return lowerLang;
-            }
-            return UNKNOWN_LANG;
-        }
-        return converted;
-    }
-
-    private String getContentText(final List<Resource> contents) {
-
-        final StringBuilder sb = new StringBuilder();
-        for (final Resource content : contents) {
-            final String text = extractText(content);
-            if (notText(text)) {
-                continue;
-            }
-            sb.append(text);
-        }
-        final String ret = sb.toString();
-        return middle(ret, 10000);
-    }
-
-    private boolean notText(final String text) {
-        return text.contains("JFIF") || text.contains("JPEG");
-    }
-
-    private String middle(final String in, final int howmuch) {
-        if (in.length() >= howmuch) {
-            final int start = (in.length() / 2) - (howmuch / 2);
-            return in.substring(start, start + howmuch);
-        }
-        return in;
-    }
-
-    private String extractText(final Resource input) {
-        try {
-            final String html = IOUtils.toString(input.getReader());
-            return Jsoup.parse(html)
-                        .text();
-
-        } catch (final IOException e) {
-            return "";
-        }
     }
 
 }

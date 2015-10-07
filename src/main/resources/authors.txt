@@ -490,7 +490,7 @@ Aminoff, Jenise
 Amis, Kingsley
 Amis, Martin
 Amlaw, Mary
-Ammaniti, Niccolò
+Ammaniti, Niccolo
 Ammons, A.R.
 Amnéus, Christer
 Amor, Carole
@@ -706,7 +706,7 @@ Appel, Allen
 Appel, Anne Milano
 Appel, Benjamin
 Appel, Dori
-Appel, René
+Appel, Rene
 Appelbaum, Stanley
 Appelfeld, Aharon
 Appelt, Kathi
@@ -1712,6 +1712,7 @@ Bellessi, Diana
 Belli, Gioconda
 Belling, Michele
 Bellm, Don
+Bello, Mieke
 Belloc, Hilaire
 Bellos, David
 Bellow, Saul
@@ -2357,6 +2358,7 @@ Bolton, S.J.
 Bolton, Sharon
 Bom, Paulien
 Bomack, Alan
+Bomans, Godfried
 Bombal, María Luisa
 Bomer, Paula
 Bommer, Wanda
@@ -2459,7 +2461,7 @@ Boswell, James
 Boswell, Laurence
 Bosworth, David
 Boter, Iris
-Boterman, Marie Thérèse
+Boterman, Marie Therese
 Boteva, Maria
 Bothmer, Gerry
 Bothwell, Jean
@@ -2611,6 +2613,7 @@ Brailovsky, Anna
 Brainard, Dulcy
 Brake, Colin
 Brakman, Willem
+Bral, Sjaak
 Braley, Berton
 Braly, David
 Braly, Malcolm
@@ -3870,6 +3873,7 @@ Cazotte, Jacques
 Cecek, Patricia D.
 Cech, John
 Cecil, Henry
+Cecilia, Ahem
 Cedering, Siv
 Cela, Camilo José
 Celbridge, Yolanda
@@ -4846,6 +4850,7 @@ Costello, Emily
 Costello, Matthew
 Costello, Michael
 Coster, Charles de
+Coster, Theo
 Costikyan, Greg
 Costlow, Jane
 Cote, Lyn
@@ -5679,6 +5684,7 @@ Dentiger, Jane
 Dentinger, Stephen
 Denton, Bradley
 Denton, Jamie Ann
+Denton, Kate
 Denz, Barbara A.
 Denzel, Justin
 Depestre, Rene
@@ -6837,6 +6843,7 @@ Farge, Tom La
 Faris, Michael A.
 Fariña, Richard
 Farjeon, Eleanor
+Farkas, Victoria
 Farland, David
 Farley, Carol
 Farley, Donna
@@ -7876,6 +7883,7 @@ Genefort, Laurent
 Genesse, Paul
 Genet, Jean
 Genoa, Chris
+Genova, Maria
 Gentile, Joe
 Gentle, Mary
 Gentleman, Dorothy Corbett
@@ -9724,6 +9732,7 @@ Hetley, James A.
 Hettche, Thomas
 Hetzel, Pierre-Jules
 Heuck, Sigrid
+Heuft, Theo
 Heuler, Karen
 Heurck, Jan van
 Heusser, Sibylle
@@ -9885,6 +9894,7 @@ Hitchcock, George
 Hitchcock, Jane Stanton
 Hitchcock, Robyn
 Hitchens, Dolores
+Hitler, Adolf
 Hitt, Orrie
 Hiwatari, Saki
 Hjortsberg, William
@@ -10667,6 +10677,7 @@ Jackson, Shirley
 Jackson, Stefan
 Jackson, Steve
 Jackson, Tracey Jane
+Jackson, Vina
 Jacob, Arjouni
 Jacob, Cats
 Jacob, Charlee
@@ -12074,6 +12085,7 @@ Korolenko, Vladimir
 Korr, Ellen S.
 Kort, Ellen
 Korte, Trey
+Kortsmit, Simone
 Koryta, Michael
 Koshansky-Olienikov, Olga
 Kosinski, Jerzy
@@ -13909,6 +13921,7 @@ Marffin, Kyle
 Marginter, Peter
 Margolin, Harriet
 Margolin, Phillip
+Margolis, Char
 Margolis, Sue
 Margos, J.F.
 Margraff, Ruth E.
@@ -14257,6 +14270,7 @@ May, Emory G.
 May, Jesse
 May, Jonathan
 May, Julian
+May, Karl
 May, Paula
 May, Philip de
 May, Rachel
@@ -16087,6 +16101,7 @@ North, Freya
 North, John
 North, Oliver
 North, Rick
+North, Will
 Northcott, Kenneth J.
 Northup, Solomon
 Norton, Alice Mary
@@ -17113,6 +17128,7 @@ Pike, Charles R.
 Pike, Christopher
 Pilcher, Rosamunde
 Pile, Rog
+Pileggi, Nicholas
 Pilkey, Dav
 Pilling, Ann
 Pilnyak, Boris
@@ -17931,6 +17947,7 @@ Rhea, Nicholas
 Rhea, Rhonda
 Rheinsberg, Anna
 Rhinehart, Luke
+Rhodan, Perry
 Rhode, John
 Rhodes, Apollonius of
 Rhodes, Caroline
@@ -18505,6 +18522,7 @@ Rotsler, William
 Rottensteiner, Franz
 Rotundo, Matthew S.
 Roubaud, Jacques
+Rouch, James
 Roughan, Howard
 Rought, A.E.
 Roughton, A.I.
@@ -21367,6 +21385,7 @@ Tippens, Missy
 Tippetts, Emily Mah
 Tiptree Jr., James
 Tison, Annette
+Tissen, Chiara
 Titchmarsh, Mr Alan
 Tite, Kubo
 Titherington, Jeanne
@@ -22010,7 +22029,7 @@ Vu, Tran
 Vukcevich, Ray
 Vukelich, George
 Vvedensky, Alexander
-Waal, Baantjer En de
+Waal, Simon de
 Waber, Bernard
 Wachspress, Amy
 Wack, Amy
@@ -22137,6 +22156,7 @@ Wallmann, Jeffrey M.
 Walls, Jeannette
 Walpole, Horace
 Walpole, Hugh
+Walschap, Gerard
 Walser, Johanna
 Walser, Martin
 Walser, Robert

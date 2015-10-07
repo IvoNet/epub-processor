@@ -84,20 +84,16 @@
         </encoder>
     </appender>
 
-    <logger name="nl.ivonet.epub.strategy.epub" additivity="true">
-        <level value="debug"/>
+    <logger name="nl.ivonet.epub.strategy.epub" level="DEBUG" additivity="true">
         <appender-ref ref="strategyAppender"/>
     </logger>
-    <logger name="nl.ivonet.epub" additivity="false">
-        <level value="INFO"/>
+    <logger name="nl.ivonet.epub" level="INFO" additivity="false">
         <appender-ref ref="infoAppender"/>
     </logger>
-    <logger name="nl.ivonet.epub" additivity="true">
-        <level value="TRACE"/>
+    <logger name="nl.ivonet.epub" level="TRACE" additivity="true">
         <appender-ref ref="dumpAppender"/>
     </logger>
-    <logger name="nl.ivonet.epub" additivity="true">
-        <level value="ERROR"/>
+    <logger name="nl.ivonet.epub" level="ERROR" additivity="true">
         <appender-ref ref="errorAppender"/>
     </logger>
 
