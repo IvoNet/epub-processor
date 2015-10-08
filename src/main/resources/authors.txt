@@ -1018,9 +1018,9 @@ Ayres, Noreen
 Ayrton, Michael
 Azzarello, Brian
 Azzopardi, Trezza
-B., David
-Baantjer, A. C.
 Baantjer, A.C.
+Baantjer, A.C.
+Baars, Els
 Babbitt, Natalie
 Babchenko, Arkady
 Babcock, Joe
@@ -23558,6 +23558,7 @@ Zukowski, Sharon
 Zumhagen, Brian
 Zupan, Vitomil
 Zusak, Markus
+Zwaan, Peter de
 Zweibel, Alan
 Zweig, Arnold
 Zweig, Stefan
