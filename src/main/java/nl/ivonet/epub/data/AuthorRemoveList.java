@@ -17,7 +17,6 @@
 package nl.ivonet.epub.data;
 
 import java.util.List;
-import java.util.stream.Stream;
 
 /**
  * @author Ivo Woltring
@@ -30,13 +29,9 @@ public class AuthorRemoveList extends ListResource {
         this.removeList = listFromFilename("AuthorsRemove.txt");
     }
 
-
     @Override
     public boolean is(final String input) {
         return removeList.contains(input.toLowerCase());
     }
 
-    public Stream<String> stream() {
-        return removeList.stream();
-    }
 }

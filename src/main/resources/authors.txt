@@ -5609,6 +5609,7 @@ Deighton, Len
 Dekker, Carl
 Dekker, Ted
 Dekker, Thomas
+Deckers, Daphne
 Delacorte, Peter
 Delacorte, Shawna
 Delacroix, Claire
@@ -6105,6 +6106,7 @@ Druzhnikov, Yuri
 Dryden, Alex
 Dryden, John
 Dryden, Rachel Ann
+Dubell, Richard
 DuBois, Brendan
 DuBois, Gaylord
 DuBois, Graham
@@ -18312,6 +18314,7 @@ Rodwell, Ian
 Roe, Caroline
 Roe, Paula
 Roeder, Pat
+Roemer, Astrid
 Roesch, Joseph
 Roessing, Matthew
 Roessner, Michaela
@@ -18875,6 +18878,7 @@ Sanderson, Brandon
 Sanderson, Douglas
 Sanderson, Gill
 Sanderson, Randy
+Sandifort, Mary-Ann
 Sandford, Christopher
 Sandford, John
 Sandford, Rick
@@ -23560,6 +23564,7 @@ Zweig, Stefan
 Zweig, Stefanie
 Zwerger, Lisbeth
 Zwiebel, William L.
+Zwigtman, Floortje
 Zürn, Unica
 d'Arbeloff, Natalie
 d'Argo, Jay

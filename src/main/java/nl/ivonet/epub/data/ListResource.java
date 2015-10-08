@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
  *
  * @author Ivo Woltring
  */
-public abstract class ListResource {
+public abstract class ListResource<T> {
 
     protected ListResource() {
     }

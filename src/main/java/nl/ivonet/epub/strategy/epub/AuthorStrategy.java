@@ -22,13 +22,12 @@ import nl.ivonet.epub.data.AuthorsResource;
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
 import nl.ivonet.epub.domain.Name;
+import nl.ivonet.epub.strategy.name.SurnameCommaFirstnamesStrategy;
+import nl.ivonet.epub.strategy.name.SwitchFirstnameAndSurnameStrategy;
 import nl.siegmann.epublib.domain.Author;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -45,10 +44,16 @@ public class AuthorStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(AuthorStrategy.class);
     private final AuthorRemoveList removeList;
     private final AuthorsResource authorsResource;
+    private SwitchFirstnameAndSurnameStrategy switchFirstnameAndSurnameStrategy;
+    private SurnameCommaFirstnamesStrategy surnameCommaFirstnamesStrategy;
 
     public AuthorStrategy() {
         removeList = new AuthorRemoveList();
         authorsResource = new AuthorsResource();
+        switchFirstnameAndSurnameStrategy = new SwitchFirstnameAndSurnameStrategy();
+        surnameCommaFirstnamesStrategy = new SurnameCommaFirstnamesStrategy();
+
+
     }
 
     @Override
@@ -59,12 +64,8 @@ public class AuthorStrategy implements EpubStrategy {
         converted.addAll(epub.getAuthors()
                              .stream()
                              .map(Name::new)
-                             .filter(p -> !removeList.stream()
-                                                     .filter(r -> p.name()
-                                                                   .toLowerCase()
-                                                                   .contains(r))
-                                                     .findAny()
-                                                     .isPresent())
+                             .filter(p -> !removeList.is(p.name()
+                                                          .toLowerCase()))
                              .filter(p -> authorsResource.is(p.name()))
                              .map(Name::asAuthor)
                              .collect(Collectors.toList()));
@@ -73,7 +74,6 @@ public class AuthorStrategy implements EpubStrategy {
         if (converted.isEmpty()) {
             converted.addAll(retrieveAuthorFromFilename(epub.getOrigionalFilename()));
         }
-
         if (converted.isEmpty()) {
             epub.addDropout(Dropout.AUTHOR_EMPTY);
         }
@@ -81,32 +81,28 @@ public class AuthorStrategy implements EpubStrategy {
     }
 
     private Set<Author> retrieveAuthorFromFilename(final String filename) {
-        final String[] names = filename.replace(".epub", "")
-                                       .split(" - ");
+
+        final String fname = filename.replace(".epub", "");
+        String[] names = fname.split(" - ");
+        if (names.length == 1) {
+            names = fname.split(" ~ ");
+        }
         final Set<Author> converted = new HashSet<>();
         for (final String name : names) {
             final Name possibleName = new Name(name);
             if (authorsResource.is(possibleName.name())) {
                 converted.add(possibleName.asAuthor());
+            } else {
+                possibleName.setNameFormatStrategy(switchFirstnameAndSurnameStrategy);
+                final Name switchedName = new Name(possibleName.name());
+                if (authorsResource.is(switchedName.name())) {
+                    LOG.warn("Matched by Switching firstname with surname: {}", switchedName.name());
+                    converted.add(switchedName.asAuthor());
+                }
             }
         }
         return converted;
     }
 
-    private void writeAuthor(final String name) {
-        try {
-            Files.write(Paths.get("/Users/ivonet/dev/ebook/epub-processor/artifact/authors/", name), name.getBytes());
-        } catch (final IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
-    private String authorsToString(final Epub epub) {
-        final StringBuilder sb = new StringBuilder();
-        epub.getAuthors()
-            .stream()
-            .forEach(p -> sb.append(p.toString())
-                            .append(" / "));
-        return sb.toString();
-    }
 }

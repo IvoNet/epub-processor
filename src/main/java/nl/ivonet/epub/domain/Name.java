@@ -30,7 +30,7 @@ public class Name {
     private static final String JUNIOR = " Jr.";
     private static final int FIRSTNAME_IDX = 1;
     private static final int SURNAME_IDX = 0;
-    private final boolean junior;
+    private boolean junior;
     private NameFormattingStrategy nameFormatStrategy;
     private String firstname;
     private String surname;
@@ -59,6 +59,11 @@ public class Name {
 
 
         this.nameFormatStrategy = new SurnameCommaFirstnamesStrategy();
+    }
+
+    public Name(final String author, final NameFormattingStrategy nameFormatStrategy) {
+        this(author);
+        this.nameFormatStrategy = nameFormatStrategy;
     }
 
     public Name(final Author author) {
@@ -157,6 +162,10 @@ public class Name {
         return junior;
     }
 
+    public void setJunior(final boolean junior) {
+        this.junior = junior;
+    }
+
     public boolean isFirstnameAsInitials() {
         return firstname.matches(INITIALS);
     }
@@ -172,5 +181,4 @@ public class Name {
     public void setNameFormatStrategy(final NameFormattingStrategy nameFormatStrategy) {
         this.nameFormatStrategy = nameFormatStrategy;
     }
-
 }

@@ -38,23 +38,33 @@ public class AuthorsResource extends ListResource {
         names = listFromFilename("authors.txt");
         strategies = new ArrayList<>();
 
+
+        strategies.add(new SurnameCommaFirstnamesStrategy());
         strategies.add(new SurnameCommaInitialsStrategy());
         strategies.add(new SurnameCommaFirstInitialsStrategy());
-        strategies.add(new SurnameCommaFirstnamesStrategy());
         strategies.add(new SurnameCommaFullFirstFirstnameThenInitialsStrategy());
 
     }
 
+    /**
+     * First check if the author exists as is. Then check against the default formatting strategy Then check against all
+     * allowed strategies in order of importants an accuracy Then as final attempt switch the firstname and surname and
+     * try it all again
+     */
     @Override
     public boolean is(final String input) {
-        final String author = input.trim();
+        return applyMatchingStrategies(input.trim());
+    }
+
+    private boolean applyMatchingStrategies(final String author) {
         if (names.contains(author)) {
             return true;
         }
         final Name name = new Name(author);
-        if (names.contains(name.name())) {
-            return true;
-        }
+        return applyStrategies(name);
+    }
+
+    private boolean applyStrategies(final Name name) {
         for (final NameFormattingStrategy strategy : strategies) {
             name.setNameFormatStrategy(strategy);
             if (names.contains(name.name())) {

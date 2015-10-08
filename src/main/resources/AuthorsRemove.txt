@@ -24,8 +24,8 @@ harlequin
 anwb
 anonymous
 unknown
-een Penny
-Collective
+een penny
+collective
 et all
 editor
 agent
@@ -45,4 +45,4 @@ calibre
 wie is de
 inc.
 pseud
- None
+ none
