@@ -83,7 +83,7 @@
             <maxIndex>10</maxIndex>
         </rollingPolicy>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>ERROR</level>
+            <level>WARN</level>
             <onMatch>ACCEPT</onMatch>
             <onMismatch>DENY</onMismatch>
         </filter>
@@ -119,11 +119,14 @@
     <logger name="nl.ivonet.epub.strategy.epub" level="DEBUG" additivity="true">
         <appender-ref ref="strategyAppender"/>
     </logger>
+    <logger name="nl.ivonet.epub" level="TRACE" additivity="true">
+        <appender-ref ref="dumpAppender"/>
+    </logger>
     <logger name="nl.ivonet.epub" level="INFO" additivity="false">
         <appender-ref ref="infoAppender"/>
     </logger>
-    <logger name="nl.ivonet.epub" level="TRACE" additivity="true">
-        <appender-ref ref="dumpAppender"/>
+    <logger name="nl.ivonet.epub" level="WARN" additivity="false">
+        <appender-ref ref="warnAppender"/>
     </logger>
     <logger name="nl.ivonet.epub" level="ERROR" additivity="true">
         <appender-ref ref="errorAppender"/>

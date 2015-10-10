@@ -22,7 +22,6 @@ import nl.ivonet.epub.data.AuthorsResource;
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
 import nl.ivonet.epub.domain.Name;
-import nl.ivonet.epub.strategy.name.SurnameCommaFirstnamesStrategy;
 import nl.ivonet.epub.strategy.name.SwitchFirstnameAndSurnameStrategy;
 import nl.siegmann.epublib.domain.Author;
 import org.slf4j.Logger;
@@ -44,14 +43,12 @@ public class AuthorStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(AuthorStrategy.class);
     private final AuthorRemoveList removeList;
     private final AuthorsResource authorsResource;
-    private SwitchFirstnameAndSurnameStrategy switchFirstnameAndSurnameStrategy;
-    private SurnameCommaFirstnamesStrategy surnameCommaFirstnamesStrategy;
+    private final SwitchFirstnameAndSurnameStrategy switchFirstnameAndSurnameStrategy;
 
     public AuthorStrategy() {
         removeList = new AuthorRemoveList();
         authorsResource = new AuthorsResource();
         switchFirstnameAndSurnameStrategy = new SwitchFirstnameAndSurnameStrategy();
-        surnameCommaFirstnamesStrategy = new SurnameCommaFirstnamesStrategy();
 
 
     }

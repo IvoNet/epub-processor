@@ -24,7 +24,10 @@ import nl.ivonet.epub.strategy.name.SurnameCommaFullFirstFirstnameThenInitialsSt
 import nl.ivonet.epub.strategy.name.SurnameCommaInitialsStrategy;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.function.Consumer;
 
 /**
  * @author Ivo Woltring
@@ -33,17 +36,32 @@ public class AuthorsResource extends ListResource {
 
     private final List<String> names;
     private final List<NameFormattingStrategy> strategies;
+    private final Set<String> aliasses;
+    Consumer<Name> nameConsumer = new Consumer<Name>() {
+        @Override
+        public void accept(final Name name) {
+            for (final NameFormattingStrategy strategy : strategies) {
+                name.setNameFormatStrategy(strategy);
+                aliasses.add(name.name());
+            }
+
+        }
+    };
+
 
     public AuthorsResource() {
         names = listFromFilename("authors.txt");
+        aliasses = new HashSet<>();
         strategies = new ArrayList<>();
-
-
         strategies.add(new SurnameCommaFirstnamesStrategy());
         strategies.add(new SurnameCommaInitialsStrategy());
         strategies.add(new SurnameCommaFirstInitialsStrategy());
         strategies.add(new SurnameCommaFullFirstFirstnameThenInitialsStrategy());
 
+        aliasses.addAll(names);
+        names.stream()
+             .map(Name::new)
+             .forEach(nameConsumer::accept);
     }
 
     /**
@@ -57,7 +75,7 @@ public class AuthorsResource extends ListResource {
     }
 
     private boolean applyMatchingStrategies(final String author) {
-        if (names.contains(author)) {
+        if (aliasses.contains(author)) {
             return true;
         }
         final Name name = new Name(author);
@@ -67,7 +85,7 @@ public class AuthorsResource extends ListResource {
     private boolean applyStrategies(final Name name) {
         for (final NameFormattingStrategy strategy : strategies) {
             name.setNameFormatStrategy(strategy);
-            if (names.contains(name.name())) {
+            if (aliasses.contains(name.name())) {
                 return true;
             }
         }

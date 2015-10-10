@@ -30,6 +30,7 @@ import static java.util.stream.Collectors.toList;
 
 /**
  * Cleans up the Subjects list of a {@link nl.ivonet.epub.domain.Epub}.
+ *
  * @author Ivo Woltring
  */
 @ConcreteEpubStrategy
@@ -86,11 +87,7 @@ public class SubjectsStrategy implements EpubStrategy {
      */
     private List<String> reduceAndCapitalize(final List<String> subjectsIn, final SubjectsRemoveList removeList) {
         return subjectsIn.stream()
-                         .filter(p -> !removeList.stream()
-                                                 .filter(r -> p.toLowerCase()
-                                                               .contains(r))
-                                                 .findAny()
-                                                 .isPresent())
+                         .filter(p -> !removeList.is(p))
                          .map(capitalizeStrategy::execute)
                          .collect(toList());
     }

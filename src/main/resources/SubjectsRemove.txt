@@ -1,6 +1,7 @@
 demonoid
 upload
 torrent
+calibre
 nzb
 #1 bestseller
 c429

@@ -40,6 +40,6 @@ public class AuthorsResourceTest {
 
     @Test
     public void testExitingButNotExactMatch() throws Exception {
-        assertTrue(authorsResource.is("Goodwin, John blabla Lakmoesbla"));
+        assertTrue(authorsResource.is("Goodwin, John Blabla Lakmoesbla"));
     }
 }
