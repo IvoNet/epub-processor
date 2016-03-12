@@ -34,19 +34,6 @@ import java.util.ArrayList;
  */
 public final class EpubTestUtils {
 
-    public static EpubTestUtils getInstance() {
-        return new EpubTestUtils();
-    }
-
-    public static Book createTestBook() {
-        return getInstance().buildTestBook();
-
-    }
-
-    public static Epub createTestEpub() {
-        return new Epub(Paths.get("/tmp/testebook.epub"), createTestBook());
-    }
-
     private Book buildTestBook() {
         final Book book = new Book();
 
@@ -57,11 +44,11 @@ public final class EpubTestUtils {
                 .addTitle("test2");
 
             book.getMetadata()
-                .addIdentifier(new Identifier(Identifier.Scheme.ISBN, "987654321"));
+                .addIdentifier(new Identifier(Identifier.Scheme.ISBN, "9780345535481"));
+            book.getMetadata()
+                .addAuthor(new Author("Kevin", "Hearne"));
             book.getMetadata()
                 .addAuthor(new Author("Ivo", "Net"));
-            book.getMetadata()
-                .addAuthor(new Author("Ivo2", "Net"));
             book.setCoverPage(new Resource(this.getClass()
                                                .getResourceAsStream("/book1/cover.html"), "cover.html"));
             book.setCoverImage(new Resource(this.getClass()
@@ -93,5 +80,18 @@ public final class EpubTestUtils {
             throw new RuntimeException(e);
         }
         return book;
+    }
+
+    public static EpubTestUtils getInstance() {
+        return new EpubTestUtils();
+    }
+
+    public static Book createTestBook() {
+        return getInstance().buildTestBook();
+
+    }
+
+    public static Epub createTestEpub() {
+        return new Epub(Paths.get("/tmp/testebook.epub"), createTestBook());
     }
 }

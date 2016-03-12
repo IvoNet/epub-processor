@@ -36,6 +36,9 @@ public class Name {
     private String surname;
 
     public Name(final String author) {
+        if (author == null) {
+            throw new IllegalStateException("There should be an author");
+        }
         String name = author.replace("_", ".")
                             .trim();
         junior = name.contains(" Jr.");

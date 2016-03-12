@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright (c) 2015 Ivo Woltring
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="shortcut icon" type="image/x-icon" href="//kbstatic1-a.akamaihd.net/2174/Images/favicon.ico"/>
+    <link rel="apple-touch-icon" sizes="180x180"
+          href="//kbstatic1-a.akamaihd.net/2174/Images/apple-touch-icon-180x180.png"/>
+    <link rel="apple-touch-icon" sizes="152x152"
+          href="//kbstatic1-a.akamaihd.net/2174/Images/apple-touch-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="144x144"
+          href="//kbstatic1-a.akamaihd.net/2174/Images/apple-touch-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="120x120"
+          href="//kbstatic1-a.akamaihd.net/2174/Images/apple-touch-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="114x114"
+          href="//kbstatic1-a.akamaihd.net/2174/Images/apple-touch-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="76x76"
+          href="//kbstatic1-a.akamaihd.net/2174/Images/apple-touch-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="72x72"
+          href="//kbstatic1-a.akamaihd.net/2174/Images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="60x60"
+          href="//kbstatic1-a.akamaihd.net/2174/Images/apple-touch-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="57x57"
+          href="//kbstatic1-a.akamaihd.net/2174/Images/apple-touch-icon-57x57.png"/>
+    <link rel="icon" type="image/png" href="//kbstatic1-a.akamaihd.net/2174/Images/favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="//kbstatic1-a.akamaihd.net/2174/Images/android-chrome-192x192.png"
+          sizes="192x192"/>
+    <link rel="icon" type="image/png" href="//kbstatic1-a.akamaihd.net/2174/Images/favicon-96x96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="//kbstatic1-a.akamaihd.net/2174/Images/favicon-16x16.png" sizes="16x16"/>
+    <meta name="theme-color" content="#ffffff"/>
+    <meta name="application-name" content="Kobo"/>
+    <meta name="msapplication-TileColor" content=" #00b09a"/>
+    <meta name="msapplication-TileImage" content="//kbstatic1-a.akamaihd.net/2174/Images/mstile-144x144.png"/>
+    <meta name="msapplication-square70x70logo" content="//kbstatic1-a.akamaihd.net/2174/Images/mstile-small.png"/>
+    <meta name="msapplication-square150x150logo" content="//kbstatic1-a.akamaihd.net/2174/Images/mstile-medium.png"/>
+    <meta name="msapplication-wide310x150logo" content="//kbstatic1-a.akamaihd.net/2174/Images/mstile-wide.png"/>
+    <meta name="msapplication-square310x310logo" content="//kbstatic1-a.akamaihd.net/2174/Images/mstile-large.png"/>
+    <meta name="apple-itunes-app" content="app-id=301259483"/>
+    <meta name="google-play-app" content="app-id=com.kobobooks.android"/>
+    <script type="text/javascript" src="//cdn.optimizely.com/js/654430907.js"></script>
+    <meta name="PageType" content="Search"/>
+    <title>&quot;&quot; | eBook search results | Kobo</title>
+    <meta name="description"
+          content="Search results for &quot;&quot; at Kobo. Read free previews and reviews from booklovers. Shop eBooks at Kobo."/>
+    <script>
+        if (typeof DynamicConfiguration === "undefined") {
+
+            var DynamicConfiguration = {
+                isLogEnabled: true,
+                assetsRoot: '//kbstatic1-a.akamaihd.net/2174/',
+                IsKidsSite: 'False',
+
+                resourceStrings: /*<sl:translate_json>*/
+                {
+
+                    "sl_translate": "sl_all",
+                    "perYear": " / year",
+                    "IssueNumber": "Issue # ",
+                    "VolumeNumber": "Volume # ",
+                    "By": "By ",
+                    "SubscriptionNumberSubmitted": "Success! Digital subscription was added to your library.",
+                    "StackAddedToLibrarySuccessToast": "Success! The collection was added to your library.",
+                    "StackAddedToLibraryFailureToast": "Oops! Something went wrong. We could not add the item to your library.",
+                    "GenericErrorMessage": "Oops! Something went wrong. Please try again later.",
+                    "buyNow": "Buy Now",
+                    "buyIssue": "Issue",
+                    "preOrder": "Pre-order",
+                    "free": "Free",
+                    "addToLibrary": "Add To Library",
+                    "viewDetails": "View Details",
+                    "genericPurchasingError": "Oops! Something went wrong. Please review your payment information and try again.",
+                    "addedToLibrary": "Added to Library",
+                    "ageRangeLabel": "Age",
+                    "zeroToTwo": "0-2",
+                    "threeToFive": "3-5",
+                    "sixToEight": "6-8",
+                    "nineToTwelve": "9-12",
+                    "youngAdult": "14+",
+                    "more": "more",
+                    "less": "less",
+                    "addedToCart": "We’ve added this item to your shopping cart.",
+                    "errorAddedToCart": "Oops! We couldn’t add this item to your cart. Try again?",
+                    "overview": "Overview",
+                    "keepItem": "Keep Item",
+                    "removeItem": "Remove Item",
+                    "removeDialogTitle": "Are you sure you want to remove this item?",
+                    "removeDialogMessage": "Removing this item may affect your eligibility to get the {0} deal.",
+                    "dealNotificationEligible": "Good News! You can get a deal on the item you\u0027ve just added.",
+                    "dealNotificationCompleted": "Great! You just got the deal.",
+                    "viewDeal": "View Deal",
+                    "viewCart": "View Cart",
+
+                    "notEnoughPoints": "You don\u0027t have any Kobo Super Points yet.",
+                    "howToGetPoints": "How do I get Points?",
+                    "somethingWentWrong": "Oops! Something went wrong and we couldn\u0027t fetch your data. Please try again later. ",
+                    "showingStartToEnd": "Showing {0} to {1} of {2} transactions",
+                    "showingTransactionsDropdown": "Show {0} transactions",
+                    "points": "Points",
+                    "all": "All",
+                    "somethingGoneWrong": "Oops! Something\u0027s gone wrong.",
+                    "unableToGetThis": "We\u0027re unable to get this item for you right now.",
+                    "pleaseTryAgain": "Please try again later.",
+                    "stillHavingProblems": "If you are still having this problem in 24 hours, click \u003ca class=\"inline-link\"href=\"https://kobo.frontlinesvc.com/app/lanpag\" target=\"customerService\"\u003ehere\u003c/a\u003e to contact Kobo Customer Care, and submit an inquiry.",
+                    "pleaseTryAgain": "Please try again later.",
+                    "pointsNotRedeemed": "Your Kobo Super Points have not been redeemed.",
+                    "ok": "OK",
+                    "previous": "Previous",
+                    "next": "Next",
+                    "vipRemoveTitle": "Are you sure you want to remove your VIP membership?",
+                    "vipRemoveMessage": "If you remove VIP Membership, you\u0027ll miss out on exclusive benefits of {0} off and 2X points earned on eligible items.",
+                    "vipRemovePositiveAction": "Keep it",
+                    "vipRemoveNegativeAction": "Remove it",
+                    "termsOfSale": "Terms of Sale",
+                    "redemptionTermsMessage": "To read the Terms of Sale, please visit kobo.com/termsofsales from a browser on your computer.",
+                    "epdTermsTitle": "Terms \u0026 Conditions",
+                    "epdTermsMessage": "To read the Kobo Super Points Terms \u0026 Conditions, please visit store.kobobooks.com/p/kobosuperpointsterms from a browser on your computer.",
+                    "loveNotificationTitle": "Great! You\u0027ve added Kobo VIP Membership.",
+                    "loveNotificationBody": "You can now see VIP Prices while browsing the Kobo Store. Just look for the VIP icon!",
+                    "percentage": "{0}%"
+
+                }
+                /*</sl:translate_json>*/
+            };
+
+        }
+
+        var KoboOfflineData = {};
+
+    </script>
+    <script src="//kbstatic1-a.akamaihd.net/2174/Scripts/external/modernizr-2.6.2.min.js"></script>
+    <link href="//kbstatic1-a.akamaihd.net/2174/output/styles/kobo.min.css" rel="stylesheet"/>
+    <!--[if lte IE 9]>
+    <link href="//kbstatic1-a.akamaihd.net/2174/output/styles/kobo2.min.css" rel="stylesheet"/>
+
+    <![endif]-->
+    <link rel="canonical" href="https://store.kobobooks.com/en-us/search/query?query="/>
+    <link rel="alternate"
+          href="android-app://com.kobobooks.android/https/store.kobobooks.com/en-us/search/query?query="/>
+    <link rel="alternate" href="https://store.kobobooks.com" hreflang="x-default"/>
+    <link rel="alternate" href="https://store.kobobooks.com/de-de/search/query?query=" hreflang="de-DE"/>
+    <link rel="alternate" href="https://store.kobobooks.com/en-ca/search/query?query=" hreflang="en-CA"/>
+    <link rel="alternate" href="https://store.kobobooks.com/es-es/search/query?query=" hreflang="es-ES"/>
+    <link rel="alternate" href="https://store.kobobooks.com/es-mx/search/query?query=" hreflang="es-MX"/>
+    <link rel="alternate" href="https://store.kobobooks.com/fr-ca/search/query?query=" hreflang="fr-CA"/>
+    <link rel="alternate" href="https://store.kobobooks.com/fr-fr/search/query?query=" hreflang="fr-FR"/>
+    <link rel="alternate" href="https://store.kobobooks.com/it-it/search/query?query=" hreflang="it-IT"/>
+    <link rel="alternate" href="https://store.kobobooks.com/ja-jp/search/query?query=" hreflang="ja-JP"/>
+    <link rel="alternate" href="https://store.kobobooks.com/nl-nl/search/query?query=" hreflang="nl-NL"/>
+    <link rel="alternate" href="https://store.kobobooks.com/pt-br/search/query?query=" hreflang="pt-BR"/>
+    <link rel="alternate" href="https://store.kobobooks.com/pt-pt/search/query?query=" hreflang="pt-PT"/>
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "https://store.kobobooks.com/",
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://store.kobobooks.com/search?query={search_term}",
+        "query-input": "required name=search_term"
+    }
+}
+
+
+    </script>
+</head>
+<body class="Store-Search-Results updated-search"
+      data-track-info="{&quot;pageConfigurationId&quot;:&quot;787797&quot;,&quot;pageName&quot;:&quot;Search&quot;}">
+<div class="kobo-container">
+    <!-- For adding height when the header is fixed on mobile -->
+    <div class="rich-header-spacer"></div>
+    <header class="rich-header">
+        <div class="rich-header-wrapper inner-wrap hide-side-menu">
+            <section class="header-right flow-opposite">
+                <!-- Language DropDown and Help link -->
+                <div class="rich-header-language-help">
+                    <a aria-label="help" class="rich-header-help"
+                       href="https://www.kobo.com/help/?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US"
+                       data-track-info="{&quot;description&quot;:&quot;Help&quot;}">Help</a>
+                    <div class="kobo-gizmo rich-header-language-selector collapsed"
+                         data-kobo-gizmo="RichHeaderLanguageSelector"
+                         data-kobo-gizmo-config="{&quot;languageSelectorDropDownMenuSelector&quot;:&quot;language-dropdown&quot;,
+                              &quot;languageSelectorShowDropdownSelector&quot;:&quot;show-dropdown&quot;,
+                              &quot;languageSelectorExpandedSelector&quot;:&quot;expanded&quot;,
+                              &quot;languageSelectorCollapsedSelector&quot;:&quot;collapsed&quot;}">
+                        <button class="language-selector" aria-label="language selector">
+                            <div class="selected-language" data-force-track=""
+                                 data-track-info="{&quot;description&quot;:&quot;Language menu&quot;}">
+                                English
+                            </div>
+                        </button>
+                        <hr/>
+                        <ul class="language-dropdown">
+                            <li class=""><a aria-label="language" href="/ChangeLanguage?culture=de-DE"
+                                            data-track-info="{&quot;description&quot;:&quot;Deutsch&quot;,&quot;section&quot;:&quot;Language menu&quot;}"><span
+                                    translate="no">Deutsch</span></a></li>
+                            <li class="selected-language-dropdown"><a aria-label="language"
+                                                                      href="/ChangeLanguage?culture=en-us"
+                                                                      data-track-info="{&quot;description&quot;:&quot;English&quot;,&quot;section&quot;:&quot;Language menu&quot;}"><span
+                                    translate="no">English</span></a></li>
+                            <li class=""><a aria-label="language" href="/ChangeLanguage?culture=es-ES"
+                                            data-track-info="{&quot;description&quot;:&quot;Espa&ntilde;ol&quot;,&quot;section&quot;:&quot;Language menu&quot;}"><span
+                                    translate="no">Espa&ntilde;ol</span></a></li>
+                            <li class=""><a aria-label="language" href="/ChangeLanguage?culture=fr-FR"
+                                            data-track-info="{&quot;description&quot;:&quot;Fran&ccedil;ais&quot;,&quot;section&quot;:&quot;Language menu&quot;}"><span
+                                    translate="no">Fran&ccedil;ais</span></a></li>
+                            <li class=""><a aria-label="language" href="/ChangeLanguage?culture=fr-ca"
+                                            data-track-info="{&quot;description&quot;:&quot;Fran&ccedil;ais Canadien&quot;,&quot;section&quot;:&quot;Language menu&quot;}"><span
+                                    translate="no">Fran&ccedil;ais Canadien</span></a></li>
+                            <li class=""><a aria-label="language" href="/ChangeLanguage?culture=it-IT"
+                                            data-track-info="{&quot;description&quot;:&quot;Italiano&quot;,&quot;section&quot;:&quot;Language menu&quot;}"><span
+                                    translate="no">Italiano</span></a></li>
+                            <li class=""><a aria-label="language" href="/ChangeLanguage?culture=nl-NL"
+                                            data-track-info="{&quot;description&quot;:&quot;Nederlands&quot;,&quot;section&quot;:&quot;Language menu&quot;}"><span
+                                    translate="no">Nederlands</span></a></li>
+                            <li class=""><a aria-label="language" href="/ChangeLanguage?culture=pt-PT"
+                                            data-track-info="{&quot;description&quot;:&quot;Portugu&ecirc;s&quot;,&quot;section&quot;:&quot;Language menu&quot;}"><span
+                                    translate="no">Portugu&ecirc;s</span></a></li>
+                            <li class=""><a aria-label="language" href="/ChangeLanguage?culture=pt-BR"
+                                            data-track-info="{&quot;description&quot;:&quot;Portugu&ecirc;s brasileiro&quot;,&quot;section&quot;:&quot;Language menu&quot;}"><span
+                                    translate="no">Portugu&ecirc;s brasileiro</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="rich-header-new-user">
+                    <!-- Controls for an anonymous user -->
+                    <div class="signIn-createAccount">
+                        <div class="create-Account">
+                            <a aria-label="create account" class="buttonish unbordered"
+                               href="https://secure.kobobooks.com/auth/register?redirectUrl=https%3a%2f%2fstore.kobobooks.com%2fen-nl%2fSearch%2fQuery%3fq%3d9780061566073"
+                               rel="nofollow" data-track-info="{&quot;description&quot;:&quot;Create Account&quot;}">Create
+                                Account</a>
+                        </div>
+                        <div class="sign-in-button">
+                            <a aria-label="sign in" class="buttonish bordered"
+                               href="https://secure.kobobooks.com/auth/login?redirectUrl=https%3a%2f%2fstore.kobobooks.com%2fen-nl%2fSearch%2fQuery%3fq%3d9780061566073"
+                               rel="nofollow" data-track-info="{&quot;description&quot;:&quot;Sign in&quot;}">Sign
+                                in</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="rich-header-signed-in-user-cart no-love">
+                    <button aria-label="shopping cart" class="kobo-gizmo rich-header-nav-shopping-cart collapsed"
+                            data-kobo-gizmo="RichHeaderShoppingCartToggle" data-kobo-gizmo-config="{
+                &quot;shoppingCartCollapsedSelector&quot;:&quot;collapsed&quot;,
+                &quot;shoppingCartExpandedSelector&quot;:&quot;expanded&quot;,
+                &quot;shoppingCartIconSelector&quot;:&quot;icon-cart&quot;,
+                &quot;shoppingCartShowIconSelector&quot;:&quot;show-icon&quot;
+            }" data-track-info="{&quot;description&quot;:&quot;Shopping Cart&quot;}">
+                        <div class="icon-cart">
+                            <span class="cart-item-count"><em></em></span>
+                        </div>
+                    </button>
+                    <!-- Controls for a signed-in user -->
+                </div>
+            </section>
+            <section class="header-left">
+                <!-- Kobo Logo -->
+                <div class="kobo-rakuten-logo">
+                    <h1><a aria-label="home" href="https://store.kobobooks.com/en-us"
+                           data-track-info="{&quot;description&quot;:&quot;Kobo Rakuten logo&quot;}"> <img
+                            src="//kbstatic1-a.akamaihd.net/2174/Images/transparent.gif" alt="Kobo Rakuten"
+                            class="fill"/> </a></h1>
+                </div>
+                <!-- Search Box WebView-->
+                <div id="header-search-input">
+                    <div data-kobo-widget="SearchInputWidget"
+                         data-track-info="{&quot;widgetId&quot;:&quot;9861&quot;,&quot;widgetName&quot;:&quot;SearchInputWidget&quot;}"
+                         class="SearchInputWidget">
+                        <!-- Search Gizmo -->
+                        <div class="search-bar-wrap kobo-gizmo" data-kobo-gizmo="SearchBar"
+                             data-kobo-gizmo-config="{&quot;autoCompleteEnabled&quot;:true,&quot;inputId&quot;:&quot;sl&quot;,&quot;primaryInputId&quot;:&quot;sl&quot;,&quot;secondaryInputId&quot;:&quot;sm&quot;,&quot;url&quot;:&quot;/Search/Query&quot;,&quot;templateName&quot;:&quot;SearchInputTemplate&quot;}">
+                            <div class="basic">
+                                <form action="/search" class="search-form" method="get">
+                                    <div class="search-section">
+                                        <div class="search-section-shadow">
+                                            <input aria-label="search" autocomplete="off" class="search-field" id="sl"
+                                                   name="Query" placeholder="Search by title, author, series or ISBN"
+                                                   type="search" value="9780061566073"/>
+                                            <input class="search-submit-button" type="submit" value="submit"
+                                                   rel="nofollow"
+                                                   data-track-info="{&quot;description&quot;:&quot;searchIcon&quot;}"/>
+                                            <span class="deleteicon clear-field-display-none"></span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <ul class="search-autocomplete" data-bind="foreach: items, visible: isActive">
+                                <li>
+                                    <a data-bind="attr: { href: url() }, html: matchedResult(), css: { selected: isSelected }"></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Search Gizmo -->
+                    </div>
+                </div>
+                <!-- Main Navigation -->
+                <nav class="header-main-navigation no-love">
+                    <ul class="rich-header-main-nav">
+                        <li class="tab main-nav-home main-nav-link"><a aria-label="home"
+                                                                       href="https://store.kobobooks.com/en-us"
+                                                                       class="link"
+                                                                       data-track-info="{&quot;description&quot;:&quot;Home&quot;}">Home</a>
+                        </li>
+                        <li class="tab shop-ebooks" data-kobo-gizmo="HeaderNavigationTab" data-kobo-gizmo-config="{
+        &quot;toggleClass&quot; : &quot;toggle&quot;,
+        &quot;panelElement&quot; : &quot;nav-panel&quot;
+    }"><a href="#" class="toggle" id="shop-ebooks"
+          data-track-info="{&quot;description&quot;:&quot;Header books tab&quot;}">eBooks</a>
+                            <div class="nav-panel dual-section" id="navPanelBooks">
+                                <div data-kobo-widget="HeaderTopCategoriesWidget"
+                                     data-track-info="{&quot;widgetId&quot;:&quot;0&quot;,&quot;widgetName&quot;:&quot;HeaderTopCategoriesWidget&quot;}"
+                                     class="HeaderTopCategoriesWidget">
+                                    <div class="kobo-gizmo HeaderTopCategories" data-kobo-gizmo="HeaderCategories"
+                                         data-kobo-gizmo-config="{
+        &quot;ulSelectorClass&quot;:&quot;categoriesBook&quot;,
+        &quot;wrapperDivClass&quot;:&quot;HeaderTopCategories&quot;,
+        &quot;smallViewMaxDisplay&quot;: &quot;3&quot;,
+        &quot;wrapperId&quot; : &quot;wrapperCategoriesBook&quot;
+     }">
+                                        <div id="wrapperCategoriesBook">
+                                            <h2> Popular Categories </h2>
+                                            <div class="wrapperCategories">
+                                                <ul class="categoriesBook">
+                                                    <li>
+                                                        <a href="https://store.kobobooks.com/en-US/category/fiction-literature"
+                                                           data-track-info="{&quot;description&quot;:&quot;Fiction &amp; Literature category&quot;,&quot;section&quot;:&quot;Header Category Book&quot;}"
+                                                           translate="no">Fiction &amp; Literature</a></li>
+                                                    <li><a href="https://store.kobobooks.com/en-US/category/romance-2"
+                                                           data-track-info="{&quot;description&quot;:&quot;Romance category&quot;,&quot;section&quot;:&quot;Header Category Book&quot;}"
+                                                           translate="no">Romance</a></li>
+                                                    <li><a href="https://store.kobobooks.com/en-US/category/nonfiction"
+                                                           data-track-info="{&quot;description&quot;:&quot;Nonfiction category&quot;,&quot;section&quot;:&quot;Header Category Book&quot;}"
+                                                           translate="no">Nonfiction</a></li>
+                                                    <li><a href="https://store.kobobooks.com/en-US/category/fiction-ya"
+                                                           data-track-info="{&quot;description&quot;:&quot;Fiction - YA category&quot;,&quot;section&quot;:&quot;Header Category Book&quot;}"
+                                                           translate="no">Fiction - YA</a></li>
+                                                    <li>
+                                                        <a href="https://store.kobobooks.com/en-US/category/mystery-suspense"
+                                                           data-track-info="{&quot;description&quot;:&quot;Mystery &amp; Suspense category&quot;,&quot;section&quot;:&quot;Header Category Book&quot;}"
+                                                           translate="no">Mystery &amp; Suspense</a></li>
+                                                    <li><a href="https://store.kobobooks.com/en-US/category/kids-1"
+                                                           data-track-info="{&quot;description&quot;:&quot;Kids category&quot;,&quot;section&quot;:&quot;Header Category Book&quot;}"
+                                                           translate="no">Kids</a></li>
+                                                    <li>
+                                                        <a href="https://store.kobobooks.com/en-US/category/sci-fi-fantasy"
+                                                           data-track-info="{&quot;description&quot;:&quot;Sci Fi &amp; Fantasy category&quot;,&quot;section&quot;:&quot;Header Category Book&quot;}"
+                                                           translate="no">Sci Fi &amp; Fantasy</a></li>
+                                                    <li>
+                                                        <a href="https://store.kobobooks.com/en-US/category/biography-memoir"
+                                                           data-track-info="{&quot;description&quot;:&quot;Biography &amp; Memoir category&quot;,&quot;section&quot;:&quot;Header Category Book&quot;}"
+                                                           translate="no">Biography &amp; Memoir</a></li>
+                                                    <li>
+                                                        <a href="https://store.kobobooks.com/en-US/category/business-finance"
+                                                           data-track-info="{&quot;description&quot;:&quot;Business &amp; Finance category&quot;,&quot;section&quot;:&quot;Header Category Book&quot;}"
+                                                           translate="no">Business &amp; Finance</a></li>
+                                                    <li>
+                                                        <a href="https://store.kobobooks.com/en-US/category/comics-graphic-novels"
+                                                           data-track-info="{&quot;description&quot;:&quot;Comics &amp; Graphic Novels category&quot;,&quot;section&quot;:&quot;Header Category Book&quot;}"
+                                                           translate="no">Comics &amp; Graphic Novels</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="viewAllCategories">
+                                                <a href="https://store.kobobooks.com/en-us/ebooks/categories"
+                                                   data-track-info="{&quot;description&quot;:&quot;All categories&quot;,&quot;section&quot;:&quot;Header Category Book&quot;}">
+                                                    Browse all categories</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-kobo-widget="LinkGroupWidget"
+                                     data-track-info="{&quot;widgetId&quot;:&quot;9706&quot;,&quot;widgetName&quot;:&quot;LinkGroupWidget&quot;}"
+                                     class="LinkGroupWidget">
+                                    <div class="kobo-gizmo groupLinkWidget" data-kobo-gizmo="GroupLink"
+                                         data-kobo-gizmo-config="{
+        &quot;maxSmallViewLinks&quot;:&quot;1&quot;,
+        &quot;maxLargeViewLinks&quot;:&quot;4&quot;,
+        &quot;maxSmallViewFeaturedListLinks&quot;:&quot;3&quot;,
+        &quot;maxLargeViewFeaturedListLinks&quot;:&quot;4&quot;,
+        &quot;linkSelector&quot;:&quot;linkItem&quot;,
+        &quot;featureLinkSelector&quot;: &quot;featuredListLinkItem&quot;
+     }">
+                                        <h2>New &amp; Notable</h2>
+                                        <div class="linkWrapper">
+                                            <ul>
+                                                <li class="linkItem"><a
+                                                        href="https://store.kobobooks.com/en-us/recommendations"
+                                                        translate="no"
+                                                        data-track-info="{&quot;description&quot;:&quot;Recommended for You&quot;,&quot;section&quot;:&quot;New &amp; Notable&quot;}">Recommended
+                                                    for You</a></li>
+                                                <li class="linkItem"><a
+                                                        href="https://store.kobobooks.com/en-us/ebooks/top"
+                                                        translate="no"
+                                                        data-track-info="{&quot;description&quot;:&quot;Top 50&quot;,&quot;section&quot;:&quot;New &amp; Notable&quot;}">Top
+                                                    50</a></li>
+                                                <li class="linkItem"><a
+                                                        href="https://store.kobobooks.com/en-us/dailydeal"
+                                                        translate="no"
+                                                        data-track-info="{&quot;description&quot;:&quot;Daily Deal&quot;,&quot;section&quot;:&quot;New &amp; Notable&quot;}">Daily
+                                                    Deal</a></li>
+                                                <li class="linkItem"><a
+                                                        href="https://store.kobobooks.com/en-us/List/bekijk-het-overzicht-van-gratis-ebooks/QpkkVWnUw8sxmgjSlCbJRg"
+                                                        translate="no"
+                                                        data-track-info="{&quot;description&quot;:&quot;Free eBooks&quot;,&quot;section&quot;:&quot;New &amp; Notable&quot;}">Free
+                                                    eBooks</a></li>
+                                                <li class="featuredListLinkItem"><a
+                                                        href="//store.kobobooks.com/en-us/list/verfilmde-boeken/y7qgWxYiuE28s2RK9boEyA"
+                                                        translate="no"
+                                                        data-track-info="{&quot;description&quot;:&quot;Verfilmde boeken&quot;,&quot;section&quot;:&quot;New &amp; Notable&quot;}">Verfilmde
+                                                    boeken</a></li>
+                                                <li class="featuredListLinkItem"><a
+                                                        href="//store.kobobooks.com/en-us/list/nieuw-verschenen/vMkO_DOMC023e_KVpW04ZQ"
+                                                        translate="no"
+                                                        data-track-info="{&quot;description&quot;:&quot;Nieuw verschenen&quot;,&quot;section&quot;:&quot;New &amp; Notable&quot;}">Nieuw
+                                                    verschenen</a></li>
+                                                <li class="featuredListLinkItem"><a
+                                                        href="//store.kobobooks.com/en-us/list/scherp-geprijsde-ebooks/CPAyQCULBECe8f_z4yJU9g"
+                                                        translate="no"
+                                                        data-track-info="{&quot;description&quot;:&quot;Scherp geprijsde eBooks&quot;,&quot;section&quot;:&quot;New &amp; Notable&quot;}">Scherp
+                                                    geprijsde eBooks</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="groupLinkFooter">
+                                            <a href="https://store.kobobooks.com/en-us/ebooks" translate="no"
+                                               data-track-info="{&quot;description&quot;:&quot;Browse all eBooks&quot;,&quot;section&quot;:&quot;New &amp; Notable&quot;}">Browse
+                                                all eBooks</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="tab link-nav-showdevices" data-kobo-gizmo="HeaderNavigationTab"
+                            data-kobo-gizmo-config="{
+        &quot;toggleClass&quot; : &quot;toggle&quot;,
+        &quot;panelElement&quot; : &quot;nav-panel&quot;
+    }"><a href="#" class="toggle" id="nav-showdevices"
+          data-track-info="{&quot;description&quot;:&quot;Header ereaders and apps tab&quot;}">Apps &amp; eReaders</a>
+                            <div class="nav-panel"></div>
+                            <div class="nav-panel nav-panel-overlay" id="navPanelEreadersAndApps">
+                                <div class="kobo-gizmo ereaders-and-apps-panel"
+                                     data-kobo-gizmo="RichHeaderEReadersAndAppsPanel" data-kobo-gizmo-config="{
+            &quot;defaultSelection&quot;: &quot;selection-type-apps&quot;,
+            &quot;menuItemSelector&quot;: &quot;menu-item&quot;,
+            &quot;itemWrapperClass&quot;: &quot;item&quot;,
+            &quot;activeClass&quot;: &quot;selected&quot;
+     }">
+                                    <div class="ereader-apps-menu">
+                                        <ul class="menu-item-container">
+                                            <li class="item divider"><a href="#"
+                                                                        class="menu-item selection-type-apps menuitem-selection1"
+                                                                        data-track-info="{&quot;description&quot;:&quot;Kobo Apps&quot;}">Kobo
+                                                Apps</a>
+                                                <div class="ereader-apps-side-container selection-type-apps">
+                                                    <div data-kobo-widget="LinkGroupWidget"
+                                                         data-track-info="{&quot;widgetId&quot;:&quot;9707&quot;,&quot;widgetName&quot;:&quot;LinkGroupWidget&quot;}"
+                                                         class="LinkGroupWidget">
+                                                        <div class="kobo-gizmo groupLinkWidget"
+                                                             data-kobo-gizmo="GroupLink" data-kobo-gizmo-config="{
+        &quot;maxSmallViewLinks&quot;:&quot;5&quot;,
+        &quot;maxLargeViewLinks&quot;:&quot;5&quot;,
+        &quot;maxSmallViewFeaturedListLinks&quot;:&quot;0&quot;,
+        &quot;maxLargeViewFeaturedListLinks&quot;:&quot;0&quot;,
+        &quot;linkSelector&quot;:&quot;linkItem&quot;,
+        &quot;featureLinkSelector&quot;: &quot;featuredListLinkItem&quot;
+     }">
+                                                            <h2></h2>
+                                                            <div class="linkWrapper">
+                                                                <ul>
+                                                                    <li class="linkItem"><a
+                                                                            href="https://www.kobo.com/android?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US"
+                                                                            translate="no"
+                                                                            data-track-info="{&quot;description&quot;:&quot;Android&quot;,&quot;section&quot;:&quot;Header Group Link Widget&quot;}">Android</a>
+                                                                    </li>
+                                                                    <li class="linkItem"><a
+                                                                            href="https://www.kobo.com/ios?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US"
+                                                                            translate="no"
+                                                                            data-track-info="{&quot;description&quot;:&quot;Apple&quot;,&quot;section&quot;:&quot;Header Group Link Widget&quot;}">Apple</a>
+                                                                    </li>
+                                                                    <li class="linkItem"><a
+                                                                            href="https://www.kobo.com/blackberry10?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US"
+                                                                            translate="no"
+                                                                            data-track-info="{&quot;description&quot;:&quot;BlackBerry 10&quot;,&quot;section&quot;:&quot;Header Group Link Widget&quot;}">BlackBerry
+                                                                        10</a></li>
+                                                                    <li class="linkItem"><a
+                                                                            href="https://www.kobo.com/desktop?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US"
+                                                                            translate="no"
+                                                                            data-track-info="{&quot;description&quot;:&quot;Kobo Desktop - Win | Mac&quot;,&quot;section&quot;:&quot;Header Group Link Widget&quot;}">Kobo
+                                                                        Desktop - Win | Mac</a></li>
+                                                                    <li class="linkItem"><a
+                                                                            href="https://www.kobo.com/windows8?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US"
+                                                                            translate="no"
+                                                                            data-track-info="{&quot;description&quot;:&quot;Windows 8&quot;,&quot;section&quot;:&quot;Header Group Link Widget&quot;}">Windows
+                                                                        8</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div data-kobo-widget="MarketingContentWidget"
+                                                         data-track-info="{&quot;widgetId&quot;:&quot;9708&quot;,&quot;widgetName&quot;:&quot;MarketingContentWidget&quot;}"
+                                                         class="MarketingContentWidget">
+                                                        <div class="marketing-content-area-wrap marketing-widget"
+                                                             data-track-info="{&quot;contentTag&quot;:&quot;topNav_appsPanel_ROW&quot;,&quot;contentHash&quot;:&quot;RMzIsXUhSiIStCweuJ0yiO1sujM=&quot;}"
+                                                             translate="no">
+                                                            <!-- B-START ::: OneStore - Top Nav: Apps Panel (ROW) ::: topNav_appsPanel_ROW -->
+                                                            <img src="//kbmerch1-a.akamaihd.net/magento/onestore-top-nav/images/Sept/koboapps_nocopy.jpg"/>
+                                                            <!-- B-END ::: OneStore - Top Nav: Apps Panel (ROW) ::: topNav_appsPanel_ROW -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="item divider"><a href="#"
+                                                                        class="menu-item selection-type-ereaders menuitem-selection2"
+                                                                        data-track-info="{&quot;description&quot;:&quot;eReaders&quot;}">eReaders</a>
+                                                <div class="ereader-apps-side-container selection-type-ereaders">
+                                                    <div data-kobo-widget="LinkGroupWidget"
+                                                         data-track-info="{&quot;widgetId&quot;:&quot;9449&quot;,&quot;widgetName&quot;:&quot;LinkGroupWidget&quot;}"
+                                                         class="LinkGroupWidget">
+                                                        <div class="kobo-gizmo groupLinkWidget"
+                                                             data-kobo-gizmo="GroupLink" data-kobo-gizmo-config="{
+        &quot;maxSmallViewLinks&quot;:&quot;4&quot;,
+        &quot;maxLargeViewLinks&quot;:&quot;4&quot;,
+        &quot;maxSmallViewFeaturedListLinks&quot;:&quot;0&quot;,
+        &quot;maxLargeViewFeaturedListLinks&quot;:&quot;0&quot;,
+        &quot;linkSelector&quot;:&quot;linkItem&quot;,
+        &quot;featureLinkSelector&quot;: &quot;featuredListLinkItem&quot;
+     }">
+                                                            <h2></h2>
+                                                            <div class="linkWrapper">
+                                                                <ul>
+                                                                    <li class="linkItem"><a
+                                                                            href="https://www.kobo.com/koboglohd?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US"
+                                                                            translate="no"
+                                                                            data-track-info="{&quot;description&quot;:&quot;Kobo Glo HD&quot;,&quot;section&quot;:&quot;Header Group Link Widget&quot;}">Kobo
+                                                                        Glo HD</a></li>
+                                                                    <li class="linkItem"><a
+                                                                            href="https://www.kobo.com/koboaurah2o?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US"
+                                                                            translate="no"
+                                                                            data-track-info="{&quot;description&quot;:&quot;Kobo Aura H2O&quot;,&quot;section&quot;:&quot;Header Group Link Widget&quot;}">Kobo
+                                                                        Aura H2O</a></li>
+                                                                    <li class="linkItem"><a
+                                                                            href="https://www.kobo.com/koboaura?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US"
+                                                                            translate="no"
+                                                                            data-track-info="{&quot;description&quot;:&quot;Kobo Aura&quot;,&quot;section&quot;:&quot;Header Group Link Widget&quot;}">Kobo
+                                                                        Aura</a></li>
+                                                                    <li class="linkItem"><a
+                                                                            href="https://www.kobo.com/devices?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US"
+                                                                            translate="no"
+                                                                            data-track-info="{&quot;description&quot;:&quot;All eReaders&quot;,&quot;section&quot;:&quot;Header Group Link Widget&quot;}">All
+                                                                        eReaders</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="groupLinkFooter">
+                                                                <a href="https://www.kobo.com/koboretailers?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US"
+                                                                   translate="no"
+                                                                   data-track-info="{&quot;description&quot;:&quot;Where to Buy&quot;,&quot;section&quot;:&quot;Header Group Link Widget Footer&quot;}">Where
+                                                                    to Buy</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div data-kobo-widget="MarketingContentWidget"
+                                                         data-track-info="{&quot;widgetId&quot;:&quot;9450&quot;,&quot;widgetName&quot;:&quot;MarketingContentWidget&quot;}"
+                                                         class="MarketingContentWidget">
+                                                        <div class="marketing-content-area-wrap marketing-widget"
+                                                             data-track-info="{&quot;contentTag&quot;:&quot;topNav_ereaderPanel_ROW&quot;,&quot;contentHash&quot;:&quot;MWycQDJ189cDABUKU65mxbKJMro=&quot;}"
+                                                             translate="no">
+                                                            <!-- B-START ::: OneStore - Top Nav: eReader Panel (ROW) ::: topNav_ereaderPanel_ROW -->
+                                                            <img src="//kbmerch1-a.akamaihd.net/magento/onestore/primary-navigation/apps-ereaders-panel/images/ww/ereaders.jpg"
+                                                                 alt="" title=""/>
+                                                            <!-- B-END ::: OneStore - Top Nav: eReader Panel (ROW) ::: topNav_ereaderPanel_ROW -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="item divider"><a href="#"
+                                                                        class="menu-item selection-type-accessories menuitem-selection3"
+                                                                        data-track-info="{&quot;description&quot;:&quot;Accessories&quot;}">Accessories</a>
+                                                <div class="ereader-apps-side-container selection-type-accessories">
+                                                    <div data-kobo-widget="LinkGroupWidget"
+                                                         data-track-info="{&quot;widgetId&quot;:&quot;9713&quot;,&quot;widgetName&quot;:&quot;LinkGroupWidget&quot;}"
+                                                         class="LinkGroupWidget">
+                                                        <div class="kobo-gizmo groupLinkWidget"
+                                                             data-kobo-gizmo="GroupLink" data-kobo-gizmo-config="{
+        &quot;maxSmallViewLinks&quot;:&quot;4&quot;,
+        &quot;maxLargeViewLinks&quot;:&quot;4&quot;,
+        &quot;maxSmallViewFeaturedListLinks&quot;:&quot;0&quot;,
+        &quot;maxLargeViewFeaturedListLinks&quot;:&quot;0&quot;,
+        &quot;linkSelector&quot;:&quot;linkItem&quot;,
+        &quot;featureLinkSelector&quot;: &quot;featuredListLinkItem&quot;
+     }">
+                                                            <h2></h2>
+                                                            <div class="linkWrapper">
+                                                                <ul>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="groupLinkFooter">
+                                                                <a href="https://www.kobo.com/koboretailers?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US"
+                                                                   translate="no"
+                                                                   data-track-info="{&quot;description&quot;:&quot;Where to Buy&quot;,&quot;section&quot;:&quot;Header Group Link Widget Footer&quot;}">Where
+                                                                    to Buy</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div data-kobo-widget="MarketingContentWidget"
+                                                         data-track-info="{&quot;widgetId&quot;:&quot;9714&quot;,&quot;widgetName&quot;:&quot;MarketingContentWidget&quot;}"
+                                                         class="MarketingContentWidget">
+                                                        <div class="marketing-content-area-wrap marketing-widget"
+                                                             data-track-info="{&quot;contentTag&quot;:&quot;topNav_accessoriesPanel_ROW&quot;,&quot;contentHash&quot;:&quot;/rYYK/rnTPU08wXalbH/kDyzY0A=&quot;}"
+                                                             translate="no">
+                                                            <!-- B-START ::: OneStore - Top Nav: Accessories Panel (ROW) ::: topNav_accessoriesPanel_ROW -->
+                                                            <img src="//kbmerch1-a.akamaihd.net/magento/onestore/primary-navigation/apps-ereaders-panel/images/ww/accessories.jpg"
+                                                                 alt="" title=""/>
+                                                            <!-- B-END ::: OneStore - Top Nav: Accessories Panel (ROW) ::: topNav_accessoriesPanel_ROW -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="tab main-nav-link"><a aria-label="header gifts link"
+                                                         href="https://www.kobo.com/egiftcards?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US"
+                                                         class="link"
+                                                         data-track-info="{&quot;description&quot;:&quot;Header Gifts link&quot;}">Gift
+                            Cards</a></li>
+                    </ul>
+                    <div style="clear: both"></div>
+                </nav>
+            </section>
+        </div>
+        <div class="secondary-small-rich-header">
+            <div class="kobo-gizmo rich-header-small slide-small-rich-header-left"
+                 data-kobo-gizmo="SmallSecondaryRichHeader" data-kobo-gizmo-config="{
+        &quot;mainMenuSelector&quot;: &quot;rich-header-wrapper&quot;,
+        &quot;sideMenuToggleSelector&quot;: &quot;rich-header-small-toggle-side-menu&quot;,
+        &quot;slideSmallMainMenuLeftSelector&quot;: &quot;slide-small-rich-header-left&quot;,
+        &quot;slideSmallMainMenuRightSelector&quot;: &quot;slide-small-rich-header-right&quot;,
+        &quot;hideSideMenuSelector&quot;: &quot;hide-side-menu&quot;,
+        &quot;showSideMenuSelector&quot;: &quot;show-side-menu&quot;,
+        &quot;sideMenuIsClosedSelector&quot;: &quot;side-rich-header-is-closed&quot;,
+        &quot;sideMenuIsOpenSelector&quot;: &quot;side-rich-header-is-open&quot;,
+        &quot;pushSearchBarLeftSelector&quot;: &quot;push-searchBar-left&quot;,
+        &quot;pushSearchBarRightSelector&quot;: &quot;push-searchBar-right&quot;,
+        &quot;pushContentLeftSelector&quot;: &quot;rich-header-push-content-left&quot;,
+        &quot;pushContentRightSelector&quot;: &quot;rich-header-push-content-right&quot;,
+        &quot;headerSearchCollapsedSelector&quot;: &quot;small-search-is-collapsed&quot;,
+        &quot;headerSearchBarToggleSelector&quot;: &quot;rich-header-small-search-toggle&quot;,
+        &quot;headerSearchInputWidgetSelector&quot;: &quot;kobo-main .SearchInputWidget&quot;,
+        &quot;headerSearchFieldSelector&quot;: &quot;search-field&quot;
+     }">
+                <button aria-label="toggle menu" class="rich-header-small-toggle-side-menu side-rich-header-is-closed"
+                        data-track-info="{&quot;description&quot;:&quot;Hamburger&quot;}" data-force-track=""></button>
+                <div class="rich-header-small-logo">
+                    <h1><a aria-label="Home" href="https://store.kobobooks.com/en-us"
+                           data-track-info="{&quot;description&quot;:&quot;Kobo Rakuten logo&quot;}"> <img
+                            src="//kbstatic1-a.akamaihd.net/2174/Images/transparent.gif" alt="Kobo Rakuten"
+                            class="fill"/> </a></h1>
+                </div>
+                <div class="rich-header-small-shopping-cart">
+                    <button aria-label="shopping cart" class="kobo-gizmo rich-header-nav-shopping-cart collapsed"
+                            data-kobo-gizmo="RichHeaderShoppingCartToggle" data-kobo-gizmo-config="{
+                &quot;shoppingCartCollapsedSelector&quot;:&quot;collapsed&quot;,
+                &quot;shoppingCartExpandedSelector&quot;:&quot;expanded&quot;,
+                &quot;shoppingCartIconSelector&quot;:&quot;icon-cart&quot;,
+                &quot;shoppingCartShowIconSelector&quot;:&quot;show-icon&quot;
+            }" data-track-info="{&quot;description&quot;:&quot;Shopping Cart&quot;}">
+                        <div class="icon-cart">
+                            <span class="cart-item-count"><em></em></span>
+                        </div>
+                    </button>
+                </div>
+                <div class="rich-header-small-search-toggle"
+                     data-track-info="{&quot;description&quot;:&quot;Search icon&quot;}">
+                    <a aria-label="search bar toggle" class="search-bar-toggle" alt="Search"
+                       href="/en-us/search?query="></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="kobo-main">
+        <div class="two-column-left-full-aside">
+            <div class="full-top">
+                <div data-kobo-widget="ShoppingCartWidget"
+                     data-track-info="{&quot;widgetId&quot;:&quot;7482&quot;,&quot;widgetName&quot;:&quot;ShoppingCartWidget&quot;}"
+                     class="ShoppingCartWidget">
+                    <!-- Cart Gizmo -->
+                    <div class="kobo-gizmo shoppingCart-gizmo" data-kobo-gizmo="ShoppingCart">
+                        <div class="cart-drawer kobo-gizmo gizmo-expandable gizmo-expandable-collapsed-on-load cart-content"
+                             data-kobo-gizmo="Expandable"
+                             data-kobo-gizmo-config="{&quot;isCollapsed&quot;: &quot;true&quot;, &quot;viewModel&quot; : &quot;Drawer&quot;, &quot;allowBindings&quot;: &quot;false&quot;}">
+                            <div class="inner-wrap">
+                                <div class="inner-cart"
+                                     data-bind="css: { isRecommendations: (shoppingCart.itemLength() &gt; 0), emptyCart: (shoppingCart.itemLength() === 0) }">
+                                    <div class="cart-recommendations"
+                                         data-bind="style: { display: (shoppingCart.itemLength() &gt; 0) ? 'block' : 'none' }, allowBindings: false">
+                                        <section class="kobo-widget kobo-gizmo gizmo-grid"
+                                                 data-kobo-gizmo="CartRecommendationsGrid"
+                                                 data-kobo-gizmo-config="{&quot;rows&quot;: {&quot;small&quot;: 0, &quot;medium&quot;:1, &quot;large&quot;:2}, &quot;url&quot;:&quot;/ShoppingCartWidget/LoadMoreRecommendationItems?PageNumber=1&amp;ResultsPerPage=8&amp;ImageHeight=170&amp;ImageWidth=110&quot;}"
+                                                 data-track-info="{&quot;section&quot;:&quot;recommendations&quot;}">
+                                            <h2>More titles to consider</h2>
+                                            <div class="ajax-preloader no-display">
+                                                <img src="//kbstatic1-a.akamaihd.net/2174/Images/ajax_preloader.gif"/>
+                                            </div>
+                                            <ul class="recommendation-list" data-bind="foreach: items">
+                                                <li data-bind="attr: { 'data-track-info': itemDataTrack }">
+                                                    <div>
+                                                        <div class="image-container">
+                                                            <a data-bind="attr: { href: productDetail }"
+                                                               data-track-info="{&quot;description&quot;:&quot;coverImage&quot;}">
+                                                                <img class="image" data-bind="attr: { src: imageUrl }"/>
+                                                            </a>
+                                                        </div>
+                                                        <span class="price book-price"
+                                                              data-bind="text: price, css: { 'kobo-love-price': isKoboLoveEligible }"></span>
+                                                        <button data-bind="click: addToCart" class="add-to-cart"
+                                                                data-track-info="{&quot;description&quot;:&quot;addToCart&quot;}">
+                                                            <span class="show-small-text">Add</span><span
+                                                                class="show-long-text">Add to Cart</span></button>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+                                    <div class="cart-order-area-wrapper"
+                                         data-bind="css: { 'has-items': (shoppingCart.itemLength() &gt; 0) }">
+                                        <div class="cart-order-area">
+                                            <div class="kobo-widget">
+                                                <h2>Shopping Cart</h2>
+                                                <div class="cart-items"
+                                                     data-bind="style: { minHeight: (shoppingCart.itemLength() === 0) ? '0px' : '190px' } ">
+                                                    <div class="vip-product-message kobo-widget"
+                                                         data-bind="css: {show: shoppingCart.containsKoboLoveMembership() &amp;&amp; shoppingCart.itemLength() &gt; 1 &amp;&amp; shoppingCart.priceAndPointsEnabled()}">
+                                                        <h3 class="vip-icon-title">You're getting the VIP
+                                                            treatment!</h3>
+                                                        <p>With the purchase of Kobo VIP Membership, you're getting 10%
+                                                            off and 2x Kobo Super Points on eligible items.</p>
+                                                    </div>
+                                                    <div data-bind="allowBindings: false">
+                                                        <section class="kobo-gizmo shopping-cart-items"
+                                                                 data-kobo-gizmo="ShoppingCartItems"
+                                                                 data-kobo-gizmo-config="{&quot;fetchItemsUrl&quot;: &quot;/ShoppingCartWidget/Get&quot;, &quot;addItemUrl&quot;: &quot;/shoppingcartwidget/add&quot;}">
+                                                            <!-- Empty Cart Markup -->
+                                                            <div class="empty hidden"
+                                                                 data-bind="style: { display: (items().length === 0) ? 'block' : 'none' }">
+                                                                <h3>Your Shopping Cart is empty</h3>
+                                                                <p>There are currently no items in your Shopping
+                                                                    Cart.</p>
+                                                                <a href="https://store.kobobooks.com/en-us"
+                                                                   class="button tertiary-button close-cart">Continue
+                                                                    shopping</a>
+                                                            </div>
+                                                            <!-- end Empty-Cart Markup-->
+                                                            <div class="cart-tally"
+                                                                 data-bind="visible: items().length &gt; 0">
+                                                                <span class="count-wrap"><span
+                                                                        data-bind="text: items().length"></span> <span
+                                                                        data-bind=" visible: items().length &gt; 1">items</span><span
+                                                                        data-bind="    visible: items().length === 1">item</span></span>
+                                                            </div>
+                                                            <!-- Deals -->
+                                                            <ul class="hidden deal-items-container"
+                                                                data-bind="foreach: groupedDealItems, style: { display: (groupedDealItems().length &gt; 0) ? 'block' : 'none' }">
+                                                                <li class="deal">
+                                                                    <!-- deal title and price details -->
+                                                                    <div class="deal-header">
+                                                                        <div class="deal-title">
+                                                                            <h3 data-bind="text:name"></h3>
+                                                                        </div>
+                                                                        <div class="price-wrap">
+                                                                            <span class="original-price"
+                                                                                  data-bind="text: originalPrice"></span>
+                                                                            <span class="discount-price"
+                                                                                  data-bind="text:discountedPrice"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- small view treatment of 'price-wrap' -->
+                                                                    <div class="small-view-deal-wrapper">
+                                                                        <div class="price-wrap">
+                                                                            <span class="original-price"
+                                                                                  data-bind="text: originalPrice"></span>
+                                                                            <span class="discount-price"
+                                                                                  data-bind="text:discountedPrice"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- deal item -->
+                                                                    <ul data-bind="foreach: items">
+                                                                        <li>
+                                                                            <div class="messaging error-message"
+                                                                                 data-bind="visible: errorMessage">
+                                                                                <span data-bind="text: errorMessage"></span>
+                                                                            </div>
+                                                                            <div class="messaging info-message"
+                                                                                 data-bind="visible: infoMessage">
+                                                                                <span data-bind="html: infoMessage"></span>
+                                                                            </div>
+                                                                            <div class="table"
+                                                                                 data-bind="css: { 'not-available': restricted }">
+                                                                                <div class="item-image">
+                                                                                    <a data-bind="attr: { href: itemDetailUrl }"
+                                                                                       data-track-info="{&quot;description&quot;:&quot;coverImage&quot;}"><img
+                                                                                            data-bind="attr: { src: imageUrl }"/></a>
+                                                                                </div>
+                                                                                <div class="item-details">
+                                                                                    <p class="series-name hidden"
+                                                                                       data-bind="style: { display: seriesName() ? 'block' : 'none' }">
+                                                                                        By <span
+                                                                                            data-bind="text: seriesName"></span>
+                                                                                    </p>
+                                                                                    <a data-bind="attr: { href: itemDetailUrl }"
+                                                                                       data-track-info="{&quot;description&quot;:&quot;title&quot;}">
+                                                                                        <h3 class="title-publication"
+                                                                                            data-bind="text: title"></h3>
+                                                                                    </a>
+                                                                                    <a data-bind="attr: { href: itemDetailUrl }"
+                                                                                       data-track-info="{&quot;description&quot;:&quot;subtitle&quot;}">
+                                                                                        <h4 class="title-publication subtitle"
+                                                                                            data-bind="visible: subTitle, text: subTitle"></h4>
+                                                                                    </a>
+                                                                                    <h5 class="author"
+                                                                                        data-bind="visible: authorName">
+                                                                                        By <span
+                                                                                            data-bind="text: authorName"></span>
+                                                                                    </h5>
+                                                                                    <p class="messaging detail-messaging credit"
+                                                                                       data-bind="visible: secondaryMessage, html: secondaryMessage"></p>
+                                                                                    <div class="bottom-content">
+                                                                                        <a href="#" class="primary-link"
+                                                                                           data-bind="click: $root.removeItemInline"
+                                                                                           data-track-info="{&quot;description&quot;:&quot;remove&quot;}">Remove</a>
+                                                                                        <div class="opt-in"
+                                                                                             data-bind="visible: publisherCheckboxVisible">
+                                                                                            <form class="has-opted-in">
+                                                                                                <input type="checkbox"
+                                                                                                       data-bind="checked: hasOptedInForOffers"/>
+                                                                                                <label><span
+                                                                                                        data-bind="html: offersText"></span></label>
+                                                                                            </form>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="price-table">
+                                                                                    <ol data-bind="foreach: priceDetails"
+                                                                                        data-automation-test-hook="price-table">
+                                                                                        <li><span class="price"
+                                                                                                  data-bind="css: { credit: isCredit, total: isTotal, 'kobo-love-price': !isCredit &amp;&amp; $parent.hasKoboLoveDiscount }, text: verboseLabel()"></span>
+                                                                                        </li>
+                                                                                    </ol>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                            <!-- Checkout Items -->
+                                                            <ul class="hidden checkout-items-container"
+                                                                data-bind="foreach: regularItems, style: { display: (regularItems().length &gt; 0) ? 'block' : 'none' }">
+                                                                <!-- For each regular checkout item -->
+                                                                <li data-bind="attr: { 'data-automation-test-hook' : id}">
+                                                                    <div class="messaging error-message"
+                                                                         data-bind="visible: errorMessage">
+                                                                        <span data-bind="text: errorMessage"></span>
+                                                                    </div>
+                                                                    <div class="messaging info-message"
+                                                                         data-bind="visible: infoMessage">
+                                                                        <span data-bind="html: infoMessage"></span>
+                                                                    </div>
+                                                                    <div class="table"
+                                                                         data-bind="css: { 'not-available': restricted }">
+                                                                        <div class="item-image">
+                                                                            <a data-bind="attr: { href: itemDetailUrl }"
+                                                                               data-track-info="{&quot;description&quot;:&quot;coverImage&quot;}"><img
+                                                                                    data-bind="attr: { src: imageUrl }"/></a>
+                                                                        </div>
+                                                                        <div class="item-details">
+                                                                            <p class="series-name hidden"
+                                                                               data-bind="style: { display: seriesName() ? 'block' : 'none' }">
+                                                                                By <span
+                                                                                    data-bind="text: seriesName"></span>
+                                                                            </p>
+                                                                            <a data-bind="attr: { href: itemDetailUrl }"
+                                                                               data-track-info="{&quot;description&quot;:&quot;title&quot;}">
+                                                                                <h3 class="title-publication"
+                                                                                    data-bind="text: title"></h3></a>
+                                                                            <a data-bind="attr: { href: itemDetailUrl }"
+                                                                               data-track-info="{&quot;description&quot;:&quot;subtitle&quot;}">
+                                                                                <h4 class="title-publication subtitle"
+                                                                                    data-bind="visible: subTitle, text: subTitle"></h4>
+                                                                            </a>
+                                                                            <h5 class="author"
+                                                                                data-bind="visible: authorName">By <span
+                                                                                    data-bind="text: authorName"></span>
+                                                                            </h5>
+                                                                            <p class="messaging detail-messaging credit"
+                                                                               data-bind="visible: secondaryMessage, html: secondaryMessage"></p>
+                                                                            <div class="bottom-content">
+                                                                                <a href="#" class="primary-link"
+                                                                                   data-bind="click: $root.removeItemInline"
+                                                                                   data-track-info="{&quot;description&quot;:&quot;remove&quot;}">Remove</a>
+                                                                                <div class="opt-in"
+                                                                                     data-bind="visible: publisherCheckboxVisible">
+                                                                                    <form class="has-opted-in">
+                                                                                        <input type="checkbox"
+                                                                                               data-bind="checked: hasOptedInForOffers"/>
+                                                                                        <label><span
+                                                                                                data-bind="html: offersText"></span></label>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="price-table">
+                                                                            <ol data-bind="foreach: priceDetails"
+                                                                                data-automation-test-hook="price-table">
+                                                                                <li><span class="price"
+                                                                                          data-bind="css: { credit: isCredit, total: isTotal, 'kobo-love-price': !isCredit &amp;&amp; $parent.hasKoboLoveDiscount }, text: verboseLabel()"></span>
+                                                                                </li>
+                                                                            </ol>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="summary-bar">
+                                                <div class="hidden wrapper"
+                                                     data-bind="style: { display: (shoppingCart.itemLength() &gt; 0) ? 'block' : 'none' }, allowBindings: false">
+                                                    <div class="kobo-widget cart-price-summary"
+                                                         data-bind="allowBindings:false">
+                                                        <div class="kobo-gizmo gizmo-pricesummary"
+                                                             data-kobo-gizmo="PriceSummary"
+                                                             data-kobo-gizmo-config="{ &quot;allowBindings&quot;: &quot;false&quot;, &quot;isFeatureTurnedOn&quot;: &quot;&quot; }">
+                                                            <ul data-bind="foreach: lineItems">
+                                                                <li class="line-item"
+                                                                    data-bind="css: { credit: isCredit(), total: isTotal(), totalSavings : isTotalSavings(), superPoints: isSuperPoints() }, attr: { 'data-automation-test-hook' : label } ">
+                                                                    <span class="line-item-label"
+                                                                          data-bind="text: label"></span> <span
+                                                                        class="line-item-amount"
+                                                                        data-bind="text: amount"></span></li>
+                                                            </ul>
+                                                            <div class="gizmo-superpoints"
+                                                                 data-bind="visible: allowSuperPoints()">
+                                                                <div class="info-message"
+                                                                     data-bind="html: pointsToEarn()">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cart-actions">
+                                                        <a class="primary-link close-cart large-view-continue"
+                                                           data-track-info="{&quot;description&quot;:&quot;closeCart&quot;}">Continue
+                                                            shopping</a>
+                                                        <a class="button primary-button" href="/en-us/purchase/buy"
+                                                           data-track-info="{&quot;description&quot;:&quot;checkout&quot;}">Checkout</a>
+                                                        <a class="primary-link close-cart"
+                                                           data-track-info="{&quot;description&quot;:&quot;closeCart&quot;}">Continue
+                                                            shopping</a>
+                                                    </div>
+                                                </div>
+                                                <div class="scroll-for-more-items"
+                                                     data-bind="css: { 'show-gradient' :shoppingCart.itemLength() &gt; 3}"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Cart Gizmo -->
+                </div>
+                <div data-kobo-widget="SearchInputWidget"
+                     data-track-info="{&quot;widgetId&quot;:&quot;7504&quot;,&quot;widgetName&quot;:&quot;SearchInputWidget&quot;}"
+                     class="SearchInputWidget">
+                    <!-- Search Gizmo -->
+                    <div class="search-bar-wrap kobo-gizmo" data-kobo-gizmo="SearchBar"
+                         data-kobo-gizmo-config="{&quot;autoCompleteEnabled&quot;:true,&quot;inputId&quot;:&quot;sm&quot;,&quot;primaryInputId&quot;:&quot;sl&quot;,&quot;secondaryInputId&quot;:&quot;sm&quot;,&quot;url&quot;:&quot;/Search/Query&quot;,&quot;templateName&quot;:&quot;SearchInputTemplate&quot;}">
+                        <div class="gizmo-collapsible" data-kobo-gizmo="Collapsible"
+                             data-kobo-gizmo-config="{&quot;name&quot;:&quot;searchBar&quot;,&quot;isOpen&quot;:{&quot;small&quot;:true,&quot;medium&quot;:false,&quot;large&quot;:false,&quot;jumbo&quot;:false}}">
+                            <form action="/search" class="search-form" method="get">
+                                <div class="search-section">
+                                    <div class="search-section-shadow">
+                                        <input aria-label="search" autocomplete="off" class="search-field" id="sm"
+                                               name="Query" placeholder="Search by title, author, series" type="search"
+                                               value="9780061566073"/>
+                                        <input class="search-submit-button" type="submit" value="submit" rel="nofollow"
+                                               data-track-info="{&quot;description&quot;:&quot;searchIcon&quot;}"/>
+                                        <span class="deleteicon clear-field-display-none"></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <ul class="search-autocomplete" data-bind="foreach: items, visible: isActive">
+                            <li>
+                                <a data-bind="attr: { href: url() }, html: matchedResult(), css: { selected: isSelected }"></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Search Gizmo -->
+                </div>
+            </div>
+            <div class="inner-wrap">
+                <aside class="column column-aside content-aside">
+                    <div data-kobo-widget="FacetWidget"
+                         data-track-info="{&quot;widgetId&quot;:&quot;7409&quot;,&quot;widgetName&quot;:&quot;FacetWidget&quot;}"
+                         class="FacetWidget">
+                        <div class="kobo-widget facet-basic">
+                            <div class="kobo-gizmo gizmo-expandable facet-list-container gizmo-expandable-nested"
+                                 data-kobo-gizmo="Expandable"
+                                 data-kobo-gizmo-config="{&quot;isCollapsed&quot;: { &quot;small&quot;: true, &quot;medium&quot;: true, &quot;large&quot;: false, &quot;jumbo&quot;: false }, &quot;viewModel&quot;: &quot;FacetListButtonNested&quot;, &quot;collapseOnEvent&quot;:&quot;facetFilterDropdown&quot;}">
+                                <div class="facet-list-header" data-force-track=""
+                                     data-track-info="{&quot;description&quot;:&quot;title&quot;}">
+                                    <div class="facet-list-largeview-header">
+                                        Filter
+                                    </div>
+                                </div>
+                                <div class="facet-list">
+                                    <div class="kobo-gizmo facet-list-container" data-kobo-gizmo="Expandable"
+                                         data-kobo-gizmo-config="{&quot;isCollapsed&quot;: { &quot;small&quot;: true, &quot;medium&quot;: true, &quot;large&quot;: false, &quot;jumbo&quot;: false }, &quot;viewModel&quot;: &quot;FacetListButton&quot;}"
+                                         data-automation-test-hook="Media Types">
+                                        <div class="facet-list-header" data-force-track=""
+                                             data-track-info="{&quot;description&quot;:&quot;title&quot;,&quot;section&quot;:&quot;Media Types&quot;}">
+                                            <div class="facet-list-largeview-header">
+                                                Media Type
+                                            </div>
+                                        </div>
+                                        <ul class="kobo-gizmo facet-list" data-kobo-gizmo="FacetCheckBox"
+                                            data-field-name="fcmedia">
+                                            <li class="facet-list-view-widget" data-field-value="all"
+                                                data-field-selected="True" data-field-isparent="True"
+                                                data-track-info="{&quot;description&quot;:&quot;All&quot;,&quot;section&quot;:&quot;Media Types&quot;}">
+                                                <a href="/en-nl/Search/Query?q=9780061566073" translate="no">All <em
+                                                        translate="no"> (0) </em> </a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="kobo-gizmo facet-list-container" data-kobo-gizmo="Expandable"
+                                         data-kobo-gizmo-config="{&quot;isCollapsed&quot;: { &quot;small&quot;: true, &quot;medium&quot;: true, &quot;large&quot;: false, &quot;jumbo&quot;: false }, &quot;viewModel&quot;: &quot;FacetListButton&quot;}"
+                                         data-automation-test-hook="Category">
+                                        <div class="facet-list-header" data-force-track=""
+                                             data-track-info="{&quot;description&quot;:&quot;title&quot;}">
+                                            <div class="facet-list-largeview-header">
+                                                Categories
+                                            </div>
+                                        </div>
+                                        <ul class="kobo-gizmo facet-list" data-kobo-gizmo="FacetCheckBox"
+                                            data-field-name="fcCategories">
+                                            <li class="facet-list-view-widget"
+                                                data-field-value="00000000-0000-0000-0000-000000000001"
+                                                data-field-selected="True" data-field-isparent="True"><a
+                                                    href="/en-us/emagazines/category/all">All<em translate="no">
+                                                (0) </em> </a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="kobo-gizmo facet-list-container" data-kobo-gizmo="Expandable"
+                                         data-kobo-gizmo-config="{&quot;isCollapsed&quot;: { &quot;small&quot;: true, &quot;medium&quot;: true, &quot;large&quot;: false, &quot;jumbo&quot;: false }, &quot;viewModel&quot;: &quot;FacetListButton&quot;}"
+                                         data-automation-test-hook="Language">
+                                        <div class="facet-list-header" data-force-track=""
+                                             data-track-info="{&quot;description&quot;:&quot;title&quot;,&quot;section&quot;:&quot;Language&quot;}">
+                                            <div class="facet-list-largeview-header">
+                                                Language
+                                            </div>
+                                        </div>
+                                        <ul class="kobo-gizmo facet-list" data-kobo-gizmo="FacetCheckBox"
+                                            data-field-name="fclanguages">
+                                            <li class="facet-list-view-widget" data-field-value="all"
+                                                data-field-selected="True" data-field-isparent="True"
+                                                data-track-info="{&quot;description&quot;:&quot;All&quot;,&quot;section&quot;:&quot;Language&quot;}">
+                                                <a href="/en-nl/Search/Query?q=9780061566073&amp;fclanguages=all"
+                                                   translate="no">All <em translate="no"> </em> </a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="facet-standalone-container kobo-gizmo" data-kobo-gizmo="FacetCheckBox"
+                                         data-field-name="fcpromocodes" data-automation-test-hook="Promo Code">
+                                        <div class="facet-standalone-header">
+                                            <div class="facet-standalone-largeview-header facet-list-view-widget"
+                                                 data-field-value="Yes" data-field-selected="False">
+                                                <a href="/en-nl/Search/Query?q=9780061566073&amp;fcpromocodes=Yes">Items
+                                                    Eligible For Promo Codes <em> </em> </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                <div class="columns-wrapper">
+                    <div class="content-top">
+                        <div data-kobo-widget="SearchResultsSummaryWidget"
+                             data-track-info="{&quot;widgetId&quot;:&quot;7417&quot;,&quot;widgetName&quot;:&quot;SearchResultsSummaryWidget&quot;}"
+                             class="SearchResultsSummaryWidget">
+                            <div class="kobo-widget search-results-summary facet-basic">
+                                <div class="result-sort-container">
+                                    <div class="kobo-gizmo result-sort facet-list-container gizmo-expandable gizmo-expandable-collapsed-on-load"
+                                         data-kobo-gizmo="Expandable.Popup"
+                                         data-kobo-gizmo-config="{&quot;isCollapsed&quot;: true,
+                                &quot;viewModel&quot;:&quot;FacetListButton&quot;,
+                                &quot;collapseOnEvent&quot;:&quot;facetFilterDropdown&quot;,
+                                &quot;extendToListItemWidth&quot;: false}" data-automation-test-hook="Sort_Dropdown">
+                                        <div class="facet-list-header" data-force-track=""
+                                             data-track-info="{&quot;description&quot;:&quot;title&quot;}">
+                                            <h3 class="facet-list-largeview-header"> Sort By: Bestsellers </h3>
+                                        </div>
+                                        <ul class="generic-filter-list facet-list sort-list">
+                                            <li data-automation-test-hook="Bestsellers"><a
+                                                    href="https://store.kobobooks.com/en-nl/Search/Query?q=9780061566073&amp;sort=Temperature">Bestsellers</a>
+                                            </li>
+                                            <li data-automation-test-hook="Highest Rated"><a
+                                                    href="https://store.kobobooks.com/en-nl/Search/Query?q=9780061566073&amp;sort=AverageRating">Highest
+                                                Rated</a></li>
+                                            <li data-automation-test-hook="Price: Low to High"><a
+                                                    href="https://store.kobobooks.com/en-nl/Search/Query?q=9780061566073&amp;sort=PriceAsc">Price:
+                                                Low to High</a></li>
+                                            <li data-automation-test-hook="Title: A to Z"><a
+                                                    href="https://store.kobobooks.com/en-nl/Search/Query?q=9780061566073&amp;sort=TitleAsc">Title:
+                                                A to Z</a></li>
+                                            <li data-automation-test-hook="Title: Z to A"><a
+                                                    href="https://store.kobobooks.com/en-nl/Search/Query?q=9780061566073&amp;sort=TitleDesc">Title:
+                                                Z to A</a></li>
+                                            <li data-automation-test-hook="Date: Newest to Oldest"><a
+                                                    href="https://store.kobobooks.com/en-nl/Search/Query?q=9780061566073&amp;sort=PublicationDateDesc">Date:
+                                                Newest to Oldest</a></li>
+                                            <li data-automation-test-hook="Date: Oldest to Newest"><a
+                                                    href="https://store.kobobooks.com/en-nl/Search/Query?q=9780061566073&amp;sort=PublicationDateAsc">Date:
+                                                Oldest to Newest</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="search-info">
+                                    <div class="search-results-text">
+                                        <h1>Search Results</h1>
+                                        <h2><span translate="no" class="figures">0</span> results for “<span
+                                                class="search-term" translate="no">9780061566073</span>” </h2>
+                                    </div>
+                                    <div class="search-results-layout kobo-gizmo"
+                                         data-kobo-gizmo="ResultDisplayController.ViewTrigger" data-force-track=""
+                                         data-track-info="{&quot;section&quot;:&quot;viewSelector&quot;}">
+                                        <div class="list active" data-force-track=""
+                                             data-track-info="{&quot;description&quot;:&quot;listView&quot;}"></div>
+                                        <div class="grid" data-force-track=""
+                                             data-track-info="{&quot;description&quot;:&quot;gridView&quot;}"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column column-main content-main">
+                        <div data-kobo-widget="SearchResultsWidget"
+                             data-track-info="{&quot;widgetId&quot;:&quot;7512&quot;,&quot;widgetName&quot;:&quot;SearchResultsWidget&quot;}"
+                             class="SearchResultsWidget">
+                            <section class="results wrapper">
+                                <p class="search-zero-results kobo-gizmo" data-kobo-gizmo="ScrollSnap">Sorry! Your
+                                    search for “<span translate="no">9780061566073</span>” did not return any results.
+                                </p>
+                                <div class="search-tips">
+                                    <h2>Search Tips</h2>
+                                    <ul>
+                                        <li>Check your spelling</li>
+                                        <li>Try different key words</li>
+                                        <li>If searching by ISBN remove all your spaces</li>
+                                        <li>Use Quotes to find exact matches</li>
+                                    </ul>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-bottom">
+                </div>
+            </div>
+            <div class="full-bottom">
+                <div data-kobo-widget="KoboLoveRedemptionWidget"
+                     data-track-info="{&quot;widgetId&quot;:&quot;0&quot;,&quot;widgetName&quot;:&quot;KoboLoveRedemptionWidget&quot;}"
+                     class="KoboLoveRedemptionWidget">
+                    <div class="kobo-gizmo" data-kobo-gizmo="LovePointsRedemptionLightbox" data-kobo-gizmo-config="{
+    &quot;startRedemptionUrl&quot;: &quot;https://store.kobobooks.com/en-us/koboloveredemptionwidget/createredemptionconfirmation&quot;,
+    &quot;useAbbreviatedContent&quot;: false,
+    &quot;canAccessBillingInfo&quot; : true
+    }">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="kobo-footer" data-track-info="{&quot;section&quot;:&quot;footer&quot;}">
+            <div class="primary-footer">
+                <div class="inner-wrap kobo-widget">
+                    <!-- first column -->
+                    <div class="floated-column footer-about-section gizmo-collapsible-with-header open-in-large"
+                         data-kobo-gizmo="Collapsible.HasHeader" data-kobo-gizmo-config="{
+                        &quot;isOpen&quot;: {&quot;small&quot;: false, &quot;medium&quot;: false, &quot;large&quot;: true, &quot;jumbo&quot;: true},
+                        &quot;name&quot;: &quot;About&quot;,
+                        &quot;toggleClass&quot; : &quot;toggle&quot;
+                 }">
+                        <h3>All about Kobo</h3>
+                        <button class="toggle show-plus" aria-controls="AllaboutKobo">All about Kobo</button>
+                        <ul class="inner-column-left" id="AllaboutKobo">
+                            <li class=""><a
+                                    href="https://www.kobo.com/aboutus?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US">Our
+                                Company</a></li>
+                            <li class=""><a
+                                    href="https://www.kobo.com/execteam?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US">Management
+                                Team</a></li>
+                            <li class=""><a
+                                    href="https://www.kobo.com/erecycling?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US">eRecycling
+                                Program</a></li>
+                            <li class=""><a
+                                    href="https://www.kobo.com/apps?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US">Free
+                                Apps</a></li>
+                            <li class=""><a
+                                    href="https://www.kobo.com/egiftcards?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US">Buy
+                                eGift Cards</a></li>
+                            <li class=""><a
+                                    href="https://www.kobo.com/help?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US">Get
+                                Help</a></li>
+                        </ul>
+                    </div>
+                    <!-- second column -->
+                    <div class="floated-column footer-opportunities-section gizmo-collapsible-with-header open-in-large"
+                         data-kobo-gizmo="Collapsible.HasHeader" data-kobo-gizmo-config="{
+                    &quot;isOpen&quot;: {&quot;small&quot;: false, &quot;medium&quot;: false, &quot;large&quot;: true, &quot;jumbo&quot;: true},
+                    &quot;name&quot;: &quot;Opportunities&quot;,
+                    &quot;toggleClass&quot; : &quot;toggle&quot;
+                 }">
+                        <h3>Opportunities</h3>
+                        <button class="toggle show-plus" aria-controls="Opportunities">Opportunities</button>
+                        <ul class="inner-column-left" id="Opportunities">
+                            <li class=""><a
+                                    href="https://www.kobo.com/publishers?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US">Publishers</a>
+                            </li>
+                            <li class=""><a
+                                    href="https://www.kobo.com/writinglife?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US">Self
+                                Publish</a></li>
+                            <li class=""><a
+                                    href="https://www.kobo.com/affiliates?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US">Affiliates</a>
+                            </li>
+                            <li class=""><a
+                                    href="https://www.kobo.com/jobs?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US">Job
+                                Openings</a></li>
+                            <li class=""><a
+                                    href="https://www.kobo.com/sponsorships?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US">Sponsorships</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- third column -->
+                    <div class="floated-column footer-social-section gizmo-collapsible-with-header open-in-large"
+                         data-kobo-gizmo="Collapsible.HasHeader" data-kobo-gizmo-config="{
+                    &quot;isOpen&quot;: {&quot;small&quot;: false, &quot;medium&quot;: false, &quot;large&quot;: true, &quot;jumbo&quot;: true},
+                    &quot;name&quot;: &quot;Social&quot;,
+                    &quot;toggleClass&quot; : &quot;toggle&quot;
+                 }">
+                        <h3>Stay Connected</h3>
+                        <button class="toggle show-plus" aria-controls="StayConnected">Stay Connected</button>
+                        <ul class="inner-column-left" id="StayConnected">
+                            <li><p>Stay up to date on the latest Kobo news, deals and events</p></li>
+                            <li>
+                                <ul class="horizontal-list social-links">
+                                    <li class="social-icon-facebook"><a href="http://www.facebook.com/kobo">Facebook</a>
+                                    </li>
+                                    <li class="social-icon-twitter"><a href="http://twitter.com/kobo">Twitter</a></li>
+                                    <li class="social-icon-pinterest"><a href="http://www.pinterest.com/kobobooks/">Pinterest</a>
+                                    </li>
+                                    <li class="social-icon-youtube"><a
+                                            href="http://www.youtube.com/subscription_center?add_user=kobobooks">YouTube</a>
+                                    </li>
+                                    <li class="social-icon-blog"><a href="http://cafe.kobo.com/">Kobo Caf&eacute;</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- fourth column -->
+                    <div class="floated-column footer-language-section">
+                        <div class="gizmo-collapsible-with-header open-in-large" data-kobo-gizmo="Collapsible.HasHeader"
+                             data-kobo-gizmo-config="{
+                        &quot;isOpen&quot;: {&quot;small&quot;: false, &quot;medium&quot;: false, &quot;large&quot;: true, &quot;jumbo&quot;: true},
+                        &quot;name&quot;: &quot;Language&quot;,
+                        &quot;toggleClass&quot; : &quot;toggle&quot;
+                     }">
+                            <h3>Language</h3>
+                            <button class="toggle show-plus" aria-controls="Language">Language</button>
+                            <div class="kobo-gizmo gizmo-overlay" id="Language" data-kobo-gizmo="Overlay"
+                                 data-kobo-gizmo-config="{
+                            &quot;halign&quot;:&quot;right&quot;,
+                            &quot;valign&quot;:&quot;top&quot;,
+                            &quot;viewModel&quot;:&quot;LanguageSelector&quot;
+                         }">
+                                <ul class="inner-column-left">
+                                    <li><a href="/ChangeLanguage?culture=de-DE"><span translate="no">Deutsch</span></a>
+                                    </li>
+                                    <li><a href="/ChangeLanguage?culture=en-us"><span translate="no">English</span></a>
+                                    </li>
+                                    <li><a href="/ChangeLanguage?culture=es-ES"><span
+                                            translate="no">Espa&ntilde;ol</span></a></li>
+                                    <li><a href="/ChangeLanguage?culture=fr-FR"><span
+                                            translate="no">Fran&ccedil;ais</span></a></li>
+                                    <li><a href="/ChangeLanguage?culture=fr-ca"><span translate="no">Fran&ccedil;ais Canadien</span></a>
+                                    </li>
+                                    <li><a href="/ChangeLanguage?culture=it-IT"><span translate="no">Italiano</span></a>
+                                    </li>
+                                    <li><a href="/ChangeLanguage?culture=nl-NL"><span
+                                            translate="no">Nederlands</span></a></li>
+                                    <li><a href="/ChangeLanguage?culture=pt-PT"><span
+                                            translate="no">Portugu&ecirc;s</span></a></li>
+                                    <li><a href="/ChangeLanguage?culture=pt-BR"><span translate="no">Portugu&ecirc;s brasileiro</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-utility gizmo-collapsible-with-header open-in-large"
+                         data-kobo-gizmo="Collapsible.HasHeader" data-kobo-gizmo-config="{
+                    &quot;isOpen&quot;: {&quot;small&quot;: false, &quot;medium&quot;: false, &quot;large&quot;: true, &quot;jumbo&quot;: true},
+                    &quot;name&quot;: &quot;Utilities&quot;,
+                    &quot;toggleClass&quot; : &quot;toggle&quot;
+                 }">
+                        <p class="footer-copyright">&copy; 2015 Rakuten Kobo Inc.</p>
+                        <button class="toggle plain show-plus" aria-controls="footer-copyright">&copy; 2015 Rakuten Kobo
+                            Inc.
+                        </button>
+                        <ul class="inner-column-left" id="footer-copyright">
+                            <li class=""><a
+                                    href="https://www.kobo.com/termsofuse?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US">Terms
+                                of Use</a></li>
+                            <li class=""><a
+                                    href="https://www.kobo.com/privacypolicy?style=onestore&amp;store=NL&amp;language=en-US&amp;culture=en-US">Privacy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="secondary-footer">
+                <div class="inner-wrap kobo-widget">
+                    <div class="secondary-footer-horizontal-list-wrap">
+                        <ul class="horizontal-list secondary-footer-horizontal-list">
+                            <li><a href="http://www.rakuten.com.br/">Brazil - Rakuten</a></li>
+                            <li><a href="http://www.priceminister.com/">France - PriceMinister</a></li>
+                            <li><a href="http://www.rakuten.de/">Germany - Rakuten</a></li>
+                            <li><a href="http://www.rakuten.co.id/">Indonesia - Rakuten</a></li>
+                            <li>
+                                <a href="http://www.rakuten.co.jp/?op=1&amp;lng=ja&amp;backurl=http%3a%2f%2fwww%2erakuten%2eco%2ejp%2f">Japan
+                                    - Rakuten</a></li>
+                            <li><a href="http://golf.rakuten.com/">Rakuten Golf USA</a></li>
+                            <li><a href="http://www.rakuten.com.tw/">Taiwan - Rakuten</a></li>
+                            <li><a href="http://www.tarad.com/">Thailand - Tarad.com</a></li>
+                            <li><a href="http://www.play.com/">United Kingdom - Play.com</a></li>
+                            <li><a href="http://www.buy.com/">United States - Buy.com</a></li>
+                            <li><a href="http://global.rakuten.com/en/">International - Rakuten</a></li>
+                            <li><a href="http://global.rakuten.com/group/">All Rakuten Services</a></li>
+                            <li><a href="http://ca.buy.com/">Buy.com Canada</a></li>
+                            <li><a href="http://import.buy.com/">Export to Japan</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="//kbstatic1-a.akamaihd.net/2174/output/scripts/kobo.min.js"></script>
+    <script type="text/javascript">
+        if (typeof BotTracker !== "undefined") {
+            BotTracker.verifyBot();
+        }
+    </script>
+    <script type="text/javascript">
+        (function () {
+            {
+                var tagjs = document.createElement('script');
+                var s = document.getElementsByTagName('script')[0];
+                tagjs.text = "{'site':'XcnHsvo'}";
+                tagjs.async = true;
+                tagjs.src = "//s.btstatic.com/tag.js";
+                s.parentNode.insertBefore(tagjs, s);
+            }
+        }());
+    </script>
+    <noscript>
+        <iframe src="//s.thebrighttag.com/iframe?c=XcnHsvo" width="1" height="1" frameborder="0" scrolling="no"
+                marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+    <script src="//cc.hostedpci.com/WBSStatic/site60/proxy/js/hpci-cciframe-1.0.js" type="text/javascript"
+            charset="utf-8"></script>
+    <script src="//cc.hostedpci.com/WBSStatic/site60/proxy/js/jquery.ba-postmessage.min.js" type="text/javascript"
+            charset="utf-8"></script>
+</div>
+</body>
+</html>

@@ -47,6 +47,7 @@ Other:
 * See TODO's in the code! -> IN PROGRESS
 * Add Epub strategies for all the other items in the Epubs -> OPEN
 * Create a searcheable database? -> OPEN
+* Convert epub to kepub for kobo readers (like me)
 
 # Done #
 * Add a real Language detection Strategy!

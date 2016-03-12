@@ -27,6 +27,9 @@ import nl.siegmann.epublib.domain.Author;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -95,11 +98,31 @@ public class AuthorStrategy implements EpubStrategy {
                 if (authorsResource.is(switchedName.name())) {
                     LOG.warn("Matched by Switching firstname with surname: {}", switchedName.name());
                     converted.add(switchedName.asAuthor());
+                } else {
+                    switchedName.setNameFormatStrategy(switchFirstnameAndSurnameStrategy);
+                    writeAuthor(new Name(switchedName.name()).name()
+                                                             .trim());
                 }
             }
         }
         return converted;
     }
 
+    private void writeAuthor(final String name) {
+        try {
+            Files.write(Paths.get("/Users/ivonet/dev/ebook/epub-processor/artifact/authors/", name), name.getBytes());
+        } catch (final IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private String authorsToString(final Epub epub) {
+        final StringBuilder sb = new StringBuilder();
+        epub.getAuthors()
+            .stream()
+            .forEach(p -> sb.append(p.toString())
+                            .append(" / "));
+        return sb.toString();
+    }
 
 }

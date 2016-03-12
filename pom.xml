@@ -39,15 +39,10 @@
     </licenses>
 
     <dependencies>
-        <dependency>
-            <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-core</artifactId>
-            <version>4.8.1</version>
-        </dependency>
         <!--<dependency>-->
-        <!--<groupId>nl.ivonet</groupId>-->
-        <!--<artifactId>name-entity-recognition</artifactId>-->
-        <!--<version>1.0-SNAPSHOT</version>-->
+        <!--<groupId>org.apache.lucene</groupId>-->
+        <!--<artifactId>lucene-core</artifactId>-->
+        <!--<version>4.8.1</version>-->
         <!--</dependency>-->
         <dependency>
             <groupId>nl.siegmann.epublib</groupId>
@@ -80,7 +75,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -99,7 +94,11 @@
             <artifactId>jsoup</artifactId>
             <version>1.7.3</version>
         </dependency>
-
+        <dependency>
+            <groupId>us.codecraft</groupId>
+            <artifactId>xsoup</artifactId>
+            <version>0.3.0</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>epub</finalName>
