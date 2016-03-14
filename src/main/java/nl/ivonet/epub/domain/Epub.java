@@ -277,7 +277,7 @@ public class Epub {
         final StringBuilder filename = createAuthorFilenamePart();
         filename.append(" - ");
         filename.append(getFirstTitle());
-        filename.append(".epub");
+        filename.append(".kepub.epub");
 
         return filename.toString()
                        .replace("?", "")
