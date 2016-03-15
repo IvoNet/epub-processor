@@ -21,6 +21,8 @@ import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
 import nl.siegmann.epublib.domain.Resource;
 import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.List;
@@ -33,12 +35,15 @@ import java.util.stream.Collectors;
  */
 @ConcreteEpubStrategy
 public class KepubStrategy implements EpubStrategy {
+    private static final Logger LOG = LoggerFactory.getLogger(KepubStrategy.class);
+
     private static final Pattern PAT = Pattern.compile("<(h\\d|p)([^>]*)>",
                                                        Pattern.CASE_INSENSITIVE);
     private static final String KOBO = " id=\"kobo.%s.1\">";
 
     @Override
     public void execute(final Epub epub) {
+        LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
         final List<Resource> htmlResources = epub.getContents()
                                            .stream()
                                            .filter(this::isHtml)

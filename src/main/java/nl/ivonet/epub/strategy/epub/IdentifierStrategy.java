@@ -16,12 +16,13 @@
 
 package nl.ivonet.epub.strategy.epub;
 
-import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
 import nl.ivonet.epub.domain.Epub;
 import nl.ivonet.epub.domain.Name;
 import nl.siegmann.epublib.domain.Identifier;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import us.codecraft.xsoup.Xsoup;
 
 import java.io.IOException;
@@ -35,8 +36,9 @@ import java.util.List;
  *
  * @author Ivo Woltring
  */
-@ConcreteEpubStrategy
+//@ConcreteEpubStrategy
 public class IdentifierStrategy implements EpubStrategy {
+    private static final Logger LOG = LoggerFactory.getLogger(IdentifierStrategy.class);
 
     private static final String KOBOBOOKS = "http://www.kobobooks.com/search/search.html?q=";
     private static final String NO_RESULTS = "//p[contains(@class, 'search-zero-results')]/text()";
@@ -46,6 +48,7 @@ public class IdentifierStrategy implements EpubStrategy {
 
     @Override
     public void execute(final Epub epub) {
+        LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
         final List<Identifier> identifiers = epub.getIdentifiers();
         for (final Identifier identifier : identifiers) {
             System.out.println("Trying identifier:" + identifier.getValue());

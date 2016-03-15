@@ -34,7 +34,7 @@ public class SurnameCommaInitialsStrategy implements NameFormattingStrategy {
             final String[] firstnames = name.getFirstname()
                                             .split(" ");
             for (final String firstname : firstnames) {
-                initials = initials + firstname.substring(0, 1) + ".";
+                initials = initials + (firstname.isEmpty() ? "" : firstname.substring(0, 1)) + ".";
             }
         }
         if (name.isJunior()) {

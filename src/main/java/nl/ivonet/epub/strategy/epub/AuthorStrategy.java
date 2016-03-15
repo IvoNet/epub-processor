@@ -52,8 +52,6 @@ public class AuthorStrategy implements EpubStrategy {
         removeList = new AuthorRemoveList();
         authorsResource = new AuthorsResource();
         switchFirstnameAndSurnameStrategy = new SwitchFirstnameAndSurnameStrategy();
-
-
     }
 
     @Override

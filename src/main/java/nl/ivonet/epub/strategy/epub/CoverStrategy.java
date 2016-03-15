@@ -18,16 +18,19 @@ package nl.ivonet.epub.strategy.epub;
 
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Ivo Woltring
  */
 //@ConcreteEpubStrategy
 public class CoverStrategy implements EpubStrategy {
+    private static final Logger LOG = LoggerFactory.getLogger(CoverStrategy.class);
 
     @Override
     public void execute(final Epub epub) {
-
+        LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
         //TODO I'm just curious how many of my books lack a cover. This strategy is not finished at all!
         if (!epub.hasCover()) {
             epub.addDropout(Dropout.COVER);

@@ -19,7 +19,8 @@ package nl.ivonet.epub.strategy.epub;
 import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 
@@ -32,10 +33,11 @@ import java.io.File;
  */
 @ConcreteEpubStrategy
 public class FileSizeStrategy implements EpubStrategy {
-    private static final Logger LOG = Logger.getLogger(FileSizeStrategy.class);
+    private static final Logger LOG = LoggerFactory.getLogger(FileSizeStrategy.class);
 
     @Override
     public void execute(final Epub epub) {
+        LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
         final String filename = epub.getOrigionalPath();
         final long length = new File(filename).length();
         if (length < (8 * 1024)) {

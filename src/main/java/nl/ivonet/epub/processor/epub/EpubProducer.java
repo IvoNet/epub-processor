@@ -80,7 +80,7 @@ public class EpubProducer implements Runnable {
         void find(final Path file) {
             final Path name = file.getFileName();
             if (notEmptyAndMatches(name)) {
-                LOG.trace("Queueing [{}] ", name);
+                LOG.info("Queueing [{}] ", name);
                 queue.put(new Epub(file));
             }
         }
