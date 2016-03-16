@@ -19,7 +19,6 @@ package nl.ivonet.epub.strategy.epub;
 import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
-import nl.siegmann.epublib.domain.MediaType;
 import nl.siegmann.epublib.domain.Resource;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
@@ -34,10 +33,9 @@ import java.util.stream.Collectors;
 /**
  * Strategy for making epubs kobo e-reader compatible.
  *
- * I have a kobo myself and a kobo delivers better statistics if it has the right information.
- * the beauty is that it does not break the epub format.
- * It just adds a bit more information to the html files zo that it can better track progress.
- * The code below adds that extra bit of information
+ * I have a kobo myself and a kobo delivers better statistics if it has the right information. the beauty is that it
+ * does not break the epub format. It just adds a bit more information to the html files zo that it can better track
+ * progress. The code below adds that extra bit of information
  *
  * @author Ivo Woltring
  */
@@ -53,7 +51,7 @@ public class KepubStrategy implements EpubStrategy {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
         final List<Resource> htmlResources = epub.getContents()
                                                  .stream()
-                                                 .filter(this::isHtml)
+                                                 .filter(HtmlCorruptDetectionStrategy::isHtml)
                                                  .collect(Collectors.toList());
 
         int idx = 1;
@@ -87,9 +85,4 @@ public class KepubStrategy implements EpubStrategy {
         return group.contains("id=");
     }
 
-
-    private boolean isHtml(final Resource content) {
-        final MediaType mediaType = content.getMediaType();
-        return (mediaType != null) && "application/xhtml+xml".equals(mediaType.toString());
-    }
 }

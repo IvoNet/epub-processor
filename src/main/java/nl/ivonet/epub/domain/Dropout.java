@@ -30,7 +30,8 @@ public enum Dropout {
     FILE_SIZE("File size"),
     COVER("Coverless"),
     KEPBUB("Kepub"),
-    NULL("NullPointer");
+    NULL("NullPointer"),
+    CORRUPT_HTML("HTML");
 
     private final String value;
 

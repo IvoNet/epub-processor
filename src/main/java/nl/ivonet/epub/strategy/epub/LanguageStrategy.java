@@ -21,7 +21,6 @@ import com.cybozu.labs.langdetect.DetectorFactory;
 import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
-import nl.siegmann.epublib.domain.MediaType;
 import nl.siegmann.epublib.domain.Resource;
 import org.apache.commons.io.IOUtils;
 import org.jsoup.Jsoup;
@@ -34,7 +33,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.stream.Collectors;
 
     /*
     In order to create this strategy I used a lot of resources and some of them are listed below:
@@ -81,21 +79,16 @@ public class LanguageStrategy implements EpubStrategy {
     public void execute(final Epub epub) {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
 
-        //TODO Determine comics and if so then only metadata language or UNKNOWN
-        final List<Resource> contents = epub.getContents()
-                                            .stream()
-                                            .filter(this::isHtml)
-                                            .collect(Collectors.toList());
+        final List<Resource> contents = HtmlCorruptDetectionStrategy.getHtmlContents(epub);
         final String contentText = getContentText(contents);
         if (contentText.isEmpty()) {
-            if (!contents.isEmpty() && isImage(contents.get(0)
-                                                       .getMediaType())) {
+            if (contents.isEmpty()) {
+                epub.addDropout(Dropout.LANGUAGE);
+            } else {
                 if (!epub.getLanguage()
                          .isEmpty()) {
                     epub.setLanguage(getLanguage(epub.getLanguage()));
                 }
-            } else {
-                epub.addDropout(Dropout.LANGUAGE);
             }
         } else {
             epub.setLanguage(detector.detect(contentText));
@@ -123,22 +116,15 @@ public class LanguageStrategy implements EpubStrategy {
 
         final StringBuilder sb = new StringBuilder();
         for (final Resource content : contents) {
-            if (isImage(content.getMediaType())) {
-                continue;
-            }
             final String text = extractText(content);
-            sb.append(text);
+            sb.append(" ")
+              .append(text);
         }
         final String ret = sb.toString();
         if (ret.isEmpty()) {
             return UNKNOWN_LANG;
         }
         return middle(ret, 10000);
-    }
-
-    private boolean isImage(final MediaType mediaType) {
-        return mediaType.getName()
-                        .startsWith("image/");
     }
 
     private String middle(final String in, final int howmuch) {
@@ -153,6 +139,7 @@ public class LanguageStrategy implements EpubStrategy {
         try {
             final String html = IOUtils.toString(input.getReader());
             return Jsoup.parse(html)
+                        .getElementsByTag("body")
                         .text();
 
         } catch (final IOException e) {
@@ -160,34 +147,29 @@ public class LanguageStrategy implements EpubStrategy {
         }
     }
 
-    private boolean isHtml(final Resource content) {
-        final MediaType mediaType = content.getMediaType();
-        return (mediaType != null) && "application/xhtml+xml".equals(mediaType.toString());
-    }
+static{
+        languages.put("en-us","en");
+        languages.put("en-gb","en");
+        languages.put("en_gb","en");
+        languages.put("en-uk","en");
+        languages.put("en_uk","en");
+        languages.put("en_us","en");
+        languages.put("en-ca","en");
+        languages.put("english","en");
+        languages.put("engels","en");
+        languages.put("eng","en");
+        languages.put("en-au","en");
+        languages.put("us english (en-us)","en");
+        languages.put("us","en");
 
-    static {
-        languages.put("en-us", "en");
-        languages.put("en-gb", "en");
-        languages.put("en_gb", "en");
-        languages.put("en-uk", "en");
-        languages.put("en_uk", "en");
-        languages.put("en_us", "en");
-        languages.put("en-ca", "en");
-        languages.put("english", "en");
-        languages.put("engels", "en");
-        languages.put("eng", "en");
-        languages.put("en-au", "en");
-        languages.put("us english (en-us)", "en");
-        languages.put("us", "en");
+        languages.put("nl","nl");
+        languages.put("nld","nl");
+        languages.put("nederlands","nl");
+        languages.put("nl-nl","nl");
+        languages.put("du","nl");
+        languages.put("dut","nl");
+        languages.put("dutch","nl");
+        languages.put("ned","nl");
+        }
 
-        languages.put("nl", "nl");
-        languages.put("nld", "nl");
-        languages.put("nederlands", "nl");
-        languages.put("nl-nl", "nl");
-        languages.put("du", "nl");
-        languages.put("dut", "nl");
-        languages.put("dutch", "nl");
-        languages.put("ned", "nl");
-    }
-
-}
+        }
