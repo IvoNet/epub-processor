@@ -19,6 +19,7 @@ package nl.ivonet.epub.strategy.epub;
 import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
+import nl.siegmann.epublib.domain.MediaType;
 import nl.siegmann.epublib.domain.Resource;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
@@ -31,23 +32,29 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 /**
+ * Strategy for making epubs kobo e-reader compatible.
+ *
+ * I have a kobo myself and a kobo delivers better statistics if it has the right information.
+ * the beauty is that it does not break the epub format.
+ * It just adds a bit more information to the html files zo that it can better track progress.
+ * The code below adds that extra bit of information
+ *
  * @author Ivo Woltring
  */
 @ConcreteEpubStrategy
 public class KepubStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(KepubStrategy.class);
 
-    private static final Pattern PAT = Pattern.compile("<(h\\d|p)([^>]*)>",
-                                                       Pattern.CASE_INSENSITIVE);
+    private static final Pattern PAT = Pattern.compile("<(h\\d|p)(([ ][^>]*)*)>", Pattern.CASE_INSENSITIVE);
     private static final String KOBO = " id=\"kobo.%s.1\">";
 
     @Override
     public void execute(final Epub epub) {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
         final List<Resource> htmlResources = epub.getContents()
-                                           .stream()
-                                           .filter(this::isHtml)
-                                           .collect(Collectors.toList());
+                                                 .stream()
+                                                 .filter(this::isHtml)
+                                                 .collect(Collectors.toList());
 
         int idx = 1;
         for (final Resource content : htmlResources) {
@@ -57,28 +64,32 @@ public class KepubStrategy implements EpubStrategy {
                 final StringBuffer sb = new StringBuffer();
                 while (matcher.find()) {
                     final String group = matcher.group();
-                    if (doProcess(group)) {
-                        matcher.appendReplacement(sb, group.replace(">", String.format(KOBO, idx)));
-                        idx++;
+                    if (doNotProcess(group)) {
+                        continue;
                     }
+                    matcher.appendReplacement(sb, group.replace(">", String.format(KOBO, idx)));
+                    idx++;
                 }
                 matcher.appendTail(sb);
-                content.setData(sb.toString().getBytes());
+                content.setData(sb.toString()
+                                  .getBytes());
 
             } catch (IOException e) {
                 epub.addDropout(Dropout.READ_ERROR);
+            } catch (IllegalArgumentException e) {
+                epub.addDropout(Dropout.KEPBUB);
             }
 
         }
     }
 
-    private boolean doProcess(final String group) {
-        return !group.contains("id=");
+    private boolean doNotProcess(final String group) {
+        return group.contains("id=");
     }
 
 
     private boolean isHtml(final Resource content) {
-        return "application/xhtml+xml".equals(content.getMediaType()
-                                                     .toString());
+        final MediaType mediaType = content.getMediaType();
+        return (mediaType != null) && "application/xhtml+xml".equals(mediaType.toString());
     }
 }

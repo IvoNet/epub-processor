@@ -93,7 +93,7 @@ public class Epub {
             return epubReader.readEpub(in);
         } catch (final Exception e) {
             dropouts.add(Dropout.READ_ERROR);
-//            logError(e);
+            logError(e);
         }
         return new Book();
     }
@@ -148,6 +148,9 @@ public class Epub {
         return !dropouts.isEmpty();
     }
 
+    public boolean hasDropout(Dropout dropout) {
+        return dropouts.contains(dropout);
+    }
 
     public List<String> getDescriptions() {
         return epub.getMetadata()
@@ -331,7 +334,6 @@ public class Epub {
         if (isDropout()) {
             return format("Epub [%s] dropped out with reason [%s]", getOrigionalFilename(), dropoutReasons());
         }
-        //        sb.append(", Other properties=").append(getOtherProperties());
         return format("Epub{OrigionalFilename= %s, path=%s, Authors=%s, First title=%s, Titles=%s, Language=%s, "
                       + "Subjects=%s, Publishers=%s, Rights=%s, Identifiers=%s, Types=%s, Dates=%s, Format=%s, "
                       + "Descriptions=%s}", getOrigionalFilename(), filePath, getAuthors(), getFirstTitle(),

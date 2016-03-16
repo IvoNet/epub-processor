@@ -35,8 +35,8 @@ import java.nio.file.attribute.BasicFileAttributes;
 import static java.nio.file.FileVisitResult.CONTINUE;
 
 /**
- * Produces epub files by walking over a directory structure and
- * putting them on a {@link nl.ivonet.epub.processor.Queue}.
+ * Produces epub files by walking over a directory structure and putting them on a {@link
+ * nl.ivonet.epub.processor.Queue}.
  */
 public class EpubProducer implements Runnable {
     private static final Logger LOG = LoggerFactory.getLogger(EpubProducer.class);
@@ -86,8 +86,7 @@ public class EpubProducer implements Runnable {
         }
 
         private boolean notEmptyAndMatches(final Path name) {
-            return (name != null) && this.matcher
-                    .matches(name);
+            return (name != null) && this.matcher.matches(name);
         }
 
         void done() {

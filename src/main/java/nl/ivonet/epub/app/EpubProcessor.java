@@ -23,6 +23,7 @@ import nl.ivonet.epub.processor.epub.EpubProducer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -32,7 +33,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 /**
- *
  * @author Ivo Woltring
  */
 public class EpubProcessor {
@@ -42,12 +42,19 @@ public class EpubProcessor {
     private final String outputLocation;
 
     public EpubProcessor(final String input, final String output) {
-        if (!isDirectory(input) || !isDirectory(output)) {
+
+        if (!isDirectory(input) || !createDir(output)) {
             help();
         }
         outputLocation = output;
         epubQueue = new Queue<>();
         producer = new EpubProducer(input, epubQueue);
+    }
+
+    private boolean createDir(final String directoryName) {
+        final File theDir = new File(directoryName);
+
+        return theDir.exists() || theDir.mkdir();
     }
 
     private static void help() {

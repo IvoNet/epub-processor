@@ -28,7 +28,9 @@ public enum Dropout {
     LANGUAGE("Language"),
     READ_ERROR("Read error"),
     FILE_SIZE("File size"),
-    COVER("Coverless");
+    COVER("Coverless"),
+    KEPBUB("Kepub"),
+    NULL("NullPointer");
 
     private final String value;
 

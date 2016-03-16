@@ -17,6 +17,7 @@
 package nl.ivonet.epub.processor.epub;
 
 import nl.ivonet.epub.annotation.EpubStrategyDependencyFinder;
+import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
 import nl.ivonet.epub.processor.Queue;
 import nl.ivonet.epub.strategy.epub.EpubStrategy;
@@ -33,11 +34,11 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Consumes Files from the provided {@link nl.ivonet.epub.processor.Queue} and
- * creates a {@link nl.siegmann.epublib.domain.Book} from it.
+ * Consumes Files from the provided {@link nl.ivonet.epub.processor.Queue} and creates a {@link
+ * nl.siegmann.epublib.domain.Book} from it.
  *
- * This consumer is also the Context to the strategies applied to the Epub Files.
- * This consumer can be provided with strategies to be applied to the files to be consumed.
+ * This consumer is also the Context to the strategies applied to the Epub Files. This consumer can be provided with
+ * strategies to be applied to the files to be consumed.
  *
  * @author Ivo Woltring
  */
@@ -70,7 +71,16 @@ public class EpubConsumer implements Runnable {
             LOG.trace("Consumer {} is consuming {}.", id, epub.getOrigionalFilename());
 
             for (final EpubStrategy epubStrategy : epubStrategies) {
-                epubStrategy.execute(epub);
+                if (epub.hasDropout(Dropout.READ_ERROR)) {
+                    break;
+                }
+
+                try {
+                    epubStrategy.execute(epub);
+                } catch (Exception e) {
+                    LOG.error("Unexpected error, will be filed as Error NULL", e);
+                    epub.addDropout(Dropout.NULL);
+                }
             }
             write(epub); //FIXME temprarily disabled for testing
             print(epub);

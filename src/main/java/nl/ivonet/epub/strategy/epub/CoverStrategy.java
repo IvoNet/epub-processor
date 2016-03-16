@@ -31,7 +31,9 @@ public class CoverStrategy implements EpubStrategy {
     @Override
     public void execute(final Epub epub) {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
+
         //TODO I'm just curious how many of my books lack a cover. This strategy is not finished at all!
+
         if (!epub.hasCover()) {
             epub.addDropout(Dropout.COVER);
         }

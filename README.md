@@ -19,14 +19,15 @@ I would like the help...
 * **Java SE 8**
 * [detect-language](https://github.com/IvoNet/language-detection) (snapshot dependency)
 * Python 2.7 (if you want to use the scripts)
+* The IvoNet [epublib](https://github.com/IvoNet/epublib) fork. It has minor adjustments to the origional. Credits all to the [Siegmann](http://www.siegmann.nl/epublib)
 
 # Usage #
 goto project folder in a terminal
 
-<pre>
-    mvn package
-    java -jar artifact/epub-jar-with-dependencies.jar
-</pre>
+```sh
+mvn package
+java -d64 -Xms1g -Xmx8g -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=./Heap.dmp -jar artifact/epub-jar-with-dependencies.jar
+```
 
 read the explanation
 
@@ -36,6 +37,8 @@ read the explanation
 
 
 # Backlog #
+* Add StyleStrategy for replacing the current style with an IvoNet style
+
 AuthorStrategy:
 * Too many dropouts on "No Author". Need to try to get the author name from the filename/path if the metadata list is empty. -> IN PROGRESS
 * If an author is names like editor, publisher, various, etc it should be stripped from the author list
@@ -51,5 +54,6 @@ Other:
 
 # Done #
 * Add a real Language detection Strategy!
+* Add a KepubStrategy for making the epubs kobo ready.
 
 

@@ -34,6 +34,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.stream.Collectors;
 
     /*
     In order to create this strategy I used a lot of resources and some of them are listed below:
@@ -81,7 +82,10 @@ public class LanguageStrategy implements EpubStrategy {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
 
         //TODO Determine comics and if so then only metadata language or UNKNOWN
-        final List<Resource> contents = epub.getContents();
+        final List<Resource> contents = epub.getContents()
+                                            .stream()
+                                            .filter(this::isHtml)
+                                            .collect(Collectors.toList());
         final String contentText = getContentText(contents);
         if (contentText.isEmpty()) {
             if (!contents.isEmpty() && isImage(contents.get(0)
@@ -154,6 +158,11 @@ public class LanguageStrategy implements EpubStrategy {
         } catch (final IOException e) {
             return "";
         }
+    }
+
+    private boolean isHtml(final Resource content) {
+        final MediaType mediaType = content.getMediaType();
+        return (mediaType != null) && "application/xhtml+xml".equals(mediaType.toString());
     }
 
     static {
