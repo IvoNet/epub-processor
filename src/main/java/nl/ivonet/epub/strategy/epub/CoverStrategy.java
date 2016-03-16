@@ -24,7 +24,7 @@ import org.slf4j.LoggerFactory;
 /**
  * @author Ivo Woltring
  */
-//@ConcreteEpubStrategy
+//@ConcreteEpubStrategy //FIXME this Strategy is disabled at this time
 public class CoverStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(CoverStrategy.class);
 

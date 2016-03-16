@@ -16,7 +16,6 @@
 
 package nl.ivonet.epub.strategy.epub;
 
-import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
 import nl.ivonet.epub.domain.Epub;
 import nl.siegmann.epublib.domain.MediaType;
 import nl.siegmann.epublib.domain.Resource;
@@ -31,7 +30,7 @@ import java.util.List;
  *
  * @author Ivo Woltring
  */
-@ConcreteEpubStrategy
+//@ConcreteEpubStrategy //FIXME this Strategy is disabled at this time
 public class StyleStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(StyleStrategy.class);
 
@@ -42,9 +41,13 @@ public class StyleStrategy implements EpubStrategy {
         final List<Resource> resources = epub.data()
                                              .getResources()
                                              .getResourcesByMediaType(MediatypeService.CSS);
+
         for (final Resource resource : resources) {
-            System.out.println("resource.getMediaType().toString() = " + resource.getMediaType()
-                                                                                 .toString());
+//            System.out.println("resource.getMediaType().toString() = " + resource.getMediaType()
+//                                                                                 .toString());
+            //This will keep the file but empty it of styles, so structure is kept.
+            resource.setData("".getBytes());
+
         }
     }
 

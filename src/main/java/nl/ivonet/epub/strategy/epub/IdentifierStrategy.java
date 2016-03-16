@@ -31,12 +31,13 @@ import java.util.List;
 //TODO some other search engines for books
 //TODO http://www.worldcat.org/search?q=179807355&qt=owc_search
 
+
 /**
  * Tries to get more metadata from Stores based on ISBN.
  *
  * @author Ivo Woltring
  */
-//@ConcreteEpubStrategy
+//@ConcreteEpubStrategy //FIXME this Strategy is disabled at this time
 public class IdentifierStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(IdentifierStrategy.class);
 

@@ -17,6 +17,7 @@
 package nl.ivonet.epub.strategy.epub;
 
 import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
+import nl.ivonet.epub.data.ListResource;
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
 import nl.ivonet.epub.domain.Name;
@@ -73,6 +74,7 @@ public class TitleStrategy implements EpubStrategy {
                                              .replace("/ ", " - ")
                                              .replace("/", " - ")
                                              .replace(":", "-"))
+                                  .map(ListResource::removeAccents)
                                   .map(capitalizeStrategy::execute)
                                   .map(String::trim)
                                   .collect(toList());
@@ -103,7 +105,7 @@ public class TitleStrategy implements EpubStrategy {
         final List<String> authors = new ArrayList<>(strings);
         for (final String string : authors) {
             final String ret = string.trim();
-            LOG.warn("Trying title : {}", string);
+            LOG.trace("Trying title : {}", string);
             if (stringContainsAuthor(ret, epub.getAuthors())) {
                 strings.remove(string);
                 found = true;
@@ -121,11 +123,11 @@ public class TitleStrategy implements EpubStrategy {
     private boolean stringContainsAuthor(final String text, final List<Author> authors) {
         for (final Author author : authors) {
             final Name name = new Name(author);
-            LOG.warn("Trying Author: {}", name.name());
+            LOG.trace("Trying Author: {}", name.name());
             for (final NameFormattingStrategy strategy : strategies) {
                 name.setNameFormatStrategy(strategy);
                 if (text.contains(name.name())) {
-                    LOG.warn("Name match   : {}", name.name());
+                    LOG.trace("Name match   : {}", name.name());
                     return true;
                 }
             }

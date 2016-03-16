@@ -31,15 +31,13 @@ import java.util.stream.Collectors;
 /**
  * Strategy to detect corrupt html.
  *
- * Corrupt html is often an indication for a bad book or encrypted book. These books need to be identified
+ * Corrupt html is often an indication for a bad book or encrypted book. These books need to be identified.
  *
  * @author Ivo Woltring
  */
 @ConcreteEpubStrategy
 public class HtmlCorruptDetectionStrategy implements EpubStrategy {
 
-
-    // adapted from post by Phil Haack and modified to match better
     public static final String tagStart =
             "\\<\\w+((\\s+\\w+(\\s*\\=\\s*(?:\".*?\"|'.*?'|[^'\"\\>\\s]+))?)+\\s*|\\s*)" + "\\>";
     public static final String tagEnd = "\\</\\w+\\>";
@@ -67,7 +65,7 @@ public class HtmlCorruptDetectionStrategy implements EpubStrategy {
 
     }
 
-    public static List<Resource> getHtmlContents(Epub epub) {
+    public static List<Resource> getHtmlContents(final Epub epub) {
         return epub.getContents()
                    .stream()
                    .filter(HtmlCorruptDetectionStrategy::isHtml)

@@ -35,9 +35,11 @@ read the explanation
 
 > [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
+# Resources
+
+* [IDPF](http://idpf.org/epub/30)
 
 # Backlog #
-* Add StyleStrategy for replacing the current style with an IvoNet style
 
 AuthorStrategy:
 * Too many dropouts on "No Author". Need to try to get the author name from the filename/path if the metadata list is empty. -> IN PROGRESS
@@ -51,6 +53,8 @@ Other:
 * Add Epub strategies for all the other items in the Epubs -> OPEN
 * Create a searcheable database? -> OPEN
 * Convert epub to kepub for kobo readers (like me)
+* Remove iTunes data from books as it has no function
+* Add StyleStrategy for replacing the current style with an IvoNet style or remove all styles?!
 
 # Done #
 * Add a real Language detection Strategy!

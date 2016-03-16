@@ -24,6 +24,8 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 
+// FIXME: 16-03-2016 very weak strategy at this time!
+
 /**
  * Tries to filter out epubs that can not possibly be correct based on filesize.
  *

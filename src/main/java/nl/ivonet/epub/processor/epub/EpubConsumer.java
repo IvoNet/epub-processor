@@ -82,7 +82,7 @@ public class EpubConsumer implements Runnable {
                     epub.addDropout(Dropout.NULL);
                 }
             }
-            write(epub); //FIXME temprarily disabled for testing
+            write(epub);
             print(epub);
             epub = retrieveEpubFromQueue();
         }

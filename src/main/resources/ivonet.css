@@ -1,0 +1,134 @@
+/*
+ * Copyright (c) 2016 Ivo Woltring
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+p {
+    margin-top: 0.0em;
+    margin-bottom: 0.0em;
+    text-indent: 1.5em;
+    text-align: justify;
+}
+
+p.first {
+    margin-top: 0.5em;
+    margin-bottom: 0.0em;
+    text-indent: 0.0em;
+    text-align: justify;
+}
+
+p.left {
+    margin-top: 0.5em;
+    margin-bottom: 0.0em;
+    text-indent: 0.0em;
+    text-align: left;
+}
+
+p.center {
+    margin-top: 0.0em;
+    margin-bottom: 0.25em;
+    text-indent: 0.0em;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 1em;
+    font-size: 150%;
+    text-indent: 0em;
+    font-style: italic;
+    text-align: center;
+}
+
+h3 {
+    margin-top: 1em;
+    font-size: 125%;
+    text-indent: 0em;
+    text-align: center;
+}
+
+h4 {
+    margin-top: 1em;
+    font-size: 125%;
+    text-indent: 0em;
+    text-align: left;
+}
+
+p.large {
+    font-weight: bold;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 200%;
+    font-style: italic;
+    text-indent: 0em;
+    text-align: center;
+}
+
+p.medium {
+    font-weight: bold;
+    font-size: 150%;
+    font-style: italic;
+    margin-top: 1.0em;
+    margin-bottom: 1.0em;
+    text-indent: 0em;
+    text-align: center;
+}
+
+p.small {
+    font-weight: bold;
+    margin-bottom: 1em;
+    font-size: 125%;
+    text-indent: 0em;
+    text-align: center;
+}
+
+p.block {
+    font-family: courier, monospace;
+    text-indent: 1em;
+    text-align: left;
+    margin: 0em 0em 0em 1em;
+}
+
+p.blockfirst {
+    font-family: courier, monospace;
+    text-indent: 1em;
+    text-align: left;
+    margin: 0.5em 0em 0em 1em;
+}
+
+p.blockcenter {
+    font-family: courier, monospace;
+    text-align: center;
+    margin: 0.5em 0em 0em 1em;
+}
+
+span.smallcap {
+    font-size: 90%;
+    font-weight: bold;
+}
+
+div.image {
+    text-align: center;
+    margin-bottom: 0.25em;
+}
+
+div.icon {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+div.caption {
+    margin-bottom: 1em;
+    text-align: center;
+    font-style: italic;
+}

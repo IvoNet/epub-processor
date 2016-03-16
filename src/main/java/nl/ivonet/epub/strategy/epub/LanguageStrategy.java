@@ -147,29 +147,29 @@ public class LanguageStrategy implements EpubStrategy {
         }
     }
 
-static{
-        languages.put("en-us","en");
-        languages.put("en-gb","en");
-        languages.put("en_gb","en");
-        languages.put("en-uk","en");
-        languages.put("en_uk","en");
-        languages.put("en_us","en");
-        languages.put("en-ca","en");
-        languages.put("english","en");
-        languages.put("engels","en");
-        languages.put("eng","en");
-        languages.put("en-au","en");
-        languages.put("us english (en-us)","en");
-        languages.put("us","en");
+    static {
+        languages.put("en-us", "en");
+        languages.put("en-gb", "en");
+        languages.put("en_gb", "en");
+        languages.put("en-uk", "en");
+        languages.put("en_uk", "en");
+        languages.put("en_us", "en");
+        languages.put("en-ca", "en");
+        languages.put("english", "en");
+        languages.put("engels", "en");
+        languages.put("eng", "en");
+        languages.put("en-au", "en");
+        languages.put("us english (en-us)", "en");
+        languages.put("us", "en");
 
-        languages.put("nl","nl");
-        languages.put("nld","nl");
-        languages.put("nederlands","nl");
-        languages.put("nl-nl","nl");
-        languages.put("du","nl");
-        languages.put("dut","nl");
-        languages.put("dutch","nl");
-        languages.put("ned","nl");
-        }
+        languages.put("nl", "nl");
+        languages.put("nld", "nl");
+        languages.put("nederlands", "nl");
+        languages.put("nl-nl", "nl");
+        languages.put("du", "nl");
+        languages.put("dut", "nl");
+        languages.put("dutch", "nl");
+        languages.put("ned", "nl");
+    }
 
-        }
+}

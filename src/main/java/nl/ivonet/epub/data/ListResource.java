@@ -21,10 +21,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.text.Normalizer;
+import java.text.Normalizer.Form;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
+ * A List Resource.
  *
  * @author Ivo Woltring
  */
@@ -57,7 +59,7 @@ public abstract class ListResource<T> {
     public abstract boolean is(String input);
 
     public static String removeAccents(final String text) {
-        return (text == null) ? null : Normalizer.normalize(text, Normalizer.Form.NFD)
+        return (text == null) ? null : Normalizer.normalize(text, Form.NFD)
                                                  .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
     }
 }
