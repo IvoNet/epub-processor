@@ -19,6 +19,7 @@ package nl.ivonet.epub.strategy.epub;
 import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
 import nl.ivonet.epub.data.AuthorRemoveList;
 import nl.ivonet.epub.data.AuthorsResource;
+import nl.ivonet.epub.data.ListResource;
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
 import nl.ivonet.epub.domain.Name;
@@ -59,6 +60,7 @@ public class AuthorStrategy implements EpubStrategy {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
         final Set<Author> converted = new HashSet<>();
 
+//        epub.getAuthors().stream().forEach(System.out::println);
         converted.addAll(epub.getAuthors()
                              .stream()
                              .map(Name::new)
@@ -79,8 +81,8 @@ public class AuthorStrategy implements EpubStrategy {
     }
 
     private Set<Author> retrieveAuthorFromFilename(final String filename) {
-
-        final String fname = filename.replace(".epub", "");
+        LOG.warn("Retrieve Author from filename [{}]", filename);
+        final String fname = ListResource.removeAccents(filename.replace(".epub", ""));
         String[] names = fname.split(" - ");
         if (names.length == 1) {
             names = fname.split(" ~ ");
@@ -98,8 +100,9 @@ public class AuthorStrategy implements EpubStrategy {
                     converted.add(switchedName.asAuthor());
                 } else {
                     switchedName.setNameFormatStrategy(switchFirstnameAndSurnameStrategy);
-                    writeAuthor(new Name(switchedName.name()).name()
-                                                             .trim());
+//FIXME uncomment to get all authors
+//                    writeAuthor(new Name(switchedName.name()).name()
+//                                                             .trim());
                 }
             }
         }

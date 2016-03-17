@@ -28,6 +28,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 /**
  * @author Ivo Woltring
@@ -37,20 +38,13 @@ public class AuthorsResource extends ListResource {
     private final List<String> names;
     private final List<NameFormattingStrategy> strategies;
     private final Set<String> aliasses;
-    Consumer<Name> nameConsumer = new Consumer<Name>() {
-        @Override
-        public void accept(final Name name) {
-            for (final NameFormattingStrategy strategy : strategies) {
-                name.setNameFormatStrategy(strategy);
-                aliasses.add(name.name());
-            }
-
-        }
-    };
 
 
     public AuthorsResource() {
-        names = listFromFilename("authors.txt");
+        final List<String> tmp = listFromFilename("authors.txt");
+        names = tmp.stream()
+                   .map(ListResource::removeAccents)
+                   .collect(Collectors.toList());
         aliasses = new HashSet<>();
         strategies = new ArrayList<>();
         strategies.add(new SurnameCommaFirstnamesStrategy());
@@ -59,6 +53,13 @@ public class AuthorsResource extends ListResource {
         strategies.add(new SurnameCommaFullFirstFirstnameThenInitialsStrategy());
 
         aliasses.addAll(names);
+        final Consumer<Name> nameConsumer = name -> {
+            for (final NameFormattingStrategy strategy : strategies) {
+                name.setNameFormatStrategy(strategy);
+                aliasses.add(name.name());
+            }
+
+        };
         names.stream()
              .map(Name::new)
              .forEach(nameConsumer::accept);

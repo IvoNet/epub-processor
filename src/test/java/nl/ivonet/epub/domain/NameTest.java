@@ -20,6 +20,8 @@ import nl.ivonet.epub.strategy.name.FirstnameSpaceSurnameStrategy;
 import nl.ivonet.epub.strategy.name.SurnameCommaFirstnamesStrategy;
 import org.junit.Test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -57,5 +59,18 @@ public class NameTest {
 
         final Name name = new Name("Connor Maccloud");
         assertEquals("MacCloud, Connor", name.name());
+    }
+
+    @Test
+    public void testInitialsWithoutDot() throws Exception {
+        assertThat(new Name("A Dubois").name(), is("Dubois, A."));
+    }
+
+    @Test
+    public void testMaidenName() throws Exception {
+        //Terlouw-van Hulst, Alexandra
+
+        assertThat(new Name("Terlouw-Van Hulst, Alexandra").name(), is("Terlouw-van Hulst, Alexandra"));
+
     }
 }

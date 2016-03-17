@@ -61,7 +61,6 @@ public class TitleStrategy implements EpubStrategy {
         strategies.add(new SurnameCommaFirstInitialsStrategy());
         strategies.add(new SurnameCommaFullFirstFirstnameThenInitialsStrategy());
         strategies.add(new SwitchFirstnameAndSurnameStrategy());
-
     }
 
     @Override
@@ -92,9 +91,9 @@ public class TitleStrategy implements EpubStrategy {
     private List<String> tryFilename(final Epub epub) {
         final List<String> titles = new ArrayList<>();
 
-        final String filename = epub.getOrigionalFilename()
-                                    .replace(".epub", "")
-                                    .replace("_", ".");
+        final String filename = ListResource.removeAccents(epub.getOrigionalFilename()
+                                                               .replace(".epub", "")
+                                                               .replace("_", "."));
 
         List<String> strings = new LinkedList<>(Arrays.asList(filename.split(" - ")));
         if (strings.size() == 1) {

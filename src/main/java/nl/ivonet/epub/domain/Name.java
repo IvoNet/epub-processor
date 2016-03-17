@@ -16,6 +16,7 @@
 
 package nl.ivonet.epub.domain;
 
+import nl.ivonet.epub.data.ListResource;
 import nl.ivonet.epub.strategy.name.NameFormattingStrategy;
 import nl.ivonet.epub.strategy.name.SurnameCommaFirstnamesStrategy;
 import nl.siegmann.epublib.domain.Author;
@@ -30,6 +31,7 @@ public class Name {
     private static final String JUNIOR = " Jr.";
     private static final int FIRSTNAME_IDX = 1;
     private static final int SURNAME_IDX = 0;
+    private static final String COMMA_T = " 't";
     private boolean junior;
     private NameFormattingStrategy nameFormatStrategy;
     private String firstname;
@@ -40,10 +42,16 @@ public class Name {
             throw new IllegalStateException("There should be an author");
         }
         String name = author.replace("_", ".")
+                            .replace("’", "'")
                             .trim();
-        junior = name.contains(" Jr.");
+        junior = name.contains(JUNIOR);
         if (junior) {
             name = name.replace(JUNIOR, "");
+        }
+
+        if (name.startsWith("'t, ")) {
+            name = name.replace("'t, ", "") + " 't";
+            name = name.replaceFirst(" ", ", ");
         }
 
         if (name.contains(", ")) {
@@ -59,7 +67,6 @@ public class Name {
                 process(String.join(", ", Arrays.copyOfRange(strings, 0, strings.length - 1)), surname);
             }
         }
-
 
         this.nameFormatStrategy = new SurnameCommaFirstnamesStrategy();
     }
@@ -79,15 +86,16 @@ public class Name {
 
     public Name(final String firstname, final String surname, final NameFormattingStrategy nameFormatStrategy) {
         junior = firstname.contains(JUNIOR) || surname.contains(JUNIOR);
-        this.firstname = firstname;
-        this.surname = surname;
+
+        this.firstname = ListResource.removeAccents(firstname);
+        this.surname = ListResource.removeAccents(surname);
 
         if (junior) {
             this.firstname = this.firstname.replace(JUNIOR, "");
             this.surname = this.surname.replace(JUNIOR, "");
         }
 
-        process(firstname, surname);
+        process(this.firstname, this.surname);
 
         this.nameFormatStrategy = nameFormatStrategy;
     }
@@ -120,8 +128,16 @@ public class Name {
     }
 
     private void process(final String firstname, final String surname) {
-
-        if (surname.matches(INITIALS)) {
+        if ((firstname.split(" ").length > 1) && "A.".equals(surname)) {//A., Heinlein Robert
+            final String ret = firstname + " A.";
+            extractName(ret);
+        } else if (nameStartsWithACommaT(surname)) { //'t, Hek Youp van
+            final String ret = firstname + COMMA_T;
+            extractName(ret);
+        } else if (firstname.length() == 1) {
+            this.firstname = firstname.toUpperCase() + ".";
+            this.surname = strip(surname);
+        } else if (surname.matches(INITIALS)) {
             this.firstname = strip(surname).toUpperCase();
             this.surname = strip(firstname);
         } else if (firstname.matches(INITIALS)) {
@@ -134,6 +150,16 @@ public class Name {
 
         specialCamelCasing("Mac");
         specialCamelCasing("Mc");
+    }
+
+    private void extractName(final String ret) {
+        final int firstIndexOfSpace = ret.indexOf(" ");
+        this.surname = ret.substring(0, firstIndexOfSpace);
+        this.firstname = ret.substring(firstIndexOfSpace + 1);
+    }
+
+    private boolean nameStartsWithACommaT(final String surname) {
+        return "'t".equals(surname);
     }
 
     private void specialCamelCasing(final String specialName) {
