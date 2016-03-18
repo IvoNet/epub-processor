@@ -48,20 +48,20 @@ public class NameComparatorTest {
         names.add(new Name("a", "a"));
         Collections.sort(names, comparator);
 
-        assertEquals("A", names.get(0)
-                               .getFirstname());
+        assertEquals("A.", names.get(0)
+                                .getFirstname());
         assertEquals("A", names.get(0)
                                .getSurname());
-        assertEquals("B", names.get(1)
-                               .getFirstname());
+        assertEquals("B.", names.get(1)
+                                .getFirstname());
         assertEquals("A", names.get(1)
                                .getSurname());
-        assertEquals("A", names.get(2)
-                               .getFirstname());
+        assertEquals("A.", names.get(2)
+                                .getFirstname());
         assertEquals("B", names.get(2)
                                .getSurname());
-        assertEquals("C", names.get(4)
-                               .getFirstname());
+        assertEquals("C.", names.get(4)
+                                .getFirstname());
         assertEquals("C", names.get(4)
                                .getSurname());
 

@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
@@ -32,28 +31,6 @@ import static java.util.stream.Collectors.toList;
  */
 public class SubjectsStrategyTest {
     private static final List<String> REMOVE_WORDS = Arrays.asList("foo", "me", "jij");
-
-    public static <T> T measure(final Supplier<T> code) {
-        final long current = System.currentTimeMillis();
-        final T result = code.get();
-        final long elapsed = System.currentTimeMillis() - current;
-        System.out.println(elapsed);
-        return result;
-    }
-
-//    @Test
-//    public void testMapTo() throws Exception {
-//        final Map<String, List<String>> mapTo = retrieveMapTo("/SubjectsMapTo.txt");
-//
-//    }
-
-//    private Map<String, List<String>> retrieveMapTo(final String searchQuery) {
-//        try (BufferedReader br = new BufferedReader(new InputStreamReader(new URL(searchQuery).openStream()))) {
-//            return br.lines().parallel().map(String::trim).collect(Collectors.toMap((t) -> ));
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
 
     @Test
     public void testName() throws Exception {
@@ -73,6 +50,20 @@ public class SubjectsStrategyTest {
         //.stream().forEach(System.out::println);
 
     }
+
+//    @Test
+//    public void testMapTo() throws Exception {
+//        final Map<String, List<String>> mapTo = retrieveMapTo("/SubjectsMapTo.txt");
+//
+//    }
+
+//    private Map<String, List<String>> retrieveMapTo(final String searchQuery) {
+//        try (BufferedReader br = new BufferedReader(new InputStreamReader(new URL(searchQuery).openStream()))) {
+//            return br.lines().parallel().map(String::trim).collect(Collectors.toMap((t) -> ));
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     private String resource() {
         return this.getClass()
@@ -211,7 +202,7 @@ public class SubjectsStrategyTest {
                                                                                                    .contains(r))
                                                                                      .findAny()
                                                                                      .isPresent())
-                                                           .collect(Collectors.toList()));
+                                                           .collect(toList()));
 
         final List<String> collect = measure(() -> subjectsIn.stream()
                                                              .map(String::toLowerCase)
@@ -239,5 +230,13 @@ public class SubjectsStrategyTest {
 //                                                          .isPresent()).collect(Collectors.toList()));
 
 
+    }
+
+    public static <T> T measure(final Supplier<T> code) {
+        final long current = System.currentTimeMillis();
+        final T result = code.get();
+        final long elapsed = System.currentTimeMillis() - current;
+//        System.out.println(elapsed);
+        return result;
     }
 }

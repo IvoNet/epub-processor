@@ -109,8 +109,12 @@ public class Name {
         if (init == null) {
             return null;
         }
+        if (init.length() == 1) {
+            return init.toUpperCase();
+        }
 
         final StringBuilder ret = new StringBuilder(init.length());
+
 
         for (final String word : init.split(" ")) {
             if (!word.isEmpty()) {
@@ -119,7 +123,7 @@ public class Name {
                 ret.append(word.substring(1)
                                .toLowerCase());
             }
-            if (!(ret.length() == init.length())) {
+            if (ret.length() != init.length()) {
                 ret.append(" ");
             }
         }
@@ -136,7 +140,7 @@ public class Name {
             extractName(ret);
         } else if (firstname.length() == 1) {
             this.firstname = firstname.toUpperCase() + ".";
-            this.surname = strip(surname);
+            this.surname = toCamelCase(strip(surname));
         } else if (surname.matches(INITIALS)) {
             this.firstname = strip(surname).toUpperCase();
             this.surname = strip(firstname);
