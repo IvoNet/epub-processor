@@ -75,8 +75,6 @@ public class IdentifierStrategy implements EpubStrategy {
             } catch (final IOException e) {
                 return;
             }
-
-
         }
     }
 
@@ -84,9 +82,5 @@ public class IdentifierStrategy implements EpubStrategy {
         return Xsoup.compile(xpath)
                     .evaluate(document)
                     .get();
-
-
     }
-
-
 }

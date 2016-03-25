@@ -20,6 +20,7 @@ import nl.ivonet.epub.domain.Epub;
 import nl.siegmann.epublib.domain.Author;
 import nl.siegmann.epublib.domain.Book;
 import nl.siegmann.epublib.domain.Identifier;
+import nl.siegmann.epublib.domain.Identifier.Scheme;
 import nl.siegmann.epublib.domain.Resource;
 import nl.siegmann.epublib.domain.TOCReference;
 
@@ -44,7 +45,7 @@ public final class EpubTestUtils {
                 .addTitle("test2");
 
             book.getMetadata()
-                .addIdentifier(new Identifier(Identifier.Scheme.ISBN, "9780345535481"));
+                .addIdentifier(new Identifier(Scheme.ISBN, "9780345535481"));
             book.getMetadata()
                 .addAuthor(new Author("Kevin", "Hearne"));
             book.getMetadata()
@@ -62,6 +63,8 @@ public final class EpubTestUtils {
                                                       "chapter1.html"));
             book.addResource(new Resource(this.getClass()
                                               .getResourceAsStream("/book1/book1.css"), "book1.css"));
+            book.addResource(new Resource(this.getClass()
+                                              .getResourceAsStream("/book1/ivonet.css"), "ivonet.css"));
             final TOCReference chapter2 = book.addSection("Second chapter", new Resource(this.getClass()
                                                                                              .getResourceAsStream(
                                                                                                      "/book1/chapter2"

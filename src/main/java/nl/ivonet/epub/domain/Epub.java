@@ -22,6 +22,7 @@ import nl.siegmann.epublib.domain.Date;
 import nl.siegmann.epublib.domain.Identifier;
 import nl.siegmann.epublib.domain.Resource;
 import nl.siegmann.epublib.epub.EpubReader;
+import nl.siegmann.epublib.service.MediatypeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -80,10 +81,6 @@ public class Epub {
         epubReader = null;
     }
 
-    public static Epub getEofInstance() {
-        return new Epub();
-    }
-
     public boolean notEof() {
         return !eof;
     }
@@ -97,7 +94,6 @@ public class Epub {
         }
         return new Book();
     }
-
 
     private void logError(final Exception e) {
         LOG.error("[ERROR] occurred in class {} with message {}.", getClass(), e.getMessage());
@@ -157,14 +153,14 @@ public class Epub {
                    .getDescriptions();
     }
 
-//    private Map<QName, String> getOtherProperties() {
-//        return epub.getMetadata().getOtherProperties();
-//    }
-
     private List<Date> getDates() {
         return epub.getMetadata()
                    .getDates();
     }
+
+//    private Map<QName, String> getOtherProperties() {
+//        return epub.getMetadata().getOtherProperties();
+//    }
 
     public List<String> getTypes() {
         return epub.getMetadata()
@@ -244,12 +240,34 @@ public class Epub {
         return epub.getCoverImage();
     }
 
+    public List<Resource> getStyles() {
+        return epub.getResources()
+                   .getResourcesByMediaType(MediatypeService.CSS);
+    }
+
     public boolean hasCover() {
         return epub.getCoverImage() == null;
     }
 
+    public void remove(final String href) {
+        epub.getResources()
+            .remove(href);
+    }
+
     private boolean isCorrectFilenameSize(final StringBuilder stringBuilder, final String item) {
         return (stringBuilder.length() + item.length() + getFirstTitle().length() + ET_ALL.length() + 13) <= 255;
+    }
+
+    public String createFilename() {
+        final StringBuilder filename = createAuthorFilenamePart();
+        filename.append(" - ");
+        filename.append(getFirstTitle());
+        filename.append(".kepub.epub");
+
+        return filename.toString()
+                       .replace("?", "")
+                       .replace("/", "-")
+                       .trim();
     }
 
 //    private String postProcessName(final String epubName) {
@@ -275,18 +293,6 @@ public class Epub {
 //
 //        return filename.toString();
 //    }
-
-    public String createFilename() {
-        final StringBuilder filename = createAuthorFilenamePart();
-        filename.append(" - ");
-        filename.append(getFirstTitle());
-        filename.append(".kepub.epub");
-
-        return filename.toString()
-                       .replace("?", "")
-                       .replace("/", "-")
-                       .trim();
-    }
 
     public String createFoldername() {
         return createAuthorFilenamePart().toString();
@@ -338,8 +344,7 @@ public class Epub {
                       + "Subjects=%s, Publishers=%s, Rights=%s, Identifiers=%s, Types=%s, Dates=%s, Format=%s, "
                       + "Descriptions=%s}", getOrigionalFilename(), filePath, getAuthors(), getFirstTitle(),
                       getTitles(), getLanguage(), getSubjects(), getPublishers(), getRights(), getIdentifiers(),
-                      getTypes(), getDates(), getFormat(), getDescriptions()
-        );
+                      getTypes(), getDates(), getFormat(), getDescriptions());
     }
 
     @Override
@@ -351,5 +356,9 @@ public class Epub {
             return "Still being constructed.";
         }
 
+    }
+
+    public static Epub getEofInstance() {
+        return new Epub();
     }
 }

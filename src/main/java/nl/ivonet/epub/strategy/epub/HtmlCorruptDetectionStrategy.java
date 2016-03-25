@@ -38,15 +38,31 @@ import java.util.stream.Collectors;
 @ConcreteEpubStrategy
 public class HtmlCorruptDetectionStrategy implements EpubStrategy {
 
-    public static final String tagStart =
+    private static final String tagStart =
             "\\<\\w+((\\s+\\w+(\\s*\\=\\s*(?:\".*?\"|'.*?'|[^'\"\\>\\s]+))?)+\\s*|\\s*)" + "\\>";
-    public static final String tagEnd = "\\</\\w+\\>";
-    public static final String tagSelfClosing =
+    private static final String tagEnd = "\\</\\w+\\>";
+    private static final String tagSelfClosing =
             "\\<\\w+((\\s+\\w+(\\s*\\=\\s*(?:\".*?\"|'.*?'|[^'\"\\>\\s]+))?)" + "+\\s*|\\s*)/\\>";
-    public static final String htmlEntity = "&[a-zA-Z][a-zA-Z0-9]+;";
-    public static final Pattern htmlPattern = Pattern.compile(
+    private static final String htmlEntity = "&[a-zA-Z][a-zA-Z0-9]+;";
+    private static final Pattern htmlPattern = Pattern.compile(
             "(" + tagStart + ".*" + tagEnd + ")|(" + tagSelfClosing + ")|(" + htmlEntity + ")", Pattern.DOTALL);
 
+    static List<Resource> getHtmlContents(final Epub epub) {
+        return epub.getContents()
+                   .stream()
+                   .filter(HtmlCorruptDetectionStrategy::isHtml)
+                   .collect(Collectors.toList());
+    }
+
+    private static boolean isContentHtml(String s) {
+        return (s != null) && htmlPattern.matcher(s)
+                                         .find();
+    }
+
+    static boolean isHtml(final Resource content) {
+        final MediaType mediaType = content.getMediaType();
+        return (mediaType != null) && "application/xhtml+xml".equals(mediaType.toString());
+    }
 
     @Override
     public void execute(final Epub epub) {
@@ -63,24 +79,6 @@ public class HtmlCorruptDetectionStrategy implements EpubStrategy {
             epub.addDropout(Dropout.READ_ERROR);
         }
 
-    }
-
-    public static List<Resource> getHtmlContents(final Epub epub) {
-        return epub.getContents()
-                   .stream()
-                   .filter(HtmlCorruptDetectionStrategy::isHtml)
-                   .collect(Collectors.toList());
-    }
-
-
-    public static boolean isContentHtml(String s) {
-        return (s != null) && htmlPattern.matcher(s)
-                                         .find();
-    }
-
-    public static boolean isHtml(final Resource content) {
-        final MediaType mediaType = content.getMediaType();
-        return (mediaType != null) && "application/xhtml+xml".equals(mediaType.toString());
     }
 
 }

@@ -28,6 +28,7 @@ import nl.siegmann.epublib.domain.Author;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -109,9 +110,16 @@ public class AuthorStrategy implements EpubStrategy {
         return converted;
     }
 
+    // FIXME: 20-03-2016 Temp code for analysis purposes
     private void writeAuthor(final String name) {
         try {
-            Files.write(Paths.get("/Users/ivonet/dev/ebook/epub-processor/artifact/authors/", name), name.getBytes());
+            final String folder = "/Users/ivonet/dev/ebook/output/authors/";
+            final File file = new File(folder);
+            if (!file.exists()) {
+                //noinspection ResultOfMethodCallIgnored
+                file.mkdirs();
+            }
+            Files.write(Paths.get(folder, name), name.getBytes());
         } catch (final IOException e) {
             throw new RuntimeException(e);
         }

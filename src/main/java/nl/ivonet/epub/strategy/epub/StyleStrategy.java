@@ -17,13 +17,15 @@
 package nl.ivonet.epub.strategy.epub;
 
 import nl.ivonet.epub.domain.Epub;
-import nl.siegmann.epublib.domain.MediaType;
 import nl.siegmann.epublib.domain.Resource;
-import nl.siegmann.epublib.service.MediatypeService;
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.List;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 /**
  * This strategy will remove all current style formatting and add the IvoNet style formatting.
@@ -38,24 +40,46 @@ public class StyleStrategy implements EpubStrategy {
     public void execute(final Epub epub) {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
 
-        final List<Resource> resources = epub.data()
-                                             .getResources()
-                                             .getResourcesByMediaType(MediatypeService.CSS);
+        epub.getStyles()
+            .stream()
+            .forEach(resource -> {
+//                writeStyles(epub.getOrigionalFilename(), resource); // TODO: 20-03-2016 Temporary!
+                epub.remove(resource.getHref());
+            });
 
-        for (final Resource resource : resources) {
-//            System.out.println("resource.getMediaType().toString() = " + resource.getMediaType()
-//                                                                                 .toString());
-            //This will keep the file but empty it of styles, so structure is kept.
-            resource.setData("".getBytes());
+        epub.getContents()
+            .stream()
+            .forEach(resource -> {
+                try {
+                    final String html = IOUtils.toString(resource.getReader());
+                    String ret = html.replaceAll(" class=\"[A-Za-z0-9_-]+(\\s+[A-Za-z0-9_-]+)*\"", "");
+//                    ret = html.replaceAll("<link href=\"../stylesheet.css\" rel=\"stylesheet\" type=\"text/css\"/>",
+//                                          "");
+                    resource.setData(ret.getBytes());
+                } catch (IOException e) {
+                    //ignore
+                }
+            });
 
+    }
+
+    // TODO: 20-03-2016 Temp code for analysis
+    private void writeStyles(final String origionalFilename, final Resource resource) {
+        final String finalname = origionalFilename + "-" + resource.getId() + ".css";
+        try {
+            final String css = IOUtils.toString(resource.getReader());
+
+            final String folder = "/Users/ivonet/dev/ebook/output/css/";
+            final File file = new File(folder);
+            if (!file.exists()) {
+                //noinspection ResultOfMethodCallIgnored
+                file.mkdirs();
+            }
+            Files.write(Paths.get(folder, finalname), css.getBytes());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
-
-    private boolean isNotHtml(final Resource content) {
-        final MediaType mediaType = content.getMediaType();
-        return (mediaType != null) && !"application/xhtml+xml".equals(mediaType.toString());
-    }
-
 }
 
 

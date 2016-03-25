@@ -1,0 +1,3 @@
+iTunesMetadata.plist
+iTunesMetadata-origional.plist
+iTunesArtwork
