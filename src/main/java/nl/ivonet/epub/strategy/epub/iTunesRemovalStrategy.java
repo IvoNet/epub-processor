@@ -37,7 +37,12 @@ public class iTunesRemovalStrategy implements EpubStrategy {
     public void execute(final Epub epub) {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
 
+        //At this time nothing is needed because iTunes files will removed automatically by converting from epub to
+        // epub3
+
         // TODO: 22-03-2016 Remove all iTunes files in this strategy.
+//        epub.getContents().forEach(p -> System.out.println(p.getHref()));
+
 
     }
 }
