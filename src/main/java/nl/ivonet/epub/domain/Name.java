@@ -21,7 +21,7 @@ import nl.ivonet.epub.strategy.name.NameFormattingStrategy;
 import nl.ivonet.epub.strategy.name.SurnameCommaFirstnamesStrategy;
 import nl.siegmann.epublib.domain.Author;
 
-import java.util.Arrays;
+import static java.util.Arrays.copyOfRange;
 
 /**
  * @author Ivo Woltring
@@ -50,7 +50,7 @@ public class Name {
         }
 
         if (name.startsWith("'t, ")) {
-            name = name.replace("'t, ", "") + " 't";
+            name = name.replace("'t, ", "") + COMMA_T;
             name = name.replaceFirst(" ", ", ");
         }
 
@@ -64,7 +64,7 @@ public class Name {
             if (strings.length == 1) {
                 process("", surname);
             } else {
-                process(String.join(", ", Arrays.copyOfRange(strings, 0, strings.length - 1)), surname);
+                process(String.join(", ", (CharSequence[]) copyOfRange(strings, 0, strings.length - 1)), surname);
             }
         }
 

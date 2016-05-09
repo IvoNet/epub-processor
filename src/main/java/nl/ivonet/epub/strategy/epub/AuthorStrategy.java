@@ -101,7 +101,7 @@ public class AuthorStrategy implements EpubStrategy {
                     converted.add(switchedName.asAuthor());
                 } else {
                     switchedName.setNameFormatStrategy(switchFirstnameAndSurnameStrategy);
-//FIXME uncomment to get all authors
+//FIXME uncomment to get all authors in files
 //                    writeAuthor(new Name(switchedName.name()).name()
 //                                                             .trim());
                 }
