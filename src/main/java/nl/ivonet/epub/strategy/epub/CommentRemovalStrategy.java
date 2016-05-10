@@ -58,7 +58,6 @@ public class CommentRemovalStrategy implements EpubStrategy {
                 final StringBuffer sb = new StringBuffer();
                 while (matcher.find()) {
                     final String group = matcher.group();
-                    System.out.println("group = " + group);
                     matcher.appendReplacement(sb, "");
                 }
                 matcher.appendTail(sb);
