@@ -50,7 +50,6 @@ public class DitigalWatermarkRemovalStrategy implements EpubStrategy {
             "Het watermerk is weggehaald als bescherming van de privacy " + "van de koper.";
     private static final String IS_WATERMARK = "Het eBook is voorzien van een watermerk";
     private static final String WAS_WATERMARK = "Het eBook was voorzien van een watermerk";
-    private static final Pattern JS_IMAGE = Pattern.compile("");
 
 
     @Override
@@ -88,6 +87,7 @@ public class DitigalWatermarkRemovalStrategy implements EpubStrategy {
         final Matcher matcher = WATERMARK_PAT.matcher(html);
         final StringBuffer sb = new StringBuffer();
         while (matcher.find()) {
+            LOG.debug("group = " + matcher.group());
             matcher.appendReplacement(sb, ">" + WAS_WATERMARK + "</p>");
         }
         matcher.appendTail(sb);
@@ -101,6 +101,7 @@ public class DitigalWatermarkRemovalStrategy implements EpubStrategy {
         final Matcher matcher = WATERMARK_PAT_2.matcher(html);
         final StringBuffer sb = new StringBuffer();
         while (matcher.find()) {
+            LOG.debug("group = " + matcher.group());
             matcher.appendReplacement(sb, "title=\"Possible watermark removed\""); //you can put any text here
         }
         matcher.appendTail(sb);
