@@ -144,12 +144,25 @@ public class Name {
         } else if (surname.matches(INITIALS)) {
             this.firstname = strip(surname).toUpperCase();
             this.surname = strip(firstname);
-        } else if (firstname.matches(INITIALS)) {
-            this.firstname = strip(firstname).toUpperCase();
-            this.surname = strip(surname);
         } else {
-            this.firstname = toCamelCase(strip(firstname));
-            this.surname = toCamelCase(strip(surname));
+            if (firstname.matches(INITIALS)) {
+                this.firstname = strip(firstname).toUpperCase();
+                this.surname = strip(surname);
+            } else {
+                this.firstname = toCamelCase(strip(firstname));
+                this.surname = toCamelCase(strip(surname));
+            }
+        }
+
+        // TODO: 11-05-2016 beautify! this is ugly as sin
+        if ((this.firstname.length() > 2) && this.firstname.endsWith(".") && !this.firstname.matches(INITIALS)
+            && !this.firstname.contains(" ")) {
+            this.firstname = this.firstname.substring(0, this.firstname.lastIndexOf("."));
+        }
+        // TODO: 11-05-2016 beautify! this is ugly as sin
+        if ((this.surname.length() > 2) && this.surname.endsWith(".") && !this.surname.matches(INITIALS)
+            && !this.surname.contains(" ")) {
+            this.surname = this.surname.substring(0, this.surname.lastIndexOf("."));
         }
 
         specialCamelCasing("Mac");
