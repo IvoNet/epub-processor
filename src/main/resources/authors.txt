@@ -1029,7 +1029,6 @@ Ayrton, Michael
 Azzarello, Brian
 Azzopardi, Trezza
 Baantjer, A.C.
-Baantjer, A.C.
 Baars, Els
 Babbitt, Natalie
 Babchenko, Arkady
@@ -2859,7 +2858,6 @@ Bronsberg, Barbro
 Bronsky, Alina
 Bronson, Po Ashley
 Bronte, Anne
-Bronte, Charlotte
 Bronte, Charlotte
 Bronte, Emily
 Brook, Jonathan
@@ -17431,7 +17429,6 @@ Porter, Eleanor Hodgeman
 Porter, Hal
 Porter, Helen
 Porter, Jane
-Porter, Joyce
 Porter, Katherine Anne
 Porter, Mrs. David
 Porter, Peter
@@ -23801,4 +23798,4 @@ deWitt, Patrick
 el-Saadawi, Nawal
 gCopaleen, Myles na
 Östergren, Klas
-Özdamar, Emine Sevgi
+Özdamar, Emine SevgiPorter, Joyce
