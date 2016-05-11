@@ -102,8 +102,8 @@ public class AuthorStrategy implements EpubStrategy {
                 } else {
                     switchedName.setNameFormatStrategy(switchFirstnameAndSurnameStrategy);
 //FIXME uncomment to get all authors in files
-//                    writeAuthor(new Name(switchedName.name()).name()
-//                                                             .trim());
+                    writeAuthor(new Name(switchedName.name()).name()
+                                                             .trim());
                 }
             }
         }
@@ -113,7 +113,8 @@ public class AuthorStrategy implements EpubStrategy {
     // FIXME: 20-03-2016 Temp code for analysis purposes
     private void writeAuthor(final String name) {
         try {
-            final String folder = "/Users/ivonet/dev/ebook/output/authors/";
+//            final String folder = "/Users/ivonet/dev/ebook/output/authors/";
+            final String folder = "/Volumes/WD500/PossibleAuthors";
             final File file = new File(folder);
             if (!file.exists()) {
                 //noinspection ResultOfMethodCallIgnored

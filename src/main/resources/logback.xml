@@ -32,7 +32,7 @@
             <maxIndex>10</maxIndex>
         </rollingPolicy>
         <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
-            <maxFileSize>100MB</maxFileSize>
+            <maxFileSize>10MB</maxFileSize>
         </triggeringPolicy>
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{10} - %msg%n</pattern>
@@ -132,6 +132,10 @@
         <appender-ref ref="errorAppender"/>
     </logger>
 
+    <logger name="ch.qos.logback" additivity="false">
+        <level value="NONE"/>
+        <appender-ref ref="dumpAppender"/>
+    </logger>
     <logger name="nl.siegmann.epublib.epub" additivity="false">
         <level value="NONE"/>
         <appender-ref ref="dumpAppender"/>

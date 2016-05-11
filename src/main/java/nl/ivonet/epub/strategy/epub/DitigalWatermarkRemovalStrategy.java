@@ -102,7 +102,7 @@ public class DitigalWatermarkRemovalStrategy implements EpubStrategy {
         final Matcher matcher = WATERMARK_PAT_2.matcher(html);
         final StringBuffer sb = new StringBuffer();
         while (matcher.find()) {
-            LOG.debug("Watermark = " + matcher.group());
+            LOG.debug("Watermark = [{}]", matcher.group());
             matcher.appendReplacement(sb, "title=\"Possible watermark removed\""); //you can put any text here
         }
         matcher.appendTail(sb);
