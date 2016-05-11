@@ -5628,12 +5628,14 @@ Deeping, Warwick
 Dees, Cindy
 Deese, Nicole
 Deeth, Kelli
+Deflo, Luc
 Defoe, Daniel
 Degen, Bruce
 Deichmann, Hans
 Deighton, Len
 Deken, Aagje
 Dekker, Carl
+Dekker, Marleen
 Dekker, Ted
 Dekker, Thomas
 Deckers, Daphne
@@ -5998,6 +6000,7 @@ Donson, Cyril
 Doody, Margaret
 Doogan, Mike
 Doolaard, A.
+Doolaard, Rob
 Doolan, Catherine
 Doolittle, Hilda
 Doolittle, Sean
@@ -6184,6 +6187,7 @@ Dufour, Dennis
 Dufour, Mark F.B.
 Dugan, Alan
 Dugan, Bill
+Dugard, Jaycee
 Dugard, Martin
 Duggan, Alfred
 Duggin, Lorraine
@@ -6280,6 +6284,7 @@ Durrell, Lawrence
 Durrow, Heidi W.
 Duryea, Chris
 Dusen, Chris van
+Duson, Gert
 Dusseau, Lizbeth
 Dusíková, Maja
 Dutcher, Roger
@@ -6350,6 +6355,7 @@ Easton, M. Coleman
 Easton, Thomas
 Easton, Thomas A.
 Eastwood, James
+Ebbink, Elisabeth
 Ebbs, Paul
 Ebbutt, Maude
 Ebeling, Elisabeth
@@ -6490,6 +6496,7 @@ Elboz, Stephen
 Elbury, Dorothy
 Elchin
 Elck, Arthur
+Vloten Elderinck, D. van
 Elder, Jason
 Elder, Joseph
 Elder, Michael
@@ -6572,6 +6579,7 @@ Elrod, Patricia Nead
 Elsner, Gisela
 Elsschot, Willem
 Elsworth, John
+Elte, J.W.F.
 Elton, Ben
 Elwood, Roger P.
 Ely, David
@@ -6635,6 +6643,7 @@ Enquist, Per Olov
 Enright, Anne
 Enright, D.J.
 Enright, Elizabeth
+Ensel, Remco
 Ensign, Deborah
 Ensler, Eve
 Entwistle, Alan
@@ -7666,6 +7675,7 @@ G.J.A.O'Toole
 Gaarder, Jostein
 Gabaldon, Diana
 Gabbay, Tom
+Gabor, Mark
 Gaborno, Rudy
 Gabriel, Claire
 Gabriel, Kristin
@@ -7907,6 +7917,7 @@ Gedge, Pauline
 Gee, Maurice
 Geer, Charles
 Geertje, Couwenbergh
+Geerts, Fred
 Gefter, Philip
 Gehman, Richard
 Gehrman, Jody
@@ -8174,6 +8185,7 @@ Gladwell, Malcolm
 Glaister, Lesley
 Glajar, Valentina
 Glancy, Diane
+Glansbeek, Joke
 Glantz, Margo
 Glasby, John S.
 Glaser, Peter
@@ -8405,6 +8417,7 @@ Gorman, Michele
 Gormley, Adrienne
 Gormley, Beatrice
 Gorodischer, Angélica
+Gort, Ilja
 Gortner, C.W.
 Gorvine, Aaron
 Goscilo, Helena
@@ -9002,6 +9015,7 @@ Hale, Kelly
 Hale, Lucretia P.
 Hale, Nathan
 Hale, Shannon
+Hale-Evans, Ron
 Hales, Robert
 Haley, Alex
 Haley, Patricia
@@ -9522,6 +9536,7 @@ Haywood, Gar Anthony
 Hazel, Paul
 Hazen, Barbara Shook
 Hazen, Timothy
+Hazendonk, Karin
 Hazleton, Lesley
 Hazlitt, William
 Hazzard, Shirley
@@ -10098,6 +10113,7 @@ Holland, Vyvyan
 Holland, Walter
 Hollander, Carl
 Hollander, Evan
+Hollander, Franklin
 Hollander, John
 Hollander, Lee M.
 Holleran, Andrew
@@ -10400,6 +10416,7 @@ Hugo, Lynne
 Hugo, Richard
 Hugo, Victor
 Huie, William Bradford
+Huijzer, David
 Huisjes, Bert
 Huish, Leonard
 Huizing, Gonneke
@@ -10520,6 +10537,7 @@ Hutton, Arlene
 Hutton, Mary
 Huxley, Aldous
 Huxley, Aldous Leonard
+Huygens, Daniel Johannes
 Huysmans, J.-K.
 Huysmans, Joris-Karl
 Hwang, Chang
@@ -10672,6 +10690,7 @@ Irwin, Mark
 Irwin, Robert
 Isaac, Asimov
 Isaacs, Susan
+Isaacson, Walter
 Isaak, Elaine
 Isabel, Allende
 Isabella, Tony
@@ -10984,6 +11003,7 @@ Jensen, Johannes V.
 Jensen, Liz
 Jensen, Muriel
 Jensen, Patricia
+Jensen, Stine
 Jensen, Trish
 Jenson, Martin
 Jeppson, Janet O.
@@ -11159,6 +11179,7 @@ Jonas, Boets
 Jonas, Gary
 Jonas, George
 Jonas, Samuel Alroy
+Jonasson, Jonas
 Jones, Alice
 Jones, Annie
 Jones, Barry
@@ -11228,6 +11249,7 @@ Jong, Annet de
 Jong, Carlade
 Jong, Erica
 Jong, Koen
+Jonge, Hella de
 Jonge, Peter de
 Jongstra, Atte
 Jonke, Gert Friedrich
@@ -11247,6 +11269,7 @@ Jordan, Steve
 Jordan, Wayne
 Jordis, Ludovica Brentano
 Jorgensen, Ivar
+Joris, Lieve
 Jorner, Per
 Joron, Andrew
 Jos, Brink
@@ -12015,6 +12038,7 @@ Klein, Robin
 Klein, Ross A.
 Klein, Sidney
 Klein, T.E.D.
+Kleinblatt, Henri
 Kleinert, Charlotte
 Kleist, Heinrich von
 Klensch, Elsa
@@ -12277,6 +12301,7 @@ Kristof, Agota
 Kritzer, Naomi
 Krivich, M.
 Krleza, Miroslav
+Kroon, Henk
 Kroeber, Theodora
 Kroetsch, Neil
 Kroetsch, Robert
@@ -19964,6 +19989,7 @@ Sisskind, Mitchell
 Sisson, C.H.
 Sisson, Rosemary Anne
 Sisters, Banger
+Sitchin, Zecharia
 Sittenfeld, Curtis
 Sitwell, Dame Edith
 Sitwell, Osbert
@@ -20024,6 +20050,7 @@ Sleator, William
 Sledzik, Paul
 Slee, Carry
 Slee, Shubha
+Sleeboom, Harm Pieter
 Sleigh, Barbara
 Sleigh, Dan
 Sleigh, Tom
@@ -22206,6 +22233,7 @@ Vowell, Sarah
 Vreeland, Susan
 Vries, Anke de
 Vries, Peter de
+Vries, Sandra de
 Vu, Tran
 Vuijsje, Robert
 Vukcevich, Ray

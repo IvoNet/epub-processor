@@ -45,7 +45,8 @@ public class DitigalWatermarkRemovalStrategy implements EpubStrategy {
     private static final Pattern WATERMARK_PAT = Pattern.compile(
             ">Dit eBook is voorzien van een watermerk met identificatiecode.*?: (.*?) - (.*?)</p>",
             Pattern.CASE_INSENSITIVE);
-    private static final Pattern WATERMARK_PAT_2 = Pattern.compile("title=\"(.*?)\"", Pattern.CASE_INSENSITIVE);
+    private static final Pattern WATERMARK_PAT_2 = Pattern.compile("title=\"(?:[A-Za-z0-9+/]*)==\"",
+                                                                   Pattern.CASE_INSENSITIVE);
     private static final String REMOVED_WATERMARK_TXT =
             "Het watermerk is weggehaald als bescherming van de privacy " + "van de koper.";
     private static final String IS_WATERMARK = "Het eBook is voorzien van een watermerk";
@@ -87,7 +88,7 @@ public class DitigalWatermarkRemovalStrategy implements EpubStrategy {
         final Matcher matcher = WATERMARK_PAT.matcher(html);
         final StringBuffer sb = new StringBuffer();
         while (matcher.find()) {
-            LOG.debug("group = " + matcher.group());
+            LOG.debug("Watermark = " + matcher.group());
             matcher.appendReplacement(sb, ">" + WAS_WATERMARK + "</p>");
         }
         matcher.appendTail(sb);
@@ -101,7 +102,7 @@ public class DitigalWatermarkRemovalStrategy implements EpubStrategy {
         final Matcher matcher = WATERMARK_PAT_2.matcher(html);
         final StringBuffer sb = new StringBuffer();
         while (matcher.find()) {
-            LOG.debug("group = " + matcher.group());
+            LOG.debug("Watermark = " + matcher.group());
             matcher.appendReplacement(sb, "title=\"Possible watermark removed\""); //you can put any text here
         }
         matcher.appendTail(sb);
@@ -115,12 +116,21 @@ public class DitigalWatermarkRemovalStrategy implements EpubStrategy {
 
 
     private String removeDataImg(final String html) {
-        return html.replaceAll("<div class=\"dataImg\"><img src=\"data:image/png;base64,.*?=\".*?/></div>", "");
+        if (html.contains("data:image/png;base64")) {
+            LOG.debug("Possible malicious code found in base64 encoded image");
+        }
+
+        return html.replaceAll(
+                "<div class=\"dataImg\"><img src=\"data:image/png;base64,(?:[A-Za-z0-9+/]*)=\".*?/></div>", "");
     }
 
 
     private String removeJavaScript(final String html) {
+        if (html.contains("data:application/x-javascript;base64")) {
+            LOG.debug("Possible malicious code found in base64 encoded javascript");
+        }
         return html.replaceAll(
-                "<script type=\"text/javascript\" src=\"data:application/x-javascript;base64,.*?\".*?/script>", "");
+                "<script type=\"text/javascript\" src=\"data:application/x-javascript;base64,(?:[A-Za-z0-9+/]*)\".*?/script>",
+                "");
     }
 }
