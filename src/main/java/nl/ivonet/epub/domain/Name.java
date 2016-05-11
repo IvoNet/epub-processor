@@ -131,9 +131,13 @@ public class Name {
         return ret.toString();
     }
 
+    // TODO: 11-05-2016 refactor this.
     private void process(final String firstname, final String surname) {
         if ((firstname.split(" ").length > 1) && "A.".equals(surname)) {//A., Heinlein Robert
             final String ret = firstname + " A.";
+            extractName(ret);
+        } else if ((firstname.split(" ").length > 1) && "C.".equals(surname)) {//C., Clarke arthur
+            final String ret = firstname + " C.";
             extractName(ret);
         } else if (nameStartsWithACommaT(surname)) { //'t, Hek Youp van
             final String ret = firstname + COMMA_T;
