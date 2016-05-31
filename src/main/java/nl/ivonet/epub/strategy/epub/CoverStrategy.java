@@ -43,9 +43,6 @@ public class CoverStrategy implements EpubStrategy {
     public void execute(final Epub epub) {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
 
-        //TODO I'm just curious how many of my books lack a cover. This strategy is not finished at all!
-
-
         int idx = 0;
         while (true) {
             idx++;
@@ -53,23 +50,21 @@ public class CoverStrategy implements EpubStrategy {
             if (resource == null) {
                 break;
             }
-            final String location = resource.getFile();
-            final Path path = Paths.get(location);
-            if (!Files.exists(path)) {
-                break;
-            }
+            final Path path = Paths.get(resource.getFile());
+            System.out.println("path = " + path);
 
-            final byte[] noCover = retrieveWrongCover(path);
-            try {
-
-                final byte[] coverImage = IOUtils.toByteArray(epub.getCoverImage()
-                                                                  .getReader());
-                if (Arrays.equals(noCover, coverImage)) {
-                    epub.addDropout(Dropout.COVER);
-                }
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+            if (Arrays.equals(retrieveWrongCover(path), getCoverContent(epub))) {
+                epub.addDropout(Dropout.COVER);
             }
+        }
+    }
+
+    private byte[] getCoverContent(final Epub epub) {
+        try {
+            return IOUtils.toByteArray(epub.getCoverImage()
+                                           .getReader());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
