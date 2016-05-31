@@ -50,50 +50,74 @@ public class CoverStrategy implements EpubStrategy {
 
         int idx = 1;
         URL resource;
+        final byte[] coverContent = getCoverContent(epub);
+        if (coverContent == null) {
+            epub.addDropout(Dropout.COVER);
+            return;
+        }
         while ((resource = EpubStrategy.class.getResource(String.format("/wrongCover/cover_%s.jpeg", idx))) != null) {
-            if (Arrays.equals(retrieveWrongCover(Paths.get(resource.getFile())), getCoverContent(epub))) {
+            if (Arrays.equals(retrieveWrongCover(Paths.get(resource.getFile())), coverContent)) {
                 epub.addDropout(Dropout.COVER);
             }
             idx++;
         }
-
-        if ((epub.getCoverPage() == null) || (epub.getCoverImage() == null)) {
-            LOG.error("Book with title {}] seems to have no cover.", epub.getOrigionalFilename());
-        }
-
     }
 
     private byte[] getCoverContent(final Epub epub) {
-        try {
-            return IOUtils.toByteArray(epub.getCoverImage()
-                                           .getReader());
-        } catch (IOException | NullPointerException e) {
-            return getCoverPageContent(epub);
+        final Resource coverImage = epub.getCoverImage();
+        if (coverImage != null) {
+            return getBytes(coverImage);
         }
-
-
+        return getCoverPageContentImage(epub);
     }
 
-    private byte[] getCoverPageContent(final Epub epub) {
+    private byte[] getCoverPageContentImage(final Epub epub) {
+        final String src = getImgTagSrcReference(epub);
+        if (src == null) {
+            return null;
+        }
+        final Resources resources = epub.getResources();
+        final Resource cover = resources.getAll()
+                                        .stream()
+                                        .filter(resource -> src.contains(resource.getHref()))
+                                        .findFirst()
+                                        .orElse(null);
+        if (cover != null) {
+            LOG.info("Found cover in cover page [{}]", epub.getOrigionalFilename());
+            epub.setCoverImage(cover);
+            return getBytes(cover);
+        }
+        return null;
+    }
+
+    private byte[] getBytes(final Resource resource) {
         try {
-            final String src = retrieveXpath(epub.getCoverPage()
-                                                 .getInputStream(), "//img/@src");
-
-            final Resources resources = epub.getResources();
-            final Resource cover = resources.getAll()
-                                            .stream()
-                                            .filter(resource -> src.contains(resource.getHref()))
-                                            .findFirst()
-                                            .orElse(null);
-            if (cover != null) {
-                epub.setCoverImage(cover);
-                return IOUtils.toByteArray(cover.getInputStream());
-            }
-
-        } catch (IOException e) {
+            return IOUtils.toByteArray(resource.getReader());
+        } catch (final IOException e) {
             throw new RuntimeException(e);
         }
-        throw new RuntimeException("Should not be here.");
+    }
+
+    private String getImgTagSrcReference(final Epub epub) {
+        final Resource coverPage = epub.getCoverPage();
+        if (coverPage == null) {
+            return null;
+        }
+        try {
+            return retrieveXpath(coverPage.getInputStream(), "//img/@src");
+        } catch (final IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private String retrieveXpath(final InputStream inputStream, final String xpath) {
+        try {
+            return Xsoup.compile(xpath)
+                        .evaluate(Jsoup.parse(IOUtils.toString(inputStream)))
+                        .get();
+        } catch (final IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private byte[] retrieveWrongCover(final Path location) {
@@ -105,15 +129,5 @@ public class CoverStrategy implements EpubStrategy {
             throw new RuntimeException(e);
         }
         return noCover;
-    }
-
-    private String retrieveXpath(final InputStream inputStream, final String xpath) {
-        try {
-            return Xsoup.compile(xpath)
-                        .evaluate(Jsoup.parse(IOUtils.toString(inputStream)))
-                        .get();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 }
