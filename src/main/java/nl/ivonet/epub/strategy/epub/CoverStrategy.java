@@ -43,20 +43,19 @@ public class CoverStrategy implements EpubStrategy {
     public void execute(final Epub epub) {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
 
-        int idx = 0;
-        while (true) {
-            idx++;
-            final URL resource = EpubStrategy.class.getResource(String.format("/noCover/noCover_%s.jpeg", idx));
-            if (resource == null) {
-                break;
-            }
-            final Path path = Paths.get(resource.getFile());
-            System.out.println("path = " + path);
-
-            if (Arrays.equals(retrieveWrongCover(path), getCoverContent(epub))) {
+        int idx = 1;
+        URL resource;
+        while ((resource = EpubStrategy.class.getResource(String.format("/wrongCover/cover_%s.jpeg", idx))) != null) {
+            if (Arrays.equals(retrieveWrongCover(Paths.get(resource.getFile())), getCoverContent(epub))) {
                 epub.addDropout(Dropout.COVER);
             }
+            idx++;
         }
+
+        if ((epub.getCoverPage() == null) || (epub.getCoverImage() == null)) {
+            LOG.error("Book with title {}] seems to have no cover.", epub.getOrigionalFilename());
+        }
+
     }
 
     private byte[] getCoverContent(final Epub epub) {
