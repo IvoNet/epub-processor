@@ -21,6 +21,7 @@ import nl.siegmann.epublib.domain.Book;
 import nl.siegmann.epublib.domain.Date;
 import nl.siegmann.epublib.domain.Identifier;
 import nl.siegmann.epublib.domain.Resource;
+import nl.siegmann.epublib.domain.Resources;
 import nl.siegmann.epublib.epub.EpubReader;
 import nl.siegmann.epublib.service.MediatypeService;
 import org.slf4j.Logger;
@@ -237,8 +238,16 @@ public class Epub {
         return epub.getContents();
     }
 
+    public Resources getResources() {
+        return epub.getResources();
+    }
+
     public Resource getCoverImage() {
         return epub.getCoverImage();
+    }
+
+    public void setCoverImage(Resource coverImage) {
+        epub.setCoverImage(coverImage);
     }
 
     public List<Resource> getStyles() {

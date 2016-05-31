@@ -19,12 +19,17 @@ package nl.ivonet.epub.strategy.epub;
 import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
+import nl.siegmann.epublib.domain.Resource;
+import nl.siegmann.epublib.domain.Resources;
 import org.apache.commons.io.IOUtils;
+import org.jsoup.Jsoup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import us.codecraft.xsoup.Xsoup;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.nio.file.Files;
@@ -62,9 +67,33 @@ public class CoverStrategy implements EpubStrategy {
         try {
             return IOUtils.toByteArray(epub.getCoverImage()
                                            .getReader());
+        } catch (IOException | NullPointerException e) {
+            return getCoverPageContent(epub);
+        }
+
+
+    }
+
+    private byte[] getCoverPageContent(final Epub epub) {
+        try {
+            final String src = retrieveXpath(epub.getCoverPage()
+                                                 .getInputStream(), "//img/@src");
+
+            final Resources resources = epub.getResources();
+            final Resource cover = resources.getAll()
+                                            .stream()
+                                            .filter(resource -> src.contains(resource.getHref()))
+                                            .findFirst()
+                                            .orElse(null);
+            if (cover != null) {
+                epub.setCoverImage(cover);
+                return IOUtils.toByteArray(cover.getInputStream());
+            }
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        throw new RuntimeException("Should not be here.");
     }
 
     private byte[] retrieveWrongCover(final Path location) {
@@ -76,5 +105,15 @@ public class CoverStrategy implements EpubStrategy {
             throw new RuntimeException(e);
         }
         return noCover;
+    }
+
+    private String retrieveXpath(final InputStream inputStream, final String xpath) {
+        try {
+            return Xsoup.compile(xpath)
+                        .evaluate(Jsoup.parse(IOUtils.toString(inputStream)))
+                        .get();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
