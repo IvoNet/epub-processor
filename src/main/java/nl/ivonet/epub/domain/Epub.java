@@ -46,6 +46,7 @@ public class Epub {
     private static final Logger LOG = LoggerFactory.getLogger(Epub.class);
 
     private static final String ET_ALL = "et al.";
+    private static final String KEPUB_EPUB = ".kepub.epub";
 
     private final Path filePath;
     private final Book epub;
@@ -249,6 +250,10 @@ public class Epub {
         return epub.getCoverImage() == null;
     }
 
+    public Resource getCoverPage() {
+        return epub.getCoverPage();
+    }
+
     public void remove(final String href) {
         epub.getResources()
             .remove(href);
@@ -258,17 +263,19 @@ public class Epub {
         return (stringBuilder.length() + item.length() + getFirstTitle().length() + ET_ALL.length() + 13) <= 255;
     }
 
+
     public String createFilename() {
         final StringBuilder filename = createAuthorFilenamePart();
         filename.append(" - ");
         filename.append(getFirstTitle());
-        filename.append(".kepub.epub");
+        filename.append(KEPUB_EPUB);
 
         return filename.toString()
                        .replace("?", "")
                        .replace("/", "-")
                        .trim();
     }
+
 
 //    private String postProcessName(final String epubName) {
 //        if (epubName.length() <= 255) {

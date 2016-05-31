@@ -30,6 +30,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.UUID;
 
@@ -106,13 +109,33 @@ public class EpubConsumer implements Runnable {
         final String folder = makeDirectoryInOutputLocation(epub);
         final String filename = epub.createFilename();
 
-        LOG.info("Writing [{}{}]", folder, filename);
+        final String path = uniqueName(folder, filename);
 
-        try (FileOutputStream out = new FileOutputStream(folder + filename)) {
+        LOG.info("Writing [{}]", path);
+
+        try (FileOutputStream out = new FileOutputStream(path)) {
             new EpubWriter().write(epub.data(), out);
         } catch (final IOException e) {
             logError(e);
         }
+    }
+
+    private String uniqueName(final String folder, final String... extras) {
+        Path path = Paths.get(folder, extras);
+        final String originalName = path.getFileName()
+                                        .toString()
+                                        .split("\\.kepub\\.epub")[0];
+        int count = 0;
+        while (count < 1000) {
+            count++;
+            if (Files.exists(path)) {
+                path = Paths.get(folder, String.format("%s (%s).kepub.epub", originalName, count));
+            } else {
+                return path.toString();
+            }
+        }
+        return Paths.get(folder, extras)
+                    .toString();
     }
 
     private String makeDirectoryInOutputLocation(final Epub epub) {

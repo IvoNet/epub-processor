@@ -16,15 +16,26 @@
 
 package nl.ivonet.epub.strategy.epub;
 
+import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
 
 /**
  * @author Ivo Woltring
  */
-//@ConcreteEpubStrategy //FIXME this Strategy is disabled at this time
+@ConcreteEpubStrategy
 public class CoverStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(CoverStrategy.class);
 
@@ -34,8 +45,42 @@ public class CoverStrategy implements EpubStrategy {
 
         //TODO I'm just curious how many of my books lack a cover. This strategy is not finished at all!
 
-        if (!epub.hasCover()) {
-            epub.addDropout(Dropout.COVER);
+
+        int idx = 0;
+        while (true) {
+            idx++;
+            final URL resource = EpubStrategy.class.getResource(String.format("/noCover/noCover_%s.jpeg", idx));
+            if (resource == null) {
+                break;
+            }
+            final String location = resource.getFile();
+            final Path path = Paths.get(location);
+            if (!Files.exists(path)) {
+                break;
+            }
+
+            final byte[] noCover = retrieveWrongCover(path);
+            try {
+
+                final byte[] coverImage = IOUtils.toByteArray(epub.getCoverImage()
+                                                                  .getReader());
+                if (Arrays.equals(noCover, coverImage)) {
+                    epub.addDropout(Dropout.COVER);
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
+    }
+
+    private byte[] retrieveWrongCover(final Path location) {
+        final byte[] noCover;
+        try (final InputStreamReader in = new InputStreamReader(Files.newInputStream(location));
+             final BufferedReader br = new BufferedReader(in)) {
+            noCover = IOUtils.toByteArray(br);
+        } catch (final IOException e) {
+            throw new RuntimeException(e);
+        }
+        return noCover;
     }
 }
