@@ -31,6 +31,8 @@ public enum Dropout {
     COVER("No Cover"),
     KEPBUB("Kepub"),
     NULL("NullPointer"),
+    WATERMARK("Watermark"),
+    DOUBLE("DOUBLE"),
     CORRUPT_HTML("HTML");
 
     private final String value;

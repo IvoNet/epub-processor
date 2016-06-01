@@ -37,7 +37,18 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 
+
+// TODO: 01-06-2016 if no cover is found it might be nifty to see if we can get a suitable cover based on the
+// metadata of the book
+
 /**
+ * Tries to determine if a book has a cover.
+ *
+ * - First it tries to determine if the default cover image is available.
+ * - if it is available see if it matches one of the wrong (not allowed) covers and dropout if it is wrong
+ * - if not found try to find the image in the cover page and then do the same.
+ * - if a correct cover image is found in the cover page it sets it as the cover image directly too.
+ *
  * @author Ivo Woltring
  */
 @ConcreteEpubStrategy

@@ -75,10 +75,7 @@ public class DitigalWatermarkRemovalStrategy implements EpubStrategy {
             } catch (IOException e) {
                 epub.addDropout(Dropout.READ_ERROR);
             }
-
         }
-
-
     }
 
     /**
@@ -130,7 +127,8 @@ public class DitigalWatermarkRemovalStrategy implements EpubStrategy {
             LOG.debug("Possible malicious code found in base64 encoded javascript");
         }
         return html.replaceAll(
-                "<script type=\"text/javascript\" src=\"data:application/x-javascript;base64,(?:[A-Za-z0-9+/]*)\".*?/script>",
+                "<script type=\"text/javascript\" src=\"data:application/x-javascript;base64,(?:[A-Za-z0-9+/]*)\""
+                + ".*?/script>",
                 "");
     }
 }

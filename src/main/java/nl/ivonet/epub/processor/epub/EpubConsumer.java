@@ -100,10 +100,7 @@ public class EpubConsumer implements Runnable {
     }
 
     private void write(final Epub epub) {
-        if (epub.isDropout()) {
-            LOG.error("Dropout ebook [{}] with reason [{}]", epub.getOrigionalFilename(), epub.dropoutReasons());
-            //TODO move the dropped out book to a separate folder for testing
-            copyErrorFile(epub.getOrigionalPath(), epub.getOrigionalFilename(), epub.dropoutFolder());
+        if (processDropout(epub)) {
             return;
         }
         final String folder = makeDirectoryInOutputLocation(epub);
@@ -118,6 +115,15 @@ public class EpubConsumer implements Runnable {
         } catch (final IOException e) {
             logError(e);
         }
+    }
+
+    private boolean processDropout(final Epub epub) {
+        if (epub.isDropout()) {
+            LOG.error("Dropout ebook [{}] with reason [{}]", epub.getOrigionalFilename(), epub.dropoutReasons());
+            copyErrorFile(epub.getOrigionalPath(), epub.getOrigionalFilename(), epub.dropoutFolder());
+            return true;
+        }
+        return false;
     }
 
     private String uniqueName(final String folder, final String... extras) {
@@ -156,7 +162,6 @@ public class EpubConsumer implements Runnable {
         return endslash(directory.getAbsolutePath());
     }
 
-    //TODO move responsibility for copying the epub to Epub
     private void copyErrorFile(final String sourceFile, final String destFile, final String dropoutFolder) {
         final File outputLoc = new File(outputLocation + "[ERROR]/" + dropoutFolder);
         if (!outputLoc.exists()) {
