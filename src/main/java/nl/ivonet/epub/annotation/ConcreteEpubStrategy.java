@@ -29,5 +29,8 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE})
 public @interface ConcreteEpubStrategy {
-
+    /**
+     * sort order. 0 means does not matter which order higher numbers sort ascending.
+     */
+    int order() default 0;
 }

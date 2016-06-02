@@ -42,10 +42,6 @@ public class EpubStrategyDependencyFinder {
         this.packageName = packageName;
     }
 
-    public static EpubStrategyDependencyFinder getInstance(final String packageName) {
-        return new EpubStrategyDependencyFinder(packageName);
-    }
-
     public List<EpubStrategy> load() {
         try {
             final List<EpubStrategy> strategies = new ArrayList<>();
@@ -60,6 +56,15 @@ public class EpubStrategyDependencyFinder {
                     }
                 }
             }
+            Collections.sort(strategies, (o1, o2) -> {
+                final Integer order1 = o1.getClass()
+                                         .getDeclaredAnnotation(ConcreteEpubStrategy.class)
+                                         .order();
+                final Integer order2 = o2.getClass()
+                                         .getDeclaredAnnotation(ConcreteEpubStrategy.class)
+                                         .order();
+                return order1.compareTo(order2);
+            });
             return strategies;
         } catch (IOException | ClassNotFoundException e) {
             logError(e);
@@ -102,9 +107,12 @@ public class EpubStrategyDependencyFinder {
                                     .getClasses();
     }
 
-
     private void logError(final Exception e) {
         LOG.error("[ERROR] occurred in class {} with message {}.", getClass(), e.getMessage());
+    }
+
+    public static EpubStrategyDependencyFinder getInstance(final String packageName) {
+        return new EpubStrategyDependencyFinder(packageName);
     }
 
 }

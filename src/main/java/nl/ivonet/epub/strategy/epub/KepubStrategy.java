@@ -37,9 +37,11 @@ import java.util.stream.Collectors;
  * does not break the epub format. It just adds a bit more information to the html files zo that it can better track
  * progress. The code below adds that extra bit of information
  *
+ * Ordering should be after the {@link HtmlCorruptDetectionStrategy}
+ *
  * @author Ivo Woltring
  */
-@ConcreteEpubStrategy
+@ConcreteEpubStrategy(order = 10)
 public class KepubStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(KepubStrategy.class);
 
@@ -49,6 +51,10 @@ public class KepubStrategy implements EpubStrategy {
     @Override
     public void execute(final Epub epub) {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
+        if (epub.hasDropout(Dropout.CORRUPT_HTML)) {
+            LOG.debug("Html corruption already detected so skipping kepub processing");
+            return;
+        }
         final List<Resource> htmlResources = epub.getContents()
                                                  .stream()
                                                  .filter(HtmlCorruptDetectionStrategy::isHtml)

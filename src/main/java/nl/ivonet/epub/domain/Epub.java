@@ -120,7 +120,9 @@ public class Epub {
     }
 
     public void addDropout(final Dropout dropout) {
-        dropouts.add(dropout);
+        if (!hasDropout(dropout)) {
+            dropouts.add(dropout);
+        }
     }
 
     public String dropoutFolder() {
@@ -146,8 +148,18 @@ public class Epub {
         return !dropouts.isEmpty();
     }
 
-    public boolean hasDropout(Dropout dropout) {
+    public boolean hasDropout(final Dropout dropout) {
         return dropouts.contains(dropout);
+    }
+
+    public boolean isUniqueDropout(final Dropout dropout) {
+        return hasDropout(dropout) && (dropouts.size() == 1);
+    }
+
+    public void removeDropout(Dropout dropout) {
+        if (hasDropout(dropout)) {
+            dropouts.remove(dropout);
+        }
     }
 
     public List<String> getDescriptions() {
@@ -246,7 +258,7 @@ public class Epub {
         return epub.getCoverImage();
     }
 
-    public void setCoverImage(Resource coverImage) {
+    public void setCoverImage(final Resource coverImage) {
         epub.setCoverImage(coverImage);
     }
 

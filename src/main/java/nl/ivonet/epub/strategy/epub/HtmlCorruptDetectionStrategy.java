@@ -22,6 +22,8 @@ import nl.ivonet.epub.domain.Epub;
 import nl.siegmann.epublib.domain.MediaType;
 import nl.siegmann.epublib.domain.Resource;
 import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.List;
@@ -37,6 +39,7 @@ import java.util.stream.Collectors;
  */
 @ConcreteEpubStrategy
 public class HtmlCorruptDetectionStrategy implements EpubStrategy {
+    private static final Logger LOG = LoggerFactory.getLogger(HtmlCorruptDetectionStrategy.class);
 
     private static final String tagStart =
             "\\<\\w+((\\s+\\w+(\\s*\\=\\s*(?:\".*?\"|'.*?'|[^'\"\\>\\s]+))?)+\\s*|\\s*)" + "\\>";
@@ -66,7 +69,7 @@ public class HtmlCorruptDetectionStrategy implements EpubStrategy {
 
     @Override
     public void execute(final Epub epub) {
-
+        LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
         try {
             for (final Resource content : getHtmlContents(epub)) {
                 final String html = IOUtils.toString(content.getReader());

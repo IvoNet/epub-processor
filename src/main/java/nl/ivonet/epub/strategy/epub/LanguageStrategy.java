@@ -58,9 +58,11 @@ import java.util.Map;
  * When will it probably fail? Wel that would be if the whole book is made up of pictures. The strategy can not
  * differentiate between pictures and text.
  *
+ * Ordering should be after {@link HtmlCorruptDetectionStrategy} because then it can skip processing
+ *
  * @author Ivo Woltring
  */
-@ConcreteEpubStrategy
+@ConcreteEpubStrategy(order = 10)
 public class LanguageStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(LanguageStrategy.class);
 
@@ -78,6 +80,11 @@ public class LanguageStrategy implements EpubStrategy {
     @Override
     public void execute(final Epub epub) {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
+        if (epub.hasDropout(Dropout.CORRUPT_HTML)) {
+            LOG.debug("Html corruption already detected so skipping language processing");
+            return;
+        }
+
 
         final List<Resource> contents = HtmlCorruptDetectionStrategy.getHtmlContents(epub);
         final String contentText = getContentText(contents);

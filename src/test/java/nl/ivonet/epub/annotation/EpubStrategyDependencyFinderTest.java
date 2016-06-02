@@ -24,11 +24,12 @@ import org.junit.Test;
 import java.util.List;
 
 import static org.easymock.EasyMock.createMock;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
- *
  * @author Ivo Woltring
  */
 public class EpubStrategyDependencyFinderTest {
@@ -46,7 +47,7 @@ public class EpubStrategyDependencyFinderTest {
         final EpubStrategyDependencyFinder finder = new EpubStrategyDependencyFinder("foo.strategy.epub");
         final List<EpubStrategy> strategies = finder.load();
         assertNotNull(strategies);
-        assertEquals(1, strategies.size());
+        assertEquals(3, strategies.size());
         assertEquals("IAmAStrategy", strategies.get(0)
                                                .getClass()
                                                .getSimpleName());
@@ -54,4 +55,22 @@ public class EpubStrategyDependencyFinderTest {
             strategy.execute(epubMock);
         }
     }
+
+    @Test
+    public void ordering() throws Exception {
+        final EpubStrategyDependencyFinder finder = new EpubStrategyDependencyFinder("foo.strategy.epub");
+        final List<EpubStrategy> strategies = finder.load();
+        assertNotNull(strategies);
+        assertEquals(3, strategies.size());
+        assertThat(strategies.get(1)
+                             .getClass()
+                             .getSimpleName(), is("IAmAStrategyWithOrderOne"));
+        assertThat(strategies.get(2)
+                             .getClass()
+                             .getSimpleName(), is("IAmAStrategyWithOrderTwo"));
+
+
+    }
+
+
 }

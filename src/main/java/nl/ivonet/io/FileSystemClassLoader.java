@@ -35,26 +35,6 @@ public class FileSystemClassLoader {
         this.classes = findAllClasses();
     }
 
-    public static FileSystemClassLoader getInstance(final List<File> directories, final String packageName)
-            throws ClassNotFoundException {
-
-        return new FileSystemClassLoader(directories, packageName);
-    }
-
-    public static FileSystemClassLoader getInstance(final File directory, final String packageName)
-            throws ClassNotFoundException {
-
-        final List<File> list = new ArrayList<>();
-        list.add(directory);
-        return getInstance(list, packageName);
-    }
-
-    public static FileSystemClassLoader getInstance(final String packageName)
-            throws IOException, ClassNotFoundException {
-        return getInstance(FileLoader.getInstance(packageName)
-                                     .getFileList(), packageName);
-    }
-
     private List<Class<?>> findAllClasses() throws ClassNotFoundException {
 
         final ArrayList<Class<?>> classes = new ArrayList<>();
@@ -85,9 +65,7 @@ public class FileSystemClassLoader {
 
     private String getClassName(final String packageName, final String fileName) {
 
-        final String retVal;
-        retVal = packageName.isEmpty() ? fileName : packageName + "." + fileName;
-        return retVal;
+        return packageName.isEmpty() ? fileName : (packageName + "." + fileName);
     }
 
     private boolean isValidClassName(final String fileName) {
@@ -106,6 +84,26 @@ public class FileSystemClassLoader {
 
     public String getPackageName() {
         return this.packageName;
+    }
+
+    public static FileSystemClassLoader getInstance(final List<File> directories, final String packageName)
+            throws ClassNotFoundException {
+
+        return new FileSystemClassLoader(directories, packageName);
+    }
+
+    public static FileSystemClassLoader getInstance(final File directory, final String packageName)
+            throws ClassNotFoundException {
+
+        final List<File> list = new ArrayList<>();
+        list.add(directory);
+        return getInstance(list, packageName);
+    }
+
+    public static FileSystemClassLoader getInstance(final String packageName)
+            throws IOException, ClassNotFoundException {
+        return getInstance(FileLoader.getInstance(packageName)
+                                     .getFileList(), packageName);
     }
 
 }

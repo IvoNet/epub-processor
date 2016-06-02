@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013 Ivo Woltring
+ * Copyright (c) 2016 Ivo Woltring
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,20 +14,18 @@
  * limitations under the License.
  */
 
-package foo.strategy.epub;
+package nl.ivonet.epub.metadata;
 
-import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
-import nl.ivonet.epub.domain.Epub;
-import nl.ivonet.epub.strategy.epub.EpubStrategy;
+import nl.ivonet.io.WebPage;
 
 /**
- *
  * @author Ivo Woltring
  */
-@SuppressWarnings("UnusedDeclaration")
-@ConcreteEpubStrategy(order = 0)
-public class IAmAStrategy implements EpubStrategy {
-    @Override
-    public void execute(final Epub epub) {
+public class MetadataFactory {
+
+    public BigBookSearch getBigBookSearchInstance() {
+        return new BigBookSearch(WebPage.getInstance());
     }
+
+
 }

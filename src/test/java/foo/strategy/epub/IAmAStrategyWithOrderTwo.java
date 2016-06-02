@@ -21,12 +21,11 @@ import nl.ivonet.epub.domain.Epub;
 import nl.ivonet.epub.strategy.epub.EpubStrategy;
 
 /**
- *
  * @author Ivo Woltring
  */
 @SuppressWarnings("UnusedDeclaration")
-@ConcreteEpubStrategy(order = 0)
-public class IAmAStrategy implements EpubStrategy {
+@ConcreteEpubStrategy(order = 2)
+public class IAmAStrategyWithOrderTwo implements EpubStrategy {
     @Override
     public void execute(final Epub epub) {
     }
