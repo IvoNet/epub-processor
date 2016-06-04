@@ -55,7 +55,6 @@ import java.util.Arrays;
 @ConcreteEpubStrategy
 public class NoCoverDetectionStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(NoCoverDetectionStrategy.class);
-    private final boolean dropout;
 
     @Override
     public void execute(final Epub epub) {

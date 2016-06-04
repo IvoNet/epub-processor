@@ -56,6 +56,7 @@ public class EpubStrategyDependencyFinder {
                     }
                 }
             }
+            //Ordering of strategies is done here.
             Collections.sort(strategies, (o1, o2) -> {
                 final Integer order1 = o1.getClass()
                                          .getDeclaredAnnotation(ConcreteEpubStrategy.class)

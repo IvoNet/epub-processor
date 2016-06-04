@@ -49,7 +49,7 @@ public class CoverStrategyTest {
 
         //Needs a real author
         final List<Author> authors = new ArrayList<>();
-        authors.add(new Author("Elona", "Andrews"));
+        authors.add(new Author("Ilona", "Andrews"));
         epub.setAuthors(authors);
 
         //Needs a real title
