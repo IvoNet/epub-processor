@@ -231,4 +231,8 @@ public class Name {
     public void setNameFormatStrategy(final NameFormattingStrategy nameFormatStrategy) {
         this.nameFormatStrategy = nameFormatStrategy;
     }
+
+    public boolean hasFirstname() {
+        return (this.firstname != null) && !this.firstname.isEmpty();
+    }
 }

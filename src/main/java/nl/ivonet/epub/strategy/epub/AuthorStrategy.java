@@ -33,7 +33,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -80,20 +83,32 @@ public class AuthorStrategy implements EpubStrategy {
         epub.setAuthors(new ArrayList<>(converted));
     }
 
+    // TODO: 12-06-2016 duplicate code with TitleStrategy!
+    private List<String> cleanFilename(final String name) {
+        final String filename = ListResource.removeAccents(name.replace(".kepub", "")
+                                                               .replace(".epub", "")
+                                                               .replace("_", "."));
+        List<String> strings = new LinkedList<>(Arrays.asList(filename.split(" - ")));
+        if (strings.size() == 1) {
+            strings = Arrays.asList(name.split(" ~ "));
+        }
+        return strings;
+    }
+
     private Set<Author> retrieveAuthorFromFilename(final String filename) {
         LOG.warn("Retrieve Author from filename [{}]", filename);
-        final String fname = ListResource.removeAccents(filename.replace(".epub", "")
-                                                                .replace(".kepub", ""));
-        String[] names = fname.split(" - ");
-        if (names.length == 1) {
-            names = fname.split(" ~ ");
-        }
+        final List<String> strings = cleanFilename(filename);
+
         final Set<Author> converted = new HashSet<>();
-        for (final String name : names) {
+        for (final String name : strings) {
+
             final Name possibleName = new Name(name);
             if (authorsResource.is(possibleName.name())) {
                 converted.add(possibleName.asAuthor());
             } else {
+                if (!possibleName.hasFirstname()) {
+                    continue;
+                }
                 possibleName.setNameFormatStrategy(switchFirstnameAndSurnameStrategy);
                 final Name switchedName = new Name(possibleName.name());
                 if (authorsResource.is(switchedName.name())) {
@@ -101,14 +116,12 @@ public class AuthorStrategy implements EpubStrategy {
                     converted.add(switchedName.asAuthor());
                 } else {
                     switchedName.setNameFormatStrategy(switchFirstnameAndSurnameStrategy);
-//FIXME uncomment to get all authors in files
-//                    writeAuthor(new Name(switchedName.name()).name()
-//                                                             .trim());
                 }
             }
         }
         return converted;
     }
+
 
     // FIXME: 20-03-2016 Temp code for analysis purposes
     private void writeAuthor(final String name) {

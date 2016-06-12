@@ -21,12 +21,6 @@ import nl.ivonet.epub.data.AuthorsResource;
 import nl.ivonet.epub.data.ListResource;
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
-import nl.ivonet.epub.strategy.name.NameFormattingStrategy;
-import nl.ivonet.epub.strategy.name.SurnameCommaFirstInitialsStrategy;
-import nl.ivonet.epub.strategy.name.SurnameCommaFirstnamesStrategy;
-import nl.ivonet.epub.strategy.name.SurnameCommaFullFirstFirstnameThenInitialsStrategy;
-import nl.ivonet.epub.strategy.name.SurnameCommaInitialsStrategy;
-import nl.ivonet.epub.strategy.name.SwitchFirstnameAndSurnameStrategy;
 import nl.ivonet.epub.strategy.text.CapitalizeStrategy;
 import nl.ivonet.epub.strategy.text.TextStrategy;
 import org.slf4j.Logger;
@@ -54,17 +48,10 @@ public class TitleStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(TitleStrategy.class);
 
     private final TextStrategy capitalizeStrategy;
-    private final ArrayList<NameFormattingStrategy> strategies;
     private final AuthorsResource authorsResource;
 
     public TitleStrategy() {
         capitalizeStrategy = new CapitalizeStrategy();
-        strategies = new ArrayList<>();
-        strategies.add(new SurnameCommaFirstnamesStrategy());
-        strategies.add(new SurnameCommaInitialsStrategy());
-        strategies.add(new SurnameCommaFirstInitialsStrategy());
-        strategies.add(new SurnameCommaFullFirstFirstnameThenInitialsStrategy());
-        strategies.add(new SwitchFirstnameAndSurnameStrategy());
         authorsResource = new AuthorsResource();
     }
 
