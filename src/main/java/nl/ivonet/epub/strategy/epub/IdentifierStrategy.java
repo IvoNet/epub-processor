@@ -52,8 +52,8 @@ public class IdentifierStrategy implements EpubStrategy {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
         final List<Identifier> identifiers = epub.getIdentifiers();
         for (final Identifier identifier : identifiers) {
-            System.out.println("Trying identifier:" + identifier.getValue());
-            System.out.println("identifier.isBookId() = " + identifier.isBookId());
+//            System.out.println("Trying identifier:" + identifier.getValue());
+//            System.out.println("identifier.isBookId() = " + identifier.isBookId());
             final Document document;
             try {
 

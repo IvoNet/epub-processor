@@ -47,6 +47,8 @@ public class CoverStrategy implements EpubStrategy {
         metadataFactory = new MetadataFactory();
     }
 
+
+    // TODO: 12-06-2016 improment possible by searching for complete title and author at once
     @Override
     public void execute(final Epub epub) {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
@@ -58,23 +60,24 @@ public class CoverStrategy implements EpubStrategy {
         final BigBookSearch bigBookSearch = metadataFactory.getBigBookSearchInstance();
         final String firstTitle = epub.getFirstTitle();
         final List<Author> authors = epub.getAuthors();
-        Resource byAutorAndTitle = null;
+        Resource resource = null;
         String name = "";
         for (final Author author : authors) {
             name = new Name(author.getFirstname(), author.getLastname(), new FirstnameSpaceSurnameStrategy()).name();
             LOG.debug("Searching cover for [{}] with title [{}].", name, firstTitle);
 
-            byAutorAndTitle = bigBookSearch.findByAutorAndTitle(name, firstTitle);
-            if (byAutorAndTitle != null) {
+            resource = bigBookSearch.findByAutorAndThenTitle(name, firstTitle);
+            if (resource != null) {
+                //early return
                 break;
             }
         }
-        if (byAutorAndTitle == null) {
+        if (resource == null) {
             return;
         }
         LOG.debug("Found cover for [{}] with title [{}].", name, firstTitle);
-        epub.setCoverImage(byAutorAndTitle);
-        epub.removeDropout(Dropout.COVER); //if cover found
+        epub.setCoverImage(resource);
+        epub.removeDropout(Dropout.COVER);
 
     }
 }

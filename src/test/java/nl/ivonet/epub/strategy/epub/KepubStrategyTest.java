@@ -54,7 +54,6 @@ public class KepubStrategyTest {
                                            .collect(toList());
         assertFalse(collect.isEmpty());
         final String html = IOUtils.toString(collect.get(1).getReader());
-//        System.out.println("html = " + html);
         assertTrue(html.contains("<h1 id=\"kobo.1.1\">"));
         assertTrue(html.contains("<p class=\"ivonet\" id=\"kobo.2.1\">"));
     }

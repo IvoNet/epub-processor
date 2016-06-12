@@ -97,8 +97,8 @@ public class TitleStrategy implements EpubStrategy {
         if (titles.isEmpty()) {
             epub.addDropout(Dropout.TITLE);
         }
-        titles.stream()
-              .forEach(System.out::println);
+//        titles.stream()
+//              .forEach(System.out::println);
 
         epub.setTitles(titles);
     }
@@ -119,7 +119,6 @@ public class TitleStrategy implements EpubStrategy {
 
 
         final String ret = string.trim();
-//        LOG.debug("Trying title : {}", string);
         if (stringContainsAuthor(ret)) {
             return Collections.emptyList();
         }

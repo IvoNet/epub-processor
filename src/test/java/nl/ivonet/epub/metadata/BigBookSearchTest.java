@@ -51,14 +51,24 @@ public class BigBookSearchTest {
                                 .findAny()
                                 .orElse(null);
         assertNotNull(s1);
-        assertThat(covers.get(s1), is("http://ecx.images-amazon.com/images/I/51kXFgl2NNL.jpg"));
+        assertThat(covers.get(s1), is("http://ecx.images-amazon.com/images/I/51L71r%2Bb12L.jpg"));
     }
 
     @Test
-    public void findByAuthorAndTile() throws Exception {
-        final Resource resource = bigBookSearch.findByAutorAndTitle("Ilona Andrews", "magic slays");
+    public void findByAuthorAndThenTile() throws Exception {
+        final Resource resource = bigBookSearch.findByAutorAndThenTitle("Ilona Andrews", "magic slays");
         assertNotNull(resource);
-        assertThat(resource.getHref(), is("http://ecx.images-amazon.com/images/I/51kXFgl2NNL.jpg"));
+        assertThat(resource.getHref(), is("cover.jpg"));
         assertThat(resource.getMediaType(), is(MediatypeService.determineMediaType(".jpg")));
+    }
+
+    @Test
+    public void findByAuthorAndTitle() throws Exception {
+        final Resource resource = bigBookSearch.findByAutorAndTitle("Ilona Andrews magic slays");
+        assertNotNull(resource);
+        assertThat(resource.getHref(), is("cover.jpg"));
+        assertThat(resource.getMediaType(), is(MediatypeService.determineMediaType(".jpg")));
+
+
     }
 }
