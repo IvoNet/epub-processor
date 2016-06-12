@@ -119,9 +119,8 @@ public class TitleStrategy implements EpubStrategy {
 
 
         final String ret = string.trim();
-        LOG.debug("Trying title : {}", string);
+//        LOG.debug("Trying title : {}", string);
         if (stringContainsAuthor(ret)) {
-            System.out.println("gevonden:" + ret);
             return Collections.emptyList();
         }
 
@@ -138,17 +137,11 @@ public class TitleStrategy implements EpubStrategy {
         if (strings.size() == 1) {
             strings = Arrays.asList(name.split(" ~ "));
         }
-
         return strings;
-
     }
 
     private boolean stringContainsAuthor(final String text) {
-        if (authorsResource.is(text)) {
-            LOG.debug("Name match global: {}", text);
-            return true;
-        }
-        return false;
+        return authorsResource.is(text);
     }
 
 

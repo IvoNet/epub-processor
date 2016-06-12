@@ -19,11 +19,16 @@ package nl.ivonet.epub.strategy.epub;
 import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
+import nl.ivonet.epub.domain.Name;
 import nl.ivonet.epub.metadata.BigBookSearch;
 import nl.ivonet.epub.metadata.MetadataFactory;
+import nl.ivonet.epub.strategy.name.FirstnameSpaceSurnameStrategy;
+import nl.siegmann.epublib.domain.Author;
 import nl.siegmann.epublib.domain.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.List;
 
 /**
  * This strategy will try to find a cover if the {@link NoCoverDetectionStrategy} dropped out with a no cover found.
@@ -51,15 +56,23 @@ public class CoverStrategy implements EpubStrategy {
         }
 
         final BigBookSearch bigBookSearch = metadataFactory.getBigBookSearchInstance();
-        final String firstAuthor = epub.getFirstAuthor();
         final String firstTitle = epub.getFirstTitle();
-        LOG.debug("Searching cover for [{}] with title [{}].", firstAuthor, firstTitle);
-        final Resource byAutorAndTitle = bigBookSearch.findByAutorAndTitle(firstAuthor, firstTitle);
+        final List<Author> authors = epub.getAuthors();
+        Resource byAutorAndTitle = null;
+        String name = "";
+        for (final Author author : authors) {
+            name = new Name(author.getFirstname(), author.getLastname(), new FirstnameSpaceSurnameStrategy()).name();
+            LOG.debug("Searching cover for [{}] with title [{}].", name, firstTitle);
+
+            byAutorAndTitle = bigBookSearch.findByAutorAndTitle(name, firstTitle);
+            if (byAutorAndTitle != null) {
+                break;
+            }
+        }
         if (byAutorAndTitle == null) {
-            LOG.debug("No cover for [{}] with title [{}].", firstAuthor, firstTitle);
             return;
         }
-        LOG.debug("Found cover for [{}] with title [{}].", firstAuthor, firstTitle);
+        LOG.debug("Found cover for [{}] with title [{}].", name, firstTitle);
         epub.setCoverImage(byAutorAndTitle);
         epub.removeDropout(Dropout.COVER); //if cover found
 

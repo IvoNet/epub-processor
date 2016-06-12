@@ -61,7 +61,7 @@ public class AuthorStrategy implements EpubStrategy {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
         final Set<Author> converted = new HashSet<>();
 
-//        epub.getAuthors().stream().forEach(System.out::println);
+        //Improve original author list from epub
         converted.addAll(epub.getAuthors()
                              .stream()
                              .map(Name::new)
@@ -71,10 +71,9 @@ public class AuthorStrategy implements EpubStrategy {
                              .map(Name::asAuthor)
                              .collect(Collectors.toList()));
 
+        //add names from the file name
+        converted.addAll(retrieveAuthorFromFilename(epub.getOrigionalFilename()));
 
-        if (converted.isEmpty()) {
-            converted.addAll(retrieveAuthorFromFilename(epub.getOrigionalFilename()));
-        }
         if (converted.isEmpty()) {
             epub.addDropout(Dropout.AUTHOR_EMPTY);
         }
@@ -83,7 +82,8 @@ public class AuthorStrategy implements EpubStrategy {
 
     private Set<Author> retrieveAuthorFromFilename(final String filename) {
         LOG.warn("Retrieve Author from filename [{}]", filename);
-        final String fname = ListResource.removeAccents(filename.replace(".epub", ""));
+        final String fname = ListResource.removeAccents(filename.replace(".epub", "")
+                                                                .replace(".kepub", ""));
         String[] names = fname.split(" - ");
         if (names.length == 1) {
             names = fname.split(" ~ ");

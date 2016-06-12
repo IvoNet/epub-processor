@@ -44,14 +44,14 @@ public class BigBookSearch {
         this.webPage = webPage;
     }
 
-    public Map<String, String> retrievePossibles(final String search) {
+    Map<String, String> retrievePossibles(final String search) {
         final String tokens = tokenize(search);
         final Map<String, String> pictures = new HashMap<>();
         int page = 1;
         Document document = webPage.get(bigBookSearchUrl(tokens, page));
 
         while (!NO_RESULTS.equals(document.body()
-                                          .text()) && (page <= 4)) {
+                                          .text()) && (page <= 10)) {
             LOG.debug("Searching cover for [{}] on page [{}]", search, page);
             document.body()
                     .select("img")
@@ -78,10 +78,14 @@ public class BigBookSearch {
         }
         try {
             final byte[] bytes = IOUtils.toByteArray(new URL(cover).openConnection());
-            return new Resource(bytes, cover);
+            return new Resource(bytes, "cover" + retrieveExtension(cover));
         } catch (final IOException e) {
             return null;
         }
+    }
+
+    private String retrieveExtension(final String name) {
+        return name.substring(name.lastIndexOf("."));
     }
 
     private String bigBookSearchUrl(final String value, final int page) {

@@ -16,7 +16,6 @@
 
 package nl.ivonet.epub.domain;
 
-import nl.ivonet.epub.strategy.name.FirstnameSpaceSurnameStrategy;
 import nl.siegmann.epublib.domain.Author;
 import nl.siegmann.epublib.domain.Book;
 import nl.siegmann.epublib.domain.Date;
@@ -242,21 +241,6 @@ public class Epub {
                    .getAuthors();
     }
 
-    public String getFirstAuthor() {
-        if (getAuthors().isEmpty()) {
-            return "";
-        }
-        final Author author = getAuthors().get(0);
-        return new Name(author.getFirstname(), author.getLastname(), new FirstnameSpaceSurnameStrategy()).name();
-    }
-
-    public String getFirstAuthor() {
-        if (getAuthors().isEmpty()) {
-            return "";
-        }
-        final Author author = getAuthors().get(0);
-        return new Name(author.getFirstname(), author.getLastname(), new FirstnameSpaceSurnameStrategy()).name();
-    }
 
     public void setAuthors(final List<Author> authors) {
         epub.getMetadata()
@@ -290,6 +274,10 @@ public class Epub {
 
     public Resource getCoverPage() {
         return epub.getCoverPage();
+    }
+
+    public void setCoverPage(final Resource page) {
+        epub.setCoverPage(page);
     }
 
     public void remove(final String href) {
