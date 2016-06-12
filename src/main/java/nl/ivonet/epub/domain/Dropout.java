@@ -24,7 +24,7 @@ public enum Dropout {
     AUTHOR_EMPTY("No Author"),
     AUTHOR_FIRSTNAME("No Author's Firstname"),
     AUTHOR_SURNAME("Author's Surname"),
-    TITLE("Title"),
+    TITLE("No Title"),
     LANGUAGE("Language"),
     READ_ERROR("Read error"),
     FILE_SIZE("File size"),
@@ -32,7 +32,6 @@ public enum Dropout {
     KEPBUB("Kepub"),
     NULL("NullPointer"),
     WATERMARK("Watermark"),
-    DOUBLE("DOUBLE"),
     CORRUPT_HTML("HTML");
 
     private final String value;
