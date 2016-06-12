@@ -18,7 +18,6 @@ package nl.ivonet.epub.strategy.epub;
 
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
-import nl.ivonet.epub.metadata.MetadataFactory;
 import nl.siegmann.epublib.domain.Author;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,6 +27,7 @@ import java.util.List;
 
 import static nl.ivonet.util.EpubTestUtils.createTestEpub;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * @author Ivo Woltring
@@ -38,7 +38,7 @@ public class CoverStrategyTest {
 
     @Before
     public void setUp() throws Exception {
-        strategy = new CoverStrategy(new MetadataFactory());
+        strategy = new CoverStrategy();
         epub = createTestEpub();
     }
 
@@ -60,5 +60,18 @@ public class CoverStrategyTest {
         //perform test
         strategy.execute(epub);
         assertFalse(epub.hasDropout(Dropout.COVER));
+    }
+
+    @Test
+    public void coverDropoutOnly() throws Exception {
+        epub.addDropout(Dropout.COVER);
+        assertTrue(epub.isUniqueDropout(Dropout.COVER));
+    }
+
+    @Test
+    public void coverDropoutNotUnique() throws Exception {
+        epub.addDropout(Dropout.COVER);
+        epub.addDropout(Dropout.CORRUPT_HTML);
+        assertFalse(epub.isUniqueDropout(Dropout.COVER));
     }
 }

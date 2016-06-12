@@ -20,6 +20,8 @@ import nl.ivonet.io.WebPage;
 import nl.siegmann.epublib.domain.Resource;
 import org.apache.commons.io.IOUtils;
 import org.jsoup.nodes.Document;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,23 +32,34 @@ import java.util.Map;
  * @author Ivo Woltring
  */
 public class BigBookSearch {
+    private static final Logger LOG = LoggerFactory.getLogger(BigBookSearch.class);
 
-    private static final String location =
-            "http://bigbooksearch.com/query" + ".php?SearchIndex=books&Keywords=%s&ItemPage=1";
-    private final WebPage html;
+    private static final String NO_RESULTS = "no_results";
 
-    public BigBookSearch(final WebPage html) {
-        this.html = html;
+    private static final String location = "http://bigbooksearch.com/query"
+                                           + ".php?SearchIndex=books&Keywords=%s&ItemPage=%s";
+    private final WebPage webPage;
+
+    public BigBookSearch(final WebPage webPage) {
+        this.webPage = webPage;
     }
 
     public Map<String, String> retrievePossibles(final String search) {
         final String tokens = tokenize(search);
-        final Document document = html.get(bigBookSearchUrl(tokens));
         final Map<String, String> pictures = new HashMap<>();
-        document.body()
-                .select("img")
-                .stream()
-                .forEach(element -> pictures.put(element.attr("alt"), element.attr("src")));
+        int page = 1;
+        Document document = webPage.get(bigBookSearchUrl(tokens, page));
+
+        while (!NO_RESULTS.equals(document.body()
+                                          .text()) && (page <= 4)) {
+            LOG.debug("Searching cover for [{}] on page [{}]", search, page);
+            document.body()
+                    .select("img")
+                    .stream()
+                    .forEach(element -> pictures.put(element.attr("alt"), element.attr("src")));
+            page++;
+            document = webPage.get(bigBookSearchUrl(tokens, page));
+        }
         return pictures;
     }
 
@@ -71,8 +84,8 @@ public class BigBookSearch {
         }
     }
 
-    private String bigBookSearchUrl(final String value) {
-        return String.format(location, value);
+    private String bigBookSearchUrl(final String value, final int page) {
+        return String.format(location, value, page);
     }
 
     private String tokenize(final String value) {

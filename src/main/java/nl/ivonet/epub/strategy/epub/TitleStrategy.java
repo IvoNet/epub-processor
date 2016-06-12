@@ -17,10 +17,10 @@
 package nl.ivonet.epub.strategy.epub;
 
 import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
+import nl.ivonet.epub.data.AuthorsResource;
 import nl.ivonet.epub.data.ListResource;
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
-import nl.ivonet.epub.domain.Name;
 import nl.ivonet.epub.strategy.name.NameFormattingStrategy;
 import nl.ivonet.epub.strategy.name.SurnameCommaFirstInitialsStrategy;
 import nl.ivonet.epub.strategy.name.SurnameCommaFirstnamesStrategy;
@@ -29,14 +29,15 @@ import nl.ivonet.epub.strategy.name.SurnameCommaInitialsStrategy;
 import nl.ivonet.epub.strategy.name.SwitchFirstnameAndSurnameStrategy;
 import nl.ivonet.epub.strategy.text.CapitalizeStrategy;
 import nl.ivonet.epub.strategy.text.TextStrategy;
-import nl.siegmann.epublib.domain.Author;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
@@ -44,14 +45,17 @@ import static java.util.stream.Collectors.toList;
  * This Strategy works on the Title(s) of the {@link nl.ivonet.epub.domain.Epub}. - Cleans up whitespace - Capitalizes
  * words in the title
  *
+ * Best to order this strategy after the {@link AuthorStrategy}
+ *
  * @author Ivo Woltring
  */
-@ConcreteEpubStrategy
+@ConcreteEpubStrategy(order = 10)
 public class TitleStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(TitleStrategy.class);
 
     private final TextStrategy capitalizeStrategy;
     private final ArrayList<NameFormattingStrategy> strategies;
+    private final AuthorsResource authorsResource;
 
     public TitleStrategy() {
         capitalizeStrategy = new CapitalizeStrategy();
@@ -61,75 +65,88 @@ public class TitleStrategy implements EpubStrategy {
         strategies.add(new SurnameCommaFirstInitialsStrategy());
         strategies.add(new SurnameCommaFullFirstFirstnameThenInitialsStrategy());
         strategies.add(new SwitchFirstnameAndSurnameStrategy());
+        authorsResource = new AuthorsResource();
     }
 
     @Override
     public void execute(final Epub epub) {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
 
-        List<String> titles = epub.getTitles()
-                                  .stream()
-                                  .map(p -> p.replace(" / ", " - ")
-                                             .replace("/ ", " - ")
-                                             .replace("/", " - ")
-                                             .replace(":", "-"))
-                                  .map(ListResource::removeAccents)
-                                  .map(capitalizeStrategy::execute)
-                                  .map(String::trim)
-                                  .collect(toList());
+        List<String> titles = cleanTitles(epub.getTitles()
+                                              .stream());
 
         if (titles.isEmpty()) {
-            titles = tryFilename(epub);
+            titles = cleanTitles(cleanFilename(epub.getOrigionalFilename()).stream());
+        } else if (titles.size() == 1) {
+            titles = cleanTitles(cleanFilename(titles.get(0)).stream());
         }
+
+        final ArrayList<String> strings = new ArrayList<>();
+        for (final String title : titles) {
+            strings.addAll(validateTitle(title));
+        }
+
+        if (epub.getTitles()
+                .isEmpty() || (epub.getTitles()
+                                   .size() == 1)) {
+            Collections.reverse(strings);
+        }
+
+        titles = strings;
 
         if (titles.isEmpty()) {
             epub.addDropout(Dropout.TITLE);
         }
+        titles.stream()
+              .forEach(System.out::println);
+
         epub.setTitles(titles);
     }
 
-    private List<String> tryFilename(final Epub epub) {
+    private List<String> cleanTitles(final Stream<String> stream) {
+        return stream.map(p -> p.replace(" / ", " - ")
+                                .replace("/ ", " - ")
+                                .replace("/", " - ")
+                                .replace(":", "-"))
+                     .map(ListResource::removeAccents)
+                     .map(capitalizeStrategy::execute)
+                     .map(String::trim)
+                     .collect(toList());
+    }
+
+    private List<String> validateTitle(final String string) {
         final List<String> titles = new ArrayList<>();
 
-        final String filename = ListResource.removeAccents(epub.getOrigionalFilename()
-                                                               .replace(".epub", "")
-                                                               .replace("_", "."));
 
-        List<String> strings = new LinkedList<>(Arrays.asList(filename.split(" - ")));
-        if (strings.size() == 1) {
-            strings = Arrays.asList(filename.split(" ~ "));
+        final String ret = string.trim();
+        LOG.debug("Trying title : {}", string);
+        if (stringContainsAuthor(ret)) {
+            System.out.println("gevonden:" + ret);
+            return Collections.emptyList();
         }
 
-        boolean found = false;
-        final List<String> authors = new ArrayList<>(strings);
-        for (final String string : authors) {
-            final String ret = string.trim();
-            LOG.trace("Trying title : {}", string);
-            if (stringContainsAuthor(ret, epub.getAuthors())) {
-                strings.remove(string);
-                found = true;
-            }
-        }
-        if (!strings.isEmpty() && found) {
-            titles.addAll(strings);
-            strings.stream()
-                   .forEach(p -> LOG.warn("Title found in filename: {}", p));
-        }
+        titles.add(string);
 
         return titles;
     }
 
-    private boolean stringContainsAuthor(final String text, final List<Author> authors) {
-        for (final Author author : authors) {
-            final Name name = new Name(author);
-            LOG.trace("Trying Author: {}", name.name());
-            for (final NameFormattingStrategy strategy : strategies) {
-                name.setNameFormatStrategy(strategy);
-                if (text.contains(name.name())) {
-                    LOG.trace("Name match   : {}", name.name());
-                    return true;
-                }
-            }
+    private List<String> cleanFilename(final String name) {
+        final String filename = ListResource.removeAccents(name.replace(".kepub", "")
+                                                               .replace(".epub", "")
+                                                               .replace("_", "."));
+        List<String> strings = new LinkedList<>(Arrays.asList(filename.split(" - ")));
+        if (strings.size() == 1) {
+            strings = Arrays.asList(name.split(" ~ "));
+        }
+
+        return strings;
+
+    }
+
+    private boolean stringContainsAuthor(final String text) {
+        if (authorsResource.is(text)) {
+            LOG.debug("Name match global: {}", text);
+            return true;
         }
         return false;
     }

@@ -19,7 +19,9 @@ package nl.ivonet.epub.strategy.epub;
 import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
+import nl.ivonet.epub.metadata.BigBookSearch;
 import nl.ivonet.epub.metadata.MetadataFactory;
+import nl.siegmann.epublib.domain.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,8 +38,8 @@ public class CoverStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(CoverStrategy.class);
     private final MetadataFactory metadataFactory;
 
-    public CoverStrategy(final MetadataFactory metadataFactory) {
-        this.metadataFactory = metadataFactory;
+    public CoverStrategy() {
+        metadataFactory = new MetadataFactory();
     }
 
     @Override
@@ -48,10 +50,17 @@ public class CoverStrategy implements EpubStrategy {
             return;
         }
 
-//        final BigBookSearch bigBookSearch = metadataFactory.getBigBookSearchInstance();
-//        bigBookSearch.findByAutorAndTitle()
-
-
+        final BigBookSearch bigBookSearch = metadataFactory.getBigBookSearchInstance();
+        final String firstAuthor = epub.getFirstAuthor();
+        final String firstTitle = epub.getFirstTitle();
+        LOG.debug("Searching cover for [{}] with title [{}].", firstAuthor, firstTitle);
+        final Resource byAutorAndTitle = bigBookSearch.findByAutorAndTitle(firstAuthor, firstTitle);
+        if (byAutorAndTitle == null) {
+            LOG.debug("No cover for [{}] with title [{}].", firstAuthor, firstTitle);
+            return;
+        }
+        LOG.debug("Found cover for [{}] with title [{}].", firstAuthor, firstTitle);
+        epub.setCoverImage(byAutorAndTitle);
         epub.removeDropout(Dropout.COVER); //if cover found
 
     }

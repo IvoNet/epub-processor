@@ -35,6 +35,11 @@ import java.util.ArrayList;
  */
 public final class EpubTestUtils {
 
+    private static Book createTestBook() {
+        return getInstance().buildTestBook();
+
+    }
+
     private Book buildTestBook() {
         final Book book = new Book();
 
@@ -89,12 +94,11 @@ public final class EpubTestUtils {
         return new EpubTestUtils();
     }
 
-    public static Book createTestBook() {
-        return getInstance().buildTestBook();
-
+    public static Epub createTestEpub() {
+        return createTestEpub("/tmp/testebook.epub");
     }
 
-    public static Epub createTestEpub() {
-        return new Epub(Paths.get("/tmp/testebook.epub"), createTestBook());
+    public static Epub createTestEpub(final String name) {
+        return new Epub(Paths.get(name), createTestBook());
     }
 }

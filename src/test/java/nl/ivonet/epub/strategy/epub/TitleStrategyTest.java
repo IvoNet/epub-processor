@@ -29,7 +29,6 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 /**
- *
  * @author Ivo Woltring
  */
 public class TitleStrategyTest extends BaseT {
@@ -39,13 +38,13 @@ public class TitleStrategyTest extends BaseT {
 
     @Before
     public void setUp() throws Exception {
-        epub = EpubTestUtils.createTestEpub();
         strategy = new TitleStrategy();
     }
 
 
     @Test
     public void testExecute() throws Exception {
+        epub = EpubTestUtils.createTestEpub();
         final Metadata metadata = epub.data()
                                       .getMetadata();
 
@@ -66,8 +65,54 @@ public class TitleStrategyTest extends BaseT {
         assertEquals(3, titles.size());
         assertEquals("En dit is de Tweede Titel", titles.get(1));
         assertEquals("En dit is de - Derde Titel", titles.get(2));
+    }
 
+    @Test
+    public void testExecuteWithOrigTitleContainingAuthors() throws Exception {
+        epub = EpubTestUtils.createTestEpub();
+        final Metadata metadata = epub.data()
+                                      .getMetadata();
+
+        final List<String> input = new ArrayList<>();
+        input.add("Bailey, Arnold - Bujold, Lois Mcmaster - Vorkosigan 06.5 - the Mountains of Mourning");
+
+        //override the test titles with my own.
+        metadata.setTitles(input);
+
+        //now execute the strategy
+        strategy.execute(epub);
+
+        //and see if my expectations are correct.
+        assertEquals("The Mountains of Mourning", metadata.getFirstTitle());
     }
 
 
+    @Test
+    public void byFilename() throws Exception {
+        epub = EpubTestUtils.createTestEpub(
+                "/foo/Bailey, Arnold - Bujold, Lois Mcmaster - Vorkosigan 06.5 - the Mountains of Mourning.kepub.epub");
+        makeTitlesEmpty();
+
+        strategy.execute(epub);
+
+        assertEquals("The Mountains of Mourning", epub.getFirstTitle());
+    }
+
+    @Test
+    public void byFilenameButWithAuthorAtEnd() throws Exception {
+        epub = EpubTestUtils.createTestEpub(
+                "/foo/Vorkosigan 06.5 - the Mountains of Mourning - Lois Mcmaster Bujold - Arnold Bailey.kepub.epub");
+        makeTitlesEmpty();
+
+        strategy.execute(epub);
+
+        assertEquals("The Mountains of Mourning", epub.getFirstTitle());
+    }
+
+    private void makeTitlesEmpty() {
+        final Metadata metadata = epub.data()
+                                      .getMetadata();
+        final List<String> input = new ArrayList<>();
+        metadata.setTitles(input);
+    }
 }
