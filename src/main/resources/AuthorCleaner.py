@@ -1,10 +1,3 @@
-def sort_authors():
-    authors.sort()
-
-
-def remove_doubles():
-    pass
-
 
 def read_authors_file():
     fi = open("./authors.txt", 'r')
@@ -15,6 +8,8 @@ def read_authors_file():
 
 def write_authors(authors):
     fo = open("./authors.txt", 'w')
+    a = authors.pop().strip()
+    authors.append(a)
     fo.write("".join(authors))
     fo.close()
 
