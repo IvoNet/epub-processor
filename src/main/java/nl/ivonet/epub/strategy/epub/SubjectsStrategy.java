@@ -63,7 +63,6 @@ public class SubjectsStrategy implements EpubStrategy {
     public void execute(final Epub epub) {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
 
-
         final List<String> subjectsIn = epub.getSubjects();
         final List<String> subjectsOut = reduceAndCapitalize(subjectsIn, removeList);
 

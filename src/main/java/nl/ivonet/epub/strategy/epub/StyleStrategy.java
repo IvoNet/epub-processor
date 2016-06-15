@@ -53,8 +53,6 @@ public class StyleStrategy implements EpubStrategy {
                 try {
                     final String html = IOUtils.toString(resource.getReader());
                     String ret = html.replaceAll(" class=\"[A-Za-z0-9_-]+(\\s+[A-Za-z0-9_-]+)*\"", "");
-//                    ret = html.replaceAll("<link href=\"../stylesheet.css\" rel=\"stylesheet\" type=\"text/css\"/>",
-//                                          "");
                     resource.setData(ret.getBytes());
                 } catch (IOException e) {
                     //ignore

@@ -16,7 +16,6 @@
 
 package nl.ivonet.epub.strategy.epub;
 
-import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
 import nl.ivonet.epub.domain.Epub;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +28,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author Ivo Woltring
  */
-@ConcreteEpubStrategy
+//@ConcreteEpubStrategy
 public class iTunesRemovalStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(iTunesRemovalStrategy.class);
 

@@ -47,8 +47,7 @@ public class CoverStrategy implements EpubStrategy {
         metadataFactory = new MetadataFactory();
     }
 
-
-    // TODO: 12-06-2016 improment possible by searching for complete title and author at once
+    // TODO: 12-06-2016 improvement possible by searching for complete title and author at once
     @Override
     public void execute(final Epub epub) {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());

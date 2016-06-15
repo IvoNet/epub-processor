@@ -28,10 +28,6 @@ import nl.siegmann.epublib.domain.Author;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -121,31 +117,4 @@ public class AuthorStrategy implements EpubStrategy {
         }
         return converted;
     }
-
-
-    // FIXME: 20-03-2016 Temp code for analysis purposes
-    private void writeAuthor(final String name) {
-        try {
-            final String folder = "/Users/ivonet/dev/ebook/output/authors/";
-//            final String folder = "/Volumes/WD500/PossibleAuthors";
-            final File file = new File(folder);
-            if (!file.exists()) {
-                //noinspection ResultOfMethodCallIgnored
-                file.mkdirs();
-            }
-            Files.write(Paths.get(folder, name), name.getBytes());
-        } catch (final IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private String authorsToString(final Epub epub) {
-        final StringBuilder sb = new StringBuilder();
-        epub.getAuthors()
-            .stream()
-            .forEach(p -> sb.append(p.toString())
-                            .append(" / "));
-        return sb.toString();
-    }
-
 }

@@ -41,7 +41,6 @@ public class CommentRemovalStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(FileSizeStrategy.class);
     private static final Pattern PAT = Pattern.compile("<!--(.*?)-->", Pattern.CASE_INSENSITIVE);
 
-
     @Override
     public void execute(final Epub epub) {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
@@ -57,7 +56,6 @@ public class CommentRemovalStrategy implements EpubStrategy {
                 final Matcher matcher = PAT.matcher(html);
                 final StringBuffer sb = new StringBuffer();
                 while (matcher.find()) {
-                    final String group = matcher.group();
                     matcher.appendReplacement(sb, "");
                 }
                 matcher.appendTail(sb);

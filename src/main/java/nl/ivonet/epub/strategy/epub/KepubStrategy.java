@@ -83,7 +83,6 @@ public class KepubStrategy implements EpubStrategy {
             } catch (IllegalArgumentException e) {
                 epub.addDropout(Dropout.KEPBUB);
             }
-
         }
     }
 
