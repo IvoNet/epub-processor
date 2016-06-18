@@ -147,7 +147,7 @@
         <level value="NONE"/>
         <appender-ref ref="dumpAppender"/>
     </logger>
-
+    <logger name="org.elasticsearch.bootstrap" level="ERROR"/>
 
     <root level="ERROR">
         <appender-ref ref="STDOUT"/>
