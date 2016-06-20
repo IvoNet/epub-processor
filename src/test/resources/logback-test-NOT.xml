@@ -24,6 +24,7 @@
     </appender>
 
     <logger name="nl.ivonet" level="TRACE"/>
+    <logger name="ch.qos.logback" level="NONE"/>
 
 
     <root level="TRACE">

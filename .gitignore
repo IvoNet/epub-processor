@@ -36,4 +36,4 @@ com_crashlytics_export_strings.xml
 
 python/goodreads_xml/
 python/goodreads.txt
-isbndb_keys.txt
+src/main/**/isbndb_keys.txt

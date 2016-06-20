@@ -115,6 +115,7 @@
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{10} - %msg%n</pattern>
         </encoder>
     </appender>
+    <logger name="ch.qos.logback" level="NONE"/>
 
     <logger name="nl.ivonet.epub.strategy.epub" level="DEBUG" additivity="true">
         <appender-ref ref="strategyAppender"/>
@@ -130,11 +131,6 @@
     </logger>
     <logger name="nl.ivonet.epub" level="ERROR" additivity="true">
         <appender-ref ref="errorAppender"/>
-    </logger>
-
-    <logger name="ch.qos.logback" additivity="false">
-        <level value="ERROR"/>
-        <appender-ref ref="dumpAppender"/>
     </logger>
     <logger name="nl.siegmann.epublib.epub" additivity="false">
         <level value="NONE"/>

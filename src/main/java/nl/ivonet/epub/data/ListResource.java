@@ -41,7 +41,7 @@ public abstract class ListResource<T> {
      * Try with resources containing a labmda expression where the lines are read in parallel and mapped to trim
      * the lines and collected into a list of strings which are not empty.
      */
-    public List<String> listFromFilename(final String filename) {
+    protected List<String> listFromFilename(final String filename) {
         final String location = ListResource.class.getResource("/" + filename)
                                                   .toExternalForm();
         try (final InputStreamReader in = new InputStreamReader(new URL(location).openStream());

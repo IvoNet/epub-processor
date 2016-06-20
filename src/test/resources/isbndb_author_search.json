@@ -1,0 +1,249 @@
+{
+  "index_searched": "author_name",
+  "page_count": 7977,
+  "result_count": 79761,
+  "keystats": {
+    "daily_max_pay_uses": "0",
+    "key_use_granted": "2",
+    "member_use_granted": 2,
+    "key_limit": "none",
+    "key_use_requests": "2",
+    "key_id": "FOOBAR",
+    "free_use_limit": "500",
+    "member_use_requests": 2
+  },
+  "current_page": 1,
+  "data": [
+    {
+      "book_count": "1",
+      "category_ids": [
+        "alphabetically.authors.a.n.d"
+      ],
+      "name": "Ilona Andrew",
+      "name_latin": "Ilona Andrew",
+      "book_ids": [
+        "kate_daniels_tome_2"
+      ],
+      "last_name": "Andrew",
+      "subject_ids": [],
+      "dates": "",
+      "first_name": "Ilona",
+      "author_id": "ilona_andrew"
+    },
+    {
+      "name": "Ilona Andrews",
+      "category_ids": [
+        "alphabetically.authors.a.n.d"
+      ],
+      "book_count": "53",
+      "first_name": "Ilona",
+      "author_id": "ilona_andrews",
+      "dates": "",
+      "last_name": "Andrews",
+      "subject_ids": [],
+      "name_latin": "Ilona Andrews",
+      "book_ids": [
+        "magic_bites",
+        "magic_burns",
+        "magic_strikes",
+        "on_the_edge_a77",
+        "must_love_hellhounds",
+        "magic_bleeds",
+        "bayou_moon_a02",
+        "magic_bites_a01",
+        "magic_strikes_a01",
+        "magic_burns_a01",
+        "magic_bleeds_a01",
+        "la_magia_muerde",
+        "magic_bleeds_a02",
+        "on_the_edge_b13",
+        "magic_bleeds_a03",
+        "kate_daniels_complete_pb_set_1_4_magic_bites_magic_burns_mag",
+        "bayou_moon_a03",
+        "on_the_edge_b16",
+        "bayou_moon_a04",
+        "magic_slays",
+        "hexed",
+        "magic_strikes_a02",
+        "magic_strikes_a03",
+        "magic_bites_a02",
+        "angels_of_darkness_a11",
+        "fates_edge",
+        "magic_slays_a01",
+        "kate_daniels_tome_3",
+        "magic_burns_a02",
+        "magic_burns_a03",
+        "duell_der_schatten",
+        "gunmetal_magic",
+        "magic_slays_a02",
+        "magic_bites_a03",
+        "bayou_moon_a05",
+        "on_the_edge_b31",
+        "fates_edge_a01",
+        "hexed_a04",
+        "fates_edge_a02",
+        "magic_burns_a04",
+        "edge_4_a01",
+        "hexed_a05",
+        "a_kate_daniels_magic_series_collection",
+        "land_der_schatten_02_spiegeljagd",
+        "the_beginning_of_magic",
+        "en_el_limite",
+        "bayou_moon_a06",
+        "angels_of_darkness_a12",
+        "la_citta_delle_tenebre",
+        "gunmetal_magic_a01",
+        "gunmetal_magic_a02",
+        "magic_rises",
+        "stadt_der_finsternis_05_ruf_der_toten"
+      ]
+    },
+    {
+      "category_ids": [
+        "alphabetically.authors.g.u.n"
+      ],
+      "name": "Gunsser, Ilona",
+      "book_count": "7",
+      "author_id": "gunsser_ilona",
+      "first_name": "Ilona",
+      "dates": "",
+      "book_ids": [
+        "atlas_of_diagnostic_radiology_of_the_horse",
+        "atlas_of_diagnostic_radiology_of_the_horse_a01",
+        "atlas_of_diagnostic_radiology_of_the_horse_a02",
+        "atlas_of_diagnostic_radiology_of_the_horse_a03",
+        "atlas_of_diagnostic_radiology_of_the_horse_a04",
+        "atlas_of_diagnostic_radiology_of_the_horse_a05",
+        "atlas_of_diagnostic_radiology_of_the_horse_a06"
+      ],
+      "name_latin": "Gunsser, Ilona",
+      "subject_ids": [],
+      "last_name": "Gunsser"
+    },
+    {
+      "name": "Kov�cs, Ilona",
+      "category_ids": [
+        "alphabetically.authors.k.o.v"
+      ],
+      "book_count": "3",
+      "author_id": "kovacs_ilona",
+      "first_name": "Ilona",
+      "dates": "1960-",
+      "last_name": "Kov�cs",
+      "subject_ids": [],
+      "book_ids": [
+        "maturational_windows_and_adult_cortical_plasticity",
+        "maturational_windows_and_adult_cortical_plasticity_a01",
+        "effect_of_iron_and_silicon_in_aluminium_and_its_alloys"
+      ],
+      "name_latin": "Kovacs, Ilona"
+    },
+    {
+      "name": "Duczynska, Ilona",
+      "category_ids": [],
+      "book_count": "2",
+      "dates": "",
+      "last_name": "Duczynska",
+      "subject_ids": [],
+      "book_ids": [
+        "the_boy_changed_into_a_stag",
+        "workers_in_arms"
+      ],
+      "name_latin": "Duczynska, Ilona",
+      "first_name": "Ilona",
+      "author_id": "duczynska_ilona"
+    },
+    {
+      "last_name": "Fennema",
+      "subject_ids": [],
+      "name_latin": "Fennema, Ilona",
+      "book_ids": [
+        "dirks_wooden_clogs",
+        "dirks_wooden_shoes"
+      ],
+      "dates": "",
+      "first_name": "Ilona",
+      "author_id": "fennema_ilona",
+      "book_count": "2",
+      "name": "Fennema, Ilona",
+      "category_ids": [
+        "alphabetically.authors.f.e.n"
+      ]
+    },
+    {
+      "first_name": "Ilona",
+      "author_id": "treitel_ilona",
+      "dates": "",
+      "last_name": "Treitel",
+      "subject_ids": [],
+      "name_latin": "Treitel, Ilona",
+      "book_ids": [
+        "the_dangers_of_interpretation"
+      ],
+      "name": "Treitel, Ilona",
+      "category_ids": [
+        "alphabetically.authors.t.r.e"
+      ],
+      "book_count": "1"
+    },
+    {
+      "book_count": "9",
+      "category_ids": [
+        "alphabetically.authors.i.l"
+      ],
+      "name": "Ilona Katzew",
+      "first_name": "Ilona",
+      "author_id": "ilona_katzew",
+      "book_ids": [
+        "casta_painting",
+        "new_world_orders",
+        "casta_painting_a01",
+        "race_and_classification",
+        "la_pintura_de_castas_casta_paintings_representaciones_racial",
+        "race_and_classification_a01",
+        "race_and_classification_the_case_of_mexican_america",
+        "origen_costumbres_y_estado_presente_de_mexicanos_y_filipinos",
+        "origen_costumbres_y_estado_presente_de_mexicanos_y_filipinos"
+      ],
+      "name_latin": "Ilona Katzew",
+      "last_name": "Katzew",
+      "subject_ids": [],
+      "dates": ""
+    },
+    {
+      "dates": "1925-",
+      "subject_ids": [],
+      "last_name": "Karmel",
+      "name_latin": "Karmel, Ilona",
+      "book_ids": [
+        "an_estate_of_memory",
+        "a_wall_of_two_poems_of_resistance_and_suffering_from_krakow_",
+        "a_wall_of_two",
+        "an_estate_of_memory1"
+      ],
+      "first_name": "Ilona",
+      "author_id": "karmel_ilona",
+      "name": "Karmel, Ilona",
+      "category_ids": [
+        "alphabetically.authors.k.a.r"
+      ],
+      "book_count": "4"
+    },
+    {
+      "book_count": "1",
+      "name": "Berkovits, Ilona",
+      "category_ids": [
+        "alphabetically.authors.b.e.r"
+      ],
+      "author_id": "berkovits_ilona",
+      "first_name": "Ilona",
+      "subject_ids": [],
+      "last_name": "Berkovits",
+      "name_latin": "Berkovits, Ilona",
+      "book_ids": [
+        "illuminated_manuscripts_in_hungary_xi_xvi_centuries"
+      ],
+      "dates": ""
+    }
+  ]
+}
