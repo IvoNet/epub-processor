@@ -12,7 +12,7 @@ U have suggestions please let me know.
 So follow the progress on this repository or become a contributor.
 I would like the help...
 
-[Ivo](http://www.ivonet.nl/home/contact?subject=EpubProcessor:)
+[Ivo](http://www.ivonet.nl/contact)
 
 # Prerequisites #
 * Maven 3x
@@ -46,6 +46,7 @@ read the explanation
 
 # Backlog #
 
+
 AuthorStrategy:
 * Too many dropouts on "No Author". Need to try to get the author name from the filename/path if the metadata list is empty. -> IN PROGRESS
 * If an author is names like editor, publisher, various, etc it should be stripped from the author list
@@ -56,13 +57,16 @@ Other:
 * Look at the errors created by the epublib and if I can distill rules / strategies from those errors. -> IN PROGRESS
 * See TODO's in the code! -> IN PROGRESS
 * Add Epub strategies for all the other items in the Epubs -> OPEN
-* Create a searcheable database? -> OPEN
-* Convert epub to kepub for kobo readers (like me)
+* Create a searcheable database? -> elasticsearch -> IN PROGRESS
 * Remove iTunes data from books as it has no function
 * Add StyleStrategy for replacing the current style with an IvoNet style or remove all styles?!
+* metadata based on isbn
+
 
 # Done #
 * Add a real Language detection Strategy!
 * Add a KepubStrategy for making the epubs kobo ready.
+* Convert epub to kepub for kobo readers (like me)
+* Remove watermark strategy.
 
 

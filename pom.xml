@@ -28,6 +28,8 @@
 
     <properties>
         <main.app>nl.ivonet.epub.app.EpubProcessor</main.app>
+        <elasticsearch.version>2.3.3</elasticsearch.version>
+        <isbndb.version>0.4-SNAPSHOT</isbndb.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -39,11 +41,6 @@
     </licenses>
 
     <dependencies>
-        <!--<dependency>-->
-        <!--<groupId>org.apache.lucene</groupId>-->
-        <!--<artifactId>lucene-core</artifactId>-->
-        <!--<version>4.8.1</version>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>nl.siegmann.epublib</groupId>
             <artifactId>epublib-core</artifactId>
@@ -69,16 +66,19 @@
         <dependency>
             <groupId>org.elasticsearch</groupId>
             <artifactId>elasticsearch</artifactId>
-            <version>2.3.3</version>
+            <version>${elasticsearch.version}</version>
         </dependency>
-
-        <!--<dependency>-->
-        <!--<groupId>net.java.dev.jna</groupId>-->
-        <!--<artifactId>jna</artifactId>-->
-        <!--<version>4.1.0</version>-->
-        <!--<scope>test</scope>-->
-        <!--</dependency>-->
-
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna</artifactId>
+            <version>4.1.0</version>
+            <!--<scope>test</scope>-->
+        </dependency>
+        <dependency>
+            <groupId>nl.ivonet</groupId>
+            <artifactId>isbndb</artifactId>
+            <version>${isbndb.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>ch.qos.logback</groupId>

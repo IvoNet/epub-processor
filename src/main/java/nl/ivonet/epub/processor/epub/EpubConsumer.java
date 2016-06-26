@@ -16,6 +16,7 @@
 
 package nl.ivonet.epub.processor.epub;
 
+import nl.ivonet.elasticsearch.server.ElasticsearchFactory;
 import nl.ivonet.epub.annotation.EpubStrategyDependencyFinder;
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
@@ -135,7 +136,13 @@ public class EpubConsumer implements Runnable {
         while (count < 1000) {
             count++;
             if (Files.exists(path)) {
-                path = Paths.get(folder, String.format("%s (%s).kepub.epub", originalName, count));
+                final File outputLoc = new File(outputLocation + "[DOUBLE]/");
+                if (!outputLoc.exists()) {
+                    //noinspection ResultOfMethodCallIgnored
+                    outputLoc.mkdirs();
+                }
+
+                path = Paths.get(outputLoc.getPath(), String.format("%s (%s).kepub.epub", originalName, count));
             } else {
                 return path.toString();
             }
@@ -186,8 +193,8 @@ public class EpubConsumer implements Runnable {
             }
         }
 
-        try (FileChannel source = new FileInputStream(sourceFile).getChannel();
-             FileChannel destination = new FileOutputStream(destFile).getChannel()) {
+        try (FileChannel source = new FileInputStream(
+                sourceFile).getChannel(); FileChannel destination = new FileOutputStream(destFile).getChannel()) {
             destination.transferFrom(source, 0, source.size());
         } catch (final IOException e) {
             throw new RuntimeException(e);
@@ -198,6 +205,8 @@ public class EpubConsumer implements Runnable {
     private void stopQueues() {
         LOG.info("Stopping queues");
         queue.put(Epub.getEofInstance());
+        ElasticsearchFactory.getInstance()
+                            .shutdown();
     }
 
     private void logError(final Exception e) {

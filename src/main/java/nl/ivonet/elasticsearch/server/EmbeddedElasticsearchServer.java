@@ -28,43 +28,65 @@ import java.io.IOException;
 import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
 
 /**
+ * Elasticsearch singleton.
+ *
+ * Not that it can only be instantiated, so choose your getEmbeddedElasticsearchServer well.
+ * After that you will get the already created instance even if you choose to provide
+ * other parameters as input.
+ *
  * @author ivonet
  */
 public class EmbeddedElasticsearchServer {
 
     private static final String HOME_DIRECTORY = "target/elasticsearch/";
     private static final String CLUSTER_NAME = "epubs";
-
+    private static EmbeddedElasticsearchServer instance;
     private final Node node;
     private final String dataDirectory;
-    private final String logDirectory;
+
 
     public EmbeddedElasticsearchServer() {
         this(HOME_DIRECTORY, CLUSTER_NAME);
     }
 
+    public EmbeddedElasticsearchServer(final String homedir) {
+        this(homedir, CLUSTER_NAME);
+    }
     public EmbeddedElasticsearchServer(final String homedir, final String clusterName) {
-        this.dataDirectory = homedir + "data";
-        this.logDirectory = homedir + "log";
+        this.dataDirectory = endslash(homedir) + "data";
+        final String logDirectory = endslash(homedir) + "log";
         final Builder elasticsearchSettings = Settings.settingsBuilder()
                                                       .put("http.enabled", "false")
                                                       .put("cluster.name", clusterName)
                                                       .put("path.home", homedir)
                                                       .put("path.data", this.dataDirectory)
-                                                      .put("path.log", this.logDirectory);
+                                                      .put("path.log", logDirectory);
 
         this.node = nodeBuilder().local(true)
                                  .settings(elasticsearchSettings.build())
                                  .node();
     }
 
+    private static void initialize() {
+        instance = null;
+    }
+
     public Client getClient() {
         return this.node.client();
     }
 
+    /**
+     * Shutdown the embedded server and reset the instance.
+     */
     public void shutdown() {
         this.node.close();
+        initialize();
 //        deleteDataDirectory();
+    }
+
+
+    private String endslash(final String output) {
+        return output.endsWith("/") ? output : String.format("%s/", output);
     }
 
     private void deleteDataDirectory() {
@@ -72,7 +94,7 @@ public class EmbeddedElasticsearchServer {
             FileUtils.deleteDirectory(new File(this.dataDirectory));
             System.out.println("delete");
         } catch (final IOException e) {
-            throw new RuntimeException("Could not delete data directory of embedded elasticsearch server", e);
+            throw new RuntimeException("Could not delete data directory of embedded elasticsearch instance", e);
         }
     }
 }

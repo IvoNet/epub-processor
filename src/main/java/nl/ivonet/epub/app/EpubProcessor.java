@@ -16,6 +16,7 @@
 
 package nl.ivonet.epub.app;
 
+import nl.ivonet.elasticsearch.server.ElasticsearchFactory;
 import nl.ivonet.epub.domain.Epub;
 import nl.ivonet.epub.processor.Queue;
 import nl.ivonet.epub.processor.epub.EpubConsumer;
@@ -46,15 +47,11 @@ public class EpubProcessor {
         if (!isDirectory(input) || !createDir(output)) {
             help();
         }
-        outputLocation = output;
+        outputLocation = endslash(output);
+        ElasticsearchFactory.getInstance()
+                            .elasticsearchServer(outputLocation + "elasticsearch", "epubs");
         epubQueue = new Queue<>();
         producer = new EpubProducer(input, epubQueue);
-    }
-
-    private boolean createDir(final String directoryName) {
-        final File theDir = new File(directoryName);
-
-        return theDir.exists() || theDir.mkdir();
     }
 
     private static void help() {
@@ -65,12 +62,22 @@ public class EpubProcessor {
         System.exit(1);
     }
 
-    private boolean isDirectory(final String folder) {
-        return Files.isDirectory(Paths.get(folder));
-    }
-
     public EpubConsumer createEpubConsumer() {
         return new EpubConsumer(epubQueue, outputLocation);
+    }
+
+    private String endslash(final String output) {
+        return output.endsWith("/") ? output : String.format("%s/", output);
+    }
+
+    private boolean createDir(final String directoryName) {
+        final File theDir = new File(directoryName);
+
+        return theDir.exists() || theDir.mkdir();
+    }
+
+    private boolean isDirectory(final String folder) {
+        return Files.isDirectory(Paths.get(folder));
     }
 
     private void work() {

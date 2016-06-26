@@ -1,0 +1,7 @@
+elasticsearch  -Dpath.data=./target/elasticsearch/data -Dpath.log=./target/elasticsearch/log -Dcluster.name=epubs
+
+
+elasticsearch  -Dpath.data=/Users/ivonet/Books/epub-processed/elasticsearch/data -Dpath.log=/Users/ivonet/Books/epub-processed/elasticsearch/log -Dcluster.name=epubs
+
+# find all files and put them in the isbn index
+find .  -not -name ".*" -exec curl -XPUT 'http://localhost:9200/books/isbn/{}' -d @{} \;

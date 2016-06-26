@@ -20,6 +20,7 @@ import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.client.Client;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -59,13 +60,29 @@ public class EmbeddedElasticsearchServerTest {
                    .execute()
                    .actionGet();
 
-        GetResponse fields = getClient().prepareGet("myindex", "document", "1")
-                                        .execute()
-                                        .actionGet();
+        final GetResponse fields = getClient().prepareGet("myindex", "document", "1")
+                                              .execute()
+                                              .actionGet();
         assertThat(fields.getSource()
                          .get("test")).isEqualTo("123");
-//        System.in.read();
     }
 
 
+    @Ignore
+    @Test
+    public void existingData() throws Exception {
+        final EmbeddedElasticsearchServer epubs = new EmbeddedElasticsearchServer(
+                "/Users/ivonet/Books/epub-processed/elasticsearch", "epubs");
+        Thread.sleep(1000);
+//        final SearchResponse searchResponse = epubs.getClient()
+//                                                   .prepareSearch("isbn").addField("9780142419403")
+//                                                   .execute()
+//                                                   .get();
+        final GetResponse getFields = epubs.getClient()
+                                           .prepareGet("isbn", "book", "9780142419403")
+                                           .get();
+        System.out.println("getFields.isExists() = " + getFields.isExists());
+        System.out.println("getFields.getSourceAsString() = " + getFields.getSourceAsString());
+//        System.out.println("searchResponse = " + searchResponse);
+    }
 }

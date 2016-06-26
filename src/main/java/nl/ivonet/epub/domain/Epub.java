@@ -30,6 +30,7 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.io.FileInputStream;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -156,7 +157,7 @@ public class Epub {
         return hasDropout(dropout) && (dropouts.size() == 1);
     }
 
-    public void removeDropout(Dropout dropout) {
+    public void removeDropout(final Dropout dropout) {
         if (hasDropout(dropout)) {
             dropouts.remove(dropout);
         }
@@ -214,6 +215,15 @@ public class Epub {
     public List<Identifier> getIdentifiers() {
         return epub.getMetadata()
                    .getIdentifiers();
+    }
+
+    public void resetIdentifiers() {
+        epub.getMetadata()
+            .setIdentifiers(new ArrayList<>());
+    }
+
+    public void addIdentifier(final String scheme, final String identifier) {
+        getIdentifiers().add(new Identifier(scheme, identifier));
     }
 
     public String getFormat() {
