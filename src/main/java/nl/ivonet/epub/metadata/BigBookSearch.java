@@ -36,8 +36,8 @@ public class BigBookSearch {
 
     private static final String NO_RESULTS = "no_results";
 
-    private static final String location =
-            "http://bigbooksearch.com/query" + ".php?SearchIndex=books&Keywords=%s&ItemPage=%s";
+    private static final String location = "http://bigbooksearch.com/query"
+                                           + ".php?SearchIndex=books&Keywords=%s&ItemPage=%s";
     private final WebPage webPage;
 
     public BigBookSearch(final WebPage webPage) {
@@ -54,7 +54,6 @@ public class BigBookSearch {
             LOG.debug("Searching cover for [{}] on page [{}]", search, page);
             document.body()
                     .select("img")
-                    .stream()
                     .forEach(element -> pictures.put(element.attr("alt"), element.attr("src")));
             page++;
             document = webPage.get(bigBookSearchUrl(tokens, page));
@@ -84,7 +83,23 @@ public class BigBookSearch {
 
 
     public Resource findByAutorAndTitle(final String search) {
-        return null;
+        final Map<String, String> covers = retrievePossibles(search.toLowerCase());
+        final String cover = covers.keySet()
+                                   .stream()
+                                   .filter(s -> s.toLowerCase()
+                                                 .startsWith(search.toLowerCase()))
+                                   .map(covers::get)
+                                   .findFirst()
+                                   .orElse("");
+        if (cover.isEmpty()) {
+            return null;
+        }
+        try {
+            final byte[] bytes = IOUtils.toByteArray(new URL(cover).openConnection());
+            return new Resource(bytes, "cover" + retrieveExtension(cover));
+        } catch (final IOException e) {
+            return null;
+        }
     }
 
     private String retrieveExtension(final String name) {

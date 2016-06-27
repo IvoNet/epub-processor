@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package nl.ivonet.isbndb.data;
+package nl.ivonet.isbndb;
 
 /**
  * @author Ivo Woltring

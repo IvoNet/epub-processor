@@ -22,8 +22,10 @@ import nl.ivonet.elasticsearch.server.EmbeddedElasticsearchServer;
 import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
+import nl.ivonet.isbndb.IsbndbApiKeyResource;
 import nl.ivonet.service.Isbndb;
 import nl.siegmann.epublib.domain.Identifier;
+import org.elasticsearch.action.ActionListener;
 import org.elasticsearch.action.get.GetResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,7 +38,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 // TODO: 25-06-2016 if through daily quota get new key as long as there are keus to get
-// TODO: 25-06-2016 safe found isbns to elastic search
+// TODO: 25-06-2016 safe found isbn's to elastic search
 // TODO: 25-06-2016 search elastic search first for results before asking isbndb
 
 /**
@@ -47,11 +49,13 @@ public class IsbnStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(IsbnStrategy.class);
     private final Isbndb isbndb;
     private final EmbeddedElasticsearchServer esearch;
+    private final IsbndbApiKeyResource isbndbApiKeyResource;
     private boolean dailyLimitReached;
 
     public IsbnStrategy() {
         isbndb = new Isbndb();
         isbndb.disableErrorhandling();
+        isbndbApiKeyResource = new IsbndbApiKeyResource();
         dailyLimitReached = false;
         esearch = ElasticsearchFactory.getInstance()
                                       .elasticsearchServer();
@@ -61,17 +65,31 @@ public class IsbnStrategy implements EpubStrategy {
     public void execute(final Epub epub) {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
         if (dailyLimitReached) {
-            LOG.warn("Daily isbndb api call limit reached. This strategy is disabled for the rest of this run.");
-            return;
+            if (isbndbApiKeyResource.hasMore()) {
+                LOG.warn("Daily isbndb api call limit reached. Enabling the next key...");
+                isbndb.setApiKey(isbndbApiKeyResource.next());
+                dailyLimitReached = false;
+            } else {
+                LOG.info("Disabled {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
+            }
         }
         final List<Identifier> identifiers = epub.getIdentifiers();
         if (not(identifiers)) {
             return;
         }
 
-        identifiers.forEach(identifier -> {
+        for (final Identifier identifier : identifiers) {
+            if (identifier.getValue() == null) {
+                continue;
+            }
+            // TODO: 27-06-2016 move these to isbndb!
             final String isbn = identifier.getValue()
-                                          .replace("-", "");
+                                          .replace("-", "")
+                                          .replace(" ", "")
+                                          .replace(".", "")
+                                          .replace("[", "")
+                                          .replace("]", "")
+                                          .replace("ISBN", "");
             LOG.debug("Identifier found of type [{}] and value [{}]. bookid [{}]", identifier.getScheme(), isbn,
                       identifier.isBookId());
 
@@ -79,21 +97,28 @@ public class IsbnStrategy implements EpubStrategy {
                 return;
             }
 
+            if (triedAlready(isbn)) {
+                LOG.info("ISBN [{}] already searched and error found", isbn);
+                return;
+            }
+
             final GetResponse book = doWeHaveTheIsbnAlready(isbn);
 
-            final BookResponse bookResponse;
-            if (book.isExists()) {
+            BookResponse bookResponse;
+            if ((book != null) && book.isExists()) {
                 bookResponse = isbndb.getBookResponse(book.getSourceAsString());
-                LOG.info("!!!!ISBN FOUND in elastic search!!");
             } else {
                 bookResponse = isbndb.bookById(isbn);
-                dailyLimitReached = bookResponse.getKeystats()
-                                                .memberLimitReached();
+                dailyLimitReached = bookResponse.exceededDailyLimit();
             }
 
             if (dailyLimitReached) {
-                // TODO: 26-06-2016 get next api key when through limit and reset the boolean.
-                // TODO: 26-06-2016 check if we have reached our daily limit and all the keys
+                if (isbndbApiKeyResource.hasMore()) {
+                    LOG.warn("Daily isbndb api call limit reached. Enabling the next key...");
+                    isbndb.setApiKey(isbndbApiKeyResource.next());
+                    dailyLimitReached = false;
+                    bookResponse = isbndb.bookById(isbn);
+                }
             }
 
             //------------------------------------------------------------------------------
@@ -107,8 +132,7 @@ public class IsbnStrategy implements EpubStrategy {
                 return;
             }
             //------------------------------------------------------------------------------
-            // TODO: 26-06-2016 if found put the metadata into the epub
-            /*
+            /* TODO: 26-06-2016 if found put the metadata into the epub
             Note that here we have the possibility of feature envy.
             What If I find an ISBN number and start overriding data from other strategies? Isn't that
             counter productive.
@@ -122,6 +146,7 @@ public class IsbnStrategy implements EpubStrategy {
             I have to think on it.
             First I'll do a run without enriching based on findings. If all goes well I will start creating a database
              */
+            //------------------------------------------------------------------------------
 
 
             if (!saveIsbn(identifier, bookResponse.getJson())) {
@@ -132,7 +157,7 @@ public class IsbnStrategy implements EpubStrategy {
             // TODO: 27-06-2016 Temporary
             writeISBN(isbn, bookResponse.getJson());
             //------------------------------------------------------------------------------
-        });
+        }
     }
 
     private boolean saveIsbn(final Identifier identifier, final String json) {
@@ -150,9 +175,21 @@ public class IsbnStrategy implements EpubStrategy {
     }
 
     private GetResponse doWeHaveTheIsbnAlready(final String isbn) {
-        return esearch.getClient()
-                      .prepareGet("books", "isbn", isbn)
-                      .get();
+        final GetResponse[] response = new GetResponse[1];
+        esearch.getClient()
+               .prepareGet("books", "isbn", isbn)
+               .execute(new ActionListener<GetResponse>() {
+                   @Override
+                   public void onResponse(final GetResponse getFields) {
+                       response[0] = getFields;
+                   }
+
+                   @Override
+                   public void onFailure(final Throwable e) {
+                       LOG.error("ISBN Error:", e.getMessage());
+                   }
+               });
+        return response[0];
     }
 
     private boolean notIsbn(final String scheme) {
@@ -161,6 +198,12 @@ public class IsbnStrategy implements EpubStrategy {
 
     private boolean not(final List<Identifier> identifiers) {
         return identifiers.isEmpty();
+    }
+
+    private boolean triedAlready(final String isbn) {
+        final String folder = "/Users/ivonet/dev/ebook/output/isbn/";
+        final File file = new File(folder + isbn + ".has_error.json");
+        return file.exists();
     }
 
     // TODO: 26-06-2016 Temp code for analysis purposes
@@ -172,7 +215,7 @@ public class IsbnStrategy implements EpubStrategy {
                 //noinspection ResultOfMethodCallIgnored
                 file.mkdirs();
             }
-            Files.write(Paths.get(folder, name /*+ ".json"*/), content.getBytes());
+            Files.write(Paths.get(folder, name.replace("/", "_") /*+ ".json"*/), content.getBytes());
         } catch (final IOException e) {
             throw new RuntimeException(e);
         }

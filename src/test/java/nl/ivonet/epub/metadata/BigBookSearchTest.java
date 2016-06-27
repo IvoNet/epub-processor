@@ -19,6 +19,7 @@ package nl.ivonet.epub.metadata;
 import nl.siegmann.epublib.domain.Resource;
 import nl.siegmann.epublib.service.MediatypeService;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Map;
@@ -62,6 +63,7 @@ public class BigBookSearchTest {
         assertThat(resource.getMediaType(), is(MediatypeService.determineMediaType(".jpg")));
     }
 
+    @Ignore //Not finished yet
     @Test
     public void findByAuthorAndTitle() throws Exception {
         final Resource resource = bigBookSearch.findByAutorAndTitle("Ilona Andrews magic slays");

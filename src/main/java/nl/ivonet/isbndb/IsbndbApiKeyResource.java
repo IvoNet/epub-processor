@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package nl.ivonet.isbndb.data;
+package nl.ivonet.isbndb;
 
 import nl.ivonet.epub.data.ListResource;
 import org.slf4j.Logger;
@@ -31,13 +31,13 @@ import java.util.stream.Collectors;
 /**
  * @author Ivo Woltring
  */
-public class AccessKeyResource {
-    private static final Logger LOG = LoggerFactory.getLogger(AccessKeyResource.class);
+public class IsbndbApiKeyResource {
+    private static final Logger LOG = LoggerFactory.getLogger(IsbndbApiKeyResource.class);
 
 
     private final List<String> keys;
 
-    public AccessKeyResource() {
+    public IsbndbApiKeyResource() {
         List<String> result;
         final String location = ListResource.class.getResource("/isbndb_keys.txt")
                                                   .toExternalForm();

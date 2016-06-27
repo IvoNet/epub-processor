@@ -1,7 +1,3 @@
- Baulenas, Lluís-Anton
- Bear, Greg
-'Herbert, James'
-'Williams, Alan'
 A., Whitney. Phyllis
 AKIRA, TORIYAMA
 ALAN, ARKIN
@@ -6277,6 +6273,7 @@ Goodridge, Roberts Theodore
 Goodson, Simon
 Goodwin, Archie
 Goodwin, Doris Kearns
+Goodwin, John B.L.
 Goodwin, Rosie
 Goody, Heide
 Goodyear, Robert C.
@@ -7276,6 +7273,7 @@ Heppner, Mike
 Heravi, Mehdi
 Herbert, A. Giles
 Herbert, Frank
+Herbert, James
 Herbertson, Agnes Grozier
 Herbie, Brennan
 Herck, Paul van
@@ -17133,6 +17131,7 @@ William, Burgon John
 William, Cowper
 William, Link
 William, Logan
+Williams, Alan
 Williams, Amanda Kyle
 Williams, Ben Ames
 Williams, Bronwyn

@@ -92,7 +92,7 @@ public class AuthorStrategy implements EpubStrategy {
     }
 
     private Set<Author> retrieveAuthorFromFilename(final String filename) {
-        LOG.warn("Retrieve Author from filename [{}]", filename);
+        LOG.info("Retrieve Author from filename [{}]", filename);
         final List<String> strings = cleanFilename(filename);
 
         final Set<Author> converted = new HashSet<>();
@@ -108,7 +108,7 @@ public class AuthorStrategy implements EpubStrategy {
                 possibleName.setNameFormatStrategy(switchFirstnameAndSurnameStrategy);
                 final Name switchedName = new Name(possibleName.name());
                 if (authorsResource.is(switchedName.name())) {
-                    LOG.warn("Matched by Switching firstname with surname: {}", switchedName.name());
+                    LOG.info("Matched by Switching firstname with surname: {}", switchedName.name());
                     converted.add(switchedName.asAuthor());
                 } else {
                     switchedName.setNameFormatStrategy(switchFirstnameAndSurnameStrategy);

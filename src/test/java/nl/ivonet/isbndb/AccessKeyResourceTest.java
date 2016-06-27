@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package nl.ivonet.isbndb.data;
+package nl.ivonet.isbndb;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -28,31 +28,31 @@ import static org.junit.Assert.assertTrue;
  */
 public class AccessKeyResourceTest {
 
-    private AccessKeyResource accessKeyResource;
+    private IsbndbApiKeyResource isbndbApiKeyResource;
 
     @Before
     public void setUp() throws Exception {
-        accessKeyResource = new AccessKeyResource();
+        isbndbApiKeyResource = new IsbndbApiKeyResource();
     }
 
     @Test
     public void hasMore() throws Exception {
-        assertTrue(accessKeyResource.hasMore());
+        assertTrue(isbndbApiKeyResource.hasMore());
     }
 
     @Test
     public void next() throws Exception {
-        assertThat(accessKeyResource.next(), is("FOOKEY"));
-        assertThat(accessKeyResource.next(), is("BARKEY"));
-        assertThat(accessKeyResource.next(), is("BAZKEY"));
+        assertThat(isbndbApiKeyResource.next(), is("FOOKEY"));
+        assertThat(isbndbApiKeyResource.next(), is("BARKEY"));
+        assertThat(isbndbApiKeyResource.next(), is("BAZKEY"));
     }
 
     @Test(expected = NoMoreException.class)
     public void error() throws Exception {
-        accessKeyResource.next();
-        accessKeyResource.next();
-        accessKeyResource.next();
-        accessKeyResource.next();
+        isbndbApiKeyResource.next();
+        isbndbApiKeyResource.next();
+        isbndbApiKeyResource.next();
+        isbndbApiKeyResource.next();
     }
 
 
