@@ -94,8 +94,9 @@ public class IsbnStrategy implements EpubStrategy {
             }
 
             final GetResponse book = doWeHaveTheIsbnAlready(isbn);
+            final boolean already = (book != null) && book.isExists();
 
-            final BookResponse bookResponse = ((book != null) && book.isExists()) ? isbndb.getBookResponse(
+            final BookResponse bookResponse = (already) ? isbndb.getBookResponse(
                     book.getSourceAsString()) : isbndb.bookById(isbn);
 
             //------------------------------------------------------------------------------
@@ -128,9 +129,10 @@ public class IsbnStrategy implements EpubStrategy {
              */
             //------------------------------------------------------------------------------
 
-
-            if (!saveIsbn(identifier, bookResponse.getJson())) {
-                epub.addDropout(Dropout.ISBN);
+            if (!already) {
+                if (!saveIsbn(identifier, bookResponse.getJson())) {
+                    epub.addDropout(Dropout.ISBN);
+                }
             }
 
             //------------------------------------------------------------------------------
@@ -147,6 +149,7 @@ public class IsbnStrategy implements EpubStrategy {
                    .setSource(json)
                    .execute()
                    .get();
+            LOG.debug("ISBN [{}] saved to database", identifier.getValue());
         } catch (InterruptedException | ExecutionException e) {
             LOG.error(e.getMessage(), e);
             return false;
@@ -169,6 +172,7 @@ public class IsbnStrategy implements EpubStrategy {
                        LOG.error("ISBN Error:", e.getMessage());
                    }
                });
+        LOG.debug("ISBN [{}] already indexed.", isbn);
         return response[0];
     }
 

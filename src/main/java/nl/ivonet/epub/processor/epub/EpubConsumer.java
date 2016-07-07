@@ -104,10 +104,11 @@ public class EpubConsumer implements Runnable {
         if (processDropout(epub)) {
             return;
         }
-        final String folder = makeDirectoryInOutputLocation(epub);
+        final String pad = constructDirectoryNameFromEpub(epub);
+        final String folder = makeDirectoryOutputLocation(pad);
         final String filename = epub.createFilename();
 
-        final String path = uniqueName(folder, filename);
+        final String path = uniqueName(pad, filename);
 
         LOG.info("Writing [{}]", path);
 
@@ -118,17 +119,9 @@ public class EpubConsumer implements Runnable {
         }
     }
 
-    private boolean processDropout(final Epub epub) {
-        if (epub.isDropout()) {
-            LOG.error("Dropout ebook [{}] with reason [{}]", epub.getOrigionalFilename(), epub.dropoutReasons());
-            copyErrorFile(epub.getOrigionalPath(), epub.getOrigionalFilename(), epub.dropoutFolder());
-            return true;
-        }
-        return false;
-    }
-
     private String uniqueName(final String folder, final String... extras) {
         Path path = Paths.get(folder, extras);
+        path = Paths.get(outputLocation, path.toString());
         final String originalName = path.getFileName()
                                         .toString()
                                         .split("\\.kepub\\.epub")[0];
@@ -136,7 +129,7 @@ public class EpubConsumer implements Runnable {
         while (count < 1000) {
             count++;
             if (Files.exists(path)) {
-                final File outputLoc = new File(outputLocation + "[DOUBLE]/");
+                final File outputLoc = new File(outputLocation + "[DOUBLE]/" + folder);
                 if (!outputLoc.exists()) {
                     //noinspection ResultOfMethodCallIgnored
                     outputLoc.mkdirs();
@@ -151,7 +144,26 @@ public class EpubConsumer implements Runnable {
                     .toString();
     }
 
-    private String makeDirectoryInOutputLocation(final Epub epub) {
+    private boolean processDropout(final Epub epub) {
+        if (epub.isDropout()) {
+            LOG.error("Dropout ebook [{}] with reason [{}]", epub.getOrigionalFilename(), epub.dropoutReasons());
+            copyErrorFile(epub.getOrigionalPath(), epub.getOrigionalFilename(), epub.dropoutFolder());
+            return true;
+        }
+        return false;
+    }
+
+    private String makeDirectoryOutputLocation(final String pad) {
+
+        final File directory = new File(outputLocation, pad);
+        if (!directory.exists()) {
+            //noinspection ResultOfMethodCallIgnored
+            directory.mkdirs();
+        }
+        return endslash(directory.getAbsolutePath());
+    }
+
+    private String constructDirectoryNameFromEpub(final Epub epub) {
         final String foldername = epub.createFoldername();
         final String firstLetter = foldername.substring(0, 1)
                                              .toUpperCase();
@@ -159,14 +171,7 @@ public class EpubConsumer implements Runnable {
                                              .toUpperCase());
         final String alphabet = ALPHABET.contains(firstLetter) ? (endslash(firstLetter)) : endslash("[]");
 
-        final String directories = language + alphabet + foldername;
-
-        final File directory = new File(outputLocation, directories);
-        if (!directory.exists()) {
-            //noinspection ResultOfMethodCallIgnored
-            directory.mkdirs();
-        }
-        return endslash(directory.getAbsolutePath());
+        return language + alphabet + foldername;
     }
 
     private void copyErrorFile(final String sourceFile, final String destFile, final String dropoutFolder) {
