@@ -5,3 +5,4 @@ elasticsearch  -Dpath.data=/Users/ivonet/Books/epub-processed/elasticsearch/data
 
 # find all files and put them in the isbn index
 find .  -not -name ".*" -exec curl -XPUT 'http://localhost:9200/books/isbn/{}' -d @{} \;
+grep -l "limit exceeded" *|xargs rm -fv

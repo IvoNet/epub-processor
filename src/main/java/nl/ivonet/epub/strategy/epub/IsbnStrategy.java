@@ -22,7 +22,6 @@ import nl.ivonet.elasticsearch.server.EmbeddedElasticsearchServer;
 import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
-import nl.ivonet.isbndb.IsbndbApiKeyResource;
 import nl.ivonet.service.Isbndb;
 import nl.siegmann.epublib.domain.Identifier;
 import org.elasticsearch.action.ActionListener;
@@ -49,13 +48,11 @@ public class IsbnStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(IsbnStrategy.class);
     private final Isbndb isbndb;
     private final EmbeddedElasticsearchServer esearch;
-    private final IsbndbApiKeyResource isbndbApiKeyResource;
     private boolean dailyLimitReached;
 
     public IsbnStrategy() {
         isbndb = new Isbndb();
         isbndb.disableErrorhandling();
-        isbndbApiKeyResource = new IsbndbApiKeyResource();
         dailyLimitReached = false;
         esearch = ElasticsearchFactory.getInstance()
                                       .elasticsearchServer();
@@ -65,13 +62,7 @@ public class IsbnStrategy implements EpubStrategy {
     public void execute(final Epub epub) {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
         if (dailyLimitReached) {
-            if (isbndbApiKeyResource.hasMore()) {
-                LOG.warn("Daily isbndb api call limit reached. Enabling the next key...");
-                isbndb.setApiKey(isbndbApiKeyResource.next());
-                dailyLimitReached = false;
-            } else {
-                LOG.info("Disabled {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
-            }
+            LOG.info("Disabled {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
         }
         final List<Identifier> identifiers = epub.getIdentifiers();
         if (not(identifiers)) {
@@ -104,22 +95,8 @@ public class IsbnStrategy implements EpubStrategy {
 
             final GetResponse book = doWeHaveTheIsbnAlready(isbn);
 
-            BookResponse bookResponse;
-            if ((book != null) && book.isExists()) {
-                bookResponse = isbndb.getBookResponse(book.getSourceAsString());
-            } else {
-                bookResponse = isbndb.bookById(isbn);
-                dailyLimitReached = bookResponse.exceededDailyLimit();
-            }
-
-            if (dailyLimitReached) {
-                if (isbndbApiKeyResource.hasMore()) {
-                    LOG.warn("Daily isbndb api call limit reached. Enabling the next key...");
-                    isbndb.setApiKey(isbndbApiKeyResource.next());
-                    dailyLimitReached = false;
-                    bookResponse = isbndb.bookById(isbn);
-                }
-            }
+            final BookResponse bookResponse = ((book != null) && book.isExists()) ? isbndb.getBookResponse(
+                    book.getSourceAsString()) : isbndb.bookById(isbn);
 
             //------------------------------------------------------------------------------
             // TODO: 27-06-2016 Temporary, until clear how stuff works with elastic search
@@ -131,6 +108,9 @@ public class IsbnStrategy implements EpubStrategy {
                 writeISBN(isbn + ".has_error.json", bookResponse.getJson());
                 return;
             }
+
+            dailyLimitReached = bookResponse.exceededDailyLimit();
+
             //------------------------------------------------------------------------------
             /* TODO: 26-06-2016 if found put the metadata into the epub
             Note that here we have the possibility of feature envy.
