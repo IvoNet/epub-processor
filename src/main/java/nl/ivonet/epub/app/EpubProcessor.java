@@ -102,6 +102,8 @@ public class EpubProcessor {
         }
 
         threadPool.shutdown();
+        ElasticsearchFactory.getInstance()
+                            .shutdown();
 
         LOG.info("Processing took {} ms.", ((System.nanoTime() - startTime) / 1000));
     }

@@ -16,7 +16,6 @@
 
 package nl.ivonet.epub.processor.epub;
 
-import nl.ivonet.elasticsearch.server.ElasticsearchFactory;
 import nl.ivonet.epub.annotation.EpubStrategyDependencyFinder;
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
@@ -210,8 +209,6 @@ public class EpubConsumer implements Runnable {
     private void stopQueues() {
         LOG.info("Stopping queues");
         queue.put(Epub.getEofInstance());
-        ElasticsearchFactory.getInstance()
-                            .shutdown();
     }
 
     private void logError(final Exception e) {

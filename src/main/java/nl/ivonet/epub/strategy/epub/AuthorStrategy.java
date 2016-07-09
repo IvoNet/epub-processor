@@ -16,6 +16,8 @@
 
 package nl.ivonet.epub.strategy.epub;
 
+import nl.ivonet.boundary.Book;
+import nl.ivonet.boundary.BookResponse;
 import nl.ivonet.elasticsearch.server.ElasticsearchFactory;
 import nl.ivonet.elasticsearch.server.EmbeddedElasticsearchServer;
 import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
@@ -72,10 +74,10 @@ public class AuthorStrategy implements EpubStrategy {
         final Set<Author> converted = new HashSet<>();
 
         // TODO: 09-07-2016 First try the ISBN number
-        final String isbn = isbn(epub.getIdentifiers());
-        if (!isbn.isEmpty()) {
-            boolean authorFromIsbnFound = authorFromISBN(isbn);
-        }
+//        final String isbn = isbn(epub.getIdentifiers());
+//        if (!isbn.isEmpty()) {
+//            boolean authorFromIsbnFound = authorFromISBN(isbn);
+//        }
 
         //Improve original author list from epub
         converted.addAll(epub.getAuthors()
@@ -111,9 +113,10 @@ public class AuthorStrategy implements EpubStrategy {
         final GetResponse response = elasticsearchServer.getClient()
                                                         .prepareGet("books", "isbn", isbn)
                                                         .get();
-        System.out.println("response = " + response);
-        System.out.println("response = " + response.isSourceEmpty());
-        System.out.println("response = " + response.getSourceAsString());
+        if (response.isExists() && !response.isSourceEmpty()) {
+            final BookResponse bookResponse = isbndb.getBookResponse(response.getSourceAsString());
+            final Book book = bookResponse.firstBook();
+        }
         //2 if exists see of author ids exist in edb
         //3 if not then fetch them from isbndb
 

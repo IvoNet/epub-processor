@@ -51,8 +51,16 @@ public class ElasticsearchFactory {
 
     public void shutdown() {
         if (embeddedElasticsearchServer != null) {
+            giveOtherStuffSecondsToShutdown(3);
             embeddedElasticsearchServer.shutdown();
             embeddedElasticsearchServer = null;
+        }
+    }
+
+    private void giveOtherStuffSecondsToShutdown(final int i) {
+        try {
+            Thread.sleep(i * 1000);
+        } catch (InterruptedException ignored) {
         }
     }
 

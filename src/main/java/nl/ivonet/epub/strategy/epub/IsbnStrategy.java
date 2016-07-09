@@ -88,7 +88,7 @@ public class IsbnStrategy implements EpubStrategy {
                 return;
             }
 
-            if (triedAlready(isbn)) {
+            if (triedAndError(isbn)) {
                 LOG.info("ISBN [{}] already searched and error found", isbn);
                 return;
             }
@@ -170,10 +170,11 @@ public class IsbnStrategy implements EpubStrategy {
                    @Override
                    public void onFailure(final Throwable e) {
                        LOG.error("ISBN Error:", e.getMessage());
+                       throw new RuntimeException(e);
                    }
                });
         LOG.debug("ISBN [{}] already indexed.", isbn);
-        return response[0];
+        return (response.length == 0) ? null : response[0];
     }
 
     private boolean notIsbn(final String scheme) {
@@ -184,7 +185,7 @@ public class IsbnStrategy implements EpubStrategy {
         return identifiers.isEmpty();
     }
 
-    private boolean triedAlready(final String isbn) {
+    private boolean triedAndError(final String isbn) {
         final String folder = "/Users/ivonet/dev/ebook/output/isbn/";
         final File file = new File(folder + isbn + ".has_error.json");
         return file.exists();
