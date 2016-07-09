@@ -62,7 +62,7 @@ import java.util.Map;
  *
  * @author Ivo Woltring
  */
-@ConcreteEpubStrategy(order = 10)
+@ConcreteEpubStrategy(order = 1100)
 public class LanguageStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(LanguageStrategy.class);
 

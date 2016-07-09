@@ -32,5 +32,5 @@ public @interface ConcreteEpubStrategy {
     /**
      * sort order. 0 means does not matter which order higher numbers sort ascending.
      */
-    int order() default 0;
+    int order() default 1000;
 }

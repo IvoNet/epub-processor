@@ -16,6 +16,8 @@
 
 package nl.ivonet.epub.strategy.epub;
 
+import nl.ivonet.elasticsearch.server.ElasticsearchFactory;
+import nl.ivonet.elasticsearch.server.EmbeddedElasticsearchServer;
 import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
 import nl.ivonet.epub.data.AuthorRemoveList;
 import nl.ivonet.epub.data.AuthorsResource;
@@ -24,7 +26,10 @@ import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
 import nl.ivonet.epub.domain.Name;
 import nl.ivonet.epub.strategy.name.SwitchFirstnameAndSurnameStrategy;
+import nl.ivonet.service.Isbndb;
 import nl.siegmann.epublib.domain.Author;
+import nl.siegmann.epublib.domain.Identifier;
+import org.elasticsearch.action.get.GetResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,17 +53,29 @@ public class AuthorStrategy implements EpubStrategy {
     private final AuthorRemoveList removeList;
     private final AuthorsResource authorsResource;
     private final SwitchFirstnameAndSurnameStrategy switchFirstnameAndSurnameStrategy;
+    private final EmbeddedElasticsearchServer elasticsearchServer;
+    private final Isbndb isbndb;
 
     public AuthorStrategy() {
+        isbndb = new Isbndb();
         removeList = new AuthorRemoveList();
         authorsResource = new AuthorsResource();
         switchFirstnameAndSurnameStrategy = new SwitchFirstnameAndSurnameStrategy();
+        elasticsearchServer = ElasticsearchFactory.getInstance()
+                                                  .elasticsearchServer();
+
     }
 
     @Override
     public void execute(final Epub epub) {
         LOG.debug("Applying {} on [{}]", getClass().getSimpleName(), epub.getOrigionalFilename());
         final Set<Author> converted = new HashSet<>();
+
+        // TODO: 09-07-2016 First try the ISBN number
+        final String isbn = isbn(epub.getIdentifiers());
+        if (!isbn.isEmpty()) {
+            boolean authorFromIsbnFound = authorFromISBN(isbn);
+        }
 
         //Improve original author list from epub
         converted.addAll(epub.getAuthors()
@@ -77,6 +94,44 @@ public class AuthorStrategy implements EpubStrategy {
             epub.addDropout(Dropout.AUTHOR_EMPTY);
         }
         epub.setAuthors(new ArrayList<>(converted));
+    }
+
+    private boolean authorFromISBN(final String input) {
+        final String isbn = input.replace("-", "")
+                                 .replace(" ", "")
+                                 .replace(".", "")
+                                 .replace("[", "")
+                                 .replace("]", "")
+                                 .replace("ISBN", "")
+                                 .replace("urn:isbn:", "");
+        // TODO: 09-07-2016 Write the author from isbn here
+        // TODO: 09-07-2016 here am I
+
+        //1 see if isbn exists in elastic search db
+        final GetResponse response = elasticsearchServer.getClient()
+                                                        .prepareGet("books", "isbn", isbn)
+                                                        .get();
+        System.out.println("response = " + response);
+        System.out.println("response = " + response.isSourceEmpty());
+        System.out.println("response = " + response.getSourceAsString());
+        //2 if exists see of author ids exist in edb
+        //3 if not then fetch them from isbndb
+
+
+        return false;
+    }
+
+    private String isbn(final List<Identifier> identifiers) {
+        if (identifiers.isEmpty()) {
+            return "";
+        }
+        for (final Identifier identifier : identifiers) {
+            if ("isbn".equalsIgnoreCase(identifier.getScheme())) {
+                return identifier.getValue();
+            }
+            // TODO: 09-07-2016 add other possitives like 'urn:isbn:'
+        }
+        return "";
     }
 
     // TODO: 12-06-2016 duplicate code with TitleStrategy!

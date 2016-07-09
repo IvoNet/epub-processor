@@ -43,7 +43,7 @@ import java.util.concurrent.ExecutionException;
 /**
  * @author Ivo Woltring
  */
-@ConcreteEpubStrategy
+@ConcreteEpubStrategy(order = 500)
 public class IsbnStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(IsbnStrategy.class);
     private final Isbndb isbndb;

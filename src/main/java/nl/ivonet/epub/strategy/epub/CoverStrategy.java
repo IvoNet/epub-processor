@@ -38,7 +38,7 @@ import java.util.List;
  *
  * @author Ivo Woltring
  */
-@ConcreteEpubStrategy(order = 100)
+@ConcreteEpubStrategy(order = 2000)
 public class CoverStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(CoverStrategy.class);
     private final MetadataFactory metadataFactory;

@@ -41,7 +41,7 @@ import java.util.stream.Collectors;
  *
  * @author Ivo Woltring
  */
-@ConcreteEpubStrategy(order = 10)
+@ConcreteEpubStrategy(order = 1100)
 public class KepubStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(KepubStrategy.class);
 

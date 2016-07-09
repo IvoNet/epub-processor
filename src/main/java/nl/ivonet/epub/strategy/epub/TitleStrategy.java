@@ -43,7 +43,7 @@ import static java.util.stream.Collectors.toList;
  *
  * @author Ivo Woltring
  */
-@ConcreteEpubStrategy(order = 10)
+@ConcreteEpubStrategy(order = 1100)
 public class TitleStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(TitleStrategy.class);
 
