@@ -17,15 +17,12 @@
 package nl.ivonet.epub.strategy.epub;
 
 import nl.ivonet.boundary.BookResponse;
-import nl.ivonet.elasticsearch.server.ElasticsearchFactory;
-import nl.ivonet.elasticsearch.server.EmbeddedElasticsearchServer;
+import nl.ivonet.elasticsearch.service.ElasticService;
 import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
 import nl.ivonet.service.Isbndb;
 import nl.siegmann.epublib.domain.Identifier;
-import org.elasticsearch.action.ActionListener;
-import org.elasticsearch.action.get.GetResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,7 +31,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 // TODO: 25-06-2016 if through daily quota get new key as long as there are keus to get
 // TODO: 25-06-2016 safe found isbn's to elastic search
@@ -47,15 +43,14 @@ import java.util.concurrent.ExecutionException;
 public class IsbnStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(IsbnStrategy.class);
     private final Isbndb isbndb;
-    private final EmbeddedElasticsearchServer esearch;
+    private final ElasticService elasticService;
     private boolean dailyLimitReached;
 
     public IsbnStrategy() {
         isbndb = new Isbndb();
         isbndb.disableErrorhandling();
         dailyLimitReached = false;
-        esearch = ElasticsearchFactory.getInstance()
-                                      .elasticsearchServer();
+        elasticService = ElasticService.getInstance();
     }
 
     @Override
@@ -74,43 +69,39 @@ public class IsbnStrategy implements EpubStrategy {
                 continue;
             }
             // TODO: 27-06-2016 move these to isbndb!
-            final String isbn = identifier.getValue()
-                                          .replace("-", "")
-                                          .replace(" ", "")
-                                          .replace(".", "")
-                                          .replace("[", "")
-                                          .replace("]", "")
-                                          .replace("ISBN", "");
-            LOG.debug("Identifier found of type [{}] and value [{}]. bookid [{}]", identifier.getScheme(), isbn,
+            LOG.debug("Identifier found of type [{}] and value [{}]. bookid [{}]", identifier.getScheme(),
+                      identifier.getValue(),
                       identifier.isBookId());
 
             if (notIsbn(identifier.getScheme())) {
                 return;
             }
 
-            if (triedAndError(isbn)) {
-                LOG.info("ISBN [{}] already searched and error found", isbn);
+            if (triedAndError(identifier.getValue())) {
+                LOG.info("ISBN [{}] already searched and error found", identifier.getValue());
                 return;
             }
 
-            final GetResponse book = doWeHaveTheIsbnAlready(isbn);
-            final boolean already = (book != null) && book.isExists();
-
-            final BookResponse bookResponse = (already) ? isbndb.getBookResponse(
-                    book.getSourceAsString()) : isbndb.bookById(isbn);
+            boolean already = false;
+            BookResponse bookResponse = elasticService.retrieveBookResponse(identifier.getValue());
+            if (bookResponse == null) {
+                bookResponse = isbndb.bookById(identifier.getValue());
+            } else {
+                already = true;
+            }
 
             //------------------------------------------------------------------------------
             // TODO: 27-06-2016 Temporary, until clear how stuff works with elastic search
             if (bookResponse == null) {
-                writeISBN(isbn + ".null.json", "{\"error\":\"bookResponse was null\"}");
+                writeISBN(identifier.getValue() + ".null.json", "{\"error\":\"bookResponse was null\"}");
                 return;
             }
             if (bookResponse.hasError()) {
-                writeISBN(isbn + ".has_error.json", bookResponse.getJson());
+                writeISBN(identifier.getValue() + ".has_error.json", bookResponse.getJson());
                 return;
             }
 
-            dailyLimitReached = bookResponse.exceededDailyLimit();
+            dailyLimitReached = !already && bookResponse.exceededDailyLimit();
 
             //------------------------------------------------------------------------------
             /* TODO: 26-06-2016 if found put the metadata into the epub
@@ -130,52 +121,19 @@ public class IsbnStrategy implements EpubStrategy {
             //------------------------------------------------------------------------------
 
             if (!already) {
-                if (!saveIsbn(identifier, bookResponse.getJson())) {
+                if (!elasticService.saveIsbn(identifier.getValue(), bookResponse.getJson())) {
                     epub.addDropout(Dropout.ISBN);
                 }
             }
 
             //------------------------------------------------------------------------------
             // TODO: 27-06-2016 Temporary
-            writeISBN(isbn, bookResponse.getJson());
+            writeISBN(identifier.getValue(), bookResponse.getJson());
             //------------------------------------------------------------------------------
         }
     }
 
-    private boolean saveIsbn(final Identifier identifier, final String json) {
-        try {
-            esearch.getClient()
-                   .prepareIndex("books", "isbn", identifier.getValue())
-                   .setSource(json)
-                   .execute()
-                   .get();
-            LOG.debug("ISBN [{}] saved to database", identifier.getValue());
-        } catch (InterruptedException | ExecutionException e) {
-            LOG.error(e.getMessage(), e);
-            return false;
-        }
-        return true;
-    }
 
-    private GetResponse doWeHaveTheIsbnAlready(final String isbn) {
-        final GetResponse[] response = new GetResponse[1];
-        esearch.getClient()
-               .prepareGet("books", "isbn", isbn)
-               .execute(new ActionListener<GetResponse>() {
-                   @Override
-                   public void onResponse(final GetResponse getFields) {
-                       response[0] = getFields;
-                   }
-
-                   @Override
-                   public void onFailure(final Throwable e) {
-                       LOG.error("ISBN Error:", e.getMessage());
-                       throw new RuntimeException(e);
-                   }
-               });
-        LOG.debug("ISBN [{}] already indexed.", isbn);
-        return (response.length == 0) ? null : response[0];
-    }
 
     private boolean notIsbn(final String scheme) {
         return !"isbn".equalsIgnoreCase(scheme);

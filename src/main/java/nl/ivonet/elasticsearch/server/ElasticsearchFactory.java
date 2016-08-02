@@ -21,43 +21,45 @@ package nl.ivonet.elasticsearch.server;
  */
 public class ElasticsearchFactory {
 
-
     private EmbeddedElasticsearchServer embeddedElasticsearchServer;
 
     private ElasticsearchFactory() {
     }
 
-    public EmbeddedElasticsearchServer elasticsearchServer() {
-
+    public synchronized EmbeddedElasticsearchServer elasticsearchServer() {
         if (embeddedElasticsearchServer == null) {
             embeddedElasticsearchServer = new EmbeddedElasticsearchServer();
+            giveItSomeSecondsToFinishStuff(3);
         }
         return embeddedElasticsearchServer;
     }
 
-    public EmbeddedElasticsearchServer elasticsearchServer(final String homedir) {
+    public synchronized EmbeddedElasticsearchServer elasticsearchServer(final String homedir) {
         if (embeddedElasticsearchServer == null) {
             embeddedElasticsearchServer = new EmbeddedElasticsearchServer(homedir);
+            giveItSomeSecondsToFinishStuff(3);
         }
         return embeddedElasticsearchServer;
     }
 
-    public EmbeddedElasticsearchServer elasticsearchServer(final String homedir, final String clusterName) {
+    public synchronized EmbeddedElasticsearchServer elasticsearchServer(final String homedir,
+                                                                        final String clusterName) {
         if (embeddedElasticsearchServer == null) {
             embeddedElasticsearchServer = new EmbeddedElasticsearchServer(homedir, clusterName);
+            giveItSomeSecondsToFinishStuff(3);
         }
         return embeddedElasticsearchServer;
     }
 
-    public void shutdown() {
+    public synchronized void shutdown() {
         if (embeddedElasticsearchServer != null) {
-            giveOtherStuffSecondsToShutdown(3);
+            giveItSomeSecondsToFinishStuff(3);
             embeddedElasticsearchServer.shutdown();
             embeddedElasticsearchServer = null;
         }
     }
 
-    private void giveOtherStuffSecondsToShutdown(final int i) {
+    private void giveItSomeSecondsToFinishStuff(final int i) {
         try {
             Thread.sleep(i * 1000);
         } catch (InterruptedException ignored) {

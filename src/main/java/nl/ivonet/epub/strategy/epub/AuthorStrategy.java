@@ -16,7 +16,9 @@
 
 package nl.ivonet.epub.strategy.epub;
 
+import nl.ivonet.boundary.AuthorResponse;
 import nl.ivonet.boundary.Book;
+import nl.ivonet.boundary.BookAuthor;
 import nl.ivonet.boundary.BookResponse;
 import nl.ivonet.elasticsearch.server.ElasticsearchFactory;
 import nl.ivonet.elasticsearch.server.EmbeddedElasticsearchServer;
@@ -74,10 +76,10 @@ public class AuthorStrategy implements EpubStrategy {
         final Set<Author> converted = new HashSet<>();
 
         // TODO: 09-07-2016 First try the ISBN number
-//        final String isbn = isbn(epub.getIdentifiers());
-//        if (!isbn.isEmpty()) {
-//            boolean authorFromIsbnFound = authorFromISBN(isbn);
-//        }
+        final String isbn = isbn(epub.getIdentifiers());
+        if (!isbn.isEmpty()) {
+            boolean authorFromIsbnFound = authorFromIsbn(isbn);
+        }
 
         //Improve original author list from epub
         converted.addAll(epub.getAuthors()
@@ -98,7 +100,7 @@ public class AuthorStrategy implements EpubStrategy {
         epub.setAuthors(new ArrayList<>(converted));
     }
 
-    private boolean authorFromISBN(final String input) {
+    private boolean authorFromIsbn(final String input) {
         final String isbn = input.replace("-", "")
                                  .replace(" ", "")
                                  .replace(".", "")
@@ -113,12 +115,22 @@ public class AuthorStrategy implements EpubStrategy {
         final GetResponse response = elasticsearchServer.getClient()
                                                         .prepareGet("books", "isbn", isbn)
                                                         .get();
-        if (response.isExists() && !response.isSourceEmpty()) {
-            final BookResponse bookResponse = isbndb.getBookResponse(response.getSourceAsString());
-            final Book book = bookResponse.firstBook();
+        if (!response.isExists() || response.isSourceEmpty()) {
+            return false;
         }
+
         //2 if exists see of author ids exist in edb
+        final BookResponse bookResponse = isbndb.getBookResponse(response.getSourceAsString());
+        final Book book = bookResponse.first();
+        final List<BookAuthor> authorData = book.getAuthorData();
         //3 if not then fetch them from isbndb
+        authorData.forEach(bookAuthor -> {
+            final String id = bookAuthor.getId();
+            final AuthorResponse authorResponse = isbndb.authorById(id);
+            final nl.ivonet.boundary.Author author = authorResponse.first();
+            final Name name = new Name(author.getFirstName(), author.getLastName());
+            // TODO: 09-07-2016 first check if elastic already has it and also save of not
+        });
 
 
         return false;
