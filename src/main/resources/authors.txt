@@ -1,9 +1,3 @@
-A., Whitney. Phyllis
-AKIRA, TORIYAMA
-ALAN, ARKIN
-ANGELA, KNIGHT
-ARDEN, FLAME
-ATLEE, Philip
 Aakhus, Patricia
 Aal, Ghada Abdel
 Aalbers, Wim
@@ -178,6 +172,7 @@ Akers, Alan Burt
 Akhmatova, Anna
 Akhtar, Ayad
 Aki, Katsu
+Akira, Toriyama
 Akiyama, Tamayo
 Akmakjian, Hiag
 Aksyonov, Vassily
@@ -186,6 +181,7 @@ Alabaster, William
 Alafair, Burke
 Alai
 Alameddine, Rabih
+Alan, Arkin
 Alan, Grant
 Alan, Hodge
 Alan, Irwin
@@ -448,6 +444,7 @@ Andrzejewski, Jerzy
 Andrézel, Pierre
 Anet, Claude
 Anfilov, Gleb
+Angela, Knight
 Angela, Morgan
 Angeli, Marguerite de
 Angelkot, Hermannus
@@ -540,6 +537,7 @@ Archuleta, David
 Ard, William
 Ardagh, Philip
 Ardai, Charles
+Arden, Flame
 Arden, Tom
 Arenas, Reinaldo
 Arends, Jan
@@ -1689,6 +1687,7 @@ Bonanno, Margaret Wander
 Bonansinga, Jay
 Bonansinga, Jay R.
 Bond, Alison
+Bond, Cynthia
 Bond, Jonathan
 Bond, Klaas
 Bond, Larry
@@ -4850,6 +4849,7 @@ Elsinck
 Elsinck, Henk
 Elsner, Gisela
 Elsschot, Willem
+Elston, Ashley
 Elte, J.W.F.
 Elton, Ben
 Elwell, Hunt Angela
@@ -7165,6 +7165,7 @@ Heijmerikx, Ellen
 Heijn, Albert
 Heijnes, Hendrik Jacobus
 Heilemann, John
+Heilig, Heidi
 Heim, Scott
 Heimann, Moritz
 Heimans, Tania
@@ -14855,6 +14856,7 @@ Silva, Daniel
 Silver, Marisa
 Silver, Norman
 Silver, Steven H.
+Silvera, Adam
 Silverberg, Robert
 Silverman, Erica
 Silverman, Kenneth
@@ -17031,6 +17033,7 @@ Whitmore, Arvella
 Whitney, Daisy
 Whitney, Gina
 Whitney, Kim Ablon
+Whitney, Phyllis A.
 Whitney, Polly
 Whitney-Robinson, Voronica
 Whitson, Stephanie Grace

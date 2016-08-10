@@ -65,6 +65,7 @@ public class ElasticService {
               .execute(new ActionListener<GetResponse>() {
                   @Override
                   public void onResponse(final GetResponse getFields) {
+                      System.out.println("getFields = " + getFields);
                       response[0] = getFields;
                   }
 
@@ -74,6 +75,11 @@ public class ElasticService {
                       throw new RuntimeException(e);
                   }
               });
+        final GetResponse ret = response[0];
+        if (ret == null) {
+            System.out.println("ret = " + ret);
+            return null;
+        }
         return response[0].isExists() ? isbndb.getBookResponse(response[0].getSourceAsString()) : null;
     }
 

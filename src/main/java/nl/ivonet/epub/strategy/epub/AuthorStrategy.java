@@ -119,6 +119,7 @@ public class AuthorStrategy implements EpubStrategy {
             return false;
         }
 
+
         //2 if exists see of author ids exist in edb
         final BookResponse bookResponse = isbndb.getBookResponse(response.getSourceAsString());
         final Book book = bookResponse.first();
@@ -131,7 +132,6 @@ public class AuthorStrategy implements EpubStrategy {
             final Name name = new Name(author.getFirstName(), author.getLastName());
             // TODO: 09-07-2016 first check if elastic already has it and also save of not
         });
-
 
         return false;
     }
