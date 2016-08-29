@@ -28,7 +28,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * Strategy for making epubs kobo e-reader compatible.
@@ -58,7 +59,7 @@ public class KepubStrategy implements EpubStrategy {
         final List<Resource> htmlResources = epub.getContents()
                                                  .stream()
                                                  .filter(HtmlCorruptDetectionStrategy::isHtml)
-                                                 .collect(Collectors.toList());
+                                                 .collect(toList());
 
         int idx = 1;
         for (final Resource content : htmlResources) {
