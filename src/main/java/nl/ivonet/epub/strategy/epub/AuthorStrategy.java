@@ -34,6 +34,7 @@ import nl.ivonet.service.Isbndb;
 import nl.siegmann.epublib.domain.Author;
 import nl.siegmann.epublib.domain.Identifier;
 import org.elasticsearch.action.get.GetResponse;
+import org.elasticsearch.index.IndexNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -112,9 +113,17 @@ public class AuthorStrategy implements EpubStrategy {
         // TODO: 09-07-2016 here am I
 
         //1 see if isbn exists in elastic search db
-        final GetResponse response = elasticsearchServer.getClient()
-                                                        .prepareGet("books", "isbn", isbn)
-                                                        .get();
+
+        final GetResponse response;
+        try {
+            response = elasticsearchServer.getClient()
+                                          .prepareGet("books", "isbn", isbn)
+                                          .get();
+        } catch (IndexNotFoundException e) {
+            // FIXME: 07-09-2016 This try catch block should not be here. It is a runtime exception so there should
+            // probably be a better way to do this.
+            return false;
+        }
         if (!response.isExists() || response.isSourceEmpty()) {
             return false;
         }
