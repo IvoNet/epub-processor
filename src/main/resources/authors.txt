@@ -7,6 +7,7 @@ Aalbrecht, Heidi
 Aamodt, Donald
 Aarden, A. van
 Aardenburg, A. van
+Aaro, Selma Lonning
 Aaron, Rachel
 Aaron, Tiffany
 Aaron, Travis
@@ -57,6 +58,7 @@ Absire, Alain
 Abu-Jaber, Diana
 Accord, Clark
 Acevedo, Mario
+Achebe, Chinua
 Acheson, Alison
 Achilles, Tatius
 Achilli, Justin
@@ -79,7 +81,9 @@ Acton, Bryan
 Aczel, Richard
 Adair, Cherry
 Adair, Gilbert
+Adam, Mark
 Adams, Alina
+Adams, Cara
 Adams, Douglas
 Adams, Elisa
 Adams, Glenda
@@ -113,7 +117,9 @@ Adler, C.S.
 Adler, Elizabeth
 Adler, Nancy
 Adler, Susan S.
+Adler-Olsen, J.
 Adler-Olsen, Jussi
+Admirand, C.H.
 Adoff, Arnold
 Adolf, Hitler
 Adornetto, Alexandra
@@ -148,6 +154,7 @@ Ahern, Jerry
 Ahlberg, Janet
 Ahlbom, Jens
 Ahndoril, Alexander
+Ahnhem, Stefan
 Aichinger, Ilse
 Aickman, Robert
 Aidan, Nadia
@@ -238,6 +245,7 @@ Alexander, Carly
 Alexander, Caroline
 Alexander, Carrie
 Alexander, Donnell
+Alexander, Frank
 Alexander, Gross
 Alexander, Kent
 Alexander, Meg
@@ -277,6 +285,7 @@ Allain, Nicolette
 Allan, Gurganus
 Allan, Larry
 Allard, Harry
+Allbay, Terence
 Allen, Angela
 Allen, Betsy
 Allen, Fal
@@ -340,6 +349,7 @@ Ambrose, Joe
 Ambrose, Starr
 Ambrose, Stephen E.
 Amdrup, Erik
+Amelineau, Emile
 Amelsvoort, Ria van
 Amemiya, Naoko
 Amery, Carl
@@ -473,6 +483,7 @@ Annemarie, Schwarzenbach
 Annette, Blair
 Annette, Tison
 Annie, Jones
+Anonymous
 Ansay, A. Manette
 Anscombe, Roderick
 Anshaw, Carol
@@ -605,6 +616,7 @@ Arthur, Griffiths
 Arthur, Keri
 Arthur, Machen
 Arthur, Rimbaud
+Arts, Astrid
 Artsybashev, Mikhail
 Asaro, Catherine
 Asbridge, Thomas
@@ -681,6 +693,7 @@ Auchincloss, Louis
 Audlin, James David
 Audouard, Antoine
 Audrey, Howard
+Auel, Jean M.
 Auerbach, Annie
 Auerbach, Miriam
 Auerbacher, Inge
@@ -702,6 +715,7 @@ Austin, Lynn
 Austin, Paul Britten
 Austin, R.G.
 Auswaks, Alex
+Auteurs, Diverse
 Autry, Curt
 Auwers, Karel
 Avallone, Silvia
@@ -730,16 +744,12 @@ Aymé, Marcel
 Ayn, Rand
 Ayres, Chris
 Ayres, E.C.
+Ayres, Jedidiah
 Ayres, Noreen
 Azzarello, Brian
 Azzopardi, Trezza
-BANERJEE, DIVAKARUNI CHITRA
-BENFORD, TIMOTHY B.
-BERNE, KARIN
 BI, Feiyu
-BOHUMIL, HRABAL
-BRIAN, WEISS
-BUCK, PEARL S.
+Baantjer, A.C.
 Baars, Els
 Babbitt, Natalie
 Babchenko, Arkady
@@ -855,6 +865,7 @@ Balkind, Michael
 Ball, Brian N.
 Ball, John
 Ballantine, Poe
+Ballantyne, Tony
 Ballard, J.G.
 Ballard, Mignon F.
 Ballard, Robert D.
@@ -878,6 +889,7 @@ Banbury, Jen
 Bancroft, Stephanie
 Bandele, Asha
 Bandler, Richard
+Banerjee, Divakaruni Chitra
 Banerji, Sara
 Banfelder, Robert
 Bang, Mary Jo
@@ -1095,6 +1107,7 @@ Baxter, Claire
 Baxter, Stephen
 Bayard, Louis
 Bayer, Konrad
+Bayer, Marcel
 Bayerschmidt, Carl F.
 Bayley, Barrington J.
 Bayley, Nicola
@@ -1134,6 +1147,7 @@ Bebris, Carrie
 Bechard, Margaret
 Becher, Ulrich
 Bechstein, Ludwig
+Becht, H.J.W.
 Bechtel, Amy
 Beck, Glenn
 Beck, K.K.
@@ -1160,6 +1174,7 @@ Bedford, Jacey
 Bedford, Martyn
 Beechcroft, William
 Beek, F. ten Harmsen van der
+Beelen, Jos
 Beemsterboer-Avenarius, Wanda
 Beerbohm, Max
 Beers, Georgia
@@ -1175,6 +1190,7 @@ Behr, Katrin
 Bei, Ai
 Beierle, Andrew W.M.
 Beijnum, Kees van
+Beiko, S.M.
 Bein, Steve
 Beinhart, Larry
 Beishuizen, Tineke
@@ -1188,6 +1204,7 @@ Belden, Wilanne Schneider
 Belfer, Lauren
 Belford, Ken
 Belfort, Jordan
+Belien, Herman
 Belieu, Erin
 Belkom, Edo Van
 Bell, Audrey
@@ -1230,6 +1247,7 @@ Benderson, Bruce
 Benedict, Lyn
 Benedict, Pinckney
 Benfanti, Russell
+Benford, Timothy B.
 Bengtsson, Frans G.
 Benioff, David
 Benjamin, Carol Lea
@@ -1243,6 +1261,7 @@ Bennett, Cherie
 Bennett, Corintha
 Bennett, Gertrude Barrows
 Bennett, Jules
+Bennett, K.
 Bennett, Margot
 Bennett, Mik
 Bennett, Ronan
@@ -1318,6 +1337,7 @@ Berk, Lucia de
 Berk, Marjan
 Berkeley, Anthony
 Berkhof, Aster
+Berkhout, Hans
 Berkhout, Jet
 Berkum, Frank van
 Berkéwicz, Ulla
@@ -1334,6 +1354,7 @@ Bernard, Shaw George
 Bernard, Werber
 Bernardi, Dominic
 Bernays, Anne
+Berne, Karin
 Berney, Louis
 Bernhardt, William
 Bernhart, Patrick
@@ -1364,6 +1385,8 @@ Bertin, Joanne
 Bertolini, Gino
 Bertolt, Brecht
 Berton, Pierre
+Bertrand, A.
+Bertrand, H.
 Bervoets, Hanna
 Beskow, Elsa
 Besson, Luc
@@ -1542,6 +1565,7 @@ Blais, Marie-Claire
 Blaise, Clark
 Blake, Allene
 Blake, Ally
+Blake, Bruce
 Blake, Jennifer
 Blake, Ken
 Blake, Kendare
@@ -1552,6 +1576,7 @@ Blake, Selena
 Blake, William
 Blake, quentin
 Blakely, Diann
+Blakely, Noelle
 Blanco, N. Isabelle
 Bland, Eleanor Taylor
 Blankenship, William D.
@@ -1637,11 +1662,13 @@ Bodoin, Dorothy
 Bodsworth, Fred
 Boe, Dirk de
 Boeckman, Charles
+Boek, Dirk van 't
 Boeke, Wanda
 Boekestein, Jaap
 Boender, René C.W.
 Boer, Henk de
 Boer, Herman Pieter de
+Boer, Jan den
 Boerebach, Michel
 Boerhaave, Herman
 Boersma, Marelle
@@ -1656,6 +1683,7 @@ Bograd, Larry
 Bohjalian, Chris
 Bohnhoff, Maya Kaathryn
 Bohrman, Barbie
+Bohumil, Hrabal
 Boiko, Claire
 Bois, W.E.B. Du
 Bois, William Pène du
@@ -1728,6 +1756,7 @@ Borchert, Wolfgang
 Borden, Louise
 Borden, Richard C.
 Bordes, François
+Bordes, Margriet
 Borel, Petrus
 Borg, Stephan ter
 Borgart, Ben
@@ -1751,6 +1780,7 @@ Bos, Jaap
 Bos, Jan Ritzema
 Bosboom-Toussaint, Anna Louisa Geertruida
 Bosch, Ingeborg
+Bosch, Willem
 Bosmans, Phil
 Boswell, James
 Boswell, Laurence
@@ -1863,6 +1893,7 @@ Brand, Billy
 Brand, Brand Max
 Brand, Christianna
 Brand, Fiona
+Brand, Kurt
 Brand, Max
 Brand, William
 Brander, Matthews
@@ -1871,6 +1902,7 @@ Brandling, Redvers
 Brandner, Cindy
 Brandner, Gary
 Brandon, Alexander
+Brandon, Sanderson
 Brandon, Thomas
 Brands, H.W.
 Brandt, Lyle
@@ -1970,6 +2002,7 @@ Briggs, Pamela
 Briggs, Patricia
 Briggs, Raymond
 Briggs, Stephen
+Bright, Deena
 Bright, Elizabeth
 Bright, J.E.
 Bright, Laurey
@@ -1992,6 +2025,7 @@ Brinsmead, H. F.
 Brisbin, Terri
 Briscoe, Connie
 Briscoe, Constance
+Briscoe, S.M.
 Briskin, Jacqueline
 Bristol, Sidney
 Britain, Kristen
@@ -2010,6 +2044,7 @@ Brockton, Quinn
 Brockway, Connie
 Brod, D.C.
 Brodeur, Greg
+Brodie, Laura
 Brodkey, Harold
 Brodrick, William
 Broeckhoven, Diane
@@ -2042,6 +2077,7 @@ Brookes, Michelle
 Brookfield, Amanda
 Brookmyre, Christopher
 Brookner, Anita
+Brooks, Albert
 Brooks, Dorothy Howe
 Brooks, Geraldine
 Brooks, Gwendolyn
@@ -2069,6 +2105,7 @@ Brouwers, Jeroen
 Browder, Catherine
 Brower, Millicent
 Brown, Abbie Farwell
+Brown, Benita
 Brown, Calef
 Brown, Carolyn
 Brown, Clare
@@ -2122,6 +2159,7 @@ Bruhns, Nina
 Bruijn, Cor
 Bruijn, De
 Bruin, Jorien de
+Bruin, Robin de
 Brul, Jack Du
 Brumfield, James McNay
 Brummer, Frederika
@@ -2140,6 +2178,7 @@ Brusselmans, Herman
 Brust, Steven
 Bruyn, Günter de
 Bruyn, Patrick De
+Bruyn, Patrick de
 Bryan, Ashley
 Bryan, Barri
 Bryan, C.D.B.
@@ -2168,6 +2207,7 @@ Buchwald, Emilie
 Buck, Carole
 Buck, Gayle
 Buck, Nola
+Buck, Pearl S.
 Buckell, Tobias S.
 Buckham, Mary
 Buckhanon, Kalisha
@@ -2211,6 +2251,7 @@ Bulloch, Jamie
 Bulmer, Kenneth
 Bulnes, Miquel
 Bulock, Lynn
+Bultje, Jan Willen
 Bulwer-Lytton, Edward
 Bulychev, Kirill
 Bulzone, Marisa
@@ -2225,14 +2266,19 @@ Bunting, Basil
 Bunting, Eve
 Bunyan, John
 Bunzl, Matti
+Burch, Jennings
 Burch, Milbre
 Burchell, Mary
 Burden, Bob
 Burdett, John
+Burdette, Lucy
 Burford, Steve
 Burgauer, Burgauer Steven
 Burge, Constance M.
+Burger, Julia
 Burger, Wolfgang
+Burgers-Drost, Julia
+Burgersdijk, L.A.J.
 Burgess, Anthony
 Burgess, Gelett
 Burgess, Melvin
@@ -2253,6 +2299,7 @@ Burkhart, Jessica
 Burkholz, Herbert
 Burks, Arthur J.
 Burks, Cris
+Burks, S.R.
 Burleson, Donald R.
 Burley, W.J.
 Burlington, Marie
@@ -2287,6 +2334,7 @@ Burroughs, John
 Burroughs, William S.
 Burrows, Jill
 Burrs, Mick
+Bursens, Amaat
 Burston, Paul
 Burstyn, Varda
 Burt, D.L.
@@ -2294,12 +2342,14 @@ Burt, Katherine
 Burton, Dominique
 Burton, Jaci
 Burton, LeVar
+Burton, Mary
 Burton, Tim
 Burton, Virginia Lee
 Burton, Watson
 Burton-Phillips, Elizabeth
 Busbee, Shirlee
 Busby, F.M.
+Busch, Frederick
 Busch, Wilhelm
 Buschmann, Wolfgang
 Bush, Anne Kelleher
@@ -2584,6 +2634,7 @@ Carolyn, Davies Mary
 Carolyn, Wells
 Carove, Friedrich Wilhelm
 Carpelan, Bo
+Carpenter, Adam
 Carpenter, Juliet Winters
 Carpenter, Leonard P.
 Carpenter, Teresa
@@ -2643,6 +2694,7 @@ Carter, Forrest
 Carter, Franklin
 Carter, Lin
 Carter, Mina
+Carter, Nikki
 Carter, Philip
 Carter, Sammi
 Cartharn, Clarissa
@@ -2779,6 +2831,7 @@ Chadwick, Elizabeth
 Chadwick, Joseph
 Chafe, Paul
 Chafe, Rick
+Chafer, Camilla
 Chalker, Jack L.
 Challinor, Deborah
 Chamberlain, Diane
@@ -2816,9 +2869,11 @@ Chandra, Vikram
 Chang, Hsi-kuo
 Chang, Jung
 Chang, Lan Samantha
+Chang, Yung
 Channing, Mark
 Chant, Joy
 Chantale, W. Lynn
+Chantre, Madame B.
 Chao, Eveline
 Chao, Patricia
 Chaon, Dan
@@ -2830,6 +2885,8 @@ Chapman, Linda
 Chapman, Maile
 Chapman, Stepan
 Chappell, Fred
+Chappuis, Herman Theodore
+Char
 Charbonneau, Joelle
 Charbonneau, Olympia
 Charbonnet, Gabrielle
@@ -2860,6 +2917,7 @@ Chase, Deanna
 Chase, Emma
 Chase, Glen
 Chase, K. Victoria
+Chase, M.M.
 Chase, Samantha
 Chase, Storm
 Chasin, Helen
@@ -2979,6 +3037,7 @@ Christian, Claudia
 Christian, Deborah
 Christian, M.
 Christian, Mary Blount
+Christiane, F.
 Christie, A.V.
 Christie, Agatha
 Christina, Greta
@@ -3018,6 +3077,7 @@ Cibber, Colley
 Ciciarelli, Richard
 Cidoncha, Carlos Saiz
 Ciencin, Scott
+Cigdem, Hulya
 Ciminera, Siobhan
 Ciotta, Beth
 Cisneros, Sandra
@@ -3040,8 +3100,10 @@ Clapperton, Guy
 Clare, Alys
 Clare, Cassandra
 Clare, Francis
+Clare, Jessica
 Clare, Pamela
 Claremont, Chris
+Clark, Arthur C.
 Clark, Dorothy
 Clark, Howard
 Clark, Lucy
@@ -3063,6 +3125,7 @@ Claudia, Carroll
 Claudius, Eduard
 Claus, Hugo
 Clausen, Lowen
+Clavaux, Angela
 Clavell, James
 Clay, Ann
 Clay, Blair
@@ -3177,6 +3240,7 @@ Coelho, Paulo
 Coen, Dirkx
 Coenen, Frans
 Coerr, Eleanor
+Coers, Frits
 Coes, Ben
 Coetzee, J.M.
 Cofer, Judith
@@ -3305,6 +3369,7 @@ Connell, Evan S.
 Connell, Richard
 Connelly, Karen
 Connelly, Michael
+Conner, Jennifer
 Connington, J.J.
 Connolly, J.J.
 Connolly, John
@@ -3401,8 +3466,10 @@ Corbin, G.L.
 Corbin, Julie
 Corbit, Dana
 Corby, Gary
+Corby, Linda
 Cordell, Bruce R.
 Corder, Zizou
+Cordova, Zoraida
 Cordy, Michael
 Coren, Alan
 Corey, James S.A.
@@ -3929,6 +3996,7 @@ Davies, Fredric
 Davies, Luke
 Davies, Peter Ho
 Davies, Robertson
+Davies, Samantha
 Davies, Victoria
 Davis, Chan
 Davis, Cindy
@@ -4034,6 +4102,7 @@ Death, Sarah
 Deaver, Jeffrey
 Deaver, Julie Reece
 Deb, Siddhartha
+Debbaut, Bart
 Debbie, Macomber
 Debora , ElizaBeth Hill
 Deborah, C Simmons
@@ -4318,6 +4387,7 @@ Doff, Neel
 Dogar, Sharon
 Doherty, Berlie
 Doherty, Justin
+Doherty, Paul
 Doherty, Robert
 Dohle, Max
 Dohm, Hedwig
@@ -4491,6 +4561,7 @@ Drew, Wayland
 Dreyer, Eileen
 Dreyfuss, Richard
 Driel, Marcel van
+Drijver, A.
 Drinkwater, John
 Drion, Bettina
 Drippe, Colleen
@@ -4572,6 +4643,7 @@ Dunkle, Clare B.
 Dunkley, Roger
 Dunlap, Susan
 Dunlap, Susanne
+Dunlop, Anne
 Dunlop, Barbara
 Dunlop, Eileen
 Dunmore, Helen
@@ -4595,6 +4667,7 @@ Duong, Uyen Nicole
 Duplechan, Larry
 Duquennoy, Jacques
 Duquette, Anne Marie
+Durand, Loup
 Durante, Samantha
 Duras, Marguerite
 Durban, Pam
@@ -4602,6 +4675,7 @@ Durbridge, Francis
 Durem, Ray
 Durgin, Doranna
 Durham, David Anthony
+Durlacher, G.L.
 Durlacher, Jessica
 Durland, Frances
 Durrant, Sabine
@@ -4626,6 +4700,7 @@ Dwight, Jeffry
 Dwyer, Deanna
 Dwyer, K.R.
 Dybek, Stuart
+Dyer, Chris
 Dyer, Geoff
 Dyer, Hadley
 Dyer, Lois Faye
@@ -4662,11 +4737,13 @@ Early, Margot
 Easley, Maryann
 Eason, Alethea
 Eason, Lynette
+East, Carl
 Easterman, Daniel
 Eastlake, Amy
 Eastman, P.D.
 Easton, Irene Wing
 Eastwood, James
+Ebbink, Elisabeth
 Ebbs, Paul
 Ebbutt, Maude
 Eberhart, Mignon G.
@@ -4685,6 +4762,7 @@ Ed, Crowquill Alfred
 Eddings, David
 Eddison, E.R.
 Eddy, Jeff
+Eddy, Paul
 Ede, Bies van
 Edelman, David Louis
 Edelman, Lily
@@ -4834,6 +4912,7 @@ Ellis, Shaun
 Ellis, Warren
 Ellison, Andrea
 Ellison, Harlan
+Ellison, J.T.
 Ellison, Ralph
 Ellisson, C.J.
 Ellmann, Richard
@@ -4857,6 +4936,7 @@ Ely, Michael
 Elyot, Amanda
 Elytis, Odysseus
 Elzinga, Anne
+Emanuel, Ezekiel J.
 Emerson, Kathy Lynn
 Emerson, Ralph-Waldo
 Emerson, Ru
@@ -4910,6 +4990,7 @@ Enquist, Per Olov
 Enright, Anne
 Enright, D.J.
 Enright, Elizabeth
+Enright, John
 Ensel, Remco
 Ensler, Eve
 Enzensberger, Hans Magnus
@@ -4960,8 +5041,10 @@ Erskine, Barbara
 Erskine, Childers
 Ersson, Svea
 Ertel, Alexander
+Erven Dorens, Beau van
 Erwin, Vicki Berger
 Erzinçlioğlu, Zakaria
+Es, Frans van
 Esaias, Timons
 Escandón, María Amparo
 Escarpit, Robert
@@ -5023,6 +5106,7 @@ Everett, H.D.
 Everett, Percival
 Everheart, Chris
 Everma, M.
+Evers, Bob
 Evers, Kai
 Evslin, Bernard
 Ewald, Carl
@@ -5151,6 +5235,7 @@ Faust, Christa
 Faust, Joe Clifford
 Faust, Minister
 Faver, J.D.
+Favoriet
 Fawcett, Brian
 Fawcett, Graham
 Fawcett, K.M.
@@ -5168,6 +5253,7 @@ Fedin, Konstantin
 Feehan, Christine
 Feeley, Gregory
 Feenstra, Anneke
+Feenstra, R.
 Feffer, John
 Fehervari, Peter
 Feiffer, Jules
@@ -5179,6 +5265,7 @@ Feinstein, John
 Feintuch, David
 Feist, Raymond E.
 Feith, Jan
+Feitsma, J.
 Feld, Ellen F.
 Felder, Deborah G.
 Feldman, Arthur
@@ -5187,6 +5274,7 @@ Feldmeyer, Dean
 Feldstein, Albert B.
 Felice, Cynthia
 Felicia, Bond
+Feliers, Anja
 Felitta, Frank De
 Fellowes, Julian
 Felltham, Owen
@@ -5268,6 +5356,7 @@ Filipak, Christine
 Filippo, Paul Di
 Filkins, Dexter
 Filkins, Peter
+Film, Else
 Finas, A.G.
 Finch, Annie
 Finch, Carol
@@ -5296,6 +5385,7 @@ Firebird
 Firouz, Anahita
 Firth, Moray
 Fischer, Lou
+Fischer, Marie Louise
 Fischer, Tibor
 Fiscus, Jim
 Fish, Leslie
@@ -5354,6 +5444,7 @@ Fleming, Denise
 Fleming, Gherbod
 Fleming, Ian
 Fleming, Sibley
+Flemming, Ian
 Flemming, Paul
 Flesh, Henry
 Fletcher, Charlie
@@ -5364,6 +5455,7 @@ Fletcher, Julia
 Fletcher, Lucille
 Fletcher, Meredith
 Fletcher, Penelope
+Fleur, Maartje
 Fleutiaux, Pierrette
 Flewelling, Lynn
 Fliegel, Richard
@@ -5410,6 +5502,7 @@ Foley, Rae
 Follet, Ken
 Follett, James
 Follett, Ken
+Folsom, Allan
 Folsom, Rene
 Folsom, Tina
 Fombelle, Timothée de
@@ -5477,6 +5570,7 @@ Forward, Robert L.
 Forward, Simon A.
 Foss, Richard
 Fossen, Delores
+Fossum, Karin
 Foster, Alan Dean
 Foster, C.L.
 Foster, Darragha
@@ -5557,6 +5651,7 @@ Franklin, Cheryl J.
 Franklin, Darlene
 Franklin, Jay
 Franklin, Kameron M.
+Franklin, Max
 Franklin, Pat
 Franklin, Tom
 Frankos, Laura
@@ -5597,6 +5692,7 @@ Freed, Donna
 Freed, Lynn
 Freedland, Jonathan
 Freedman, J.F.
+Freedman, Rory
 Freeling, Nicolas
 Freely, Maureen
 Freeman, Brian
@@ -5894,6 +5990,7 @@ Gatenby, Rosemary
 Gates, David Edgerley
 Gates, Doris
 Gates, Ellen M. Huntington
+Gates, J.
 Gates, Olivia
 Gathering, Magic The
 Gatiss, Mark
@@ -6072,7 +6169,9 @@ Giles, Jennifer St.
 Giles, Molly
 Gilford, C.B.
 Gilkison, Gabrielle
+Gill, A.A.
 Gill, David Macinnis
+Gill, Mel
 Gill, Tamara
 Gillenwater, Sharon
 Gilles, Tibo
@@ -6103,6 +6202,7 @@ Gils, Gust
 Gilstrap, John
 Gilvarry, Alex
 Gingrich, Arnold
+Ginkel, H. J. van
 Ginkel, J.J. Van
 Gino, Carol
 Ginsburg, Mirra
@@ -6181,6 +6281,7 @@ Glyn, Maxwell
 Glück, Louise
 Goble, Paul
 Goddard, Ken
+Goddard, Robert
 Godden, Jon
 Godden, Rumer
 Godey, John
@@ -6240,6 +6341,7 @@ Goldstine, Herman H.
 Goleman, Daniel
 Goll, Yvan
 Golon, Anne
+Golon, Serge
 Golovin, Alexander A.
 Gom, Leona
 Gombrowicz, Witold
@@ -6350,6 +6452,8 @@ Gowdy, Barbara
 Gower, Hazel
 Goyen, William
 Goytisolo, Juan
+Graaf, Anke de
+Graaf, Bram de
 Graaf, Hermine de
 Grabenstein, Chris
 Grabiński, Stefan
@@ -6383,6 +6487,7 @@ Graham, Joyce
 Graham, L.B.
 Graham, Lord
 Graham, Rosemary
+Graham, Tom
 Graham, Victoria
 Graham, Will
 Grahame-Smith, Seth
@@ -6503,6 +6608,7 @@ Gregg, Linda
 Gregory, Daryl
 Gregory, Kristiana
 Gregory, Norminton
+Gregory, Philippa
 Gregory, Susanna
 Gregory, Valiska
 Gregson, Lee F.
@@ -6538,6 +6644,7 @@ Griessman, Annette
 Griffen, Claire
 Griffin, Adele
 Griffin, Bettye
+Griffin, Jodie
 Griffin, Kitty
 Griffin, Maureen Ryan
 Griffin, Peni R.
@@ -6659,6 +6766,7 @@ Guin, Jerry
 Guin, Ursula K. Le
 Guin, Wyman
 Guinan, Doug
+Guindo, Issa
 Guinn, Jeff
 Guirand, Felix
 Guiver, Patricia
@@ -6719,9 +6827,11 @@ HAYS, ANNA
 Ha, Jin
 Haaf, Beverly
 Haahr, Berit
+Haak, Joop van den
 Haakman, Anton
 Haan, Jacob Israël de
 Haar, Jaap ter
+Haar, Jan ter
 Haarlem, Willem van
 Haas, Dorothy
 Haas, Jessie
@@ -6769,6 +6879,7 @@ Hailey, Arthur
 Hails, Ian McAuley
 Hailstock, Shirley
 Haines, Carolyn
+Haines, Derek
 Haining, Peter
 Haire-Sargeant, Lin
 Hairston, Andrea
@@ -6841,6 +6952,7 @@ Hamilton, Denise
 Hamilton, Diana
 Hamilton, Edith
 Hamilton, Emma Walton
+Hamilton, Ian
 Hamilton, Jane
 Hamilton, Laurell K.
 Hamilton, Lyn
@@ -6850,6 +6962,7 @@ Hamilton, Steve
 Hamilton, Virginia
 Hamley, Dennis
 Hammer, Jon
+Hammer, Lotte
 Hammesfahr, Petra
 Hammett, Dashiell
 Hammond, Diane
@@ -6897,6 +7010,7 @@ Hannon, Irene
 Hannum, Hunter
 Hannum, Jill
 Hanover, Daniel
+Hanover, M.L.N.
 Hanrahan, Catherine
 Hans, Dominik
 Hansberry, Lorraine
@@ -6940,6 +7054,7 @@ Harlan, Wilson D.
 Harland, Richard
 Harlem, Lily
 Harlen, Brenda
+Harley, Lisa M.
 Harling, Robert
 Harlow, Joan Hiatt
 Harman, Christopher
@@ -7015,6 +7130,7 @@ Hartman, Keith
 Hartman, Roland
 Hartman, Vicky
 Hartnett, P. P.
+Hartog, Jan de
 Hartov, Steven
 Hartwell, David G.
 Hartwig, Mela
@@ -7065,11 +7181,13 @@ Havank
 Havel, Václav
 Haven, Tom De
 Havens, Candace
+Haverkamp, A.
 Havill, Juanita
 Havill, Steven F.
 Haw, Mark
 Hawke, Ethan
 Hawke, Simon
+Hawkes, Jaclyn M.
 Hawkes, Kevin
 Hawking, Stephen
 Hawkins, Hildi
@@ -7088,6 +7206,7 @@ Hayao, Miyazaki
 Haycraft, Howard
 Hayday, Andria
 Hayden, G. Miki
+Hayden, Torey
 Hayder, Mo
 Haydn, Middleton
 Haydon, Elizabeth
@@ -7104,6 +7223,7 @@ Haynes, Elizabeth
 Haynes, Jasmine
 Hays, Edward
 Hayter, Sparkle
+Haywood, C.
 Haywood, Eliza
 Haywood, Gar Anthony
 Haywood, Smith
@@ -7155,6 +7275,8 @@ Hegel, Georg Wilhelm Friedrich
 Heggan, Christiane
 Hegi, Ursula
 Hegland, Jean
+Heide, Willy
+Heide, Willy van der
 Heidenry, John
 Heidenstam, Verner von
 Heijden, A.F.Th. van der
@@ -7179,6 +7301,7 @@ Heinlein, Robert A.
 Heinrich, D.
 Heinrich, Hoffmann
 Heinrichs, Linnea
+Heinz, Markus
 Heinz, W.C.
 Heitman, Lynne
 Heitz, Markus
@@ -7186,6 +7309,7 @@ Heitzmann, Kristen
 Heißenbüttel, Helmut
 Hek, Youp van 't
 Helden, Albert van
+Helden, Wim van
 Helen, Watanabe-O'Kelly
 Helfer, Andrew
 Helfer, Monika
@@ -7202,6 +7326,7 @@ Heller, Mandasue
 Heller, Rachael F.
 Heller, Zoë
 Hellinga, Gerben
+Hellingman, Jeroen
 Hellman, Libby
 Hellman, Lillian
 Hellman, William
@@ -7246,7 +7371,7 @@ Henke, W.L.H. Koster
 Henkel, Oliver
 Henkes, Kevin
 Henle, Theda O
-Hennen, Bernard
+Henley, A.G.Hennen, Bernard
 Hennessy, B.G.
 Henri, Bergson
 Henri, Bosco
@@ -7273,6 +7398,7 @@ Heppenstall, Rayner
 Heppner, Mike
 Heravi, Mehdi
 Herbert, A. Giles
+Herbert, Brian
 Herbert, Frank
 Herbert, James
 Herbertson, Agnes Grozier
@@ -7287,6 +7413,7 @@ Herman, Melville
 Herman, Wouk
 Hermann, Hesse
 Hermann, Judith
+Hermann, Kai
 Hermann, Sudermann
 Hermans, Daniëlle
 Hermans, Henk
@@ -7497,8 +7624,11 @@ Hodgkinson, Amanda
 Hodgman, Ann
 Hodgson, Ken
 Hodgson, Ralph
+Hoeben, Max
 Hoefle, Harold
 Hoefnagel, Marian
+Hoekstra, Olga
+Hoekveld, Marion
 Hoepffner, Bernard
 Hoeven, Steven van der
 Hoeye, Michael
@@ -7516,6 +7646,7 @@ Hoffman, Nina Kiriki
 Hoffman, Paul
 Hoffman, Stefani
 Hoffmann, E.T.A.
+Hoffmann, Kate
 Hoffmann, Tracey
 Hoffmann, Yoel
 Hoffmeister, Donna L.
@@ -7524,6 +7655,7 @@ Hofmann, Corinne
 Hofmann, Gert
 Hofmannsthal, Hugo von
 Hofstadter, Douglas R.
+Hofstede, Annelot
 Hogan, Ernest
 Hogan, James P.
 Hogg, James
@@ -7550,6 +7682,7 @@ Holder, Wayne
 Holding, James
 Holdstock, Robert
 Holeman, Linda
+Holgate, Mike
 Holguin, Brian
 Holic, Nathan
 Holland, Cecelia
@@ -7590,6 +7723,7 @@ Holman, Sheri
 Holme, Holme Constance
 Holme, Timothy
 Holmes, Bea
+Holmes, Dave
 Holmes, Efner Tudor
 Holmes, L.P.
 Holmes, Rupert
@@ -7601,6 +7735,7 @@ Holst, Henriëtte Roland
 Holst, Spencer
 Holsteijn, Akke
 Holsters, Bart
+Holt, A.J.
 Holt, Desiree
 Holt, Penelope
 Holt, Tom
@@ -7615,6 +7750,7 @@ Holtzer, Susan
 Holubitsky, Katherine
 Holzhaus, Otto
 Holzner, Steven
+Hombergh, Y. van den
 Homer
 Homer, Art
 Homes, A.M.
@@ -7749,6 +7885,7 @@ Hubbard, S.W.
 Hubbell, Patricia
 Huberath, Marek S.
 Huberman, Carl
+Hubert, Karel
 Hubschman, Thomas
 Huby, Peter
 Huchel, Peter
@@ -7759,6 +7896,7 @@ Hudson, Janis Reams
 Hudson, Jeffery
 Hudson, Tess
 Hueffer, Ford H. Madox
+Huelle, Pawel
 Huelsenbeck, Richard
 Huet, Conrad Busken
 Huff, Gorg
@@ -7773,6 +7911,7 @@ Hughes, Dean
 Hughes, Dorothy B.
 Hughes, Fielden
 Hughes, Langston
+Hughes, Mark Peter
 Hughes, Rhys
 Hughes, Zondra
 Hugo, Gernsback
@@ -7785,6 +7924,8 @@ Huijzer, David
 Huisman, Kerst
 Huizing, Gonneke
 Huizinga, Johan
+Huizinga, Leonard
+Huizinga, Leonhard
 Hulke, Malcolm
 Hull, Denison Bingham
 Hull, Maureen
@@ -7835,6 +7976,7 @@ Hurley, Graham
 Hurley, Kameron
 Hurley, Maureen
 Hurston, Zora Neale
+Hurwitz, Gregg
 Hurwitz, Johanna
 Hurwitz, Michele Weber
 Hurwood, Bernhardt J.
@@ -7939,6 +8081,7 @@ Inber, Vera
 Inches, Alison
 Indiana, Gary
 Indick, Ben P.
+Indridason, Arnaldur
 Indriðason, Arnaldur
 Inen, Jerome
 Infante, Cabrera
@@ -8140,12 +8283,17 @@ Janovitz, Marilyn
 Janowitz, Brenda
 Janowitz, Tama
 Janrae, Frank
+Janse, Renske
+Jansen, Carrie
 Jansen, Dolf
 Jansen, Mike
 Jansen, Suzanna
+Jansma, His
 Jansma, Linda
 Janson, Hank
+Janssen, Dita
 Janssen, Marianne
+Janssen, Roel
 Jansson, Anna
 Jansson, Tove
 Janvier, Thomas A.
@@ -8199,6 +8347,7 @@ Jeffrey, Archer
 Jeffrey, Jon
 Jeffries, J.M.
 Jeffries, Sabrina
+Jeffus, Brandy
 Jekkers, Harrie
 Jelinek, Elfriede
 Jemisin, N.K.
@@ -8248,6 +8397,7 @@ Jessop, Carolyn
 Jessup, Harley
 Jesurun, John
 Jeter, K.W.
+Jeude, Adriaan
 Jeunesse, Albin Michel
 Jeury, Michel
 Jewell, Lisa
@@ -8274,6 +8424,7 @@ Joe, Yolanda
 Joekes, Theo
 Johanna, Spyri
 Johansen, Iris
+Johansson, J.K.
 John, Ball
 John, Bell
 John, Bowring
@@ -8354,6 +8505,7 @@ Johnston, Linda O.
 Johnston, Terry C.
 Johnston, Tim
 Johnston, Velda
+Johnstone, J.A.
 Johnstone, William W.
 Jolie, Sandrine
 Jolley, Elizabeth
@@ -8367,6 +8519,7 @@ Jonathan, Falla
 Jonathan, Lethem
 Jonathan, Morris
 Jonathan, Swift
+Jones, Belinda
 Jones, Cleo
 Jones, D.F.
 Jones, Diana Wynne
@@ -8385,6 +8538,7 @@ Jones, Linda Winstead
 Jones, Lisa Renee
 Jones, Luanne
 Jones, Marcia Thornton
+Jones, Phillip E.
 Jones, Shane
 Jones, Sherry
 Jones, Tayari
@@ -8392,9 +8546,12 @@ Jones, Thom
 Jones, W. Glyn
 Jones, Willis Knapp
 Jong, Annet de
+Jong, Carla de
 Jong, Erica
 Jong, Jelly de
 Jong, Koen de
+Jong, Simone de
+Jong, Steven de
 Jong, Trude de
 Jong, Wilfried de
 Jongbloed, Jaap
@@ -8420,6 +8577,7 @@ Joris, Lieve
 Jorner, Per
 Joron, Andrew
 Joseph, Anderson
+Joseph, Danielle
 Joseph, Elder
 Joseph, Finder
 Joseph, Hansen
@@ -8475,6 +8633,7 @@ Jr., Walter Wangerin
 Jr., William E. Coles
 Jr., William Relling
 Juan, Manuel
+Juan, Stephen
 Juby, Susan
 Judd, Alan
 Judd, Cameron
@@ -8565,6 +8724,7 @@ Kalinin, Vadim
 Kalis, Myranda
 Kalla, Daniel
 Kallos, Stephanie
+Kalman, Anna
 Kalotay, Daphne
 Kalpakian, Laura
 Kalse, Egbert
@@ -8574,12 +8734,15 @@ Kaminsky, Ilya
 Kaminsky, Stuart M.
 Kamio, Yoko
 Kamlag, Tom
+Kamp, Hans van der
 Kampen, Owen
 Kamphues, Rob
 Kamphuis, Marco
 Kamphuis, Martine
 Kamps, Lisa B.
+Kampusch, Brigitta Sirny
 Kampusch, Natascha
+Kan, Henriette
 Kanady, James
 Kanafani, Ghassan
 Kanari, Yōzaburō
@@ -8605,6 +8768,7 @@ Kant, Uwe
 Kantner, Rob
 Kantor, MacKinlay
 Kantra, Virginia
+Kantz, Molly
 Kaplan, Erin Aubry
 Kaplan, Glenn
 Kaplan, Hester
@@ -8624,6 +8788,7 @@ Karinthy, Frigyes
 Karko, Kate
 Karl, Marlantes
 Karl, May
+Karl, Victor
 Karlfeldt, Erik Axel
 Karlin, Bernie
 Karloff, Boris
@@ -8706,6 +8871,7 @@ Kaverin, Veniamin
 Kawabata, Yasunari
 Kay, David
 Kay, Guy Gavriel
+Kay, Patricia
 Kay, Susan
 Kay, Terry
 Kaye, Laura
@@ -8780,6 +8946,7 @@ Kelly, Erin
 Kelly, F.J.
 Kelly, Hunter
 Kelly, Judith
+Kelly, Leisha
 Kelly, Megan
 Kelly, Mira Lyn
 Kelly, Nicholas
@@ -8809,6 +8976,7 @@ Kendall, Karen
 Kendrick, Baynard H.
 Kendrick, Beth
 Kendrick, Mark
+Kendrick, Sharon
 Keneally, Thomas
 Kenison, Katrina
 Kenji, Miyazawa
@@ -8853,6 +9021,7 @@ Kepner, Linda Tiernan
 Ker, Madeleine
 Keret, Etgar
 Kerievsky, Joshua
+Kerley, J.A.
 Kerman, Piper
 Kermode, Jennie
 Kern, Gary
@@ -8897,6 +9066,7 @@ Ketelaar, Frank
 Kettenbach, Hans Werner
 Kettner, Christine
 Keulen, Mensje van
+Keuls, Hans
 Keuls, Yvonne
 Keun, Irmgard
 Kevin, Major
@@ -8911,6 +9081,7 @@ Keyhoe, Donald E.
 Keynes, Randal
 Keys, Alicia
 Keys, Larry
+Keyzer, Rob
 Khadra, Yasmina
 Khankhoje, Maya J.
 Kharms, Daniil
@@ -9057,6 +9228,7 @@ Klause, Annette Curtis
 Klavan, Andrew
 Klaveness, Jan O'Donnell
 Kleeberg, Michael
+Klei, Jac. van der
 Kleier, Glenn
 Klein, A.M.
 Klein, Abby
@@ -9065,6 +9237,7 @@ Klein, Joe
 Klein, Katie
 Klein, Naomi
 Klein, Norma
+Klein, Rachel
 Klein, T.E.D.
 Kleinblatt, Henri
 Kleist, Heinrich von
@@ -9089,7 +9262,9 @@ Klooster, Henk van 't
 Klosterman, Chuck
 Kluge, Alexander
 Kluger, Steve
+Kluun
 Kluun, Ray
+Kluvers, Ingrid
 Klíma, Ivan
 Knaak, Richard A.
 Knapp, Jim
@@ -9133,10 +9308,13 @@ Kobbe, Conrad
 Koch, Christopher J.
 Koch, Gini
 Koch, Howard
+Koch, Koen
+Koch, Natalie
 Kochenderfer, Lee
 Kock, Paul
 Kockere, Geert de
 Koehler, Karen
+Koekoek, Hans
 Koelemeijer, Judith
 Koelemeijer, Rosa
 Koelewijn, Jannetje
@@ -9164,6 +9342,7 @@ Kok, Arie
 Koke, Jak
 Kokoschka, Oskar
 Kol, Eva
+Kol, H. van
 Kolar, Bob
 Koller, Jackie French
 Kolleritsch, Alfred
@@ -9273,6 +9452,7 @@ Kraus, Karl
 Kraus, Krandall
 Kraus, Nicola
 Kraus, Robert
+Krause, Andrew J.
 Krauss, Bruno
 Krauss, Nicole
 Krausser, Helmut
@@ -9315,6 +9495,7 @@ Krohn, Leena
 Kroll, Steven
 Krolow, Karl
 Kronauer, Brigitte
+Kroon, Henk
 Kroon, Ton van der
 Kroonenberg, Yvonne
 Krotow, Geri
@@ -9323,6 +9504,8 @@ Kruchenykh, Alexei
 Krueger, William Kent
 Kruger, Michael
 Kruijt, Petra
+Kruit, Anneke
+Kruize, Ilse
 Krumgold, Joseph
 Kruse, Tatjana
 Krutch, Joseph Wood
@@ -9351,6 +9534,8 @@ Kuhnau, Johann
 Kuhoric, Jim
 Kuijer, Guus
 Kuik, Hilbert
+Kuiper, A.C.
+Kuiper, Karin
 Kuipers, Jan J.B.
 Kuitert, Harry
 Kulin, Ayşe
@@ -9375,6 +9560,7 @@ Kunzru, Hari
 Kuper, Peter
 Kuper, Simon
 Kupfer, Allen C.
+Kupfer, Christine
 Kupfer, Shawn
 Kupperberg, Paul
 Kuprin, Alexander
@@ -9451,6 +9637,7 @@ LaValle, Victor
 LaValley, Dustin
 LaVyrle, Spencer
 Laabs, Joochen
+Laan, Dick
 Labonté, Richard
 Lace, Kate
 Lacey, Meg
@@ -9467,6 +9654,7 @@ Lafcadio, Hearn
 Lafferty, Luke
 Lafferty, R.A.
 Laforgue, Jules
+Lagerlof, Selma
 Lagier, Jennifer
 Lagin, Lazar
 Lago, Sylvia
@@ -9555,8 +9743,10 @@ Lang, Simon
 Langan, John
 Langan, Ruth Ryan
 Langan, Sarah
+Lange, Jan de
 Lange, K.A.
 Lange-Müller, Katja
+Lange-Ros, Ellen de
 Langelaan, George
 Langello, Kip
 Langen, Timothy
@@ -9590,6 +9780,7 @@ Lanting, Frans
 Lanting, Menno
 Lanyon, Josh
 Lanzing, Fred
+Lapidus, Jens
 Lapierre, Dominique
 Lapine, Warren
 Lapper, Alison
@@ -9636,6 +9827,7 @@ Lass, Abraham Harold
 Lassell, Michael
 Lasseter, Eric
 Last, Rex
+Latchem-Smith, Julia
 Latham, Philip
 Latimer, Renate
 Lattimore, Deborah Nourse
@@ -9694,6 +9886,7 @@ Lawson, Lawson Henry
 Lawson, Mary
 Lawson, Nicola
 Lawson, Robert
+Lawton, Clive
 Lawton, John
 Lawton, Lynna
 Lay, Kathryn
@@ -9706,6 +9899,7 @@ Lazar, Alan
 Lazard, Naomi
 Lazarus, Adam
 Laßwitz, Kurd
+LeGuin, Ursula
 LePore, James
 LeSieg, Theo
 Leabo, Karen
@@ -9757,6 +9951,7 @@ Leeghwater, J. Asz.
 Leeghwater, Jan Adriaansz
 Leer, David
 Leeuw, Adèle de
+Leeuw, Emiel de
 Leeuwenhoek, Antoni van
 Leeuwenhoek, Antonie van
 Leeuwenkamp, Paul van
@@ -9778,8 +9973,10 @@ Leigh, Duncan
 Leigh, Hunt
 Leigh, Kennedy
 Leigh, Lora
+Leigh, Mark
 Leigh, Richmond
 Leino, Eino
+Leisha, Kelly
 Leitch, Patricia
 Leite, David
 Leitz, David
@@ -9794,6 +9991,7 @@ Lemaitre, Pierre
 Leman, Bob
 Lembke, Lembke Janet
 Leming, Ron
+Lemmers, Yvonne
 Lengyel, Emil
 Lengyel, József
 Lenhard, Elizabeth
@@ -9807,6 +10005,7 @@ Lent, Jeffrey
 Lente, Fred Van
 Lenz, Jakob Michael Reinhold
 Lenz, Siegfried
+Leo, Jennifer L.
 Leo, Mary
 Leodhas, Sorche Nic
 Leon, Judith
@@ -9819,6 +10018,7 @@ Leoni, Giulio
 Leonori, Ann
 Leonov, Leonid
 Leopold, Lewis
+Leopold, Marie
 Leopold, Niki Clark
 Leotta, Allison
 Lepovetsky, Lisa
@@ -9855,6 +10055,7 @@ Lettow, Donna
 Letts, Barry
 Letts, Billie
 Leuci, Robert
+Leun, Justine van der
 Leuwsha, Tessa
 Levack, Simon
 Level, Maurice
@@ -9897,6 +10098,7 @@ Levy, Andrea
 Levy, Buddy
 Levy, JoAnn
 Levy, Magdalena
+Levy, Nancy
 Lew, Wallace
 Lewald, Fanny
 Lewin, Betsy
@@ -9909,6 +10111,7 @@ Lewis, Carroll
 Lewis, D.B. Wyndham
 Lewis, Jennifer
 Lewis, Naomi
+Lewis, Pam
 Lewis, Sherry
 Lewis, Sinclair
 Lewis, Trudy
@@ -10099,10 +10302,12 @@ Loevenbruck, Henri
 Loew, Mike
 Loewen, James W.
 Lofting, Hugh
+Lofton, Ramona
 Logan, Leandra
 Logan, Lisa
 Logan, Lynne
 Logau, Friedrich Von
+Logosinski, Sogol
 Logston, Anne
 Logue, Christopher
 Logue, Mary
@@ -10150,6 +10355,7 @@ Looy, Jacobus van
 Looy, Werner van
 Lopez, Barry
 Lopresti, Robert
+Lord, Gabrielle
 Lordan, Beth
 Lorde, Audre
 Lore, Ava
@@ -10228,6 +10434,7 @@ Lucarotti, John
 Lucas, Jennie
 Lucas, Leanne
 Lucas, Michele Claire
+Lucas, Sophie
 Luceno, James
 Lucentini, Franco
 Lucian, Of Samosata
@@ -10273,6 +10480,7 @@ Lustig, Theodore H.
 Lustiger, Gila
 Luterman, Alison
 Lutes, Jason
+Lutz, Giles A.
 Lutz, Lisa
 Lutzeier, Elizabeth
 Lutzen, Karl F.
@@ -10319,24 +10527,13 @@ Läckberg, Camilla
 Längle, Ulrike
 Léonard, Cohen
 Löhr, Robert
-M., AUEL JEAN
 M., Tupla
-MAGGIE, SHAYNE
-MARGARET, ATWOOD
-MARKLUND, LIZA
-MASON, LYNN
-MASON, SARAH
-MATTHIESSEN, PETER
-MELISSA, PANARELLO
-MENANT, DELPHINE
-MEREZHKOVSKY, Dmitri
-MICHAEL, MORPURGO
-MO, Yan
 Ma, Jian
 Maas, Dick
 Maas, L.J.
 Maas, Marique
 Maas, Sharon
+Maaskant, Laura
 Maberry, Jonathan
 MacAlan, Peter
 MacAlister, Katie
@@ -10354,6 +10551,7 @@ MacDonald, Ann-Marie
 MacDonald, Betty
 MacDonald, George
 MacDonald, Janice
+MacDonald, Patricia J.
 MacDonald, Zillah K.
 MacDonogh, Giles
 MacDougal, Bonnie
@@ -10390,6 +10588,7 @@ MacMahon, Bryan
 MacMeans, Donna
 MacNeil, Neil
 MacNeill, Alastair
+MacPartlin, Anna
 MacPhail, Cathy
 MacPherson, Rett
 MacRaois, Cormac
@@ -10397,7 +10596,9 @@ MacShane, Frank
 Macallister, Hamilton
 Macao, Marshall
 Macaulay, David
+Macauley, Roisin
 Macdonald, Hector
+Macdowell, Heather
 Mace, Frank
 Maceoin, Dennis
 Macfarlane, Robert
@@ -10416,6 +10617,7 @@ Mackey, Nathaniel
 Mackle, Marisa
 Mackler, Carolyn
 Macklin, Alys Eyre
+Maclaughlin, Emma
 Macleod, Fiona
 Maclintock, Letitia
 Macmanus, Seumas
@@ -10446,9 +10648,11 @@ Madow, Michelle
 Madsen, Svend Åge
 Maeren, Marthe
 Maerov, Lauri
+Maex, Edel
 Maffini, Mary Jane
 Magazine, Cook's Illustrated
 Magee, Doug
+Maggie, Shayne
 Magherini-Graziani, Giovanni
 Magidoff, Robert
 Magill, Karen
@@ -10514,7 +10718,9 @@ Mallet, Nathalie
 Mallett, Daryl F.
 Mallinson, Allan
 Mallon, Thomas
+Mallory, H.P.
 Mallory, John
+Mallory, Malia
 Mallory, Sarah
 Mallory, Tess
 Malloy, Brian
@@ -10543,6 +10749,7 @@ Mancour, T. L.
 Mancusi, Mari
 Mandanipour, Shahriar
 Mandanna, Sarita
+Mandara, C.P.
 Mandelstam, Osip
 Mander, Gertrud
 Mander, Matthias
@@ -10560,6 +10767,7 @@ Manley-Tucker, Audrie
 Manly, D.J.
 Mann , Thomas
 Mann, Antony
+Mann, Catherine
 Mann, Don
 Mann, Heinrich
 Mann, Jeff
@@ -10605,6 +10813,7 @@ Mare, Walter
 Marek, Halter
 Marfey, Anne
 Marffin, Kyle
+Margaret, Atwood
 Margaret, Mahy
 Margaret, Mayo
 Margaret, Wild
@@ -10645,6 +10854,7 @@ Markham, Beryl
 Markham, Edwin
 Markham, Wendy
 Marklew, Gilly
+Marklund, Liza
 Markoe, Merrill
 Marks, Anthony
 Marks, Arnold
@@ -10716,6 +10926,7 @@ Martin, Hardie St.
 Martin, Ian Kennedy
 Martin, Kat
 Martin, Kevin
+Martin, Les
 Martin, Madelene
 Martin, Malachi
 Martin, Monica
@@ -10766,6 +10977,8 @@ Mason, Bobbie Ann
 Mason, Connie
 Mason, Eva
 Mason, Jamie
+Mason, Lynn
+Mason, Sarah
 Mason, Zachary
 Mass, Wendy
 Massey, Sujata
@@ -10826,6 +11039,7 @@ Matthews, Jessica
 Matthews, Katie
 Matthews, Kezi
 Matthews, Robbie
+Matthiessen, Peter
 Mattison, Alice
 Mattos, Alexander
 Maturin, Charles Robert
@@ -10853,6 +11067,8 @@ Maxwell, Katie
 Maxwell, Robin
 May, Antoinette
 May, Emily
+May, Julian
+May, Rob
 Mayakovsky, Vladimir
 Mayberry, Florence V.
 Mayberry, Sarah
@@ -11130,6 +11346,7 @@ McLaughlin, Emma
 McLaughlin, Iain
 McLaughlin, Terry
 McLaverty, Michael
+McLean, Alistair
 McLeod, Cynthia
 McLeod, Irene Rutherford
 McLerran, Alice
@@ -11145,6 +11362,7 @@ McMillon, Doris
 McMinn, Suzanne
 McMullen, Sean
 McMurtry, Stan
+McNab, Andy
 McNab, Claire
 McNair, Patricia Ann
 McNally, Clare
@@ -11212,8 +11430,10 @@ Meer, Dr. Rigo van
 Meer, Olga van der
 Meer, Vonne van der
 Meerson, Olga
+Meertens, Lieke
 Meester, Maarten
 Meester, Mariët
+Meester, Ronald
 Meeus, Tom-Jan
 Meeuse, Piet
 Meg, Hutchinson
@@ -11239,6 +11459,7 @@ Mejia, Michael
 Melander, Jakob
 Meldrum, Christina
 Melisie, Erik
+Melissa, Panarello
 Melko, Paul
 Mellema, Eric
 Mellick, Carlton
@@ -11252,6 +11473,7 @@ Melvyn, Bragg
 Memmott, David
 Menaker, Daniel
 Menander
+Menant, Delphine
 Menasse, Robert
 Mencken, H.L.
 Mendes, Bob
@@ -11263,6 +11485,7 @@ Menzies, Gavin
 Mercer, Judy
 Mercier, Pascal
 Mercurio, Jed
+Merezhkovsky, Dmitri
 Meri, Veijo
 Merisca, Lucian
 Merkel, Earl
@@ -11277,6 +11500,7 @@ Merritt, Byron
 Merritt, Emma
 Merritt, Jackie
 Merritt, Rich
+Merryl, Lou
 Merryman, Ashley
 Mersbergen, Jan van
 Mertens, Kefren
@@ -11307,10 +11531,13 @@ Meyer, Henye
 Meyer, Kai
 Meyer, L.A.
 Meyer, Philipp
+Meyer, Stephanie
+Meyers, Kent
 Meyers, Maan
 Meyers, Martin
 Meyers, Randy Susan
 Meyers, Ric
+Meyers, Susan
 Meynard, Yves
 Meynell, Laurence
 Meynier, Gil
@@ -11336,6 +11563,7 @@ Michael, Kerr
 Michael, Livi
 Michael, Mallory
 Michael, Marie
+Michael, Morpurgo
 Michael, Ondaatje
 Michael, Peinkofer
 Michael, Ridpath
@@ -11357,6 +11585,7 @@ Michaels, Taylor
 Michal, Viewegh
 Michalowski, Mark
 Michalson, Karen
+Michel, F.
 Michel, Tournier
 Michelet, Jon
 Michelet, Madame J
@@ -11503,6 +11732,7 @@ Mixon, Laura J.
 Mizushiro, Setona
 Miéville, China
 Miłosz, Czesław
+Mo, Yan
 Moberg, Vilhelm
 Modan, Rutu
 Modesitt, L-E
@@ -11616,6 +11846,7 @@ Moore, Alan
 Moore, C.L.
 Moore, Christopher
 Moore, Clement C.
+Moore, E.S.
 Moore, Garry
 Moore, Jacquie Bamberg
 Moore, Lisa
@@ -11690,6 +11921,7 @@ Morris, Julianna
 Morris, Mark
 Morris, Mary McGarry
 Morris, Simon
+Morrison, Gael
 Morrison, Lillian
 Morrison, Rusty
 Morrison, Toni
@@ -12030,6 +12262,7 @@ Newman, Gavin
 Newman, Holly
 Newman, Lesléa
 Newman, Marc
+Newman, Ruth
 Newman, Sharan
 Newport, B.L.
 Newport, Olivia
@@ -12070,6 +12303,7 @@ Nick, Tosches
 Nickell, Scott
 Nickle, David
 Nicola, Baxter
+Nicole, Rachell
 Nicotra, Dena
 Niedecker, Lorine
 Nieh, Camellia
@@ -12081,15 +12315,20 @@ Nietzsche, Friedrich
 Nievelt, Carel van
 Niffenegger, Audrey
 Nigam, Sanjay
+Nightly, A.L.
 Nihei, Tsutomu
 Nijhuis, Hendrik Oude
 Nijnatten, Angelique van
+Nijssen, Adrienne
 Niklaus, Thelma
 Niland, D'Arcy
 Niles, Chris
 Niles, Steve
+Nilsen, Tove
+Nilsson, Johanna
 Nilsson, Per
 Nimersheim, Jack
+Nimwegen, Petra van
 Nina, Alexander
 Ninh, Bảo
 Ninomiya, Tomoko
@@ -12177,6 +12416,7 @@ November, Sharyn
 Novick, Jerry A.
 Novik, Naomi
 Nowee, J.
+Nowee, P.
 Nowlan, Kevin
 Nowotny, Joachim
 Noyer, Albert
@@ -12486,6 +12726,7 @@ Otto, Ludwig
 Ottolengui, Rodrigues
 Otway, Thomas
 Ouellette, Pierre
+Oum'hamed, Fayza
 Outland, Orland
 Overduin, Carla
 Overton, Elaine
@@ -12738,6 +12979,7 @@ Peale, Cynthia
 Peale, Dr Norman
 Pearce, Philippa
 Pearl, Matthew
+Pearlman, Ann
 Pearlman, Edith
 Pears, Iain
 Pearson, Allison
@@ -12910,6 +13152,7 @@ Pettit, Samuel Jarius
 Petyo, Robert
 Pevsner, Stella
 Peyrou, Manuel
+Peyton, Elizabeth
 Peyton, K. M.
 Pezzelli, Peter
 Pfalz, Laura
@@ -13345,6 +13588,7 @@ Ragen, Naomi
 Rahimi, Atiq
 Rahman, Imad
 Rai, Edgar
+Rain, J.R.
 Raine, Kathleen
 Raines, Jocelyn
 Rainey, Doreen
@@ -13472,10 +13716,12 @@ Rees, Celia
 Rees, Emlyn
 Reese, Cynthia
 Reese, Lizette Woodworth
+Reeser, Martijn
 Reeve, Philip
 Reeves, Adrienne Ellis
 Regan, Dian Curtis
 Regan, Katy
+Regan, Patrick
 Regard, Conny
 Regener, Sven
 Reginald, Kann
@@ -13520,6 +13766,7 @@ Reisfeld, Randi
 Reisman, Jessica
 Reisman, Nancy
 Reiss, Johanna
+Reisz, Tiffany
 Reizenstein, Ludwig Von
 Rembold, Kristen Staby
 Remi, Georges
@@ -13542,6 +13789,7 @@ Renwick, Sophie
 René, Guillot
 Reschke, Karin
 Resnick, Laura
+Resnick, Mike
 Resnicow, Herbert
 Retief, Hanlie
 Rettenmund, Matthew
@@ -13579,6 +13827,7 @@ Rhodan, Perry
 Rhodes, Apollonius of
 Rhodes, Caroline
 Rhodes, Dan
+Rhodes, Devon
 Rhodes, Eugene Manlove
 Rhodes, Jewell Parker
 Rhue, Morton
@@ -13596,6 +13845,7 @@ Rice, Helen Steiner
 Rice, Kaitlyn
 Rice, Luanne
 Rice, Molly
+Rice, Patricia
 Rich, H Thompson
 Rich, Naomi
 Rich, Susan
@@ -13688,6 +13938,7 @@ Rigsby, Howard
 Rijckeghem, Jean-Claude van
 Rijkens, Maarten H.
 Rijn, Elle van
+Rijn, Frank van
 Rijn, Linda van
 Rijn, Michel van
 Riker, H. Jay
@@ -13762,6 +14013,7 @@ Robert, Pack
 Robert, Potter
 Robert, Reginald
 Robert, Robinson
+Robert, Sylvie
 Robert, Venditti
 Robert, Wallace
 Roberto, Arlt
@@ -13804,12 +14056,15 @@ Robins, Madeleine E.
 Robinson, Barbara
 Robinson, Eden
 Robinson, Edwin Arlington
+Robinson, Frank M.
 Robinson, Jane E.M.
 Robinson, Kim Stanley
 Robinson, Kit
 Robinson, Lennox
 Robinson, Lynda S.
 Robinson, Marilynne
+Robinson, Patrick
+Robinson, Peter
 Robinson, Roxana
 Robinson, Spider
 Robinson, Suzanne
@@ -13885,6 +14140,7 @@ Rolls, Elizabeth
 Rolt, L.T.C.
 Romain, Rolland
 Romains, Jules
+Roman, B.B.
 Roman, Victor
 Romano, Ray
 Romanov, Panteleimon
@@ -13905,8 +14161,10 @@ Ronns, Edward
 Rood, Lydia
 Roode, Willy van
 Roodvoets, Carolien
+Rooij, Dustin de
 Rooijen, Wilco van
 Rook, Clarence
+Roos, H. de
 Roos, Kelley
 Roosevelt, Elliott
 Roosevelt, Theodore
@@ -13925,6 +14183,7 @@ Rose, Dahlia
 Rose, Emilie
 Rose, Howard
 Rose, Jackie
+Rose, Karen
 Rose, Lloyd
 Rose, M.J.
 Rose, Reginald
@@ -13947,7 +14206,9 @@ Rosenthal, Amy Krouse
 Rosenthal, Carole
 Rosenthal, Marc
 Rosenthal, Pam
+Roseton, Jenn
 Roshchin, Mikhail
+Rosman, Ada
 Rosman, Marco
 Rosman-Kleinjan, Ada
 Rosnau, Wendy
@@ -13957,6 +14218,7 @@ Rosoff, Meg
 Ross, Alex
 Ross, Barnaby
 Ross, Benjamin
+Ross, Havank
 Ross, JoAnn
 Ross, Joel N.
 Ross, King
@@ -14002,9 +14264,11 @@ Routh, Vernon
 Row, Jess
 Rowan, Nina
 Rowe, Hoam
+Rowe, Julie
 Rowe, Rosemary
 Rowell, David
 Rowell, Patricia Frances
+Rowell, Rainbow
 Rowen, Michelle
 Rowes, Barbara
 Rowland, Della
@@ -14032,6 +14296,7 @@ Royes, Gillian
 Rozakis, Bob
 Rozan, S.J.
 Roze, Merel
+Rozenberg, Joel C.
 Rozenbroek, Els
 Roziner, Felix
 Ruark, Robert
@@ -14057,6 +14322,8 @@ Ruditis, Paul
 Rudman, Mark
 Rudnick, Hans H.
 Rudolf, Eucken
+Rudolph, Mark
+Rue, Nancy N.
 Ruebsamen, Helga
 Ruell, Patrick
 Ruff, Lisa
@@ -14088,6 +14355,7 @@ Runyon, Damon
 Rupert, Everett
 Rupp, Rebecca
 Rupprecht, Caroline
+Rusbridger, Alan
 Rusch, Kristine Kathryn
 Ruse, Gary Alan
 Rush, Norman
@@ -14099,6 +14367,9 @@ Rusilko, Ivan
 Russ, Joanna
 Russe, Savannah
 Russell, Bertrand
+Russell, Craig
+Russell, Dick
+Russell, Eric Frank
 Russell, Fraser
 Russell, James
 Russell, Jay
@@ -14127,6 +14398,7 @@ Ryan, Brittney
 Ryan, Chris
 Ryan, Hank Phillippi
 Ryan, Jenna
+Ryan, Kevin
 Ryan, Nan
 Ryan, P.B.
 Ryan, Pam Muñoz
@@ -14343,6 +14615,8 @@ Saunders, Kate
 Saunders, Zina
 Saur, Pamela S.
 Sauwer, Monika
+Savage, Carolyn
+Savage, Sean
 Savchenko, Vladimir
 Saviano, Roberto
 Savile, Steven
@@ -14372,6 +14646,7 @@ Scarrow, Alex
 Scarrow, Simon
 Scarry, Richard
 Schaap, Jord
+Schaap, Peter
 Schabert, Kyrill
 Schachterle, Nancy
 Schaefer, Frank
@@ -14419,6 +14694,8 @@ Schleussner, Ellie
 Schlink, Bernhard
 Schlobin, Roger C.
 Schmetzer, Jason
+Schmid, Christoph
+Schmidt, Annie M.G.
 Schmidt, Gary D.
 Schmidt, Maik
 Schmidt, Shaheen
@@ -14437,10 +14714,12 @@ Schoemperlen, Diane
 Schoen, Lawrence
 Schoen, Lawrence M.
 Schoeneman, Deborah
+Schoenmakers, M.M.
 Schofield, Sandy
 Schol, Ankie
 Scholefield, Alan
 Scholes, Ken
+Scholten, Barbara
 Scholten, Jaap
 Scholz, Carter
 Schonborg, Virginia
@@ -14470,8 +14749,12 @@ Schroers, Rolf
 Schröder, Adolf
 Schubert, Edmund R.
 Schucman, Helen
+Schuil, J.B.
 Schulberg, Budd
 Schuler, Candace
+Schulman, Helen
+Schulman, J. Neil
+Schulman, L.B.
 Schulman, Peter
 Schulman, Sarah
 Schultz, C.W.
@@ -14502,6 +14785,7 @@ Schwartz, David J.
 Schwartz, Delmore
 Schwartz, Åsa
 Schwartzmiller, Kimberly
+Schwarz, Asa
 Schwarz, Christina
 Schwarzbauer, Heike
 Schweighardt, Joan
@@ -14529,6 +14813,7 @@ Scott, Bronwyn
 Scott, Cavan
 Scott, D. Travers
 Scott, Inara
+Scott, J.S.
 Scott, Manda
 Scott, Michele
 Scott, Nyomi
@@ -14588,6 +14873,7 @@ Seiffert, Rachel
 Seigle, Cecilia Segawa
 Seimaru, Amagi
 Sekowsky, Mike
+Selasi, Taiye
 Selden, George
 Seldes, Gilbert
 Self, Margaret Cabell
@@ -14611,6 +14897,7 @@ Senden, Ivo
 Senghor, Léopold Sédar
 Senn, Steve
 Senna, Danzy
+Sennett, Frank
 Sennitt, Stephen
 Sentrop, Rik
 Sepetys, Ruta
@@ -14638,6 +14925,7 @@ Severson, Ellen Dodge
 Seward, Prudence
 Sewell, Earl
 Sewell, Kitty
+Sex, Nikki
 Sexton, Anne
 Sexton, Sabrina
 Seymour, Gerald
@@ -14659,6 +14947,7 @@ Shallit, Joseph
 Shalvis, Jill
 Shames, Laurence
 Shamsie, Kamila
+Shan, Darren
 Shanahan, Danny
 Shane, Jack
 Shange, Ntozake
@@ -14714,6 +15003,7 @@ Sheehan-Miles, Charles
 Sheers, Owen
 Sheffield, Charles
 Shefner, Vadim
+Shelby, Philip
 Sheldon, Charles M.
 Sheldon, Dyan
 Sheldon, Walt
@@ -14723,6 +15013,7 @@ Shelley, Mary
 Shelley, Rick
 Shelley, Tanaka
 Shelton, Connie
+Shelton, Paige
 Shem, Samuel
 Shemilt, Jane
 Shepard, Jim
@@ -14875,6 +15166,7 @@ Simmons, Dan
 Simmons, Danny
 Simmons, Larry
 Simmons, Simone
+Simms, Jennifer
 Simms, Taback
 Simner, Janni Lee
 Simolke, Duane
@@ -14901,6 +15193,7 @@ Sims, Janice
 Simsion, Graeme
 Sinclair, April
 Sinclair, Bennie Lee
+Sinclair, Cherise
 Sinclair, Dani
 Sinclair, Elizabeth
 Sinclair, Iain
@@ -14983,6 +15276,7 @@ Slobodkina, Esphyr
 Sloca, Sue Ellen
 Slonczewski, Joan
 Sloss, Henry
+Slot, Pauline
 Slotboom, Carl
 Slotkin, Richard
 Slott, Dan
@@ -15000,7 +15294,9 @@ Smee, Nicola
 Smeets, Mart
 Smet, Marius de
 Smids, Annejoke
+Smidtman, Martijn
 Smiley, Jane
+Smit, Eric
 Smit, Gerie
 Smith, Alexander McCall
 Smith, Ali
@@ -15016,6 +15312,11 @@ Smith, Cordwainer
 Smith, Crissy
 Smith, Denis O.
 Smith, Dodie
+Smith, E.E.
+Smith, Edward Elmer
+Smith, Gavin
+Smith, Harvey
+Smith, Jennifer E.
 Smith, Kim
 Smith, L.J.
 Smith, Lady Eleanor
@@ -15056,6 +15357,8 @@ Snijder, Philip
 Snodgrass, Melinda M.
 Snoe, Eboni
 Snoek, Elke van der
+Snoijink, Bob
+Snoijink, Yolanda
 Snow, C.P.
 Snow, Jack
 Snyder, Maria V.
@@ -15217,6 +15520,7 @@ Sr., Joseph S. Pulver
 Sreenivasan, Jyotsna
 St, Pierre Paul
 Stabenow, Dana
+Stabiner, Karen
 Stableford, Brian M.
 Stacey, Bernard
 Stack, John
@@ -15369,6 +15673,7 @@ Sternberg, Libby
 Sternheim, Carl
 Stetson, Jeff
 Steve, Aylett
+Steven, Adama
 Steven, Kat
 Stevens, Amanda
 Stevens, B.K.
@@ -15400,6 +15705,7 @@ Stiefvater, Maggie
 Stieg, Larsson
 Stifter, Adalbert
 Stigter, Bianca
+Stil, Ashe
 Stillings, Marianne
 Stillman, Ron
 Stimson, Tess
@@ -15432,6 +15738,7 @@ Stohl, Margaret
 Stoker, Dacre
 Stokes, Manning Lee
 Stokes, Penelope J.
+Stoks, Frans
 Stolarz, Laurie Faria
 Stoll, Walsh Ellen
 Stolp, Hans
@@ -15470,6 +15777,7 @@ Stover, Matthew Woodring
 Stowe, Harriet Beecher
 Stowell, Phyllis
 Stoyanoff, Ashley
+Straaten, Peter van
 Strachan, Zoë
 Strahan, Jonathan
 Straka, Andy
@@ -15478,6 +15786,7 @@ Stramm, August
 Strand, Ginger
 Strand, Jeff
 Strand, Mark
+Strange, Chris
 Stranger, Joyce
 Strassburg, Gottfried von
 Strasser, Dirk
@@ -15612,6 +15921,7 @@ Swaab, Dick
 Swain, Dwight V.
 Swain, E.G.
 Swain, James
+Swain, Lola
 Swainston, Steph
 Swallow, Lisa
 Swan, Gladys
@@ -15830,6 +16140,7 @@ Templeton, Edith
 Templeton, Karen
 Templin, Stephen
 Tendriakov, Vladimir
+Teng, Tais
 Tenn, William
 Tennant, Emma
 Tenneshaw, S.M.
@@ -15847,6 +16158,9 @@ Terhune, Albert Payson
 Terlouw, Jan
 Terlouw, Sanne
 Ternie, Tamara
+Terpstra, Anita
+Terpstra, Havank
+Terpstra, Pieter
 Terral, Jack
 Terrall, Robert
 Terras, Victor
@@ -15865,6 +16179,7 @@ Tetrick, Byron
 Tetu, Randeane
 Tevault, Ellen
 Tevis, Walter
+Tex, Charles den
 Tey, Josephine
 Thacker, Cathy Gillen
 Thacker, Shelly
@@ -16006,6 +16321,7 @@ Tilton, Alice
 Tilton, Lois
 Timlett, Peter Valentine
 Timlin, Mark
+Timmermans, Felix
 Timperley, Rosemary
 Tine, Robert
 Tingle, Rebecca
@@ -16036,6 +16352,7 @@ Toles, Myriam
 Tolhurst, Marilyn
 Tolides, Tryfon
 Tolkien J. R. R.
+Tolkien, J.R.R.
 Tolkien, Michael
 Tolkien, Simon
 Tolle, Eckhart
@@ -16170,6 +16487,7 @@ Trocheck, Kathy Hogan
 Troiano, Joe
 Troisi, Licia
 Trojan, Kurt Von
+Trolle, Alf
 Trollope, Anthony
 Trollope, Joanna
 Tronstad, Janet
@@ -16199,6 +16517,8 @@ Truth, Sojourner
 Tryon, Thomas
 Tschinag, Galsan
 Tsepeneag, DumitruTsiolkas, Christos
+Tsiolkas, Christos
+Tsouras, Peter G.
 Tsuboi, Sakae
 Tsuda, Masami
 Tsukiyama, Gail
@@ -16264,7 +16584,9 @@ Tyaransen, Olaf
 Tyau, Kathleen
 Tyers, Kathy
 Tyldesley, Joyce A.
+Tyler, Anne
 Tyler, Ben
+Tyler, Chris
 Tyler, Dodge
 Tyler, Evan
 Tyler, J. Dane
@@ -16320,6 +16642,7 @@ Ure, Louise
 Uris, Leon
 Urquhart, Emma Maree
 Urquhart, Fred
+Urquhart, Robert
 Urrea, Luis Alberto
 Ursachi, Mihai
 Ursell, Geoffrey
@@ -16328,6 +16651,7 @@ Ury, David
 Utley, Steven
 Uttley, Alison
 Uwe, Tımm
+Uyl, Bob den
 Uys, Stephen Creagh
 Uyterlinde, Judith
 V.S., Pritchett
@@ -16347,6 +16671,7 @@ Vail, Virginia
 Vaičiūnaitė, Judita
 Val, Mcdermid
 Valdes, Leslie
+Valdes, Zoe
 Vale, Leah
 Vale-Allen, Charlotte
 Valen, Nanine
@@ -16355,6 +16680,7 @@ Valens, Anton
 Valente, Catherynne M.
 Valentina, Glajar
 Valentine, Genevieve
+Valentine, Jenny
 Valentine, Williams
 Valenzuela, Luisa
 Valera, Sinead de
@@ -16362,6 +16688,7 @@ Valeri, Gorbachev
 Valerio, Evangelisti
 Valgaeren, Kevin
 Valin, Jonathan
+Valks, Ben
 Vallejo, César
 Valtat, Jean-Christophe
 Valton, Arvo
@@ -16430,6 +16757,7 @@ Veitch, Tom
 Vela, Natalie
 Velde, Henk Te
 Velde, Jacoba van
+Velde, Peter ter
 Velde, Vivian Vande
 Veldkamp, Tjibbe
 Veldman, David
@@ -16446,6 +16774,9 @@ Verbeeck, Lydia
 Verbeek, Margriet
 Verbeek, Nico
 Verbeke, Annelies
+Verbogt, Thomas
+Verbraeck, B.
+Verburg, Alex
 Vercoe, Anthony
 Vercoe, Elizabeth
 Verde, Tom
@@ -16453,6 +16784,8 @@ Verduyn, Jaap
 Vergeer, Koen
 Verghese, Abraham
 Verhoef, Esther
+Verhoef, Larissa
+Verhoeven, Clemens
 Verhoeven, Paul
 Verhulst, Dimitri
 Verhulst, René
@@ -16463,9 +16796,11 @@ Vermeend, Willem
 Vermeer, Suzanne
 Vermeiren, Jan
 Vermeulen, Bram
+Vermeulen, Ed
 Vermeulen, John
 Vermeylen, August
 Vermond, Bas
+Verne, Jules
 Verney, Sarah J.
 Vernon, Lee
 Veronesi, Sandro
@@ -16491,6 +16826,7 @@ Vick, Helen Hughes
 Vickers, Roy
 Vickers, Salley
 Victoria, Alexander
+Victoria, Ivo
 Vidocq, Eugène François
 Viegener, Matias
 Viehl, Lynn
@@ -16506,11 +16842,15 @@ Villoldo, Alberto
 Vilmure, Daniel
 Vilott, Vilott Rhondi
 Vincent, Benet Stephen
+Vincent, C.A.
 Vincent, Harl
 Vincent, Patrick
+Vincent, Rachel
+Vincent, Tille
 Vinge, Joan D.
 Vinge, Vernor
 Vinicoff, Eric
+Vink, Renee
 Vinten, Robyn
 Violi, Paul
 Viorst, Judith
@@ -16532,10 +16872,13 @@ Visser, Arjan
 Visser, Carolijn
 Visser, Derk
 Visser, Judith
+Visser, Katja
+Visser-Roosendaal, J.
 Viswanathan, Kaavya
 Viswanathan, Padma
 Vita, Sharon de
 Vitale, Giusy
+Vitali, Andrea
 Vitola, Denise
 Vivelo, Jacqueline
 Vivien, Renée
@@ -16568,29 +16911,38 @@ Volsky, Paula
 Volta, Ornella
 Voltaire
 Voltz, William
+Vondel, Joost
 Vonk, Roos
 Vonnegut, Kurt
 Voorde, San van de
+Voordewind, H.
 Voors, Barbara
 Vorse, Mary Heaton
 Vos, Ida
 Vos, Janneke
 Vos, Luc de
 Voskens, Claudy
+Voskuil, J.J.
 Voskuil, Lynn M.
 Vosmaer, Carel
 Voss, Louise
 Vowell, Sarah
+Vreede, Andrea
 Vreeland, Susan
 Vreeswijk, Helen
 Vriens, Jacques
 Vries, Anke de
 Vries, Daan Remmerts de
 Vries, Dolf de
+Vries, Edwin de
 Vries, Jan de
 Vries, Mel Wallis de
 Vries, Peter
 Vries, Peter De
+Vries, Peter R.
+Vries, Sandra de
+Vries, Theun de
+Vries-Kruyt, T. de
 Vriesekoop, Bettine
 Vroegop-Zandbergen, Lydia
 Vuijsje, Marja
@@ -16608,6 +16960,7 @@ WEINMAN, ROSALIND
 WERNER, JANE
 WILKINSON, TIM
 Waal, André de
+Waal, Dick
 Waal, Simon de
 Waanders, Tsjitske
 Waber, Bernard
@@ -16641,6 +16994,7 @@ Wagstaff, Sasha
 Wahl, Mats
 Wahlberg, Karin
 Wahlöö, Per
+Wahlöö, Sjöwall
 Wahl��, Sj�wall
 Waid, Mark
 Wainer, Cord
@@ -16663,6 +17017,7 @@ Walkenbach, John
 Walker, Alice
 Walker, Atkinson William
 Walker, Diann
+Walker, Jason
 Walker, Leslie Claire
 Walker, Sage
 Walker, Saskia
@@ -16754,11 +17109,13 @@ Warner, Mignon
 Warner, Rex
 Warner, Sylvia Townsend
 Warren, Adler
+Warren, Christine
 Warren, Hans
 Warren, Howard
 Warren, Kaaron
 Warren, Lynn
 Warren, Mitchell
+Warren, Nancy
 Warren, Patricia Nell
 Warren, Robert Penn
 Warren, Rosanna
@@ -16811,12 +17168,14 @@ Watterson, Bill
 Wattles, Wallace D.
 Watts, Bernadette
 Watts, Frances
+Watts, Irene N.
 Watts, Mia
 Waugh, Alexander
 Waugh, Carol-Lynn Rössel
 Waugh, Charles G.
 Waugh, Hillary
 Waugh, Sylvia
+Wauters, Erik
 Waverly, Shannon
 Wax, Wendy
 Wayland, April Halprin
@@ -16891,6 +17250,7 @@ Weir, Andy
 Weir, Arabella
 Weir, Justin
 Weir, Theresa
+Weis, Alexandrea
 Weis, Margaret
 Weisbecker, Allan C.
 Weisberg, Joseph
@@ -16899,6 +17259,7 @@ Weiskopf, F.C.
 Weisman, Jacob
 Weisman, John
 Weiss, Allan
+Weiss, Brian
 Weiss, David Cody
 Wei�, Ernst
 Welch, James
@@ -16907,6 +17268,7 @@ Weldon, Fay
 Weldon, Phaedra M.
 Welford, Sue
 Welk, Mary V
+Wellen, Edward
 Welling, Viola
 Wellington, David
 Wellington, Monica
@@ -16957,6 +17319,7 @@ West, Annie
 West, Beverly
 West, Eliza
 West, Jessamyn
+West, Kasie
 West, Michelle
 West, Nathanael
 West, Nick
@@ -17111,6 +17474,7 @@ Wilder, Thornton
 Wildervanck, Cathelijne
 Wiles, Alexia
 Wilhelm, Doug
+Wilhelm, Kate
 Wilkerson, Isabel
 Wilkes, Jennifer Clarke
 Wilkie, Britton
@@ -17123,11 +17487,13 @@ Wilkinson, Carole
 Wilkinson, Roderick
 Wilks, Eileen
 Will, Alexander
+Will, Milou van der
 Willa, Cather
 Willard, Eliza
 Willard, Nancy
 Willeford, Charles
 Willems, Mo
+Willet, Marcia
 Willett, Marcia
 Willett, Sabin
 William, Archer
@@ -17141,6 +17507,7 @@ Williams, Ben Ames
 Williams, Bronwyn
 Williams, Carol Lynch
 Williams, Donna Marie
+Williams, Frances
 Williams, Lori Aurelia
 Williams, Maiya
 Williams, Margery
@@ -17151,6 +17518,7 @@ Williams, Tennessee
 Williams, Teri
 Williams, Ursula Moray
 Williams, Vera B.
+Williams, Walter Jon
 Williams-Garcia, Rita
 Williamson, A.M.
 Williamson, Al
@@ -17189,9 +17557,11 @@ Wilson, David Niall
 Wilson, Doug
 Wilson, Eric
 Wilson, Ethel
+Wilson, F. Paul
 Wilson, Gahan
 Wilson, Karma
 Wilson, Kevin
+Wilson, M. Jarrett
 Wilson, Natasha
 Wilson, Robert-Charles
 Wilson, Sari
@@ -17265,6 +17635,7 @@ Witoszek, Nina
 Witt, Mary Ann Frese
 Witteman, Sylvia
 Witten, Matt
+Wittenbach, James
 Wittlinger, Ellen
 Wittman, Robert K.
 Witvliet, Marianne
@@ -17280,6 +17651,7 @@ Wojtowicz, Douglas P.
 Wojtyła, Karol
 Wold, Allen L.
 Wolf, Christa
+Wolf, Joan
 Wolf, K.J.
 Wolf, Ror
 Wolfe, Aaron
@@ -17293,6 +17665,7 @@ Wolff, Isabel
 Wolff, Tobias
 Wolff, Veronica
 Wolff, Virginia Euwer
+Wolffers, Ivan
 Wolfgang, Bauer
 Wolfgruber, Gernot
 Wolfkind, Peter Daniel
@@ -17493,6 +17866,7 @@ Young, Janine Ellen
 Young, Karen Romano
 Young, Louisa
 Young, Nikki
+Young, Paul W.
 Young, Robyn
 Young, Samantha
 Young, Sara
@@ -17521,6 +17895,7 @@ Zaczek, Iain
 Zadoff, Allen
 Zadok, Rachel
 Zadoorian, Michael
+Zafon, Carlos Ruiz
 Zagajewski, Adam
 Zagat, Arthur Leo
 Zahara, Brigit
@@ -17542,6 +17917,7 @@ Zand, Herbert
 Zane
 Zane, Carolyn
 Zane, Grey
+Zanger, Jan de
 Zangwill, Israel
 Zanjani, Sally
 Zanten, Tatjana van
@@ -17613,10 +17989,12 @@ Zoshchenko, Mikhail
 Zou, Henry
 Zsigmond, Móricz
 Zuber, Isabel
+Zubrin, Robert
 Zubro, Mark Richard
 Zucker, Jonny
 Zucker, Zoey
 Zuckmayer, Carl
+Zuckoff, Mitchell
 Zuehlke, Mark
 Zukowski, Sharon
 Zumhagen, Brian
@@ -17631,6 +18009,7 @@ Zweig, Stefanie
 Zwerger, Lisbeth
 Zwigtman, Floortje
 Zürn, Unica
+benShea, Noah
 d'Abo, Christine
 d'Arbeloff, Natalie
 d'Aulnoy, Marie-Catherine
