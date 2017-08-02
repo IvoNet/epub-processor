@@ -18,7 +18,6 @@ package nl.ivonet.epub.strategy.epub;
 
 import nl.ivonet.boundary.BookResponse;
 import nl.ivonet.elasticsearch.service.ElasticService;
-import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
 import nl.ivonet.epub.domain.Dropout;
 import nl.ivonet.epub.domain.Epub;
 import nl.ivonet.service.Isbndb;
@@ -39,7 +38,7 @@ import java.util.List;
 /**
  * @author Ivo Woltring
  */
-@ConcreteEpubStrategy(order = 500)
+//@ConcreteEpubStrategy(order = 500)
 public class IsbnStrategy implements EpubStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(IsbnStrategy.class);
     private final Isbndb isbndb;

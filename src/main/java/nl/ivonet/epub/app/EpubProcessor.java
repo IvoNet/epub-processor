@@ -16,7 +16,6 @@
 
 package nl.ivonet.epub.app;
 
-import nl.ivonet.elasticsearch.server.ElasticsearchFactory;
 import nl.ivonet.epub.domain.Epub;
 import nl.ivonet.epub.processor.Queue;
 import nl.ivonet.epub.processor.epub.EpubConsumer;
@@ -48,8 +47,8 @@ public class EpubProcessor {
             help();
         }
         outputLocation = endslash(output);
-        ElasticsearchFactory.getInstance()
-                            .elasticsearchServer(outputLocation + "elasticsearch", "epubs");
+//        ElasticsearchFactory.getInstance()
+//                            .elasticsearchServer(outputLocation + "elasticsearch", "epubs");
         epubQueue = new Queue<>();
         producer = new EpubProducer(input, epubQueue);
     }
@@ -102,8 +101,8 @@ public class EpubProcessor {
         }
 
         threadPool.shutdown();
-        ElasticsearchFactory.getInstance()
-                            .shutdown();
+//        ElasticsearchFactory.getInstance()
+//                            .shutdown();
 
         LOG.info("Processing took {} ms.", ((System.nanoTime() - startTime) / 1000));
     }

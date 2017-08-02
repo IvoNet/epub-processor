@@ -72,7 +72,7 @@ public class ElasticService {
                   @Override
                   public void onFailure(final Throwable e) {
                       LOG.error("ISBN Error:", e.getMessage());
-                      throw new RuntimeException(e);
+//                      throw new RuntimeException(e);
                   }
               });
         final GetResponse ret = response[0];

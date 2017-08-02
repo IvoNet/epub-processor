@@ -16,10 +16,14 @@
 
 package nl.ivonet.elasticsearch.server;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * @author Ivo Woltring
  */
 public class ElasticsearchFactory {
+    private static final Logger LOG = LoggerFactory.getLogger(ElasticsearchFactory.class);
 
     private EmbeddedElasticsearchServer embeddedElasticsearchServer;
 
@@ -53,7 +57,8 @@ public class ElasticsearchFactory {
 
     public synchronized void shutdown() {
         if (embeddedElasticsearchServer != null) {
-            giveItSomeSecondsToFinishStuff(3);
+            LOG.info("Shutting down the EleasticSearch Server");
+            giveItSomeSecondsToFinishStuff(30);
             embeddedElasticsearchServer.shutdown();
             embeddedElasticsearchServer = null;
         }

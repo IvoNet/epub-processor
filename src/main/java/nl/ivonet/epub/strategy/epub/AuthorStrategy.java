@@ -20,7 +20,6 @@ import nl.ivonet.boundary.AuthorResponse;
 import nl.ivonet.boundary.Book;
 import nl.ivonet.boundary.BookAuthor;
 import nl.ivonet.boundary.BookResponse;
-import nl.ivonet.elasticsearch.server.ElasticsearchFactory;
 import nl.ivonet.elasticsearch.server.EmbeddedElasticsearchServer;
 import nl.ivonet.epub.annotation.ConcreteEpubStrategy;
 import nl.ivonet.epub.data.AuthorRemoveList;
@@ -38,12 +37,7 @@ import org.elasticsearch.index.IndexNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -58,7 +52,7 @@ public class AuthorStrategy implements EpubStrategy {
     private final AuthorRemoveList removeList;
     private final AuthorsResource authorsResource;
     private final SwitchFirstnameAndSurnameStrategy switchFirstnameAndSurnameStrategy;
-    private final EmbeddedElasticsearchServer elasticsearchServer;
+    private EmbeddedElasticsearchServer elasticsearchServer; //removed final for commenting out purposes
     private final Isbndb isbndb;
 
     public AuthorStrategy() {
@@ -66,8 +60,8 @@ public class AuthorStrategy implements EpubStrategy {
         removeList = new AuthorRemoveList();
         authorsResource = new AuthorsResource();
         switchFirstnameAndSurnameStrategy = new SwitchFirstnameAndSurnameStrategy();
-        elasticsearchServer = ElasticsearchFactory.getInstance()
-                                                  .elasticsearchServer();
+//        elasticsearchServer = ElasticsearchFactory.getInstance()
+//                                                  .elasticsearchServer();
 
     }
 
@@ -77,10 +71,10 @@ public class AuthorStrategy implements EpubStrategy {
         final Set<Author> converted = new HashSet<>();
 
         // TODO: 09-07-2016 First try the ISBN number
-        final String isbn = isbn(epub.getIdentifiers());
-        if (!isbn.isEmpty()) {
-            boolean authorFromIsbnFound = authorFromIsbn(isbn);
-        }
+//        final String isbn = isbn(epub.getIdentifiers());
+//        if (!isbn.isEmpty()) {
+//            boolean authorFromIsbnFound = authorFromIsbn(isbn);
+//        }
 
         //Improve original author list from epub
         converted.addAll(epub.getAuthors()
