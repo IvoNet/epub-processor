@@ -42,7 +42,6 @@ read the explanation
 # Thanks
 
 * Some of the authors have been verified as correct by using Goodreads.com as a source. Thanks!
-* 
 
 # Backlog #
 
