@@ -66,7 +66,7 @@ Other:
 # Done #
 √ Add a real Language detection Strategy!  
 √ Add a KepubStrategy for making the epubs kobo ready.  
-√ Convert epub to kepub for kobo readers (like me) . 
+√ Convert epub to kepub for kobo readers (like me).   
 √ Remove watermark strategy.  
 
 
