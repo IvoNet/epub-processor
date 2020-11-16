@@ -19,10 +19,7 @@ package nl.ivonet.epub.metadata;
 import nl.siegmann.epublib.domain.Resource;
 import nl.siegmann.epublib.service.MediatypeService;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
-
-import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -42,17 +39,19 @@ public class BigBookSearchTest {
 
     @Test
     public void retrievePossibles() throws Exception {
-        final Map<String, String> covers = bigBookSearch.retrievePossibles("ilona andrews");
+        final BigBookResults covers = bigBookSearch.retrievePossibles("ilona andrews magic slays");
         assertNotNull(covers);
 
-        final String s1 = covers.keySet()
+        final String s1 = covers.getResults()
                                 .stream()
-                                .filter(s -> s.toLowerCase()
+                                .filter(s -> s.getTitle()
+                                              .toLowerCase()
                                               .contains("magic slays"))
+                                .map(BigBookImage::getImage)
                                 .findAny()
                                 .orElse(null);
         assertNotNull(s1);
-        assertThat(covers.get(s1), is("http://ecx.images-amazon.com/images/I/51L71r%2Bb12L.jpg"));
+        assertThat(s1, is("https://m.media-amazon.com/images/I/51RUImTGIeL.jpg"));
     }
 
     @Test
@@ -63,14 +62,5 @@ public class BigBookSearchTest {
         assertThat(resource.getMediaType(), is(MediatypeService.determineMediaType(".jpg")));
     }
 
-    @Ignore //Not finished yet
-    @Test
-    public void findByAuthorAndTitle() throws Exception {
-        final Resource resource = bigBookSearch.findByAutorAndTitle("Ilona Andrews magic slays");
-        assertNotNull(resource);
-        assertThat(resource.getHref(), is("cover.jpg"));
-        assertThat(resource.getMediaType(), is(MediatypeService.determineMediaType(".jpg")));
 
-
-    }
 }

@@ -31,6 +31,7 @@ import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
 /**
  * @author Ivo Woltring
  */
+@Ignore
 public class EmbeddedElasticsearchServerTest {
     private EmbeddedElasticsearchServer embeddedElasticsearchServer;
 

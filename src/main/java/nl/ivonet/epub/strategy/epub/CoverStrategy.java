@@ -32,7 +32,7 @@ import java.util.List;
 
 /**
  * This strategy will try to find a cover if the {@link NoCoverDetectionStrategy} dropped out with a no cover found.
- *
+ * <p>
  * The ordering of this strategy needs to be higher than the {@link NoCoverDetectionStrategy} for it to have the
  * greatest chance to work.
  *

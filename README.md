@@ -25,7 +25,7 @@ I would like the help...
 goto project folder in a terminal
 
 ```sh
-mvn package
+mvn clean package
 java -d64 -Xms1g -Xmx8g -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=./Heap.dmp -jar artifact/epub-jar-with-dependencies.jar
 ```
 

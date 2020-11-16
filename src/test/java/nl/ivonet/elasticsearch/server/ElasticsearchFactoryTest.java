@@ -29,6 +29,7 @@ import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
 /**
  * @author Ivo Woltring
  */
+@Ignore
 public class ElasticsearchFactoryTest {
 
     private ElasticsearchFactory factory;

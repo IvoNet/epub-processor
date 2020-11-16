@@ -16,17 +16,14 @@
 
 package nl.ivonet.epub.metadata;
 
-import nl.ivonet.io.WebPage;
+import nl.ivonet.io.JsonResource;
 import nl.siegmann.epublib.domain.Resource;
 import org.apache.commons.io.IOUtils;
-import org.jsoup.nodes.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author Ivo Woltring
@@ -36,38 +33,29 @@ public class BigBookSearch {
 
     private static final String NO_RESULTS = "no_results";
 
-    private static final String location = "http://bigbooksearch.com/query"
-                                           + ".php?SearchIndex=books&Keywords=%s&ItemPage=%s";
-    private final WebPage webPage;
+    private static final String location = "https://bigbooksearch.com/please-dont-scrape-my-site-you-will-put-my-api-key-over-the-usage-limit-and-the-site-will-break/books/%s";
+    private final JsonResource<BigBookResults> jsonResource;
 
-    public BigBookSearch(final WebPage webPage) {
-        this.webPage = webPage;
+
+    public BigBookSearch(final JsonResource<BigBookResults> jsonResource) {
+        this.jsonResource = jsonResource;
     }
 
-    Map<String, String> retrievePossibles(final String search) {
+    BigBookResults retrievePossibles(final String search) {
         final String tokens = tokenize(search);
-        final Map<String, String> pictures = new HashMap<>();
-        int page = 1;
-        Document document = webPage.get(bigBookSearchUrl(tokens, page));
-        while (!NO_RESULTS.equals(document.body()
-                                          .text()) && (page <= 10)) {
-            LOG.debug("Searching cover for [{}] on page [{}]", search, page);
-            document.body()
-                    .select("img")
-                    .forEach(element -> pictures.put(element.attr("alt"), element.attr("src")));
-            page++;
-            document = webPage.get(bigBookSearchUrl(tokens, page));
-        }
-        return pictures;
+        return jsonResource.get(bigBookSearchUrl(tokens));
     }
 
-    public Resource findByAutorAndThenTitle(final String author, final String title) {
-        final Map<String, String> covers = retrievePossibles(author.toLowerCase());
-        final String cover = covers.keySet()
+    public Resource findByAutorAndThenTitle(final String author,
+                                            final String title) {
+        final String tokens = tokenize(author + " " + title);
+        final BigBookResults covers = retrievePossibles(tokens.toLowerCase());
+        final String cover = covers.getResults()
                                    .stream()
-                                   .filter(s -> s.toLowerCase()
+                                   .filter(s -> s.getTitle()
+                                                 .toLowerCase()
                                                  .startsWith(title.toLowerCase()))
-                                   .map(covers::get)
+                                   .map(BigBookImage::getImage)
                                    .findFirst()
                                    .orElse("");
         if (cover.isEmpty()) {
@@ -81,36 +69,16 @@ public class BigBookSearch {
         }
     }
 
-
-    public Resource findByAutorAndTitle(final String search) {
-        final Map<String, String> covers = retrievePossibles(search.toLowerCase());
-        final String cover = covers.keySet()
-                                   .stream()
-                                   .filter(s -> s.toLowerCase()
-                                                 .startsWith(search.toLowerCase()))
-                                   .map(covers::get)
-                                   .findFirst()
-                                   .orElse("");
-        if (cover.isEmpty()) {
-            return null;
-        }
-        try {
-            final byte[] bytes = IOUtils.toByteArray(new URL(cover).openConnection());
-            return new Resource(bytes, "cover" + retrieveExtension(cover));
-        } catch (final IOException e) {
-            return null;
-        }
-    }
 
     private String retrieveExtension(final String name) {
         return name.substring(name.lastIndexOf("."));
     }
 
-    private String bigBookSearchUrl(final String value, final int page) {
-        return String.format(location, value, page);
+    private String bigBookSearchUrl(final String value) {
+        return String.format(location, value);
     }
 
     private String tokenize(final String value) {
-        return value.replace(" ", "+");
+        return value.replace(" ", "%20");
     }
 }

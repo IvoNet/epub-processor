@@ -16,7 +16,7 @@
 
 package nl.ivonet.epub.metadata;
 
-import nl.ivonet.io.WebPage;
+import nl.ivonet.io.JsonResource;
 
 /**
  * @author Ivo Woltring
@@ -24,7 +24,7 @@ import nl.ivonet.io.WebPage;
 public class MetadataFactory {
 
     public BigBookSearch getBigBookSearchInstance() {
-        return new BigBookSearch(WebPage.getInstance());
+        return new BigBookSearch(new JsonResource<BigBookResults>(BigBookResults.class));
     }
 
 
