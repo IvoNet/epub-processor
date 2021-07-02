@@ -28,7 +28,7 @@
 
     <properties>
         <main.app>nl.ivonet.epub.app.EpubProcessor</main.app>
-        <elasticsearch.version>2.4.0</elasticsearch.version>
+        <elasticsearch.version>6.8.15</elasticsearch.version>
         <isbndb.version>0.4-SNAPSHOT</isbndb.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
